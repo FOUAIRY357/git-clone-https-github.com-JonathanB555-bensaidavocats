@@ -1,0 +1,26 @@
+{
+  "name": "piste-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP server for French legal APIs (Légifrance + Judilibre Cour de cassation + Conseil d'État) via PISTE",
+  "type": "module",
+  "bin": {
+    "piste-mcp": "src/index.ts"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
