@@ -3,8 +3,8 @@ name: premier-echange
 description: >
   Rédige la réponse à un prospect qui vient d'écrire au cabinet et propose un premier échange
   court d'environ 10 min (téléphone ou visio). Le mail confirme que le dossier est dans notre
-  champ, montre en quelques phrases précises qu'on maîtrise la question posée, puis propose un
-  call de qualification avant tout RDV de cadrage facturé. Phrases courtes et simples d'avocat,
+  champ, montre brièvement (une phrase, sans livrer le fond) qu'on maîtrise la question posée,
+  puis propose un call de qualification avant tout RDV de cadrage facturé. Phrases courtes et simples d'avocat,
   signé Me François Ouairy. Livré via le module copier-coller 3 blocs (destinataire / objet /
   message). Déclencher quand l'utilisateur veut répondre à un premier mail de prospect, proposer
   un "premier échange", un "premier contact", "rappeler" un prospect, ou tape "/premier-echange".
@@ -18,27 +18,34 @@ Un **court appel d'environ 10 min**, gratuit, de qualification. C'est l'étape q
 **RDV de cadrage stratégique** (2 400 € HT, cf skill [[rdv-cadrage]]). Le mail qui propose ce call
 a trois buts, dans cet ordre :
 1. confirmer que la demande est **dans notre champ** ;
-2. montrer en **2 ou 3 phrases précises** qu'on a saisi le point technique ;
+2. montrer en **1 ou 2 phrases sobres** qu'on a identifié le point technique (sans le traiter) ;
 3. proposer le **call de 10 min** pour expliquer comment on travaillerait et les honoraires.
+
+Le mail reste **court**. On en dit le **moins possible sur le fond** : l'objectif est de donner
+confiance, pas de délivrer un début d'analyse.
 
 Le mail est signé **Me François Ouairy**, à la première personne : c'est l'avocat qui accroche
 le prospect, pas le secrétariat.
 
 ## Règles d'or
 - **Phrases courtes et simples.** Une idée par phrase. Ton d'avocat : sobre, précis, sûr de lui.
-  8 à 14 lignes maximum. Pas de jargon inutile, mais les bons termes techniques.
+  **6 à 10 lignes maximum.** Un mail court vaut mieux qu'un mail complet.
 - **Répondre dans la langue du prospect.** Si le mail reçu est en anglais, répondre en anglais ;
   en espagnol, en espagnol. Défaut : français.
-- **Montrer la maîtrise SANS faire la consultation gratuite.** On nomme les bons leviers
-  (convention fiscale applicable, notion de résidence, articles ou mécanismes pertinents) et on
-  formule le vrai enjeu, mais on **ne livre pas la réponse** et **on ne chiffre rien** : c'est
-  l'objet du call puis du RDV de cadrage.
+- **Montrer la maîtrise SANS rien livrer du fond.** On nomme **seulement** la convention / le
+  régime applicable et le vrai point à trancher, en une phrase. **Pas de numéros d'article, pas
+  de description du mécanisme, aucun indice sur l'issue** (même au conditionnel, même « ça peut
+  être favorable »). L'analyse et les chiffres sont réservés au call puis au RDV de cadrage.
+- **Valider les créneaux avec François AVANT de rédiger le mail.** Proposer d'abord **5 à 6
+  créneaux candidats** (dont des créneaux **du jour même** si l'heure le permet encore), attendre
+  qu'il en retienne **2 ou 3**, puis seulement insérer les créneaux validés dans le mail. Ne pas
+  finaliser le mail avant cet accord.
 - **Ne jamais envoyer le mail.** On prépare le texte, François relit et envoie lui-même.
   cf mémoire [[envoi-mails-clients]].
 - **Livrer le mail via le module copier-coller 3 blocs** (voir section dédiée plus bas).
 - Pas de tiret cadratin / demi-cadratin ni de marqueur de style IA. cf [[no-ai-style-markers]].
 - **Raisonner dans le fuseau horaire du prospect** pour proposer des créneaux ; indiquer l'heure
-  dans les deux fuseaux (prospect + Paris).
+  dans les deux fuseaux (prospect + Paris) — sauf même fuseau, où on le précise.
 
 ## Phase 0 - Contexte (juste après fiche-prospect)
 1. Ce skill **s'enchaîne après `fiche-prospect`**. Récupérer la fiche et le dossier :
@@ -65,12 +72,11 @@ Structure, en phrases courtes :
 1. **Salutation** adaptée à la langue et au registre.
 2. **Oui, c'est dans notre champ** : nommer les domaines concernés (fiscalité internationale /
    expatriation / immobilier) en une phrase.
-3. **2 ou 3 phrases de maîtrise** : nommer la convention applicable et son millésime, la notion
-   clé et le vrai point à trancher, sans livrer la réponse ni chiffrer.
+3. **1 phrase de maîtrise** : nommer la convention / le régime applicable et le vrai point à
+   trancher. Pas de numéros d'article, pas de mécanisme, aucun indice sur l'issue.
 4. **Proposer le call de 10 min** (téléphone ou visio) pour cadrer la mission, la méthode et les
    honoraires. Présenter ce call comme une première étape, pas comme la consultation.
-5. **Créneaux** : proposer 2 ou 3 créneaux (heure prospect + Paris) ou demander ses
-   disponibilités.
+5. **Créneaux** : insérer les **2-3 créneaux validés par François** (heure prospect + Paris).
 6. **Signature Me François Ouairy** + coordonnées cabinet.
 
 Garde-fous :
@@ -80,8 +86,9 @@ Garde-fous :
 ## Phase 3 - Planifier le call de 10 min
 1. Lire les disponibilités de François (Outlook `outlook_find_available_time` ou
    `outlook_calendar_search`) sur les prochains jours, créneaux de **15 min**.
-2. Si François veut valider les créneaux avant, lui soumettre la liste d'abord ; sinon proposer
-   directement 2 ou 3 créneaux dans le mail.
+2. **Soumettre d'abord 5 à 6 créneaux candidats à François** (dont des créneaux du jour même si
+   l'heure le permet), en heure du prospect + Paris. **Attendre qu'il en retienne 2 ou 3.** Ne
+   rédiger/finaliser le mail qu'après cette validation ; y insérer uniquement les créneaux retenus.
 3. Une fois le créneau choisi par le prospect, créer l'événement **Google Agenda**
    (`create_event`), 10 à 15 min :
    - `summary` : "Premier échange - <Prospect> / BENSAID AVOCATS" ;
@@ -142,8 +149,8 @@ perso ; mais le module 3 blocs dans le chat reste la **livraison par défaut**.
 ## Exemple d'usage
 Prospect anglophone (couple hispano-américain, revenus de retraite US 401(k)/RMD, projet
 d'installation en France) : la fiche-prospect a situé le couple, puis premier-echange rédige une
-réponse **en anglais**, confirme le champ (fiscalité internationale + immobilier), montre la
-maîtrise en nommant la **convention fiscale franco-américaine** et le point à trancher (traitement
-des distributions de plans de retraite US et mécanisme d'élimination de la double imposition, au
-regard de la résidence), **sans chiffrer**, puis propose un call de 10 min avec 2 ou 3 créneaux
-(heure prospect + Paris). Livraison en 3 blocs.
+réponse **courte en anglais**, confirme le champ (fiscalité internationale + immobilier), montre
+la maîtrise en une phrase en nommant la **convention fiscale franco-américaine** et le point à
+trancher (traitement des plans de retraite US une fois résidents français) **sans citer d'article,
+sans décrire le mécanisme et sans chiffrer**. Les créneaux du call sont d'abord validés par
+François (5-6 proposés, 2-3 retenus) avant d'être insérés. Livraison en 3 blocs.
