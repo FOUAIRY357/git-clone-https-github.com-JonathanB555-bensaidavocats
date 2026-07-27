@@ -1,0 +1,57 @@
+---
+name: charte-cabinet
+description: >
+  Référence de style transverse du cabinet BENSAID AVOCATS : typographie, formules d'appel et de
+  politesse, format de livraison, conventions cloud, règles anti-marqueurs IA. Source unique de
+  vérité, à lire par les autres skills (redaction-mail, premier-contact, courrier, template-cabinet,
+  lettre-mission, post-linkedin, rdv-cadrage, support-cadrage, page-expertise) avant de produire un
+  écrit, pour éviter toute dérive de style. Déclencher si on parle de « charte du cabinet »,
+  « règles de style maison », « conventions de rédaction », ou "/charte-cabinet".
+---
+
+# Charte BENSAID AVOCATS - source unique de style
+
+Les autres skills du cabinet doivent s'y conformer. **En cas de divergence entre un skill et la
+présente charte, la charte prévaut.** Un skill ne redéclare pas ces règles, il y renvoie.
+
+## 1. Typographie (tout écrit)
+- **Accents obligatoires** (é, è, ê, à, â, î, ô, û, ç, œ). Jamais de version sans accents, même si
+  un fichier source est sans accents.
+- **Aucun tiret cadratin (—) ni demi-cadratin (–).** Tiret simple, virgule, deux-points,
+  parenthèses. Dans le contenu web, ne jamais écrire « espace tiret espace » (conversion auto en
+  tiret long).
+- **Guillemets français « »** quand des guillemets sont nécessaires.
+- **Aucun marqueur IA** : pas de couleur « signature » type Claude, pas d'emoji décoratif dans les
+  écrits juridiques.
+
+## 2. Formules
+- **Appel** (mail et courrier) : « Cher Monsieur, » ou « Chère Madame, ». « Cher <Prénom>, » admis
+  si la relation est établie. Jamais « Bonjour », jamais « Madame, Monsieur, ».
+- **Clôture mail** : « Salutations dévouées, ».
+- **Clôture courrier / note formelle** : « Je vous prie d'agréer, <même civilité>, l'expression de
+  mes salutations distinguées. »
+- **Pas de signature nominale dans un mail** (la signature Outlook s'en charge). Le courrier et la
+  note portent la signature (nom + qualité).
+- Pas de formule commerciale (« n'hésitez pas », « au plaisir de », « je me permets de »). Seule
+  tolérance : « Je reste à votre disposition. »
+
+## 3. Style
+- Langage d'avocat : phrases courtes, une idée par phrase, sujet-verbe-complément. On affirme, on
+  ne délaye pas. Deux-points rares. Listes en tirets « - ».
+- Prix en **HT** (la TVA est due en sus, selon le régime applicable au jour de la facturation).
+
+## 4. Livraison (contexte cloud)
+- On **prépare**, on n'envoie jamais : François ou Jonathan relit et diffuse lui-même
+  (cf mémoire [[envoi-mails-clients]]).
+- **Mail** : trois blocs copier-coller dans le chat (DESTINATAIRE, COPIE si besoin, OBJET, CORPS).
+  Rien à télécharger. HTML (police Aptos) seulement sur demande.
+- **Document** (.docx, .pptx, PDF) : livrer le fichier via l'app (il est envoyé à l'utilisateur),
+  jamais via `open` (commande macOS indisponible en cloud).
+- **Chemins** : relatifs au dépôt. Ranger les livrables dans `livrables/<nom-client>/`. Ne pas
+  utiliser `~/Desktop/...` ni de chemin `~/.claude/...` en dur (spécifiques au Mac, absents en cloud).
+
+## 5. Vérité juridique
+- Vérifier toute référence (article, jurisprudence) via le MCP Bensaid (Legifrance / Judilibre)
+  avant de la citer. Sinon, reformuler en langage courant ou signaler « à confirmer ».
+- Charger le skill métier adapté (`paperasse_skill` : fiscaliste, notaire, comptable...) pour le fond.
+- Lister les points à faire valider par François avant diffusion.
