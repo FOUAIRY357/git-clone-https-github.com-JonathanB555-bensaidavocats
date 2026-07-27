@@ -19,7 +19,8 @@ Spec JSON :
   "destinataire": "antoine.bichon.fr@gmail.com",   # module 1 (adresse)
   "objet": "Votre installation en Coree du Sud",    # module 2 (objet, sans deux-points)
   "civilite": "Cher Monsieur,",                     # defaut "Cher Monsieur,"
-  "politesse": "...",                               # optionnel ; sinon construit depuis civilite
+  "disponibilite": "Je reste à votre disposition pour toute question.",  # optionnel, "" pour retirer
+  "signoff": "Salutations dévouées.",               # optionnel ; defaut identique
   "sortie": "chemin/mail.html",                     # optionnel (sinon 2e argument CLI)
   "corps": [
     {"titre": "Le transfert de votre residence"},   # titre de section, rendu en gras
@@ -37,7 +38,10 @@ import sys, json, os, re, html
 
 FATAL_CHARS = {"—": "tiret cadratin (—)", "–": "demi-cadratin (–)"}
 
-DEVOUEES = "Je vous prie d'agréer, {voc}, l'expression de mes salutations dévouées."
+# Cloture standard du cabinet : une phrase de disponibilite, puis la signature courte.
+# Aucun nom : la signature Outlook de Francois s'en charge.
+DISPO_DEF = "Je reste à votre disposition pour toute question."
+SIGNOFF = "Salutations dévouées."
 
 
 def _texts(spec):
@@ -47,7 +51,8 @@ def _texts(spec):
         for k in ("titre", "p", "b", "em"):
             if k in blk:
                 out.append(blk[k])
-    out.append(spec.get("_politesse_finale", ""))
+    out.append(spec.get("_dispo", ""))
+    out.append(spec.get("_signoff", ""))
     return out
 
 
@@ -79,11 +84,6 @@ def _check_style(spec):
                     "  \"%s...\"\n" % (len(phrase), phrase[:70]))
 
 
-def _vocatif(civilite):
-    """« Cher Monsieur, » -> « Cher Monsieur » (pour la formule de politesse)."""
-    return civilite.strip().rstrip(",").strip()
-
-
 def _plain(spec):
     civ = spec.get("civilite", "Cher Monsieur,").strip()
     lignes = [civ, ""]
@@ -103,7 +103,9 @@ def _plain(spec):
             prev_bullet = False
     if prev_bullet:
         lignes.append("")
-    lignes.append(spec["_politesse_finale"])
+    if spec.get("_dispo"):
+        lignes += ["", spec["_dispo"]]
+    lignes += ["", spec["_signoff"]]
     # nettoyer les lignes vides multiples
     out, blank = [], False
     for l in lignes:
@@ -148,8 +150,11 @@ def _html(spec):
             parts.append('<p style="margin:0 0 12px 0;color:#555;"><i>%s</i></p>'
                          % html.escape(blk["em"]))
     flush_bullets()
-    parts.append('<p style="margin:14px 0 0 0;">%s</p>'
-                 % html.escape(spec["_politesse_finale"]))
+    if spec.get("_dispo"):
+        parts.append('<p style="margin:14px 0 0 0;">%s</p>'
+                     % html.escape(spec["_dispo"]))
+    parts.append('<p style="margin:12px 0 0 0;">%s</p>'
+                 % html.escape(spec["_signoff"]))
     parts.append("</div>")
     doc = ('<!doctype html><html lang="fr"><head><meta charset="utf-8">'
            '<title>Corps du mail</title></head>'
@@ -158,8 +163,8 @@ def _html(spec):
 
 
 def render(spec, out=None):
-    civ = spec.get("civilite", "Cher Monsieur,")
-    spec["_politesse_finale"] = spec.get("politesse") or DEVOUEES.format(voc=_vocatif(civ))
+    spec["_dispo"] = spec.get("disponibilite", DISPO_DEF)
+    spec["_signoff"] = spec.get("signoff", SIGNOFF)
     _check_style(spec)
     out = out or spec.get("sortie")
     if not out:

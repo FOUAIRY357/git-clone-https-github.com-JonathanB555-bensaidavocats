@@ -21,9 +21,10 @@ prepare le texte, on ne l'envoie jamais soi-meme (cf memoire [[envoi-mails-clien
 - **Ouverture** : « Cher Monsieur, » par defaut. Adapter (« Chere Madame, », « Cher Confrere, »,
   « Messieurs, ») selon le destinataire. En cas de doute sur la civilite, poser la question
   (voir plus bas). La formule de politesse reprend la meme civilite.
-- **Cloture** : toujours « Je vous prie d'agreer, Cher Monsieur, l'expression de mes salutations
-  devouees. » Le corps s'arrete la. **Ne jamais signer du nom de Francois** ni ajouter de bloc
-  coordonnees : sa signature Outlook s'en charge.
+- **Cloture** : une phrase de disponibilite (« Je reste a votre disposition pour toute
+  question. »), puis la signature courte **« Salutations devouees. »** et rien d'autre.
+  **Ne jamais signer du nom de Francois** ni ajouter de bloc coordonnees. Sa signature Outlook
+  s'en charge. Le renderer ajoute ces deux lignes automatiquement.
 - **Style avocat** : phrases courtes, une idee par phrase, sujet-verbe-complement. On affirme,
   on ne delaye pas. Pas de formules molles (« je me permets de », « n'hesitez pas »).
 - **Deux-points rares.** On limite fortement les « : ». Preferer deux phrases. Un « : » ne se
