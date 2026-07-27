@@ -1,0 +1,36 @@
+{
+  "destinataire": "antoine.bichon.fr@gmail.com",
+  "objet": "Votre installation en Corée du Sud",
+  "civilite": "Cher Monsieur,",
+  "sortie": "livrables/antoine-bichon/mail_bichon.html",
+  "corps": [
+    {"p": "Je fais suite à notre entretien du 23 juillet. Je vous remercie du temps que vous nous avez accordé. Voici ce que nous vous proposons pour sécuriser votre départ."},
+
+    {"titre": "Le transfert de votre résidence fiscale"},
+    {"p": "Votre départ ne se prouve pas par la date d'un billet d'avion. Il se documente. Nous notifions le changement à l'administration et constituons le dossier (foyer permanent, centre des intérêts vitaux)."},
+    {"p": "Au titre de 2026, deux déclarations seront déposées en 2027, l'une de résident, l'autre de non-résident. Nous calons enfin la date avec vos aides France Travail. Le chômage se concilie mal avec la résidence fiscale coréenne."},
+
+    {"titre": "L'exit tax sur vos titres"},
+    {"p": "Votre transfert déclenche l'exit tax. La plus-value latente sur les titres de votre SASU devient imposable au jour du départ. Son paiement est toutefois mis en sursis. Vous n'avez donc rien à décaisser aujourd'hui."},
+    {"p": "La formalité suppose une valorisation de la société. Nous l'estimons à titre indicatif autour de 100 000 euros, décotes comprises, notamment parce que sa valeur repose sur votre travail. Votre participation reste très en dessous du seuil de 2 570 000 euros. L'impôt sera donc dégrevé au bout de deux ans, si vous conservez vos titres. Votre départ étant lié à un contrat de travail, nous vérifions enfin si le sursis est automatique ou s'il exige une garantie."},
+
+    {"titre": "Vos revenus de source française"},
+    {"p": "Vos loyers et vos SCPI resteront imposables en France, selon le régime des non-résidents. Nous établissons la déclaration correspondante. Nous articulons les crédits d'impôt français et coréens pour éviter toute double imposition."},
+
+    {"titre": "Nos honoraires"},
+    {"p": "Nous vous proposons un forfait global de 7 500 euros HT, soit 9 000 euros TTC. Il couvre l'ensemble, jusqu'aux déclarations de 2027. Cette prestation peut être facturée à votre SASU au titre du conseil juridique. Elle constitue alors une charge de la société."},
+    {"p": "Vous nous avez demandé si vous pouviez en réaliser une partie vous-même, par exemple la valorisation. Cela nous ferait gagner du temps. Le cabinet reste toutefois tenu de tout vérifier, signer et endosser sous sa responsabilité. L'économie possible reste donc limitée."},
+
+    {"titre": "Les pièces à nous transmettre"},
+    {"p": "Pour arrêter le devis et ouvrir le dossier, merci de nous adresser les éléments suivants."},
+    {"b": "vos deux dernières déclarations de revenus et les avis correspondants"},
+    {"b": "votre contrat de travail coréen"},
+    {"b": "le bail de votre logement en Corée, ou l'attestation de votre employeur"},
+    {"b": "le bail de votre ancien logement français mis en location"},
+    {"b": "les statuts de la SASU, le Kbis et l'attestation ARCE"},
+    {"b": "les éléments chiffrés pour valoriser la société (chiffre d'affaires, comptes)"},
+    {"b": "vos relevés de parts de SCPI"},
+    {"b": "la date envisagée de votre départ"},
+    {"p": "Dès réception, nous vous adressons le devis définitif et notre convention d'honoraires."}
+  ]
+}
