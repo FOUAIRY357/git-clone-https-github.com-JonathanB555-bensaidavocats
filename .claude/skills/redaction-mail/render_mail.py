@@ -16,8 +16,9 @@ Il se termine toujours sur la formule de politesse (salutations devouees).
 
 Spec JSON :
 {
-  "destinataire": "antoine.bichon.fr@gmail.com",   # module 1 (adresse)
-  "objet": "Votre installation en Coree du Sud",    # module 2 (objet, sans deux-points)
+  "destinataire": "antoine.bichon.fr@gmail.com",   # module DESTINATAIRE
+  "copie": "jonathan@bensaid-avocats.fr",           # optionnel ; module COPIE (omis si absent)
+  "objet": "Votre installation en Coree du Sud",    # module OBJET (sans deux-points)
   "civilite": "Cher Monsieur,",                     # defaut "Cher Monsieur,"
   "disponibilite": "Je reste à votre disposition pour toute question.",  # optionnel, "" pour retirer
   "signoff": "Salutations dévouées.",               # optionnel ; defaut identique
@@ -41,7 +42,7 @@ FATAL_CHARS = {"—": "tiret cadratin (—)", "–": "demi-cadratin (–)"}
 # Cloture standard du cabinet : une phrase de disponibilite, puis la signature courte.
 # Aucun nom : la signature Outlook de Francois s'en charge.
 DISPO_DEF = "Je reste à votre disposition pour toute question."
-SIGNOFF = "Salutations dévouées."
+SIGNOFF = "Salutations dévouées,"
 
 
 def _texts(spec):
@@ -171,24 +172,22 @@ def render(spec, out=None):
         raise SystemExit("Chemin de sortie manquant (cle 'sortie' ou 2e argument).")
     with open(out, "w", encoding="utf-8") as f:
         f.write(_html(spec))
-    # modules copier-coller
+    # modules copier-coller (un bloc par element, comme dans Outlook)
     bar = "=" * 64
-    print(bar)
-    print("MODULE 1 - ADRESSE")
-    print(bar)
-    print(spec.get("destinataire", ""))
-    print()
-    print(bar)
-    print("MODULE 2 - OBJET")
-    print(bar)
-    print(spec.get("objet", ""))
-    print()
-    print(bar)
-    print("MODULE 3 - CORPS (texte brut ; version mise en forme dans le .html)")
-    print(bar)
-    print(_plain(spec))
-    print(bar)
-    print("HTML (gras conserve) a ouvrir puis copier dans Outlook :", out)
+
+    def _mod(label, content):
+        print(bar)
+        print(label)
+        print(bar)
+        print(content)
+        print()
+
+    _mod("DESTINATAIRE", spec.get("destinataire", ""))
+    if spec.get("copie"):
+        _mod("COPIE", spec["copie"])
+    _mod("OBJET", spec.get("objet", ""))
+    _mod("CORPS", _plain(spec))
+    print("HTML (Aptos, titres en gras) genere pour un collage mis en forme, sur demande :", out)
     return out
 
 
