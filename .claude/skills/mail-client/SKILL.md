@@ -4,9 +4,10 @@ description: >
   Redige un mail professionnel du cabinet BENSAID AVOCATS a un client, un prospect ou un
   confrere, dans le style maison : ouverture « Cher Monsieur, », phrases courtes et precises
   d'avocat, deux-points limites, titres en gras si le mail est long, cloture systematique sur
-  « salutations devouees » sans signature nominale (la signature Outlook s'en charge). Livre
-  trois modules copier-coller (adresse, objet, corps) plus un .html qui conserve le gras au
-  collage dans Outlook. Verifie toute reference d'article via le MCP Legifrance avant de la
+  « salutations devouees » sans signature nominale (la signature Outlook s'en charge). Livre a
+  chaque fois trois blocs copier-coller dans le chat (adresse, objet, corps), le corps en bloc
+  de code copiable en un clic, sans rien a telecharger ; un .html en Aptos avec titres en gras
+  n'est fourni que sur demande. Verifie toute reference d'article via le MCP Legifrance avant de la
   citer, et pose des questions quand le fond n'est pas certain. Declencher quand l'utilisateur
   veut « repondre par mail », « preparer / rediger un mail » a un client, repondre a un compte
   rendu ou a un message client, ou tape "/mail-client <destinataire ou sujet>".
@@ -71,11 +72,12 @@ options claires. On ne redige le mail definitif qu'une fois le fond arrete.
    python3 ~/.claude/skills/mail-client/render_mail.py /chemin/spec.json /chemin/mail.html
    ```
    Corriger si le script signale un cadratin (fatal) ou une densite de « : » excessive.
-6. **Livrer a chaque fois, dans le chat** : l'ADRESSE et l'OBJET en petits blocs copier-coller,
-   et le CORPS **rendu en markdown avec les titres reellement en gras** (un bloc de code
-   monospace ne peut pas porter de gras, donc on ne met pas le corps en bloc de code). Fournir
-   **en plus le `.html`** (police Aptos, titres en gras) : c'est la version a coller dans Outlook
-   pour conserver gras et police. Ne jamais livrer le mail uniquement en piece jointe.
+6. **Livrer a chaque fois, dans le chat, trois blocs de code copier-coller** : ADRESSE, OBJET,
+   CORPS. Le CORPS aussi est un **bloc de code** (bouton copier, copiable en un clic), pour que
+   Francois n'ait rien a telecharger. Un bloc de code est du texte brut : les titres n'y sont
+   donc pas en gras, c'est inherent au copier-coller en texte. Le gras se remet dans Outlook
+   apres collage si besoin. Le `.html` (police Aptos, titres en gras) n'est genere et fourni
+   **que si Francois demande** un collage deja mis en forme. Ne jamais imposer de piece jointe.
 7. Ranger le spec et le .html dans le dossier du client
    (`~/Desktop/Dossiers prospects/<Nom>/`), nom de fichier `Mail - <objet court> (<date>).html`.
 
