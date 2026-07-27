@@ -67,8 +67,11 @@ options claires. On ne redige le mail definitif qu'une fois le fond arrete.
    python3 ~/.claude/skills/mail-client/render_mail.py /chemin/spec.json /chemin/mail.html
    ```
    Corriger si le script signale un cadratin (fatal) ou une densite de « : » excessive.
-6. Presenter a Francois les **trois modules copier-coller** (adresse, objet, corps) affiches par
-   le script, et **ouvrir le .html** (`open mail.html`) pour un collage avec gras dans Outlook.
+6. **Afficher les trois modules directement dans le chat**, chacun dans son propre bloc de code
+   copier-coller (ADRESSE, OBJET, CORPS) tel que le script les imprime. C'est le livrable par
+   defaut : Francois copie depuis le chat. Le `.html` genere est un **complement facultatif**,
+   utile seulement s'il veut conserver le gras des titres au collage dans Outlook (`open mail.html`).
+   Ne pas livrer le mail uniquement en piece jointe.
 7. Ranger le spec et le .html dans le dossier du client
    (`~/Desktop/Dossiers prospects/<Nom>/`), nom de fichier `Mail - <objet court> (<date>).html`.
 
