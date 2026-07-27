@@ -96,7 +96,7 @@ def _plain(spec):
             lignes += [blk["p"], ""]
             prev_bullet = False
         elif "b" in blk:
-            lignes.append("•  " + blk["b"])
+            lignes.append("- " + blk["b"])
             prev_bullet = True
         elif "em" in blk:
             lignes += [blk["em"], ""]
@@ -130,9 +130,9 @@ def _html(spec):
 
     def flush_bullets():
         if bullets:
-            parts.append('<ul style="margin:0 0 12px 0;padding-left:22px;">')
-            parts.extend('<li style="margin:0 0 4px 0;">%s</li>' % b for b in bullets)
-            parts.append("</ul>")
+            parts.append('<div style="margin:0 0 12px 0;">')
+            parts.extend('<div style="margin:0 0 3px 0;">- %s</div>' % b for b in bullets)
+            parts.append("</div>")
             bullets.clear()
 
     for blk in spec.get("corps", []):

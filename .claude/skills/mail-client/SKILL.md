@@ -78,7 +78,7 @@ options claires. On ne redige le mail definitif qu'une fois le fond arrete.
 
 ## Blocs de corps disponibles
 `{"titre": "..."}` titre de section en gras ; `{"p": "..."}` paragraphe ;
-`{"b": "..."}` puce (les puces consecutives forment une liste) ;
+`{"b": "..."}` element de liste, rendu avec un tiret « - » (jamais de puce ronde) ;
 `{"em": "..."}` incise en gris italique (usage rare, ex. mention « sous reserve »).
 
 ## Rappels
