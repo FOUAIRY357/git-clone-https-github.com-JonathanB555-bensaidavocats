@@ -5,8 +5,8 @@ description: >
   court d'environ 10 min (téléphone ou visio). Le mail confirme que le dossier est dans notre
   champ, montre brièvement (une phrase, sans livrer le fond) qu'on maîtrise la question posée,
   puis propose un call de qualification avant tout RDV de cadrage facturé. Phrases courtes et simples d'avocat,
-  signé Me François Ouairy. Livré via le module copier-coller 3 blocs (destinataire / objet /
-  message). Déclencher quand l'utilisateur veut répondre à un premier mail de prospect, proposer
+  au nom de Me François Ouairy, sans bloc signature (la signature Outlook s'ajoute à l'envoi).
+  Livré via le module copier-coller 3 blocs (destinataire / objet / message). Déclencher quand l'utilisateur veut répondre à un premier mail de prospect, proposer
   un "premier échange", un "premier contact", "rappeler" un prospect, ou tape "/premier-echange".
   S'enchaîne juste après le skill fiche-prospect.
 ---
@@ -24,8 +24,9 @@ a trois buts, dans cet ordre :
 Le mail reste **court**. On en dit le **moins possible sur le fond** : l'objectif est de donner
 confiance, pas de délivrer un début d'analyse.
 
-Le mail est signé **Me François Ouairy**, à la première personne : c'est l'avocat qui accroche
-le prospect, pas le secrétariat.
+Le mail part **au nom de Me François Ouairy**, à la première personne : c'est l'avocat qui
+accroche le prospect, pas le secrétariat. On **ne retape pas de bloc signature** (nom,
+coordonnées) : la signature Outlook de François s'ajoute automatiquement à l'envoi.
 
 ## Règles d'or
 - **Phrases courtes et simples.** Une idée par phrase. Ton d'avocat : sobre, précis, sûr de lui.
@@ -36,10 +37,12 @@ le prospect, pas le secrétariat.
   régime applicable et le vrai point à trancher, en une phrase. **Pas de numéros d'article, pas
   de description du mécanisme, aucun indice sur l'issue** (même au conditionnel, même « ça peut
   être favorable »). L'analyse et les chiffres sont réservés au call puis au RDV de cadrage.
-- **Valider les créneaux avec François AVANT de rédiger le mail.** Proposer d'abord **5 à 6
-  créneaux candidats** (dont des créneaux **du jour même** si l'heure le permet encore), attendre
-  qu'il en retienne **2 ou 3**, puis seulement insérer les créneaux validés dans le mail. Ne pas
-  finaliser le mail avant cet accord.
+- **Proposer soi-même les créneaux, ne pas faire choisir François.** Sélectionner directement
+  **2 ou 3 créneaux** pertinents (dont un **le jour même** si l'heure le permet encore) et les
+  insérer dans le mail. François valide et ajuste le mail complet avant envoi.
+- **Pas de bloc signature dans le mail.** Terminer sur une **formule de politesse seule**
+  (ex. « Kind regards, » / « Bien à vous, »). La signature Outlook de François (nom, coordonnées)
+  s'ajoute automatiquement à l'envoi : ne pas la retaper.
 - **Ne jamais envoyer le mail.** On prépare le texte, François relit et envoie lui-même.
   cf mémoire [[envoi-mails-clients]].
 - **Livrer le mail via le module copier-coller 3 blocs** (voir section dédiée plus bas).
@@ -76,8 +79,9 @@ Structure, en phrases courtes :
    trancher. Pas de numéros d'article, pas de mécanisme, aucun indice sur l'issue.
 4. **Proposer le call de 10 min** (téléphone ou visio) pour cadrer la mission, la méthode et les
    honoraires. Présenter ce call comme une première étape, pas comme la consultation.
-5. **Créneaux** : insérer les **2-3 créneaux validés par François** (heure prospect + Paris).
-6. **Signature Me François Ouairy** + coordonnées cabinet.
+5. **Créneaux** : insérer **2-3 créneaux** choisis par Claude (heure prospect + Paris).
+6. **Formule de politesse seule** (ex. « Kind regards, »). Pas de bloc signature : la signature
+   Outlook s'ajoute automatiquement.
 
 Garde-fous :
 - Ne pas trancher la question de fond ni donner de chiffre dans le mail.
@@ -86,9 +90,9 @@ Garde-fous :
 ## Phase 3 - Planifier le call de 10 min
 1. Lire les disponibilités de François (Outlook `outlook_find_available_time` ou
    `outlook_calendar_search`) sur les prochains jours, créneaux de **15 min**.
-2. **Soumettre d'abord 5 à 6 créneaux candidats à François** (dont des créneaux du jour même si
-   l'heure le permet), en heure du prospect + Paris. **Attendre qu'il en retienne 2 ou 3.** Ne
-   rédiger/finaliser le mail qu'après cette validation ; y insérer uniquement les créneaux retenus.
+2. **Choisir soi-même 2 ou 3 créneaux** pertinents (dont un du jour même si l'heure le permet), en
+   heure prospect + Paris, et les insérer directement dans le mail. François valide/ajuste le mail
+   complet avant envoi ; ne pas lui faire choisir dans une liste.
 3. Une fois le créneau choisi par le prospect, créer l'événement **Google Agenda**
    (`create_event`), 10 à 15 min :
    - `summary` : "Premier échange - <Prospect> / BENSAID AVOCATS" ;
@@ -123,11 +127,9 @@ Bonjour ...,
 ...
 
 Bien à vous,
-François Ouairy
-Avocat - BENSAID AVOCATS
-49 rue de Courcelles, 75008 Paris
-françois.ouairy@bensaid-avocats.fr
 ```
+(Le corps s'arrête sur la formule de politesse : **pas de bloc signature**, la signature Outlook
+s'ajoute à l'envoi.)
 
 Cette convention **s'applique à tous les mails produits par les skills du cabinet** (cf
 [[rdv-cadrage]]). Sur poste macOS on peut, en plus, sauvegarder le texte en `.txt` dans le dossier
@@ -152,5 +154,5 @@ d'installation en France) : la fiche-prospect a situé le couple, puis premier-e
 réponse **courte en anglais**, confirme le champ (fiscalité internationale + immobilier), montre
 la maîtrise en une phrase en nommant la **convention fiscale franco-américaine** et le point à
 trancher (traitement des plans de retraite US une fois résidents français) **sans citer d'article,
-sans décrire le mécanisme et sans chiffrer**. Les créneaux du call sont d'abord validés par
-François (5-6 proposés, 2-3 retenus) avant d'être insérés. Livraison en 3 blocs.
+sans décrire le mécanisme et sans chiffrer**. Claude choisit lui-même 2-3 créneaux (dont un le jour
+même) et les insère ; François valide le mail complet. Pas de bloc signature. Livraison en 3 blocs.
