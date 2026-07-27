@@ -122,7 +122,7 @@ def _plain(spec):
 def _html(spec):
     civ = html.escape(spec.get("civilite", "Cher Monsieur,").strip())
     parts = [
-        '<div style="font-family:Calibri,\'Segoe UI\',Arial,sans-serif;'
+        '<div style="font-family:Aptos,\'Segoe UI\',Calibri,Arial,sans-serif;'
         'font-size:11pt;color:#000000;line-height:1.45;">',
         '<p style="margin:0 0 12px 0;">%s</p>' % civ,
     ]

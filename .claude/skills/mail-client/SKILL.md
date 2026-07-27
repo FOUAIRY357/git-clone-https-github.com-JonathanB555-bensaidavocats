@@ -33,7 +33,10 @@ prepare le texte, on ne l'envoie jamais soi-meme (cf memoire [[envoi-mails-clien
   Le renderer refuse de generer si un cadratin subsiste (cf memoire [[no-ai-style-markers]]).
 - **Structure** : mail court, on ecrit d'un trait. Mail long (plusieurs sujets), on structure
   avec des **titres en gras** courts, sans numerotation, un titre par sujet.
-- **Chiffres et honoraires** : toujours en HT et TTC quand on donne un prix. Etre precis.
+- **Chiffres et honoraires** : prix en **HT uniquement** (pas de TTC, sauf demande expresse de
+  Francois). Etre precis.
+- **Police** : le .html est rendu en **Aptos** (police par defaut d'Outlook), pour un collage
+  homogene avec la signature.
 
 ## Verifier les articles avant de les citer
 Ne jamais citer un article de memoire. Avant d'ecrire « article 167 bis du CGI », le verifier
@@ -68,11 +71,11 @@ options claires. On ne redige le mail definitif qu'une fois le fond arrete.
    python3 ~/.claude/skills/mail-client/render_mail.py /chemin/spec.json /chemin/mail.html
    ```
    Corriger si le script signale un cadratin (fatal) ou une densite de « : » excessive.
-6. **Afficher les trois modules directement dans le chat**, chacun dans son propre bloc de code
-   copier-coller (ADRESSE, OBJET, CORPS) tel que le script les imprime. C'est le livrable par
-   defaut : Francois copie depuis le chat. Le `.html` genere est un **complement facultatif**,
-   utile seulement s'il veut conserver le gras des titres au collage dans Outlook (`open mail.html`).
-   Ne pas livrer le mail uniquement en piece jointe.
+6. **Livrer a chaque fois, dans le chat** : l'ADRESSE et l'OBJET en petits blocs copier-coller,
+   et le CORPS **rendu en markdown avec les titres reellement en gras** (un bloc de code
+   monospace ne peut pas porter de gras, donc on ne met pas le corps en bloc de code). Fournir
+   **en plus le `.html`** (police Aptos, titres en gras) : c'est la version a coller dans Outlook
+   pour conserver gras et police. Ne jamais livrer le mail uniquement en piece jointe.
 7. Ranger le spec et le .html dans le dossier du client
    (`~/Desktop/Dossiers prospects/<Nom>/`), nom de fichier `Mail - <objet court> (<date>).html`.
 
