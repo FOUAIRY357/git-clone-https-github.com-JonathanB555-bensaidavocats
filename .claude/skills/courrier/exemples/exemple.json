@@ -1,0 +1,26 @@
+{
+  "ville": "Paris",
+  "date": "8 juillet 2026",
+  "destinataire": [
+    "Monsieur Jean DUPONT",
+    "Gérant de la société DUPONT HOLDING",
+    "12 rue de la Paix",
+    "75002 Paris"
+  ],
+  "ref": "2026-0142 / FO",
+  "objet": "Cession de vos parts sociales dans la société DUPONT HOLDING",
+  "salutation": "Monsieur,",
+  "corps": [
+    "Faisant suite à notre entretien du 2 juillet dernier, je reviens vers vous s'agissant du projet de cession de vos parts sociales dans la société DUPONT HOLDING.",
+    "Après analyse des statuts et du pacte d'associés, il apparaît que la cession envisagée est soumise à l'agrément préalable de la collectivité des associés, statuant à la majorité des deux tiers. Je vous invite donc à provoquer une assemblée générale extraordinaire dans les meilleurs délais.",
+    {"sub": "Les prochaines étapes"},
+    {"b": "notification du projet de cession aux autres associés ;"},
+    {"b": "tenue de l'assemblée générale d'agrément ;"},
+    {"b": "régularisation de l'acte de cession et enregistrement auprès du service des impôts."},
+    "Je reste naturellement à votre disposition pour évoquer ces différents points."
+  ],
+  "politesse": "Je vous prie d'agréer, Monsieur, l'expression de mes salutations distinguées.",
+  "signataire": "François OUAIRY",
+  "qualite": "Avocat associé",
+  "pj": ["Projet de notification aux associés", "Projet d'acte de cession"]
+}
