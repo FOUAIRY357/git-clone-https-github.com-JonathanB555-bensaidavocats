@@ -1,0 +1,27 @@
+{
+  "destinataire": "LM@vergiat.com",
+  "objet": "Votre situation TVA - pièces nécessaires à l'analyse",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Je vous remercie pour votre message et pour les créneaux proposés."},
+    {"p": "Pour arrêter une stratégie fiable sur la villa exploitée en court séjour, une analyse complète de son régime réel de TVA est nécessaire. Cette analyse doit s'appuyer sur vos documents contractuels et comptables, et non sur une description générale. Je vous remercie de bien vouloir nous transmettre les pièces suivantes."},
+    {"titre": "1. La villa en court séjour, bien prioritaire"},
+    {"b": "les annonces publiées sur Airbnb et Booking (captures ou export PDF), ainsi que les conditions générales de ces plateformes qui vous sont applicables"},
+    {"b": "le descriptif précis des services réellement proposés (petit déjeuner, ménage, fourniture de linge, accueil), avec leur fréquence pendant le séjour"},
+    {"b": "les contrats conclus avec vos prestataires (ménage, blanchisserie, conciergerie, accueil sur place ou à distance)"},
+    {"b": "un échantillon représentatif de factures ou de notes émises à vos clients"},
+    {"b": "le relevé des réservations permettant d'apprécier la durée réelle des séjours, sous forme de planning ou de statistiques de nuitées"},
+    {"titre": "2. L'acquisition et les investissements"},
+    {"b": "l'acte d'acquisition de la villa"},
+    {"b": "les factures de travaux et d'équipement, ainsi que les principales factures d'achat sur lesquelles une TVA a été supportée"},
+    {"b": "le cas échéant, le tableau des immobilisations et des amortissements"},
+    {"titre": "3. Vos déclarations et votre comptabilité de TVA"},
+    {"b": "l'ensemble des déclarations CA3 déposées depuis le début de votre exploitation"},
+    {"b": "le détail de la TVA collectée et de la TVA déduite au titre de la villa, si elle est suivie distinctement"},
+    {"titre": "4. Les autres biens, pour le contexte"},
+    {"b": "les baux commerciaux et les contrats de gestion conclus avec les exploitants des deux résidences de services"},
+    {"b": "le bail du F1 loué en meublé de longue durée"},
+    {"p": "Ces pièces nous permettront de qualifier votre activité au regard des critères para-hôteliers, de sécuriser votre position en matière de TVA et d'apprécier l'impact URSSAF que vous évoquez."},
+    {"p": "Vous pouvez nous les adresser par retour de mail ou via un espace de partage, selon ce qui vous convient. Nous reviendrons vers vous pour confirmer le créneau de notre échange."}
+  ]
+}
