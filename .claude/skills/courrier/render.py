@@ -38,7 +38,7 @@ MODELE DE SPEC JSON
   "qualite": "Avocat associe",             # optionnel
   "signature": "assets/signature_ouairy.png", # optionnel : image manuscrite au-dessus du nom ;
                                            #   defaut = signature Francois ; false = aucune
-  "signature_largeur_cm": 4.5,             # optionnel : largeur de l'image de signature
+  "signature_largeur_cm": 4.0,             # optionnel : largeur de l'image de signature (defaut 4.0)
   "pj": ["Projet d'acte de cession", "RIB"] # optionnel : liste ; si absent, ligne P.J. supprimee
 }
 ------------------------------------------------------------------------------
@@ -117,7 +117,7 @@ def clone_after(p):
     return Paragraph(new_p, p._parent)
 
 
-def insert_image_before(p, img_path, width_cm=4.5, align=None):
+def insert_image_before(p, img_path, width_cm=4.0, align=None):
     """Insere un paragraphe contenant l'image `img_path` juste AVANT le paragraphe `p`."""
     from docx.text.paragraph import Paragraph
     new_el = p._p.makeelement(qn("w:p"), {})
@@ -256,7 +256,7 @@ def build(spec, out_path):
         # cabinet (Francois OUAIRY). Mettre "signature": false pour n'en poser aucune.
         sig = spec.get("signature", os.path.join(HERE, "assets", "signature_ouairy.png"))
         if sig and os.path.exists(sig):
-            insert_image_before(p_sig, sig, spec.get("signature_largeur_cm", 4.5), p_sig.alignment)
+            insert_image_before(p_sig, sig, spec.get("signature_largeur_cm", 4.0), p_sig.alignment)
     p_qualite = find_para(doc, "[Qualité]") or find_para(doc, "Avocat associé")
     if p_qualite is not None:
         if spec.get("qualite"):

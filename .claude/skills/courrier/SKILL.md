@@ -61,5 +61,5 @@ Dans `corps` (liste), chaque élément est :
 - Par défaut `ville` = Paris et `signataire` = François OUAIRY, qualité « Avocat
   associé », sauf indication contraire.
 - **Signature manuscrite** : le script pose automatiquement l'image `assets/signature_ouairy.png`
-  au-dessus du nom (largeur 4,5 cm, réglable via `signature_largeur_cm`). Pour un autre signataire,
+  au-dessus du nom (largeur 4 cm, réglable via `signature_largeur_cm`). Pour un autre signataire,
   passer `"signature": "<chemin de son image>"` ; pour n'en poser aucune, `"signature": false`.
