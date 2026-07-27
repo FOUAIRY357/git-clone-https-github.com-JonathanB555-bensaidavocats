@@ -24,7 +24,8 @@ Pour une note juridique, une consultation ou un compte rendu, utiliser plutôt
 [[template-cabinet]]. Pour un e-mail, utiliser [[redaction-mail]].
 
 ## Charte du modèle (respectée par le script, ne pas y déroger)
-- Police **Helvetica Neue**, couleur du texte **1E1E22** (déjà portées par le gabarit).
+- Police **Helvetica Neue**, couleur du texte **111111** (déjà portées par le gabarit), encre
+  unique du cabinet (cf [[charte-cabinet]]). Le letterhead garde ses filets propres.
 - **Date** alignée à droite ; **nom du destinataire** et **objet** en gras.
 - **N/Réf.** et **P.J.** en 9 pt ; **signature** alignée à droite (nom puis qualité).
 - **Aucune couleur signature** ni marqueur IA (cf mémoire [[no-ai-style-markers]]).
