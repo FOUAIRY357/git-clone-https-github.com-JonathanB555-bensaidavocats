@@ -2,7 +2,7 @@
 name: premier-echange
 description: >
   Rédige la réponse à un prospect qui vient d'écrire au cabinet et propose un premier échange
-  court d'environ 10 min (téléphone ou visio). Le mail confirme que le dossier est dans notre
+  court d'environ 10 min, toujours par téléphone. Le mail confirme que le dossier est dans notre
   champ, montre brièvement (une phrase, sans livrer le fond) qu'on maîtrise la question posée,
   puis propose un call de qualification avant tout RDV de cadrage facturé. Phrases courtes et simples d'avocat,
   au nom de Me François Ouairy, sans bloc signature (la signature Outlook s'ajoute à l'envoi).
@@ -14,7 +14,8 @@ description: >
 # Premier échange - réponse au prospect + call de 10 min
 
 ## Ce qu'est ce premier échange
-Un **court appel d'environ 10 min**, gratuit, de qualification. C'est l'étape qui précède le
+Un **court appel d'environ 10 min**, gratuit, de qualification, **toujours par téléphone** (la
+visio et le présentiel sont réservés au RDV de cadrage). C'est l'étape qui précède le
 **RDV de cadrage stratégique** (2 400 € HT, cf skill [[rdv-cadrage]]). Le mail qui propose ce call
 a trois buts, dans cet ordre :
 1. confirmer que la demande est **dans notre champ** ;
@@ -77,8 +78,9 @@ Structure, en phrases courtes :
    expatriation / immobilier) en une phrase.
 3. **1 phrase de maîtrise** : nommer la convention / le régime applicable et le vrai point à
    trancher. Pas de numéros d'article, pas de mécanisme, aucun indice sur l'issue.
-4. **Proposer le call de 10 min** (téléphone ou visio) pour cadrer la mission, la méthode et les
-   honoraires. Présenter ce call comme une première étape, pas comme la consultation.
+4. **Proposer le call téléphonique de 10 min** pour cadrer la mission, la méthode et les
+   honoraires. Présenter ce call comme une première étape, pas comme la consultation. Préciser
+   qu'on **appellera** le prospect et lui demander le **meilleur numéro** pour le joindre.
 5. **Créneaux** : insérer **2-3 créneaux** choisis par Claude (heure prospect + Paris).
 6. **Formule de politesse seule** (ex. « Kind regards, »). Pas de bloc signature : la signature
    Outlook s'ajoute automatiquement.
@@ -98,10 +100,10 @@ Garde-fous :
    - `summary` : "Premier échange - <Prospect> / BENSAID AVOCATS" ;
    - `startTime` / `endTime` + `timeZone` (caler sur Paris, l'invitation convertit) ;
    - `attendees` : email du prospect + françois.ouairy@bensaid-avocats.fr ;
-   - **si visio** : `addGoogleMeetUrl: true`, récupérer le lien Meet ;
-   - `description` : rappel de l'objet.
+   - **pas de visio** : appel téléphonique, donc **pas de lien Meet** ;
+   - `description` : rappel de l'objet + le **numéro de téléphone** du prospect (François appelle).
 4. Préparer le **mail de confirmation** (même module 3 blocs) avec l'heure (prospect + Paris) et
-   le lien Meet ou le numéro d'appel.
+   la confirmation qu'on l'appellera au numéro indiqué.
 
 ## Module copier-coller (3 blocs) - CONVENTION MAILS DU CABINET
 Tout mail livré dans le chat l'est en **trois blocs de code distincts** (chaque bloc a son propre
@@ -142,11 +144,11 @@ perso ; mais le module 3 blocs dans le chat reste la **livraison par défaut**.
   `rdv-cadrage` (RDV de cadrage stratégique à 2 400 € HT).
 
 ## Données de référence (cabinet)
-- **Call de premier échange** : environ 10 min, gratuit, qualification avant le RDV de cadrage.
-- **RDV de cadrage** : 2 400 € HT (cf [[rdv-cadrage]]).
+- **Call de premier échange** : environ 10 min, gratuit, **par téléphone**, qualification avant
+  le RDV de cadrage. François appelle le prospect au numéro qu'il a communiqué.
+- **RDV de cadrage** : 2 400 € HT, visio ou présentiel (cf [[rdv-cadrage]]).
 - **Cabinet Paris** : 49 rue de Courcelles, 75008 Paris, 1er étage, code porte 2079.
 - **Email François** : françois.ouairy@bensaid-avocats.fr.
-- **Visio** : lien Google Meet généré via Google Agenda (`addGoogleMeetUrl`).
 
 ## Exemple d'usage
 Prospect anglophone (couple hispano-américain, revenus de retraite US 401(k)/RMD, projet
