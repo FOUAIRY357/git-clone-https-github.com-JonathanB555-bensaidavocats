@@ -36,6 +36,9 @@ MODELE DE SPEC JSON
   "politesse": "Je vous prie d'agreer, Monsieur, l'expression de mes salutations distinguees.",
   "signataire": "Francois OUAIRY",         # obligatoire
   "qualite": "Avocat associe",             # optionnel
+  "signature": "assets/signature_ouairy.png", # optionnel : image manuscrite au-dessus du nom ;
+                                           #   defaut = signature Francois ; false = aucune
+  "signature_largeur_cm": 4.0,             # optionnel : largeur de l'image de signature (defaut 4.0)
   "pj": ["Projet d'acte de cession", "RIB"] # optionnel : liste ; si absent, ligne P.J. supprimee
 }
 ------------------------------------------------------------------------------
@@ -48,6 +51,7 @@ import os
 
 from docx import Document
 from docx.oxml.ns import qn
+from docx.shared import Cm
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "assets", "modele_courrier.docx")
@@ -111,6 +115,18 @@ def clone_after(p):
     p._p.addnext(new_p)
     from docx.text.paragraph import Paragraph
     return Paragraph(new_p, p._parent)
+
+
+def insert_image_before(p, img_path, width_cm=4.0, align=None):
+    """Insere un paragraphe contenant l'image `img_path` juste AVANT le paragraphe `p`."""
+    from docx.text.paragraph import Paragraph
+    new_el = p._p.makeelement(qn("w:p"), {})
+    p._p.addprevious(new_el)
+    new_p = Paragraph(new_el, p._parent)
+    new_p.add_run().add_picture(img_path, width=Cm(width_cm))
+    if align is not None:
+        new_p.alignment = align
+    return new_p
 
 
 def set_bold(p, value=True):
@@ -232,10 +248,15 @@ def build(spec, out_path):
         "Je vous prie d'agréer, " + spec["salutation"].rstrip(",") +
         ", l'expression de mes salutations distinguées."))
 
-    # --- Signature (le modele porte une signature par defaut Francois OUAIRY / Avocat associe) ---
+    # --- Signature : image manuscrite au-dessus du nom, puis nom et qualite ---
     p_sig = find_para(doc, "[Prénom NOM]") or find_para(doc, "François OUAIRY")
     if p_sig is not None:
         set_text_keep_format(p_sig, spec["signataire"], first_run_rpr(p_sig))
+        # image de signature au-dessus du nom : chemin fourni, sinon signature par defaut du
+        # cabinet (Francois OUAIRY). Mettre "signature": false pour n'en poser aucune.
+        sig = spec.get("signature", os.path.join(HERE, "assets", "signature_ouairy.png"))
+        if sig and os.path.exists(sig):
+            insert_image_before(p_sig, sig, spec.get("signature_largeur_cm", 4.0), p_sig.alignment)
     p_qualite = find_para(doc, "[Qualité]") or find_para(doc, "Avocat associé")
     if p_qualite is not None:
         if spec.get("qualite"):
