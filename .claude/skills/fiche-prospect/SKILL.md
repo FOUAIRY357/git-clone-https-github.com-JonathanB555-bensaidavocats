@@ -83,8 +83,8 @@ WHOIS daté) / **hypothèse** (déductions). Indiquer les premières pièces à 
 
 ## Phase 5 - Persistance et diffusion
 
-1. Sauvegarder la fiche en mémoire : `~/.claude/projects/<projet>/memory/dossier-<nom>.md`
-   (type: project, description avec l'essentiel) + ligne dans MEMORY.md.
+1. Sauvegarder la fiche dans `livrables/<nom-client>/fiche.md` du dépôt (et dans la mémoire du
+   projet si disponible). Données sensibles : ne pas diffuser hors du cabinet.
 2. Si l'utilisateur le demande, envoyer la note sur Slack (chercher le destinataire avec
    `slack_search_users` ; en cas d'homonymes, demander lequel). Format Slack : markdown,
    < 5000 caractères, TL;DR en tête.
