@@ -72,8 +72,8 @@ jamais la structure des clauses.
 - **Cohérence des honoraires** : le chiffre en toutes lettres doit correspondre au chiffre en
   chiffres ; TVA « en sus selon le régime applicable » (utile : un client qui devient
   non-résident peut relever de règles de TVA différentes, le préciser si pertinent).
-- Version .docx sur gabarit à en-tête/pied : passer par le skill [[template-cabinet]] (type
-  « courrier » ou corps libre) une fois le texte validé. Le présent skill produit le TEXTE.
+- Version .docx sur gabarit à en-tête/pied : passer par le skill [[courrier]] une fois le texte
+  validé. Le présent skill produit le TEXTE.
 
 ## Attention particulière aux honoraires (points qui reviennent)
 ### a. Honoraire de résultat (success fee) - clause à AJOUTER quand demandé
@@ -248,5 +248,5 @@ The Client                                  The Lawyer
 ```
 
 ## Persistance
-- Enregistrer la LM générée dans le dossier perso du client (`.txt` et/ou `.docx` via
-  [[template-cabinet]]). Mettre à jour la fiche mémoire (statut : LM émise / signée).
+- Enregistrer la LM générée dans `livrables/<nom-client>/` (`.txt` et/ou `.docx` via [[courrier]]).
+  Mettre à jour le suivi du dossier (statut : LM émise / signée).

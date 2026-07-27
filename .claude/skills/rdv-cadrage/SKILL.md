@@ -26,23 +26,22 @@ métier (fiscaliste, notaire, comptable) selon le sujet.
   **au nom du secrétariat** : tournure « À la demande de Maître François Ouairy, nous vous
   proposons… », « nous » au lieu de « je », signature « Secrétariat - BENSAID AVOCATS ».
   cf mémoire [[envoi-mails-clients]].
+- **Livrer tout mail en blocs copier-coller dans le chat** (DESTINATAIRE, OBJET, CORPS), comme
+  [[redaction-mail]], mais à la voix du secrétariat. Rien à télécharger, pas de `.txt` ni de
+  `open`. cf [[charte-cabinet]].
 - **Valider les dates avec François AVANT de rédiger le mail.** Proposer d'abord la liste des
   4 créneaux candidats, attendre son choix ou ses ajustements, puis seulement rédiger le mail.
-- **Livrer tout mail en format copier-coller simple.** Texte brut (objet + destinataire + corps),
-  sans mise en forme markdown, enregistré en `.txt` dans le dossier perso ET ouvert
-  (`open <fichier>`) pour copie immédiate dans Outlook.
 - **Toujours raisonner dans le fuseau horaire du client** pour proposer des créneaux
   (ex. Martinique UTC-4, Île Maurice UTC+4, Paris UTC+1/+2). Indiquer l'heure dans les deux
   fuseaux (client + Paris) dans le mail.
 - **La facture part avant le RDV**, systématiquement.
-- Tout sauvegarder dans le dossier perso du client : `~/Desktop/Dossiers prospects/<Nom>/`.
-- Pas de tiret cadratin / demi-cadratin ni de couleur signature Claude. cf [[no-ai-style-markers]].
+- Tout ranger dans `livrables/<Nom>/` du dépôt (pas de `~/Desktop`, absent en cloud).
+- Typographie et style : cf [[charte-cabinet]].
 
 ## Phase 0 - Contexte
 1. Identifier le client (nom, email) et l'objet du RDV.
-2. Récupérer le dossier existant : fiche mémoire `~/.claude/projects/<projet>/memory/dossier-<nom>.md`
-   et/ou dossier perso `~/Desktop/Dossiers prospects/<Nom>/`. Reprendre le contexte, le fuseau
-   horaire du client, les enjeux.
+2. Récupérer le dossier existant dans `livrables/<Nom>/` du dépôt (et la mémoire du projet si
+   disponible). Reprendre le contexte, le fuseau horaire du client, les enjeux.
 3. Si pas de dossier, lancer d'abord le skill `fiche-prospect`.
 
 ## Phase 1 - Proposer des dates (mail)
@@ -53,14 +52,13 @@ métier (fiscaliste, notaire, comptable) selon le sujet.
    4 créneaux de 2h**, sauf demande contraire explicite.
 3. **Soumettre d'abord ces 4 créneaux à François pour validation** (liste simple). Attendre
    qu'il confirme ou ajuste les dates. Ne pas rédiger le mail avant cet accord.
-4. Une fois les dates validées, **rédiger le mail de proposition** (texte seulement) :
+4. Une fois les dates validées, **rédiger le mail de proposition** (voix secrétariat) :
    - propose les **4 créneaux de 2h** retenus (date + heure en fuseau client ET Paris) ;
    - demande au client de choisir un créneau **et** le format : **visio** ou **présentiel
      au cabinet de Paris** ;
    - rappelle brièvement l'objet et la durée (~1h30 à 2h).
-5. **Livrer le mail en format copier-coller simple** : l'enregistrer en `.txt` dans le dossier
-   perso (objet + destinataire + corps en texte brut) puis l'ouvrir (`open <fichier>`) pour que
-   François n'ait plus qu'à copier-coller dans Outlook.
+5. **Livrer le mail en blocs copier-coller dans le chat** (DESTINATAIRE, OBJET, CORPS), voix
+   secrétariat. François n'a plus qu'à copier-coller dans Outlook. Rien à télécharger.
 
 ## Phase 2 - Confirmer le RDV
 Une fois le créneau et le format choisis par le client :
@@ -74,19 +72,19 @@ Une fois le créneau et le format choisis par le client :
      1er étage (code porte 2079)" ;
    - `description` : objet du RDV + (le cas échéant) lien vers le support.
    - Par défaut `notificationLevel` raisonnable ; ne pas spammer.
-2. Préparer le **mail de confirmation** (texte seulement) :
+2. Préparer le **mail de confirmation** (blocs copier-coller, voix secrétariat) :
    - date et heure (fuseau client + Paris) ;
    - format : soit le **lien Google Meet**, soit l'**adresse du cabinet + code 2079 + 1er étage** ;
    - mention que la facture suit (ou est jointe) et qu'elle est réglée avant le RDV.
-3. Sauvegarder le lien Meet / les détails dans le dossier perso.
+3. Sauvegarder le lien Meet / les détails dans `livrables/<Nom>/`.
 
 ## Phase 3 - Facture (avant le RDV)
 La facture est établie par **François dans Sellsy** (pas de connecteur API disponible : étape
 manuelle). Le skill :
 1. Pose un **point de contrôle** : la facture doit être émise et envoyée AVANT le RDV.
-2. Prépare le **mail d'accompagnement de la facture** (texte) que François enverra une fois le
-   PDF Sellsy généré (il y attache le PDF) : montant **2 400 € HT** (+ TVA selon régime),
-   rappel de l'objet et de la date du RDV, modalités de règlement.
+2. Prépare le **mail d'accompagnement de la facture** (blocs copier-coller) que François enverra
+   une fois le PDF Sellsy généré (il y attache le PDF) : montant **2 400 € HT** (+ TVA selon
+   régime), rappel de l'objet et de la date du RDV, modalités de règlement.
 3. Tient une **checklist avant RDV** : facture envoyée / support prêt / lien ou lieu confirmé.
 
 ## Phase 4 - Support et next steps
@@ -94,22 +92,22 @@ manuelle). Le skill :
    comparatifs. Le fond s'appuie sur le skill métier adapté (ex. `fiscaliste` pour
    l'expatriation et l'exit tax).
 2. **Générer la version PowerPoint du support** via le skill **`support-cadrage`** :
-   - Copier `~/.claude/skills/support-cadrage/assets/deck_template.py` vers `/tmp/deck_<client>.py`.
+   - Copier `.claude/skills/support-cadrage/assets/deck_template.py` vers `/tmp/deck_<client>.py`.
    - Ajuster `RUNNING` et `FOOTER`, remplacer le bloc `CONTENU` par les archétypes du dossier.
    - Structure cible ~17-20 slides : couverture, intercalaires, KPI, pour/contre, contenu,
      tableaux, accompagnement (3 colonnes), proposition honoraires, next steps, clôture.
-   - Exécuter : `python3 /tmp/deck_<client>.py "<dossier>/Support cadrage - <Client> (<date>).pptx"`.
-   - Sauvegarder dans `~/Desktop/Dossiers prospects/<Nom>/` **et** dans le dossier
-     Google Drive du client (`DOSSIERS PERSOS/<Nom>/`).
-   - Ouvrir le fichier (`open ...`) pour que François puisse le vérifier.
+   - Exécuter : `python3 /tmp/deck_<client>.py "livrables/<Nom>/Support cadrage - <Client> (<date>).pptx"`.
+   - Ranger dans `livrables/<Nom>/` **et**, si demandé, dans le dossier Google Drive du client
+     (`DOSSIERS PERSOS/<Nom>/`).
+   - Livrer le fichier à l'utilisateur (envoyé dans l'app) pour vérification. Pas de `open` (cloud).
    - Ne pas utiliser le MCP PowerPoint (bugs AppleScript macOS FR). cf skill [[support-cadrage]].
 3. Après le RDV : proposer les **next steps assortis d'un devis** (Sellsy), et préparer le mail
    correspondant.
 
 ## Phase 5 - Persistance
-- Classer dans `~/Desktop/Dossiers prospects/<Nom>/` : mails (dates, confirmation, facture),
+- Classer dans `livrables/<Nom>/` du dépôt : mails (dates, confirmation, facture),
   support, lien Meet, dates retenues.
-- Mettre à jour la fiche mémoire du dossier (statut : RDV proposé / confirmé / facturé / tenu).
+- Mettre à jour le suivi du dossier (statut : RDV proposé / confirmé / facturé / tenu).
 
 ## Données de référence (cabinet)
 - **Tarif RDV de cadrage** : 2 400 € HT.

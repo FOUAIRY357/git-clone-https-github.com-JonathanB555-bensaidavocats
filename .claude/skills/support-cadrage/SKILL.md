@@ -26,9 +26,9 @@ Workflow :
    (ex. "ANTOINE COMAR · RÉUNION DE CADRAGE").
 3. Remplacer le bloc `CONTENU` par les appels d'archétypes du dossier (voir ci-dessous),
    et fixer `T` = nombre total de slides (sert à la pagination « NN / T »).
-4. Exécuter : `python3 /tmp/deck_<client>.py "<dossier perso>/Support cadrage - <Client> (<date>).pptx"`.
-5. Ouvrir le fichier (`open ...`) pour contrôle visuel, puis le ranger dans le dossier perso
-   du client (`~/Desktop/Dossiers prospects/<Nom>/`).
+4. Exécuter : `python3 /tmp/deck_<client>.py "livrables/<Nom>/Support cadrage - <Client> (<date>).pptx"`.
+5. Livrer le fichier à l'utilisateur (il est envoyé dans l'app) pour contrôle visuel, puis le
+   ranger dans `livrables/<Nom>/`. Pas de `open` (macOS, indisponible en cloud).
 
 ## Charte (rappel, déjà codée dans l'asset)
 - 16:9 (13,33 x 7,5"), police **Arial**.

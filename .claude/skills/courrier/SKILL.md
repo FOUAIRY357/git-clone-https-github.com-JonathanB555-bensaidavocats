@@ -29,7 +29,7 @@ Pour une note juridique, une consultation ou un compte rendu, utiliser plutôt
 - **N/Réf.** et **P.J.** en 9 pt ; **signature** alignée à droite (nom puis qualité).
 - **Aucune couleur signature** ni marqueur IA (cf mémoire [[no-ai-style-markers]]).
 - **Aucun tiret cadratin ni demi-cadratin** : tiret simple, virgule, deux-points,
-  parenthèses. Les accents sont mis normalement (cf [[feedback-pas-accents]]).
+  parenthèses. Accents obligatoires. cf [[charte-cabinet]].
 
 ## Méthode
 1. **Rédiger le contenu** en vraies phrases, ton avocat : phrases complètes et liées,
@@ -43,7 +43,7 @@ Pour une note juridique, une consultation ou un compte rendu, utiliser plutôt
    ```bash
    python3 .claude/skills/courrier/render.py /chemin/spec.json /chemin/sortie.docx
    ```
-4. **Ouvrir** le `.docx` pour relecture (`open`).
+4. **Livrer** le `.docx` à l'utilisateur (il est envoyé dans l'app) pour relecture. Pas de `open` (macOS, indisponible en cloud).
 
 ## Blocs de corps disponibles
 Dans `corps` (liste), chaque élément est :
