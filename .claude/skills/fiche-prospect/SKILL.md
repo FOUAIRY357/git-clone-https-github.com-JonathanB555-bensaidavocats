@@ -90,6 +90,9 @@ WHOIS daté) / **hypothèse** (déductions). Indiquer les premières pièces à 
    < 5000 caractères, TL;DR en tête.
 3. Si l'objet du RDV est fiscal, charger le skill d'expertise adapté (fiscaliste,
    notaire, comptable) avant l'analyse, s'il est disponible.
+4. **S'il s'agit d'un prospect qui vient d'écrire au cabinet et qu'il faut lui répondre,
+   enchaîner sur le skill `premier-echange`** : réponse courte signée Me Ouairy qui montre
+   qu'on maîtrise le sujet et propose un call de 10 min, avant tout RDV de cadrage facturé.
 
 ## Réflexes qui ont fait leurs preuves
 

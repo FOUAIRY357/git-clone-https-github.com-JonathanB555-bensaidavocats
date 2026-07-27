@@ -28,9 +28,11 @@ métier (fiscaliste, notaire, comptable) selon le sujet.
   cf mémoire [[envoi-mails-clients]].
 - **Valider les dates avec François AVANT de rédiger le mail.** Proposer d'abord la liste des
   4 créneaux candidats, attendre son choix ou ses ajustements, puis seulement rédiger le mail.
-- **Livrer tout mail en format copier-coller simple.** Texte brut (objet + destinataire + corps),
-  sans mise en forme markdown, enregistré en `.txt` dans le dossier perso ET ouvert
-  (`open <fichier>`) pour copie immédiate dans Outlook.
+- **Livrer tout mail via le module copier-coller 3 blocs.** Trois blocs de code distincts dans le
+  chat (chacun avec son bouton copier) : destinataire seul, objet seul, corps seul en texte brut
+  sans markdown. cf skill [[premier-echange]] (section « Module copier-coller (3 blocs) »). En plus,
+  sur poste macOS, on peut enregistrer le texte en `.txt` dans le dossier perso et l'ouvrir
+  (`open <fichier>`) pour copie dans Outlook.
 - **Toujours raisonner dans le fuseau horaire du client** pour proposer des créneaux
   (ex. Martinique UTC-4, Île Maurice UTC+4, Paris UTC+1/+2). Indiquer l'heure dans les deux
   fuseaux (client + Paris) dans le mail.
@@ -58,9 +60,9 @@ métier (fiscaliste, notaire, comptable) selon le sujet.
    - demande au client de choisir un créneau **et** le format : **visio** ou **présentiel
      au cabinet de Paris** ;
    - rappelle brièvement l'objet et la durée (~1h30 à 2h).
-5. **Livrer le mail en format copier-coller simple** : l'enregistrer en `.txt` dans le dossier
-   perso (objet + destinataire + corps en texte brut) puis l'ouvrir (`open <fichier>`) pour que
-   François n'ait plus qu'à copier-coller dans Outlook.
+5. **Livrer le mail via le module copier-coller 3 blocs** (destinataire / objet / corps en trois
+   blocs de code distincts dans le chat, cf [[premier-echange]]). Optionnellement, l'enregistrer
+   aussi en `.txt` dans le dossier perso et l'ouvrir (`open <fichier>`) pour copie dans Outlook.
 
 ## Phase 2 - Confirmer le RDV
 Une fois le créneau et le format choisis par le client :
