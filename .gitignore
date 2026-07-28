@@ -7,3 +7,7 @@ dist/
 Icon?
 Icon
 
+# Fiches prospects / livrables : donnees personnelles sensibles, gardees en local
+# (retirer cette ligne si le cabinet decide de versionner les fiches dans le depot prive)
+livrables/
+
