@@ -36,8 +36,16 @@ tâche de fond, le skill [[fiche-prospect]] sur ce prospect (nom, email, télép
 Phrases très courtes. Une idée par phrase. Mots simples. Si une phrase fait plus de
 deux lignes, la couper. On relit et on enlève tout ce qui n'aide pas.
 
-**Toujours dire qu'on a l'habitude de traiter ce type de dossier.** C'est ce qui rassure.
-Une phrase suffit : "Nous avons l'habitude de traiter ce type de dossier."
+**Ne pas ouvrir par une formule méta.** Bannir "Votre demande est claire", "Votre projet
+est clair", "Bien reçu", "C'est noté", "Nous avons bien compris". Ces phrases ne prouvent
+rien et sonnent robotique. La preuve qu'on a compris, c'est d'**attaquer directement par la
+reformulation de SA situation dans nos mots**. On entre dans le concret dès la première
+phrase du paragraphe.
+
+**Une phrase rassurante, mais qui change à chaque fois.** Toujours rassurer, jamais avec la
+même formule. L'idée à faire passer : c'est un terrain que nous connaissons, et bien
+anticipé, ça se sécurise. Piocher dans la banque de phrases plus bas, ne pas répéter
+mécaniquement "Nous avons l'habitude de ce type de dossier".
 
 Ne jamais écrire "c'est le cœur de notre pratique" ni de formule grandiloquente.
 Ne pas promettre la "certitude" fiscale.
@@ -45,11 +53,12 @@ Ne pas promettre la "certitude" fiscale.
 ## Les briques du mail (dans cet ordre)
 
 1. **Remerciement** : une ligne.
-2. **On a compris + notre rôle** (un seul paragraphe court) : reprendre SA demande dans nos
-   mots avec un ou deux éléments précis de son message (un article, une convention, un
-   mécanisme), la phrase habitude ("Nous avons l'habitude de ce type de dossier"), et, si
-   dossier étranger, qu'on coordonne avec des conseils sur place. On montre qu'on maîtrise
-   en quelques mots, on ne déroule pas l'analyse.
+2. **On a compris + notre rôle** (un seul paragraphe court) : ouvrir DIRECTEMENT par la
+   reformulation de sa situation dans nos mots, avec un ou deux éléments précis de son
+   message (un article, une convention, un mécanisme) ; pas de formule méta en tête. Puis
+   une phrase rassurante (variée, voir banque) et, si dossier étranger, qu'on coordonne avec
+   des conseils sur place. On montre qu'on maîtrise en quelques mots, on ne déroule pas
+   l'analyse.
 3. **Le call** : un échange de dix minutes, avec des créneaux CONCRETS pris dans l'agenda de
    François (voir section suivante). Dire qu'on rappellera au numéro laissé.
 4. **Disponibilité** : une ligne, "Je reste à votre disposition."
@@ -110,23 +119,31 @@ Briques courtes et interchangeables. Piocher, adapter le sujet, assembler.
 Je vous remercie de votre message.
 ```
 
-**On a compris (adapter la partie technique)**
+**On a compris : reformulation directe (PAS de formule méta en tête)**
+Attaquer par sa situation, dans nos mots. Exemples :
 ```
-Votre demande est claire.
+Vous partez vous installer en Suisse en novembre, votre épouse et votre enfant restant résidents de France.
 ```
 ```
-Structurer votre acquisition immobilière à Dubaï depuis votre holding, choisir entre filiale locale et SCI, sécuriser le montage au regard de l'article 209 B et de la convention franco-émirienne : votre demande est claire.
+Vous souhaitez investir à Dubaï depuis votre holding et arbitrer entre une filiale locale et une SCI, en sécurisant le montage au regard de l'article 209 B et de la convention franco-émirienne.
 ```
 
-**Phrase habitude (obligatoire, en choisir une)**
+**Phrase rassurante (obligatoire, en varier une à chaque fois)**
+Idée : terrain connu + bien anticipé, ça se sécurise. Ne pas toujours reprendre la même.
 ```
-Nous avons l'habitude de traiter ce type de dossier.
-```
-```
-Ce sont des sujets que nous traitons régulièrement.
+Bien anticipés, ces dossiers se sécurisent sans difficulté.
 ```
 ```
-Ces montages nous sont familiers.
+C'est un schéma que nous mettons en place régulièrement.
+```
+```
+Ce sont des situations que nous accompagnons souvent, et qui se traitent sereinement lorsqu'elles sont préparées en amont.
+```
+```
+Ce type de dossier nous est familier.
+```
+```
+Nous avons l'habitude de ce type de dossier.
 ```
 
 **Notre rôle**
@@ -157,8 +174,9 @@ Salutations dévouées,
 
 ## Exemple de référence (dossier Bouaziz / Suisse, 07/2026)
 
-Style court : "on a compris" et "notre rôle" fusionnés en un paragraphe, créneaux concrets
-pris dans l'agenda de François, disponibilité juste avant la clôture.
+Style court : ouverture DIRECTE sur sa situation (aucune formule méta), phrase rassurante
+variée, "notre rôle" fondu dans le même paragraphe, créneaux concrets pris dans l'agenda de
+François, disponibilité juste avant la clôture.
 
 **OBJET**
 ```
@@ -171,7 +189,7 @@ Cher Monsieur,
 
 Je vous remercie de votre message.
 
-Votre projet est clair : deux résidences fiscales distinctes, imposition séparée des époux (article 6, 4, a du CGI), et le traitement de votre société française avec l'exit tax sur vos parts. Nous avons l'habitude de ce type de dossier et coordonnons avec une fiduciaire suisse pour le volet cantonal.
+Vous partez vous installer en Suisse en novembre, votre épouse et votre enfant restant résidents de France. L'enjeu est de faire tenir deux résidences fiscales distinctes (article 6, 4, a du CGI) et de traiter la sortie de vos titres, exit tax comprise. Bien anticipés, ces dossiers franco-suisses se sécurisent sans difficulté ; nous les accompagnons souvent et coordonnons avec une fiduciaire suisse pour le volet cantonal.
 
 Le plus simple est d'en parler dix minutes. Seriez-vous disponible demain, mercredi 29 juillet, à 11 h 30 ou à 14 h 30 ? Je vous appellerai au 06 36 48 94 37.
 
