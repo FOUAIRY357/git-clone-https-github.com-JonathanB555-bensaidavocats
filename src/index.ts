@@ -8,6 +8,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import * as legifrance from "./legifrance.js";
 import * as judilibre from "./judilibre.js";
+import * as grok from "./grok.js";
 
 const server = new Server(
   { name: "piste-mcp", version: "0.1.0" },
@@ -48,11 +49,11 @@ const tools = [
   },
   {
     name: "legifrance_get_article_by_num",
-    description: "Récupère un article d'un code par numéro (ex: code='LEGITEXT000006070721' pour le Code civil, num='1240').",
+    description: "Récupère un article d'un code par numéro (ex: code='Code civil' ou 'LEGITEXT000006070721', num='1240').",
     inputSchema: {
       type: "object",
       properties: {
-        code: { type: "string", description: "Identifiant LEGITEXT du code" },
+        code: { type: "string", description: "Nom du code (ex: 'Code civil') ou son identifiant LEGITEXT" },
         num: { type: "string", description: "Numéro d'article" },
         date: { type: "string", description: "Date (YYYY-MM-DD), défaut aujourd'hui" },
       },
@@ -100,6 +101,57 @@ const tools = [
       required: ["id"],
     },
   },
+  {
+    name: "judilibre_get_decision_files",
+    description:
+      "Liste les fichiers attachés à une décision (PDFs originaux, rapports, avis…). Chaque fichier expose un rawUrl (lien S3 direct) à passer à judilibre_download_pdf.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        id: { type: "string", description: "Identifiant Judilibre de la décision" },
+      },
+      required: ["id"],
+    },
+  },
+  {
+    name: "judilibre_download_pdf",
+    description:
+      "Télécharge un PDF attaché à une décision Judilibre et le renvoie en base64. Accepte un lien search.judilibre.io/decision?id=…&fileId=… (le rawUrl S3 est alors résolu automatiquement) ou directement un rawUrl S3. Lève une erreur si la réponse n'est pas un PDF.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        url: {
+          type: "string",
+          description:
+            "URL du fichier : lien search.judilibre.io (id+fileId) ou rawUrl S3 direct (depuis judilibre_get_decision_files).",
+        },
+      },
+      required: ["url"],
+    },
+  },
+  {
+    name: "grok_search",
+    description:
+      "Recherche temps réel via Grok (web, X/Twitter, actualité) avec filtrage par date. Idéal pour l'actualité réglementaire récente, les posts récents, les événements en cours.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        query: { type: "string", description: "Question en langage naturel" },
+        mode: {
+          type: "string",
+          enum: ["auto", "web", "x", "news"],
+          default: "auto",
+          description:
+            "auto=web+X, web=recherche web, x=recherche X/Twitter, news=actualité (web).",
+        },
+        from_date: { type: "string", description: "Date min (YYYY-MM-DD)" },
+        to_date: { type: "string", description: "Date max (YYYY-MM-DD)" },
+        language: { type: "string", description: "Langue de sortie ('fr', 'en')" },
+        max_results: { type: "number", default: 15, description: "Nombre max de sources" },
+      },
+      required: ["query"],
+    },
+  },
 ];
 
 server.setRequestHandler(ListToolsRequestSchema, async () => ({ tools }));
@@ -131,6 +183,15 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
         break;
       case "judilibre_get_decision":
         result = await judilibre.getDecision(String(a.id));
+        break;
+      case "judilibre_get_decision_files":
+        result = await judilibre.getDecisionFiles(String(a.id));
+        break;
+      case "judilibre_download_pdf":
+        result = await judilibre.downloadPdf(String(a.url));
+        break;
+      case "grok_search":
+        result = await grok.search(a as unknown as grok.GrokSearchParams);
         break;
       default:
         throw new Error(`Unknown tool: ${name}`);

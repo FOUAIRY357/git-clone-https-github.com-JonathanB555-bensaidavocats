@@ -30,6 +30,8 @@ Variables :
 | `PISTE_CLIENT_SECRET` | Client Secret OAuth2 |
 | `PISTE_API_KEY` | API Key (non utilisée par défaut, OAuth2 suffit) |
 | `PISTE_API_SECRET` | API Secret (non utilisée par défaut) |
+| `XAI_API_KEY` | Clé API xAI, requise par l'outil `grok_search` |
+| `XAI_MODEL` | Modèle Grok (défaut `grok-4-latest`) — ex: `grok-4`, `grok-4-fast`, `grok-4.5` |
 
 ⚠️ **Pré-requis côté PISTE** : votre application doit être abonnée aux APIs **DILA — Légifrance** et **Cour de cassation — Judilibre** sur https://piste.gouv.fr (Mes applications → Souscriptions). Sans abonnement actif, l'OAuth marche mais les appels renvoient `403`.
 
@@ -57,6 +59,9 @@ Puis redémarrez Claude Code. Vérifiez avec `/mcp` que `piste` apparaît avec u
 | `legifrance_list_codes` | Liste des codes en vigueur avec leurs `LEGITEXT…` |
 | `judilibre_search` | Recherche dans la jurisprudence Cassation / Conseil d'État |
 | `judilibre_get_decision` | Texte intégral d'une décision par son `id` Judilibre |
+| `judilibre_get_decision_files` | Liste les fichiers attachés à une décision (PDFs), avec leur `rawUrl` S3 |
+| `judilibre_download_pdf` | Télécharge un PDF attaché (résout le `rawUrl` S3, renvoie du base64) |
+| `grok_search` | Recherche temps réel via Grok (web / X / actualité) — xAI Responses API |
 
 ## 5. Test rapide en CLI
 
