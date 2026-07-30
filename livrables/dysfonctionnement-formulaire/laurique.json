@@ -1,0 +1,11 @@
+{
+  "destinataire": "a.laurique@icloud.com",
+  "objet": "Votre message du 18 juillet, que nous venons de découvrir",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Vous nous avez écrit le 18 juillet, à la recherche d'un cabinet spécialisé en fiscalité internationale et en structuration."},
+    {"p": "Un dysfonctionnement de notre formulaire de contact a empêché votre message de nous parvenir. Nous ne l'avons découvert qu'hier, en auditant notre site. Votre demande est ainsi restée sans réponse, ce qui ne correspond pas à notre manière de travailler. Nous vous prions de nous en excuser."},
+    {"p": "Si votre recherche est toujours en cours, nous serions heureux de comprendre votre situation."},
+    {"p": "Je vous propose un premier échange de quinze minutes, confidentiel et sans engagement. Vous pouvez réserver un créneau à ce lien, [lien agenda], ou répondre à ce message."}
+  ]
+}

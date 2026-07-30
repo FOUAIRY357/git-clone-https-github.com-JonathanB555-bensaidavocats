@@ -1,0 +1,11 @@
+{
+  "destinataire": "sebastien.martin@raidsquare.com",
+  "objet": "Votre message du 20 juillet, que nous venons de découvrir",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Vous nous avez écrit le 20 juillet."},
+    {"p": "Un dysfonctionnement de notre formulaire de contact a empêché votre message de nous parvenir. Nous ne l'avons découvert qu'hier. Nous vous prions de nous en excuser."},
+    {"p": "Le sujet que vous évoquez, la protection des détenteurs d'actifs numériques face aux fraudes et aux atteintes physiques, croise nos travaux en fiscalité et en structuration patrimoniale."},
+    {"p": "Si votre démarche est toujours d'actualité, nous serions heureux d'en discuter. Une réponse à ce message suffit à convenir d'un premier échange."}
+  ]
+}
