@@ -37,7 +37,10 @@ Ne pas promettre la "certitude" fiscale.
 1. **Remerciement** : une ligne.
 2. **On a compris** : une ou deux phrases courtes qui reprennent SA demande dans nos mots,
    avec un ou deux éléments précis de son message (un article, une convention, un mécanisme).
-   Puis la phrase habitude : "Nous avons l'habitude de traiter ce type de dossier."
+   Entrer directement dans le sujet, de façon naturelle. Ne jamais annoncer la compréhension
+   par une formule toute faite du type "Votre demande est claire" ou "Votre question est claire" :
+   on le prouve en reformulant, pas en l'annonçant. Puis la phrase habitude : "Nous avons
+   l'habitude de traiter ce type de dossier."
 3. **Notre rôle** (une phrase) : montage solide et défendable. Si dossier étranger, ajouter
    qu'on coordonne avec des conseils sur place.
 4. **Le call** : un échange de dix minutes, à une date précise (souvent le lendemain),
@@ -85,11 +88,13 @@ Je vous remercie de votre message.
 ```
 
 **On a compris (adapter la partie technique)**
+
+Entrer directement dans le sujet, sans formule d'annonce. Reformuler sa demande dans nos mots. Exemples :
 ```
-Votre demande est claire.
+Vous détenez des actions gratuites et vous vous interrogez sur le sort du gain de cession en cas de donation.
 ```
 ```
-Structurer votre acquisition immobilière à Dubaï depuis votre holding, choisir entre filiale locale et SCI, sécuriser le montage au regard de l'article 209 B et de la convention franco-émirienne : votre demande est claire.
+Si je comprends bien, vous souhaitez investir à Dubaï depuis votre holding, arbitrer entre une filiale locale et une SCI, et sécuriser le montage au regard de l'article 209 B et de la convention franco-émirienne.
 ```
 
 **Phrase habitude (obligatoire, en choisir une)**
@@ -137,7 +142,7 @@ Cher Monsieur,
 
 Je vous remercie de votre message.
 
-Votre demande est claire. Vous voulez investir à Dubaï depuis votre holding, choisir entre une filiale locale et une SCI, et sécuriser le tout côté fiscal (article 209 B, convention franco-émirienne, substance, remontée des revenus). Nous avons l'habitude de traiter ce type de dossier.
+Vous souhaitez investir à Dubaï depuis votre holding, arbitrer entre une filiale locale et une SCI, et sécuriser le tout côté fiscal (article 209 B, convention franco-émirienne, substance, remontée des revenus). Nous avons l'habitude de traiter ce type de dossier.
 
 Notre rôle est de bâtir un montage solide et défendable. Nous pilotons le volet français et coordonnons avec des conseils établis aux Émirats.
 
