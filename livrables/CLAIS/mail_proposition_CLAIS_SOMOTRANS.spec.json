@@ -1,0 +1,24 @@
+{
+  "destinataire": "pec54@hotmail.com",
+  "copie": "jonathan@bensaid-avocats.fr",
+  "objet": "Affaire CLAIS / SOMOTRANS, notre proposition d'intervention et d'honoraires",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Nous faisons suite à votre document de cadrage, dont nous avons pris connaissance avec attention."},
+    {"p": "Le cabinet accepte de prendre en charge votre dossier. Compte tenu des délais douaniers, nous pouvons intervenir sans délai."},
+    {"titre": "1. Notre mission"},
+    {"p": "Notre intervention s'organise en quatre temps."},
+    {"b": "Sécuriser immédiatement la situation, en faisant cesser les pressions de SOMOTRANS et en exigeant la communication des documents obligatoires manquants. Nous saisissons le service de la prise en charge des Douanes pour vérifier le sort exact de vos biens et l'absence de toute mesure de destruction ou de réexportation."},
+    {"b": "Analyser les manquements de SOMOTRANS, la responsabilité du dépositaire et les délais applicables, dans une note juridique écrite."},
+    {"b": "Définir une stratégie de récupération de vos biens ainsi que les recours envisageables."},
+    {"b": "Exécuter cette stratégie, par les démarches administratives, les courriers officiels et la représentation devant les Douanes, jusqu'à la récupération effective de vos biens."},
+    {"titre": "2. Nos honoraires"},
+    {"p": "Nous vous proposons un forfait de 8 000 € HT couvrant l'intégralité de cette mission. La TVA est due en sus, selon le régime applicable au jour de la facturation."},
+    {"p": "Ce forfait constitue un plafond pour la mission décrite. Aucun frais supplémentaire imprévu ne vous sera facturé. Si une procédure judiciaire devenait nécessaire, elle ferait l'objet d'une convention distincte, soumise à votre accord préalable."},
+    {"p": "S'y ajoute un honoraire de résultat de 12 % HT, calculé sur les seules sommes effectivement obtenues ou économisées à votre profit, telles qu'une indemnité versée par SOMOTRANS ou l'annulation de frais ou de pénalités. Il n'est dû qu'en cas de résultat financier."},
+    {"p": "Le règlement s'effectue pour moitié à la signature de la convention et pour moitié à la remise de la note juridique."},
+    {"titre": "3. Prochaine étape"},
+    {"p": "Si cette proposition recueille votre accord, nous vous adresserons la convention d'honoraires à signer et engagerons aussitôt la phase de sécurisation."},
+    {"p": "Afin d'établir la convention, nous vous remercions de nous confirmer votre adresse postale complète."}
+  ]
+}
