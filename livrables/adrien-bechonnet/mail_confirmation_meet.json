@@ -1,0 +1,13 @@
+{
+  "destinataire": "adrien.bechonnet@gmail.com",
+  "copie": "jonathan@bensaid-avocats.fr",
+  "objet": "Notre échange du mardi 4 août à 12h30",
+  "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition d'ici là.",
+  "corps": [
+    {"p": "Je vous confirme notre échange de mardi 4 août, à 12h30 (heure de Paris)."},
+    {"p": "Nous le tiendrons en visioconférence, via Google Meet."},
+    {"p": "Voici le lien pour nous rejoindre : https://meet.google.com/vng-fwwq-wjf"},
+    {"p": "Vous aviez par ailleurs réservé un créneau le mercredi 5 août. Il fait désormais double emploi. Vous pouvez l'annuler depuis votre courriel de confirmation, ou le laisser sans suite."}
+  ]
+}
