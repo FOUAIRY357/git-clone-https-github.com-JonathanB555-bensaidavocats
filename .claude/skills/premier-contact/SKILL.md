@@ -32,12 +32,22 @@ Une phrase suffit : "Nous avons l'habitude de traiter ce type de dossier."
 Ne jamais écrire "c'est le cœur de notre pratique" ni de formule grandiloquente.
 Ne pas promettre la "certitude" fiscale.
 
+**À PROSCRIRE ABSOLUMENT (marqueurs « IA »).** Ne jamais ouvrir la reprise par une
+phrase-chapeau qui annonce la compréhension. Sont bannis, notamment :
+"Votre demande est claire", "Si je comprends bien", "Je comprends bien",
+"C'est bien noté", "Nous avons bien compris votre demande".
+On entre **directement dans les faits** : on reformule la situation du client dans nos
+mots. C'est la reprise concrète elle-même qui prouve qu'on a compris, pas une phrase qui
+l'annonce.
+
 ## Les 4 briques du mail (dans cet ordre)
 
 1. **Remerciement** : une ligne.
 2. **On a compris** : une ou deux phrases courtes qui reprennent SA demande dans nos mots,
    avec un ou deux éléments précis de son message (un article, une convention, un mécanisme).
-   Puis la phrase habitude : "Nous avons l'habitude de traiter ce type de dossier."
+   Entrer **directement dans les faits**, sans phrase-chapeau annonçant la compréhension
+   (voir "À proscrire" plus haut). Puis la phrase habitude : "Nous avons l'habitude de
+   traiter ce type de dossier."
 3. **Notre rôle** (une phrase) : montage solide et défendable. Si dossier étranger, ajouter
    qu'on coordonne avec des conseils sur place.
 4. **Le call** : un échange de dix minutes, à une date précise (souvent le lendemain),
@@ -84,12 +94,12 @@ Briques courtes et interchangeables. Piocher, adapter le sujet, assembler.
 Je vous remercie de votre message.
 ```
 
-**On a compris (adapter la partie technique)**
+**On a compris (reprise directe, sans phrase-chapeau, adapter la partie technique)**
 ```
-Votre demande est claire.
+Vous investissez à Dubaï depuis votre holding et vous hésitez entre une filiale locale et une SCI.
 ```
 ```
-Structurer votre acquisition immobilière à Dubaï depuis votre holding, choisir entre filiale locale et SCI, sécuriser le montage au regard de l'article 209 B et de la convention franco-émirienne : votre demande est claire.
+Vous cherchez à sécuriser ce montage au regard de l'article 209 B et de la convention franco-émirienne.
 ```
 
 **Phrase habitude (obligatoire, en choisir une)**
@@ -137,7 +147,7 @@ Cher Monsieur,
 
 Je vous remercie de votre message.
 
-Votre demande est claire. Vous voulez investir à Dubaï depuis votre holding, choisir entre une filiale locale et une SCI, et sécuriser le tout côté fiscal (article 209 B, convention franco-émirienne, substance, remontée des revenus). Nous avons l'habitude de traiter ce type de dossier.
+Vous investissez à Dubaï depuis votre holding. Vous hésitez entre une filiale locale et une SCI, et vous voulez sécuriser le tout côté fiscal (article 209 B, convention franco-émirienne, substance, remontée des revenus). Nous avons l'habitude de traiter ce type de dossier.
 
 Notre rôle est de bâtir un montage solide et défendable. Nous pilotons le volet français et coordonnons avec des conseils établis aux Émirats.
 
