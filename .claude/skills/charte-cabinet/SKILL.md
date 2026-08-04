@@ -23,6 +23,11 @@ présente charte, la charte prévaut.** Un skill ne redéclare pas ces règles, 
 - **Guillemets français « »** quand des guillemets sont nécessaires.
 - **Aucun marqueur IA** : pas de couleur « signature » type Claude, pas d'emoji décoratif dans les
   écrits juridiques.
+- **Aucune phrase-chapeau qui annonce la compréhension.** Bannies partout (mails, courriers, notes) :
+  « Votre demande est claire », « Si je comprends bien », « Je comprends bien », « C'est bien noté »,
+  « Nous avons bien compris votre demande ». On entre directement dans les faits : on reformule la
+  situation dans nos mots. C'est la reprise concrète qui prouve qu'on a compris, pas une phrase qui
+  l'annonce.
 
 ## 2. Formules
 - **Appel** (mail et courrier) : « Cher Monsieur, » ou « Chère Madame, ». « Cher <Prénom>, » admis
