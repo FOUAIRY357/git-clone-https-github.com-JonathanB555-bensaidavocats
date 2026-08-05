@@ -108,41 +108,53 @@ Dans une conversation Claude où les connecteurs **Microsoft 365** et **Google C
 actifs, taper `/rdv-auto` (ou « vérifie mes mails pour les RDV confirmés »). Le skill déroule
 l'algorithme ci-dessus et crée les rappels manquants. Aucun réglage préalable.
 
-### B. En automatique (planifié)
-> ⚠️ **Limite plateforme.** Sur l'organisation du cabinet, les sessions planifiées créées via le
-> connecteur *Claude Code Remote* **ne reçoivent pas** l'accès aux connecteurs (Outlook, Google
-> Agenda) — une routine créée par ce biais se réveillerait « aveugle ». Le planificateur doit
-> donc être créé **depuis l'application claude.ai**, où l'on attache explicitement les connecteurs.
+### B. En tâche de fond (routine planifiée) — EN PLACE
+Une routine *Claude Code Remote* est **rattachée à la session support** (celle qui détient les
+connecteurs) et la réveille automatiquement pour dérouler l'algorithme. Réglages actifs :
+- **Trigger** : `trig_019KExzqvC1TgoAgYBamfDhx` (« RDV-auto (fond) — RDV confirmés par mail »).
+- **Session support** : `session_01N1e6BUa4kZMdHTs1anac7N`.
+- **Cadence** : 1×/heure, lundi→vendredi, ~8h–20h Paris — cron `0 6-18 * * 1-5` (UTC ; minimum
+  plateforme = 1×/heure ; largement suffisant, un RDV se confirmant des jours à l'avance).
+- **Notification** : push, **uniquement** quand ≥1 RDV est créé (les passages sans nouveauté
+  sont silencieux, pas de spam).
 
-Étapes (claude.ai) :
-1. **Réglages → Tâches planifiées / Routines** → **Nouvelle tâche**.
-2. **Fréquence** : une fois par heure, en heures ouvrées (amplement suffisant : un RDV se
-   confirme des jours à l'avance ; le minimum autorisé est de toute façon 1×/heure).
-3. **Connecteurs** : activer **Microsoft 365** et **Google Calendar** sur la tâche.
-4. **Notification** : push.
-5. **Prompt** : coller le bloc autonome ci-dessous (il ne dépend PAS de ce dépôt, donc il
-   fonctionne même si la session planifiée n'a pas le code sous la main).
+> 💡 **Point clé de fiabilité (testé et validé le 5 août 2026).** Au réveil, les serveurs MCP
+> (Outlook, Agenda) sont d'abord déconnectés puis se reconnectent en quelques secondes. Le prompt
+> de la routine **recharge donc les outils via ToolSearch** (qui attend la reconnexion) AVANT de
+> les appeler ; sans cette étape (ÉTAPE 0), un run pourrait conclure « pas d'accès » à tort.
+
+> ⚠️ **Plan de secours** si un jour la session support n'est plus résumable (ou si l'on préfère
+> une tâche indépendante) : recréer la routine **depuis l'appli claude.ai** (Réglages → Tâches
+> planifiées), en cochant les connecteurs **Microsoft 365** + **Google Calendar** et en collant
+> le prompt autonome ci-dessous.
 
 ```text
-Tu es le robot « RDV-auto » du cabinet BENSAID AVOCATS. À CHAQUE exécution, ta seule mission : détecter les rendez-vous que des clients viennent de CONFIRMER par mail, et créer le rappel correspondant dans Google Agenda. Sois bref.
+[Robot RDV-auto — BENSAID AVOCATS. Tâche de fond, personne devant l'écran. Sois bref.]
+Mission : détecter les RDV que des clients viennent de CONFIRMER par mail et créer le rappel privé correspondant dans Google Agenda.
 
-RÈGLES DE SÉCURITÉ ABSOLUES
-1. Lecture seule sur les mails : jamais d'envoi, de réponse ni d'invitation. Rien de visible côté client.
-2. L'événement Google Agenda est un rappel PRIVÉ : attendees VIDE et notificationLevel:"NONE", pour qu'AUCUNE invitation ne parte au client. Le nom/email du client vont dans le titre et la description, jamais en participant.
-3. Dans le doute (date/heure incertaine, pas de proposition de créneau préalable claire, RDV déjà passé) → NE PAS créer, et le signaler dans le récap.
+ÉTAPE 0 — RECONNEXION. Au réveil, les serveurs MCP se reconnectent (outils d'abord indisponibles). Recharge-les via ToolSearch (il ATTEND la reconnexion) : select:mcp__Microsoft_365__outlook_email_search,mcp__Microsoft_365__read_resource,mcp__Google_Calendar__list_events,mcp__Google_Calendar__create_event,PushNotification . Réessaie une fois si besoin. Ne conclus « pas d'accès » qu'après ce second essai.
+
+RÈGLES ABSOLUES
+1. Lecture seule sur les mails : jamais d'envoi/réponse/invitation.
+2. Rappel PRIVÉ : create_event attendees VIDE + notificationLevel:"NONE" → aucune invitation au client. Client dans titre/description, jamais en participant.
+3. Dans le doute (date/heure incertaine, pas de proposition préalable claire, RDV passé) → NE PAS créer, signaler.
 
 ÉTAPES
-1. Mails du jour : outlook_email_search folderName:"Inbox", order:"newest", limit:25, afterDateTime:"today".
-2. Pour chaque mail d'un expéditeur EXTERNE (hors @bensaid-avocats.fr), lis le corps via read_resource sur mail:///messages/{id}. Ne retiens que les CONFIRMATIONS d'un créneau de RDV (« oui », « parfait », « ça me va », « je confirme »…), en réponse à une proposition faite par le cabinet (souvent dans le texte cité du fil).
-3. Extrais : client (nom + email), date + heure en HEURE DE PARIS, objet si connu, format si mentionné, conversationId, date de confirmation. Ne crée QUE si le RDV est dans le FUTUR.
-4. ANTI-DOUBLON : list_events fullText:"<conversationId>" sur la JOURNÉE du RDV (00:00→23:59, timeZone:"Europe/Paris"). Si un événement contient déjà ce conversationId, OU si un événement du même client existe déjà à la même heure de début → NE recrée PAS.
-5. Crée (create_event, agenda principal) : summary "RDV — <Client>" (+ " · <objet>") ; startTime "AAAA-MM-JJTHH:MM:00" ; endTime +1h (ou +2h si cadrage) ; timeZone:"Europe/Paris" ; attendees AUCUN ; notificationLevel:"NONE" ; location cabinet si présentiel ("BENSAID AVOCATS, 49 rue de Courcelles, 75008 Paris, 1er étage, code 2079") ; description "Confirmé par mail par <client> (<email>) le <date>. Objet : <…>.\n\n⟦rdv-auto⟧ ref:<conversationId>" ; overrideReminders [{method:"popup",minutes:1440},{method:"popup",minutes:60},{method:"popup",minutes:10}].
-6. RÉCAP (= texte de la notification) : si ≥1 créé → une ligne par RDV "✅ <Client> — <JJ/MM> à <HH:MM> (créé)" + cas douteux "⚠️ …" ; sinon EXACTEMENT "RAS — aucun nouveau RDV confirmé.".
+1. outlook_email_search folderName:"Inbox", order:"newest", limit:25, afterDateTime:"today".
+2. Pour chaque mail EXTERNE (hors @bensaid-avocats.fr), read_resource sur mail:///messages/{id}. Ne retiens que les CONFIRMATIONS d'un créneau (« oui », « parfait », « je confirme »…) répondant à une proposition du cabinet (souvent dans le texte cité).
+3. Extrais client (nom+email), date+heure HEURE DE PARIS, objet, format, conversationId, date de confirmation. Ne crée QUE si le RDV est FUTUR.
+4. ANTI-DOUBLON : list_events fullText:"<conversationId>" sur la journée du RDV. Si ce conversationId existe déjà OU un événement du même client à la même heure → NE recrée PAS.
+5. create_event (agenda principal) : summary "RDV — <Client>" (+ " · <objet>") ; startTime "AAAA-MM-JJTHH:MM:00" ; endTime +1h (ou +2h si cadrage) ; timeZone:"Europe/Paris" ; attendees AUCUN ; notificationLevel:"NONE" ; location cabinet si présentiel ("BENSAID AVOCATS, 49 rue de Courcelles, 75008 Paris, 1er étage, code 2079") ; description "Confirmé par mail par <client> (<email>) le <date>. Objet : <…>.\n\n⟦rdv-auto⟧ ref:<conversationId>" ; overrideReminders [{method:"popup",minutes:1440},{method:"popup",minutes:60},{method:"popup",minutes:10}].
+6. Si ≥1 RDV créé → PushNotification avec le récap (une ligne/RDV). Sinon, pas de notification.
+7. Récap texte bref (créés + cas douteux, ou « RAS »).
 ```
 
-### Réglages
-Rythme, plage horaire, rappels, périmètre : se modifient dans l'écran de la tâche claude.ai, et
-ce fichier doit être tenu en cohérence.
+### Mettre en pause / arrêter / régler
+- **Pause** : « mets en pause le robot rdv-auto » → `update_trigger enabled:false`.
+- **Reprise** : « réactive le robot rdv-auto » → `enabled:true`.
+- **Arrêt définitif** : « supprime le robot rdv-auto » → `delete_trigger`.
+- **Régler** (cadence, plage horaire, rappels, périmètre) : le demander en langage naturel ; la
+  routine **et** ce fichier sont mis à jour ensemble.
 
 ## Limites connues
 - Détection fondée sur la compréhension du fil de mail : un client qui confirme de façon très
