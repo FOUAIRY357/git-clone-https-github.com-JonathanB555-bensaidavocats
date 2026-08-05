@@ -36,10 +36,13 @@ Pour une note juridique, une consultation ou un compte rendu, utiliser plutôt
 1. **Rédiger le contenu** en vraies phrases, ton avocat : phrases complètes et liées,
    pas de télégraphique. Une accroche qui rappelle le contexte, le développement, une
    phrase de disponibilité, puis la formule de politesse.
-2. **Construire le spec JSON** (modèle commenté en tête de `render.py`, exemple dans
-   `exemples/exemple.json`). Champs : `ville`, `date`, `destinataire` (liste de lignes,
-   1re ligne en gras), `ref` (optionnel), `objet`, `salutation`, `corps` (liste de
-   blocs), `politesse`, `signataire`, `qualite` (optionnel), `pj` (optionnel).
+2. **Construire le spec JSON** (modèle commenté en tête de `render.py`). Deux exemples :
+   `exemples/exemple.json` (courrier client classique) et `exemples/exemple-sie-grasse.json`
+   (courrier fiscal à une administration, avec bloc de références et signature « pour le
+   compte de »). Champs : `ville`, `date`, `destinataire` (liste de lignes, 1re ligne en
+   gras), `ref` (optionnel), `references` (optionnel), `objet`, `salutation`, `corps`
+   (liste de blocs), `politesse`, `pour` (optionnel), `signataire`, `qualite` (optionnel),
+   `pj` (optionnel).
 3. **Lancer** :
    ```bash
    python3 .claude/skills/courrier/render.py /chemin/spec.json /chemin/sortie.docx
@@ -52,6 +55,18 @@ Dans `corps` (liste), chaque élément est :
 - `{"sub": "..."}` : sous-titre en gras ;
 - `{"b": "..."}` : puce ;
 - `{"em": "..."}` : note en italique gris (808088).
+
+## Bloc de références et signature « pour le compte de »
+Pour un courrier administratif ou fiscal (SIE, DGFIP, greffe, URSSAF...), on ajoute
+souvent un **bloc de références** sous le destinataire et une mention **« Pour <client>, »**
+au-dessus de la signature (l'avocat signe pour le compte de son client). Voir
+`exemples/exemple-sie-grasse.json`.
+- `references` (liste de chaînes) : chaque entrée est une ligne du bloc, en 9 pt, placée
+  sous le destinataire (avant la date). On fournit le libellé complet, deux-points inclus,
+  p. ex. `"Vos réf. : ..."`, `"Contribuable : ..."`, `"SIREN : ..."`, `"Objet"` reste géré
+  à part. Se cumule avec `ref` (la ligne `N/Réf. : ...` s'affiche alors en tête du bloc).
+- `pour` (chaîne) : mention `Pour Madame X,` posée juste au-dessus de la signature,
+  alignée à droite, non grasse.
 
 ## Rappels métier
 - **Ne jamais envoyer** le courrier : on **prépare** seulement, François relit et

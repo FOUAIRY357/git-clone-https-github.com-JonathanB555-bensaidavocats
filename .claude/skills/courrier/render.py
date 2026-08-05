@@ -23,7 +23,12 @@ MODELE DE SPEC JSON
     "12 rue de la Paix",
     "75002 Paris"
   ],
-  "ref": "2026-0142 / JD",                 # optionnel : si absent, la ligne N/Ref. disparait
+  "ref": "2026-0142 / JD",                 # optionnel : ligne "N/Réf. : ..." ; si absent, disparait
+  "references": [                          # optionnel : bloc de references (9pt) sous le destinataire,
+    "Vos réf. : RSP_rcg13",                #   une ligne par entree (courrier administratif / fiscal).
+    "Contribuable : Mme X - Enseigne",     #   Se cumule avec "ref" (la N/Réf. est affichee en premier).
+    "SIREN : 000 000 000"                  #   Chaque libelle est fourni en entier par l'appelant.
+  ],
   "objet": "Cession de parts sociales",    # obligatoire (affiche en gras)
   "salutation": "Monsieur,",               # obligatoire
   "corps": [                                # obligatoire : liste de blocs
@@ -34,6 +39,8 @@ MODELE DE SPEC JSON
     {"em": "Note en italique gris"}          #   {"em":...} -> italique gris
   ],
   "politesse": "Je vous prie d'agreer, Monsieur, l'expression de mes salutations distinguees.",
+  "pour": "Pour Madame X,",                # optionnel : mention "Pour ..." au-dessus de la signature
+                                           #   (quand l'avocat signe pour le compte du client)
   "signataire": "Francois OUAIRY",         # obligatoire
   "qualite": "Avocat associe",             # optionnel
   "signature": "assets/signature_ouairy.png", # optionnel : image manuscrite au-dessus du nom ;
@@ -129,6 +136,31 @@ def insert_image_before(p, img_path, width_cm=4.0, align=None):
     return new_p
 
 
+def insert_para_before(p, text, rpr=None, align=None):
+    """Insere un paragraphe texte juste AVANT `p`, en conservant le rPr fourni."""
+    from docx.text.paragraph import Paragraph
+    new_el = p._p.makeelement(qn("w:p"), {})
+    p._p.addprevious(new_el)
+    new_p = Paragraph(new_el, p._parent)
+    set_text_keep_format(new_p, text, rpr)
+    if align is not None:
+        new_p.alignment = align
+    return new_p
+
+
+def set_spacing_after(p, twips):
+    """Fixe l'espacement 'apres' du paragraphe (en twips) pour resserrer un bloc."""
+    pPr = p._p.find(qn("w:pPr"))
+    if pPr is None:
+        pPr = p._p.makeelement(qn("w:pPr"), {})
+        p._p.insert(0, pPr)
+    sp = pPr.find(qn("w:spacing"))
+    if sp is None:
+        sp = pPr.makeelement(qn("w:spacing"), {})
+        pPr.append(sp)
+    sp.set(qn("w:after"), str(twips))
+
+
 def set_bold(p, value=True):
     for r in p._p.findall(qn("w:r")):
         rpr = r.find(qn("w:rPr"))
@@ -202,10 +234,30 @@ def build(spec, out_path):
         for p in dest_slots:
             delete_para(p)
 
-    # --- N/Ref. ---
+    # --- N/Ref. et/ou bloc de references administratives (9pt, sous le destinataire) ---
     p_ref = find_para(doc, "[Référence dossier]")
+    ref_lines = []
     if spec.get("ref"):
-        set_text_keep_format(p_ref, f"N/Réf. : {spec['ref']}")
+        ref_lines.append(f"N/Réf. : {spec['ref']}")
+    refs = spec.get("references")
+    if refs:
+        if isinstance(refs, str):
+            refs = [refs]
+        ref_lines.extend(refs)
+    if ref_lines:
+        rpr_ref = first_run_rpr(p_ref)
+        set_text_keep_format(p_ref, ref_lines[0], rpr_ref)
+        blocs = [p_ref]
+        anchor = p_ref
+        for line in ref_lines[1:]:
+            anchor = clone_after(anchor)
+            set_text_keep_format(anchor, line, rpr_ref)
+            blocs.append(anchor)
+        # bloc resserre : lignes collees, gap normal apres la derniere avant la date
+        if len(blocs) > 1:
+            for pp in blocs[:-1]:
+                set_spacing_after(pp, 40)
+            set_spacing_after(blocs[-1], 240)
     else:
         delete_para(p_ref)
 
@@ -255,8 +307,14 @@ def build(spec, out_path):
         # image de signature au-dessus du nom : chemin fourni, sinon signature par defaut du
         # cabinet (Francois OUAIRY). Mettre "signature": false pour n'en poser aucune.
         sig = spec.get("signature", os.path.join(HERE, "assets", "signature_ouairy.png"))
+        top = p_sig
         if sig and os.path.exists(sig):
-            insert_image_before(p_sig, sig, spec.get("signature_largeur_cm", 4.0), p_sig.alignment)
+            top = insert_image_before(p_sig, sig, spec.get("signature_largeur_cm", 4.0), p_sig.alignment)
+        # mention "Pour <client>," au-dessus de la signature (avocat signant pour le compte de)
+        pour = spec.get("pour")
+        if pour:
+            pour_p = insert_para_before(top, pour, first_run_rpr(p_sig), p_sig.alignment)
+            set_bold(pour_p, False)
     p_qualite = find_para(doc, "[Qualité]") or find_para(doc, "Avocat associé")
     if p_qualite is not None:
         if spec.get("qualite"):
