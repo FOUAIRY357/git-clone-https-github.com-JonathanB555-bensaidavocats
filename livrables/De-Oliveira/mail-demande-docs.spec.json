@@ -1,0 +1,53 @@
+{
+  "destinataire": "foncieremdo@gmail.com",
+  "objet": "Votre expatriation en Suisse et l'exit tax, pièces à nous transmettre",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "À la suite de notre rendez-vous de ce matin, voici les documents qui vont nous permettre de prendre votre dossier en main."},
+    {"p": "Votre départ pour la Suisse est proche. La rentrée de vos filles est fixée au 15 août. Le calendrier est donc court, et c'est lui qui commande notre méthode."},
+    {"p": "Deux sujets rythment votre départ. Le premier est la déclaration attachée à l'exit tax, c'est-à-dire l'imposition de la plus-value latente sur vos titres au jour où vous quittez la France. Le second, souvent mal compris, est le sursis de paiement, qui permet de ne pas décaisser cet impôt immédiatement. Selon votre situation, il peut supposer des démarches à engager avant même votre départ. Nous devons donc avancer sans attendre."},
+    {"p": "La consultation réalisée par Mazars nous fera gagner du temps. Merci de nous la communiquer en priorité, avec les valeurs retenues pour vos titres."},
+
+    {"titre": "1. Votre départ et votre foyer"},
+    {"b": "La date envisagée de votre départ effectif de France, celle qui fixera le transfert de votre domicile fiscal"},
+    {"b": "Le justificatif de votre logement en Suisse, bail ou acte d'acquisition"},
+    {"b": "L'attestation de scolarisation de vos filles en Suisse"},
+    {"b": "Votre titre de séjour suisse, ou la demande en cours"},
+    {"b": "La copie de votre pièce d'identité et de votre livret de famille"},
+    {"b": "Votre situation de famille et votre régime matrimonial, avec le contrat de mariage s'il en existe un"},
+
+    {"titre": "2. La consultation de Mazars"},
+    {"b": "La consultation exit tax de Mazars, dans son intégralité"},
+    {"b": "Les valeurs retenues pour vos titres et le détail des calculs"},
+    {"b": "Les échanges écrits utiles que vous avez eus avec Mazars sur ce point"},
+
+    {"titre": "3. Votre situation fiscale personnelle"},
+    {"b": "Vos trois derniers avis d'impôt sur le revenu"},
+    {"b": "Vos trois dernières déclarations de revenus, avec leurs annexes"},
+    {"b": "Vos avis et déclarations d'impôt sur la fortune immobilière, si vous y êtes soumis"},
+    {"b": "Un rappel de vos lieux de résidence au cours des dix dernières années"},
+
+    {"titre": "4. Votre activité de loueur en meublé"},
+    {"b": "La liste de vos biens loués meublés, avec pour chacun l'adresse, la date et le prix d'acquisition"},
+    {"b": "Les bilans et liasses fiscales de cette activité, ainsi que les tableaux d'amortissement"},
+    {"b": "Les baux en cours"},
+    {"b": "Le détail des emprunts adossés à ces biens"},
+
+    {"titre": "5. Vos sociétés"},
+    {"b": "L'organigramme de votre groupe"},
+    {"b": "Les statuts à jour de Holding MDO, Foncière MDO, MDO Travaux, MC Habitat et MS Immobilier"},
+    {"b": "Les trois derniers bilans et liasses fiscales de chaque société"},
+    {"b": "Le prix ou la valeur d'acquisition de vos titres, en particulier ceux de Holding MDO"},
+    {"b": "Les pactes d'associés et la répartition du capital avec MM. Alves et Février"},
+    {"b": "L'état de vos comptes courants d'associé"},
+
+    {"titre": "6. Votre patrimoine immobilier et financier"},
+    {"b": "Les biens que vous détenez en direct ou au travers de SCI, avec les titres de propriété et les emprunts"},
+    {"b": "Vos comptes bancaires, en France comme en Suisse"},
+    {"b": "Vos contrats d'assurance-vie, plans d'épargne en actions et autres placements financiers"},
+
+    {"p": "Vous pouvez nous adresser ces pièces au fur et à mesure, sans attendre de les avoir toutes réunies."},
+    {"p": "Pour démarrer, trois éléments suffisent, la consultation de Mazars, vos derniers avis d'impôt, et la date envisagée de votre départ."}
+  ],
+  "sortie": "livrables/De-Oliveira/mail-demande-docs.html"
+}
