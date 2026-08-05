@@ -1,8 +1,9 @@
 # FICHE CALL — François Cerbelle (premier échange, 5-6 août 2026)
 
-> Interne BENSAID AVOCATS. Durée visée : 10 à 15 min.
-> But du call : qualifier, prouver la maîtrise, verrouiller le RDV de cadrage.
-> **Ne pas donner l'étude, ne pas chiffrer l'impôt, ne pas chiffrer au-delà du cadrage.**
+> Interne BENSAID AVOCATS. Durée visée : 10 min.
+> But du call : vendre une consultation. Pièces ensuite, devis après.
+> **Ne pas donner l'étude, ne pas chiffrer l'impôt ni les honoraires au téléphone.**
+> Séquence : call, puis demande des pièces, puis devis.
 
 ## Rappel express (30 secondes)
 
@@ -47,14 +48,17 @@ que nous traitons régulièrement. »
   plus l'international. Rôles complémentaires.
 - « Donnez-moi juste la réponse. » → L'arbitrage dépend des grants et du calendrier de sortie.
   C'est précisément l'objet de l'étude.
-- « Combien ça coûte ? » → On fixe le périmètre et le budget au RDV de cadrage. (Ne pas
-  chiffrer l'étude au téléphone.)
+- « Combien ça coûte ? » → Le devis vient après réception des pièces, une fois le périmètre
+  calé. (Ne pas chiffrer au téléphone.)
 
-## La suite à vendre (close)
+## Ce qu'on vend (close)
 
-Enchaîner sur un **RDV de cadrage stratégique (2 400 € HT)**, en visio ou au cabinet : on y
-qualifie les instruments, on pose les scénarios et le calendrier, on définit la mission.
-Proposer une date **sous 48 h**, l'échéance des 8 mois le justifie.
+Une **consultation juridique écrite et opposable** : qualification des instruments,
+scénarios rachat / IPO chiffrés, calendrier d'exercice lot par lot, articulation
+internationale, volet patrimonial et protection. De quoi décider avant l'échéance.
+
+Close : obtenir le **go de principe**. « Je vous demande quelques pièces, puis je vous
+envoie un devis. » Séquence claire : call, pièces, devis.
 
 ## Pièces à demander en fin d'appel
 
@@ -74,4 +78,4 @@ document de paie précisant le rattachement UK.
 ## Ne pas faire
 
 Ne pas dérouler l'étude. Ne pas donner de montant d'impôt « ferme » sans les grants. Ne pas
-promettre de certitude fiscale. Ne pas chiffrer au-delà du cadrage.
+promettre de certitude fiscale. Ne pas chiffrer les honoraires au téléphone : devis après pièces.
