@@ -1,0 +1,43 @@
+{
+  "destinataire": "adrien.bechonnet@gmail.com",
+  "copie": "jonathan@bensaid-avocats.fr",
+  "objet": "Documents nécessaires à l'audit patrimonial",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Je vous remercie pour notre échange de ce jour."},
+    {"p": "Pour engager l'audit de votre situation et bâtir la structuration envisagée autour d'une holding patrimoniale, voici les pièces qui nous seront utiles. Transmettez ce dont vous disposez, nous compléterons ensemble ce qui manque."},
+
+    {"titre": "1. État civil et situation familiale"},
+    {"b": "Pièces d'identité de vous-même et de votre conjoint"},
+    {"b": "Livret de famille"},
+    {"b": "Justificatif de votre régime matrimonial (communauté légale)"},
+    {"b": "Justificatif de votre résidence fiscale actuelle à l'étranger"},
+
+    {"titre": "2. Revenus et imposition"},
+    {"b": "Avis d'imposition des trois dernières années, en France comme dans votre pays de résidence"},
+    {"b": "Justificatifs de vos revenus actuels (bulletins de salaire, jetons de présence)"},
+
+    {"titre": "3. Patrimoine immobilier"},
+    {"b": "Titre de propriété de la maison de Capbreton"},
+    {"b": "Estimation récente de sa valeur vénale"},
+    {"b": "Tableau d'amortissement des crédits immobiliers en cours, le cas échéant"},
+
+    {"titre": "4. Patrimoine financier et mobilier"},
+    {"b": "Relevés récents de vos comptes Swissquote, espèces et titres"},
+    {"b": "Relevés de votre compte Arab Bank Switzerland"},
+    {"b": "Justificatifs d'acquisition de votre or"},
+    {"b": "Relevés de tout autre compte ou contrat de capitalisation détenu"},
+
+    {"titre": "5. Financements en cours"},
+    {"b": "Contrat et encours de votre ligne de crédit Lombard"},
+    {"b": "Tout autre crédit en cours, le cas échéant"},
+
+    {"titre": "6. Transmission déjà réalisée"},
+    {"b": "Actes ou déclarations des donations consenties à vos enfants"},
+
+    {"titre": "Les prochaines étapes"},
+    {"p": "À réception de ces éléments, je vous adresserai un devis détaillant deux à trois scénarios d'étude, de l'analyse la plus resserrée à la plus complète."},
+    {"p": "Pour la transmission de ces pièces, un espace de dépôt sécurisé peut être mis à votre disposition."},
+    {"p": "Le dossier sera suivi personnellement par Jonathan Bensaid et moi-même."}
+  ]
+}
