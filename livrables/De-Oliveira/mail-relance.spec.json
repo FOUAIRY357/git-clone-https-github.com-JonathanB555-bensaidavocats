@@ -1,15 +1,10 @@
 {
   "destinataire": "foncieremdo@gmail.com",
-  "objet": "Relance, les pièces de votre dossier exit tax",
+  "objet": "Votre dossier exit tax, un point rapide",
   "civilite": "Cher Monsieur,",
   "disponibilite": "Je reste à votre disposition.",
   "corps": [
-    {"p": "Je reviens vers vous sur ma demande du 5 août. Le temps presse avant votre départ."},
-    {"p": "Pour commencer, trois pièces suffisent."},
-    {"b": "La consultation exit tax de Mazars"},
-    {"b": "Vos derniers avis d'impôt sur le revenu"},
-    {"b": "La date envisagée de votre départ"},
-    {"p": "Un retour, même partiel, me permettra d'avancer."}
-  ],
-  "sortie": "livrables/De-Oliveira/mail-relance.html"
+    {"p": "Je reviens vers vous sur ma demande du 5 août, restée sans réponse à ce jour."},
+    {"p": "Rencontrez-vous une difficulté pour réunir ces pièces ? Si oui, dites-le moi, nous verrons ensemble comment avancer."}
+  ]
 }
