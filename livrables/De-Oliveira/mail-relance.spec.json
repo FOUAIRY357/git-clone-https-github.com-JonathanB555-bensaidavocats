@@ -1,15 +1,15 @@
 {
   "destinataire": "foncieremdo@gmail.com",
-  "objet": "Votre départ en Suisse, relance sur les pièces attendues",
+  "objet": "Relance, les pièces de votre dossier exit tax",
   "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition.",
   "corps": [
-    {"p": "Je reviens vers vous au sujet des pièces que je vous ai demandées pour engager votre dossier."},
-    {"p": "Votre départ approche et la rentrée de vos filles est fixée au 15 août. Le temps nous est compté, en particulier pour sécuriser le sursis de paiement de l'exit tax, qui peut supposer des démarches avant même votre départ."},
-    {"p": "Pour commencer sans attendre, trois éléments me suffisent dans un premier temps."},
-    {"b": "La consultation exit tax de Mazars, avec les valeurs retenues pour vos titres"},
+    {"p": "Je reviens vers vous sur ma demande du 5 août. Le temps presse avant votre départ."},
+    {"p": "Pour commencer, trois pièces suffisent."},
+    {"b": "La consultation exit tax de Mazars"},
     {"b": "Vos derniers avis d'impôt sur le revenu"},
-    {"b": "La date envisagée de votre départ effectif de France"},
-    {"p": "Le reste des pièces pourra suivre au fur et à mesure. Un retour, même partiel, me permettra d'avancer."}
+    {"b": "La date envisagée de votre départ"},
+    {"p": "Un retour, même partiel, me permettra d'avancer."}
   ],
   "sortie": "livrables/De-Oliveira/mail-relance.html"
 }
