@@ -1,0 +1,24 @@
+{
+  "destinataire": "kmerien80@gmail.com",
+  "objet": "Régularisation de votre situation fiscale en France - pièces à réunir",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Pour préparer l'examen de votre dossier et arrêter la stratégie de régularisation, nous aurons besoin des éléments suivants."},
+    {"titre": "1. Les biens"},
+    {"b": "l'adresse de chaque bien détenu en France, sa date et son prix d'acquisition"},
+    {"b": "les titres de propriété (actes notariés)"},
+    {"b": "le mode de détention, en direct ou par l'intermédiaire d'une société, et les statuts de la société le cas échéant"},
+    {"titre": "2. L'usage et les revenus"},
+    {"b": "pour chaque bien, s'il est occupé, vacant ou loué"},
+    {"b": "s'il est loué, une location nue ou meublée, les baux, et les loyers encaissés année par année"},
+    {"b": "les coordonnées des comptes bancaires ayant reçu ces loyers"},
+    {"titre": "3. L'historique déclaratif"},
+    {"b": "les déclarations fiscales françaises déjà déposées depuis votre installation à Hong Kong, le cas échéant"},
+    {"b": "les avis d'imposition français en votre possession"},
+    {"b": "les cessions de biens déjà réalisées, avec les actes correspondants"},
+    {"titre": "4. Votre situation personnelle"},
+    {"b": "un justificatif de résidence fiscale à Hong Kong"},
+    {"b": "votre situation familiale (marié, pacsé, enfants), utile pour l'impôt sur la fortune immobilière et la transmission"},
+    {"p": "Ces éléments nous permettront de mesurer précisément votre exposition et de chiffrer la régularisation. Vous pouvez me les transmettre au fil de l'eau, sans attendre d'avoir tout réuni."}
+  ]
+}
