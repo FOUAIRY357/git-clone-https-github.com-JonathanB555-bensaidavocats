@@ -227,6 +227,15 @@ def render_note(doc, spec):
     _line(doc, m.get("disclaimer", DISCLAIMER_DEF), size=8.5, italic=True, color=GRIS, after=4, before=10)
     _line(doc, "", after=0)
     if m.get("signataire"):
+        # image de signature manuscrite au-dessus du nom (comme le skill courrier) :
+        # defaut = signature Francois OUAIRY ; "signature": false pour n'en poser aucune ;
+        # "signature": "<chemin>" pour un autre signataire.
+        sig = m.get("signature", os.path.join(HERE, "assets", "signature_ouairy.png"))
+        if sig and os.path.exists(sig):
+            ps = _p(doc)
+            ps.add_run().add_picture(sig, width=Cm(m.get("signature_largeur_cm", 4.0)))
+            ps.paragraph_format.space_after = Pt(0)
+            ps.paragraph_format.space_before = Pt(6)
         _line(doc, m["signataire"], size=9.5, after=0)
     if m.get("qualite"):
         _line(doc, m["qualite"], size=9, color=GRIS, after=0)
