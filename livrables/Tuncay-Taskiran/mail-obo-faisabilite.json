@@ -1,0 +1,42 @@
+{
+  "destinataire": "Tuncay TASKIRAN (repondre dans le fil de son mail)",
+  "objet": "Etude de faisabilite d'une operation d'OBO sur votre patrimoine immobilier",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "J'ai bien pris connaissance de votre demande. Votre patrimoine immobilier est valorisé à environ 1 250 000 euros. Un encours de dette de 310 000 euros subsiste sur l'un des biens. Votre objectif est de rembourser cette dette et de dégager 940 000 euros de liquidités nettes."},
+
+    {"titre": "1. Faisabilité de l'opération"},
+    {"p": "L'OBO immobilier est une opération reconnue et couramment pratiquée. Elle est envisageable dans votre situation."},
+    {"p": "Un point appelle votre attention. Le montant recherché, 940 000 euros de liquidités nettes plus 310 000 euros de remboursement, correspond à la valeur totale de votre patrimoine. L'opération suppose donc un financement bancaire proche de 100 % de la valeur des biens."},
+    {"p": "Les banques financent en pratique entre 70 % et 80 % de la valeur d'un bien dans ce type de montage. À titre indicatif, un financement à ce niveau dégagerait, après remboursement de votre dette actuelle, entre 565 000 et 690 000 euros de liquidités immédiates. Ce montant reste inférieur à votre objectif."},
+    {"p": "Une partie du prix peut être laissée en compte courant d'associé dans la société acheteuse, remboursable au fil des loyers perçus. Cette solution permet de fixer le prix à la valeur pleine de 1 250 000 euros, mais elle étale une partie de la liquidité dans le temps plutôt que de la verser immédiatement."},
+    {"p": "Une étude de faisabilité bancaire, menée avec un établissement prêteur, permettra de fixer le montant réellement disponible en une fois."},
+
+    {"titre": "2. Le mécanisme envisagé"},
+    {"p": "L'opération repose sur la création d'une société, le plus souvent une SCI soumise à l'impôt sur les sociétés. Cette société achète vos biens à leur valeur de marché."},
+    {"p": "L'achat est financé par un emprunt bancaire souscrit par la société. Le prix de vente vous revient personnellement. Il sert d'abord à rembourser l'encours de 310 000 euros, puis vous procure les liquidités recherchées."},
+    {"p": "Vous restez maître de l'opération en qualité d'associé, et le cas échéant de gérant, de la société acheteuse. Les loyers des biens remboursent ensuite l'emprunt. Les intérêts sont déductibles du résultat de la société."},
+
+    {"titre": "3. Points de vigilance"},
+    {"p": "Deux points doivent être maîtrisés avant de conclure l'opération."},
+    {"b": "la plus-value immobilière réalisée lors de la vente, imposable, dont le montant dépend du prix d'acquisition initial et de la durée de détention des biens. Un abattement s'applique au-delà de la cinquième année, avec une exonération totale d'impôt sur le revenu après vingt-deux ans de détention"},
+    {"b": "le risque de requalification en abus de droit si le montage n'a d'autre motif que fiscal. Il doit reposer sur une substance économique réelle, avec un prix de marché et une société qui fonctionne effectivement"},
+    {"p": "Ces deux points seront traités dans le cadre de notre mission. Pour chiffrer précisément la plus-value, nous aurons besoin de la date et du prix d'acquisition de chaque bien."},
+
+    {"titre": "4. Notre mission et nos honoraires"},
+    {"p": "Notre mission de structuration de l'OBO comprendrait les étapes suivantes."},
+    {"b": "analyse de votre patrimoine immobilier et de la situation hypothécaire actuelle"},
+    {"b": "chiffrage de la plus-value immobilière taxable et des prélèvements sociaux associés"},
+    {"b": "constitution de la société acheteuse et rédaction de ses statuts"},
+    {"b": "structuration du financement bancaire et coordination avec l'établissement prêteur"},
+    {"b": "rédaction de l'acte de cession et sécurisation du montage au regard de l'abus de droit"},
+    {"p": "Cette mission est facturée 15 000 euros hors taxes. Les frais de notaire et les droits de mutation restent à la charge de la société acheteuse, comme il est d'usage."},
+
+    {"titre": "5. Si l'OBO n'est pas la solution retenue"},
+    {"p": "Si l'étude de faisabilité bancaire ne permet pas d'atteindre le montant recherché par la voie de l'OBO, d'autres montages peuvent être étudiés."},
+    {"b": "un simple refinancement hypothécaire des biens, sans changement de propriétaire, qui évite la taxation de la plus-value mais reste soumis au même plafond de financement bancaire"},
+    {"b": "une cession-bail immobilière, pour un bien à usage professionnel, avec vente à un investisseur et location retour"},
+    {"b": "un OBO familial, où la société acheteuse est détenue par vos enfants, ce qui répond mieux à l'exigence de substance économique mais implique un transfert de contrôle"},
+    {"p": "Nous pouvons approfondir l'une ou l'autre de ces pistes selon les résultats de l'étude de faisabilité bancaire."}
+  ]
+}
