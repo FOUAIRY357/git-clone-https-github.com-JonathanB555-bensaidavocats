@@ -159,3 +159,34 @@ sont la bonne séquence.
 - Pappers Immobilier — recherche propriétaire « Kevin Merien » : 0 résultat (propriétaires
   personnes physiques non exposés — restriction CNIL/DVF).
 - Demande entrante du **04/08/2026 11:12** (formulaire de rappel — profil particulier).
+
+---
+
+## Mise à jour — appel réalisé le 07/08/2026
+
+Voir la transcription et la synthèse : `transcription-appel-2026-08-07.md`.
+
+**Faits confirmés par le client**
+- Non-résident, **Hong Kong depuis ~2007/2008** (identité M. Merien confirmée ; prénom Kevin cohérent).
+- **Trois appartements en France, détenus en direct**, achetés **~2008, 2021, 2025**.
+- **Loués meublés** ; loyers de l'ordre de **1 300 à 1 500 € / mois** pour l'un.
+- Loyers sur **compte bancaire français** ; **jamais déclarés** ; **aucune immatriculation (pas de SIREN/SIRET)**.
+
+**Qualification (vérifiée)**
+- Meublé = **BIC** (CGI art. 35, I-5° bis), et non revenus fonciers.
+- Meublé non déclaré + non immatriculé = **activité occulte** → **reprise 10 ans** (LPF art. L169).
+- Majoration encourue **80 %** (activité occulte, CGI art. 1728-1-c) ; 40 % après mise en demeure ; 10 % plancher. Objectif : écarter le pénal, négocier la majoration à la baisse.
+- **« Compta ou pas compta » : COMPTA.** Meublé au réel → comptabilité commerciale BIC (liasse 2031/2033), avec **amortissements** (bien + mobilier) et charges pour réduire la base. Micro-BIC en principe écarté (régularisation pluriannuelle, intérêt du réel).
+
+**Vigilance ajoutée**
+- **LPF art. L228** : dénonciation automatique au parquet si les droits rappelés dépassent **100 000 €** avec majoration de 80 % (ou 40 % dans certains cas). Piloter le quantum et la majoration est central pour « écarter le volet pénal ».
+- **Prélèvements sociaux 17,2 %** (Hong Kong hors EEE, pas d'exonération) à intégrer au chiffrage, en plus de l'IR, des intérêts de retard (0,20 %/mois, CGI art. 1727) et des majorations.
+- **CFE** (cotisation foncière des entreprises) potentiellement due par le loueur en meublé — autre impôt exposé par l'occulte.
+- Résidence HK réelle → **pas de risque de « fausse domiciliation »** (autre cas de reprise 10 ans, LPF L169) ; les 10 ans reposent ici sur l'activité occulte.
+
+**Prochaines étapes**
+1. Envoi de la **demande de pièces** (`mail-demande-docs`) + lien espace sécurisé.
+2. À réception des pièces : **chiffrage** et **lettre de mission** (skill `lettre-mission`).
+3. Constitution du dossier de régularisation spontanée, dépôt, puis **négociation**.
+
+**Verdict** : dossier **confirmé substantiel** (3 biens, ~17 ans d'historique pour le premier, activité occulte à fort enjeu) et **récurrent** (régularisation, puis conformité annuelle, IFI, transmission).
