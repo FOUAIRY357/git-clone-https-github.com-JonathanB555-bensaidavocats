@@ -195,21 +195,34 @@ def _blocs(doc, blocs):
 def render_note(doc, spec):
     m = spec.get("meta", {})
     secs = spec.get("sections", [])
+    # libelles de structure selon la langue (fr par defaut)
+    LAB = {
+        "fr": {"conf": "CONFIDENTIEL", "date": "Date :  ", "ref": "N/Ref. :  ",
+               "pour": "Pour :  ", "de": "De :  ", "objet": "Objet :  ",
+               "sommaire": "SOMMAIRE", "intro": "INTRODUCTION"},
+        "en": {"conf": "CONFIDENTIAL", "date": "Date:  ", "ref": "Our ref.:  ",
+               "pour": "For:  ", "de": "From:  ", "objet": "Subject:  ",
+               "sommaire": "CONTENTS", "intro": "INTRODUCTION"},
+    }.get(m.get("lang", "fr"), None)
+    if LAB is None:
+        LAB = {"conf": "CONFIDENTIEL", "date": "Date :  ", "ref": "N/Ref. :  ",
+               "pour": "Pour :  ", "de": "De :  ", "objet": "Objet :  ",
+               "sommaire": "SOMMAIRE", "intro": "INTRODUCTION"}
     if m.get("confidentiel", True):
-        _line(doc, "CONFIDENTIEL", size=8, bold=True, color=GRIS, after=2)
+        _line(doc, LAB["conf"], size=8, bold=True, color=GRIS, after=2)
     _line(doc, m.get("titre", "NOTE JURIDIQUE"), size=12, bold=True, color=NOIR, after=8)
-    for label, key in [("Date :  ", "date"), ("N/Ref. :  ", "ref"),
-                       ("Pour :  ", "pour"), ("De :  ", "de")]:
+    for label, key in [(LAB["date"], "date"), (LAB["ref"], "ref"),
+                       (LAB["pour"], "pour"), (LAB["de"], "de")]:
         if m.get(key):
             par = _p(doc); _run(par, label, 9, color=GRIS); _run(par, m[key], 9, color=GRIS)
             par.paragraph_format.space_after = Pt(1)
     if m.get("objet"):
-        par = _p(doc); _run(par, "Objet :  ", 9, bold=True, color=GRIS); _run(par, m["objet"], 9, bold=True, color=GRIS)
+        par = _p(doc); _run(par, LAB["objet"], 9, bold=True, color=GRIS); _run(par, m["objet"], 9, bold=True, color=GRIS)
         par.paragraph_format.space_after = Pt(8)
     # sommaire
     romains = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
     if m.get("sommaire") and secs:
-        _line(doc, "SOMMAIRE", size=9, bold=True, color=NOIR, after=6, before=4)
+        _line(doc, LAB["sommaire"], size=9, bold=True, color=NOIR, after=6, before=4)
         for i, s in enumerate(secs):
             _line(doc, "%s.   %s" % (romains[i], s["titre"]), size=9.5, bold=True, after=3)
         _line(doc, "", after=12)
