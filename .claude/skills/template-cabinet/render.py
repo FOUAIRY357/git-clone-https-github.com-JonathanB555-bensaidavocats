@@ -116,16 +116,17 @@ def _line(doc, text, size=10, bold=False, italic=False, color=None, align=None,
         par.alignment = align
     return par
 
-def _img_grid(doc, paths, w=7.3):
+def _img_grid(doc, paths, w=None):
     paths = [p for p in paths if p and os.path.exists(p)]
     if not paths:
         return
     if len(paths) == 1:
         par = _p(doc)
         par.alignment = AL.CENTER
-        par.add_run().add_picture(paths[0], width=Cm(9))
+        par.add_run().add_picture(paths[0], width=Cm(w if w else 9))
         par.paragraph_format.space_after = Pt(6)
         return
+    w = w or 7.3
     rows = math.ceil(len(paths) / 2)
     tbl = doc.add_table(rows=rows, cols=2)
     # deplacer la table avant le sectPr
@@ -187,7 +188,7 @@ def _blocs(doc, blocs):
         elif "em" in blk:
             _line(doc, blk["em"], size=9, italic=True, color=GRIS, after=8, before=4)
         elif "img" in blk:
-            _img_grid(doc, blk["img"], blk.get("w", 7.3))
+            _img_grid(doc, blk["img"], blk.get("w"))
         elif "tbl" in blk:
             _table(doc, blk["tbl"], blk.get("entete", True))
 
