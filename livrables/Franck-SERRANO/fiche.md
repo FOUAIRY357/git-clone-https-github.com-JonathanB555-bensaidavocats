@@ -27,9 +27,9 @@ enjeu que nous estimons entre **100 000 et 250 000 €**. C'est là que se situe
 notre intervention, et c'est là qu'il faut l'emmener.
 
 **Verdict** : dossier à prendre. Client solvable, demande précise, périmètre exactement dans
-notre cœur de métier, consultation écrite parfaitement adaptée au distanciel. Ne pas
-sous-tarifer : il demande la qualification de trois opérations passées, deux opérations
-futures, la TVA, l'urbanisme et une analyse prospective.
+notre cœur de métier, consultation écrite parfaitement adaptée au distanciel. Il demande
+une **consultation en one shot**, pas une mission en deux temps : un seul forfait, un seul
+livrable écrit, appel de cadrage inclus (voir §7).
 
 ---
 
@@ -260,10 +260,51 @@ déclarées** (ou non déclarées). Deux réflexes :
 | **Synergie inter-bureaux** | Aucune. Dossier franco-français, purement Paris. |
 | **Risque client** | Faible. Un point de vigilance : il est structuré, documenté et il a déjà pré-rédigé son dossier. Ce type de prospect compare. La réponse doit être technique dès le premier message. |
 
-**Calibrage des honoraires** : rendez-vous de cadrage stratégique à **2 400 € HT**, puis note
-écrite au forfait. Ne pas descendre : le périmètre réel couvre la qualification de trois
-opérations passées, deux opérations en cours ou projetées, la TVA immobilière, un volet
-urbanisme et une analyse prospective. C'est une consultation, pas un avis.
+### Calibrage des honoraires : une consultation en one shot
+
+**Ce qu'il demande, littéralement** : une consultation, à distance, avec une note écrite
+d'analyse, un délai, et un prix. Il propose lui-même un premier échange téléphonique
+gratuit « afin de préciser le dossier et son périmètre ». Lui vendre un rendez-vous de
+cadrage stratégique à 2 400 € HT avant la note reviendrait à facturer ce qu'il offre de
+faire gratuitement, et à transformer une demande simple en tunnel commercial. Ce prospect
+est structuré, il a pré-rédigé son dossier et il consultera deux autres cabinets : il faut
+un prix, un livrable, un délai.
+
+**Structure recommandée — forfait unique**
+
+| | |
+|---|---|
+| **Livrable** | Une consultation écrite couvrant ses dix questions, plus le volet prospectif |
+| **Inclus** | Appel de cadrage préalable (20 min, non facturé), étude des pièces, note écrite, appel de restitution |
+| **Forfait** | **6 000 € HT** |
+| **Délai** | 3 à 4 semaines à compter de la réception du dossier **complet** |
+| **Règlement** | 50 % à l'engagement, 50 % à la remise |
+
+Le forfait se justifie par le volume réel : trois opérations passées à qualifier une par une
+sur pièces, l'opération en cours, la division projetée, la TVA en amont et en aval, le volet
+urbanisme et l'analyse prospective. Rapporté à une exposition estimée entre 100 000 et
+250 000 €, il est proportionné et se défend en deux phrases.
+
+**Deux garde-fous, non négociables**
+
+1. **Le forfait n'est arrêté définitivement qu'après réception des pièces.** Annoncer 6 000 €
+   HT sur la base de son descriptif, en précisant que le chiffre est confirmé à l'ouverture
+   du dossier une fois les actes reçus. Chiffrer à l'aveugle trois opérations qu'on n'a pas
+   vues est le seul vrai risque de perte sur ce dossier.
+2. **Exclusions écrites dans la lettre de mission** : régularisation spontanée, demande de
+   rescrit, assistance en cas de contrôle, contentieux, et démarches d'urbanisme. Ce sont
+   des missions distinctes. Si la note conclut à un risque sérieux sur les trois opérations
+   passées, la régularisation est la suite naturelle et elle se facture à part.
+
+**Variante si le prix bloque** : une note de première qualification limitée au risque de
+requalification des trois opérations passées et au feu vert / feu rouge sur la division des
+600 m², à **3 500 € HT**, complétable ensuite par le volet prospectif. À ne proposer que
+s'il objecte, jamais spontanément.
+
+**La suite commercialement intéressante n'est pas un cadrage, c'est le rescrit.** Son besoin
+réel est la sécurité avant d'agir. Une demande de position formelle à l'administration sur
+la division et la revente du lot est la mission naturelle en aval de la note, elle sert
+vraiment son intérêt, et elle se vend d'elle-même une fois l'analyse rendue.
 
 ---
 
