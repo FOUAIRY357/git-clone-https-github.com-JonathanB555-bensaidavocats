@@ -180,15 +180,29 @@ Trois éléments à faire dire, dans cet ordre :
 ### 6.2 Le risque aggravant : l'activité occulte
 
 Aucune société, aucune déclaration, aucun centre de formalités. Si l'administration retient
-l'activité professionnelle, elle retiendra très probablement l'**activité occulte** :
+l'activité professionnelle, elle est en position de retenir l'**activité occulte** :
 
 - **délai de reprise porté à 10 ans** (art. L. 169 du LPF), au lieu de 3 ans ;
-- **majoration de 80 %** (art. 1728 du CGI) ;
-- imposition au barème progressif de l'IR + prélèvements sociaux, sur des bénéfices BIC ;
+- **majoration de 80 %** (art. 1728, 1, c du CGI, texte vérifié) ;
+- imposition au barème progressif de l'IR et prélèvements sociaux, sur des bénéfices BIC ;
 - assujettissement à la TVA rétroactif (voir 6.3).
 
 C'est ce qui transforme un dossier de 150 000 € de plus-values en une exposition qui peut
 approcher, cumulée, le double.
+
+⚠️ **Nuance décisive, à vérifier sur pièces avant toute affirmation.** L'article L. 169 du
+LPF réserve expressément le délai de 10 ans aux « seules catégories de revenus que le
+contribuable n'a pas fait figurer dans une quelconque des déclarations qu'il a déposées dans
+le délai légal », et précise qu'il **ne s'applique pas lorsque des revenus ou plus-values ont
+été déclarés dans une catégorie autre que celle dans laquelle ils doivent être imposés**.
+
+Conséquence pratique : si l'une des ventes a donné lieu à une déclaration quelconque
+(déclaration 2048-IMM déposée par le notaire, mention portée sur la 2042), la reprise
+décennale est écartée pour cette opération et l'on retombe sur trois ans. À l'inverse, une
+cession présentée comme exonérée au titre de la résidence principale n'est en principe pas
+déclarée du tout, et la protection ne joue pas. **Le sort du dossier dépend donc, opération
+par opération, de ce qui figure ou non dans ses déclarations.** C'est la première pièce à
+examiner, et c'est aussi le premier axe de défense.
 
 ### 6.3 TVA immobilière
 

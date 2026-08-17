@@ -1,0 +1,26 @@
+{
+  "destinataire": "A COMPLETER (adresse de reception du message de M. SERRANO)",
+  "objet": "Consultation fiscale sur vos opérations immobilières, proposition et honoraires",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Nous prenons ce dossier. Il se traite intégralement à distance, du premier échange jusqu'à la remise de la note."},
+    {"p": "Votre situation se joue moins sur le terrain que vous venez d'acquérir que sur les trois maisons déjà revendues. Trois constructions suivies de trois reventes caractérisent difficilement autrement l'habitude visée au 1° bis de l'article 35-I du code général des impôts. Si cette qualification est retenue, l'exonération de résidence principale tombe avec elle, puisqu'elle suppose une plus-value privée. C'est un point que la plupart des propriétaires découvrent trop tard."},
+    {"p": "Vous n'avez utilisé aucune société et déposé aucune déclaration professionnelle. Se pose donc la question du délai de reprise, trois ans ou dix ans, et celle de la majoration de 80 % attachée à l'activité occulte. La réponse dépend précisément de ce qui a été déclaré, ou non, pour chacune des trois ventes. C'est la première chose que nous vérifions."},
+    {"p": "La division des 600 m² est un sujet second, et probablement d'abord un sujet d'urbanisme. Les terrains de ce secteur paraissent issus d'une division récente. Le règlement d'un lotissement interdit fréquemment toute subdivision nouvelle, ce qui réglerait votre question avant même le terrain fiscal."},
+    {"titre": "Ce que nous remettons"},
+    {"b": "une consultation écrite répondant à vos dix questions"},
+    {"b": "la qualification de chacune des trois reventes passées, opération par opération, sur pièces"},
+    {"b": "le traitement de la division projetée, en plus-values comme en TVA immobilière"},
+    {"b": "le cadre à respecter pour vos projets futurs, et la limite à ne pas franchir"},
+    {"titre": "Honoraires et délai"},
+    {"p": "Forfait de 6 000 € HT. Il comprend un premier échange téléphonique de cadrage, l'étude des pièces, la note écrite et un entretien de restitution. Le délai est de trois à quatre semaines à compter de la réception du dossier complet. Le règlement intervient pour moitié à l'engagement, le solde à la remise."},
+    {"p": "Ce forfait est ferme dès lors que le dossier correspond à ce que vous décrivez. La régularisation éventuelle des exercices passés, une demande de position formelle auprès de l'administration ou l'assistance en cas de contrôle feraient l'objet d'une mission distincte."},
+    {"titre": "Pour démarrer"},
+    {"p": "Adressez-nous, pour chacune des trois opérations, l'acte d'acquisition, le permis de construire et l'attestation d'achèvement, les factures de travaux et l'acte de revente. Nous aurons également besoin des éléments suivants."},
+    {"b": "les justificatifs d'occupation en résidence principale, avec les dates d'entrée et de sortie de chaque maison"},
+    {"b": "vos déclarations de revenus des années de cession"},
+    {"b": "l'acte d'acquisition du terrain de Saint-Éloy-de-Gy, avec la mention de TVA qu'il comporte"},
+    {"b": "les documents du lotissement, dont le cahier des charges, et le plan de division envisagé"},
+    {"p": "Le premier échange peut avoir lieu cette semaine. Indiquez-moi deux créneaux qui vous conviennent et nous ouvrons le dossier."}
+  ]
+}
