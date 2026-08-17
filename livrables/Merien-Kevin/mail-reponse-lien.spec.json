@@ -1,0 +1,11 @@
+{
+  "destinataire": "kmerien80@gmail.com",
+  "objet": "Re: Régularisation de votre situation fiscale en France - pièces à réunir",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Voici le lien vers l'espace sécurisé sur lequel déposer vos pièces en toute confidentialité."},
+    {"p": "[COLLER ICI LE LIEN ONEDRIVE]"},
+    {"p": "Cet espace est réservé à votre dossier et me signale chaque dépôt. Vous pouvez y déposer les documents de ma liste au fur et à mesure, sans attendre de les avoir tous réunis. Merci d'avoir déjà commencé à les rassembler."},
+    {"p": "Dès que j'ai reçu une bonne partie des pièces, je reviens vers vous avec le chiffrage et la proposition de mission."}
+  ]
+}
