@@ -23,7 +23,7 @@ l'IR/PS sur **sa quote-part** des revenus. La **lettre de mission doit couvrir l
 |---|------|-------------|------|----------------|-------|
 | 1 | **55 rue Jules-Guesde, 92300 Levallois-Perret** — appt 2 pièces 49 m² (lot 54) + cave | **19/03/2010** (vendeur : Philippe MERIEN, probable père) | **240 000 €** | **Meublé (BIC)** — bail meublé 29/04/2017 | ~**1 300–1 333 €/mois** (~15–16 k€/an) |
 | 2 | **4 square Bolivar, 75019 Paris** — appt 2 pièces 43,68 m² (n°363) | **~2021** (promesse 2021) | **420 000 €** | **Meublé (BIC)** — bail meublé 07/02/2024 | **1 370 € + 100 € ch./mois** (~16,4 k€/an) |
-| 3 | **rue Robert Fleury, 75015 Paris** | promesse 20/10/2023, réalisation 2024/2025 | **342 000 €** | **À confirmer** — aucun bail au dossier (récent) | — |
+| 3 | **13 rue Robert Fleury, 75015 Paris** | promesse 10/2023, acquisition **2025** (prêt BNP 01/2025) | **342 000 €** | **Locatif** (prêt « à usage locatif ») — bail non encore au dossier | à confirmer |
 
 Total prix d'acquisition ≈ **1 002 000 €** (valeur actuelle probablement supérieure).
 
@@ -107,3 +107,36 @@ Fenêtre de reprise « occulte » = 10 ans (≈ 2016–2025).
 - **Bien 2 Bolivar P19** : acte de vente + promesse, tableau d'amortissement, frais d'agence, travaux, taxes foncières 2022→2025, bail meublé 2024.
 - **Bien 3 Robert Fleury P15** : acte de vente (.doc) + promesse + avenant, tableau d'amortissement, frais d'agence, travaux, assurances immo + emprunteur.
 - **Transverse** : attestation loi Carrez (Acte 15462203).
+
+---
+
+## 8. Mise à jour — financements et charges (lecture des prêts)
+
+Les 3 biens sont **à usage locatif** (Bolivar et Robert Fleury : objet du prêt « appartement à usage
+locatif » ; Levallois : loué meublé depuis 2017).
+
+**Emprunts (intérêts + assurance emprunteur déductibles au réel)**
+
+| Bien | Banque | Montant | Taux | Départ | Mensualité | Intérêts annuels (ordre de grandeur) |
+|---|---|---|---|---|---|---|
+| Levallois | Crédit Lyonnais | 206 000 € | 2,25 % | 03/2010 → 02/2027 | ~1 269 € | déclinants : ~2 900 € (2017) → ~550 € (2025) ; total vie ~57 800 € |
+| Bolivar | BNP Paribas | 292 000 € | 1,40 % | 2021 (240 mois) | 1 396 € | ~3 500–4 000 €/an |
+| Robert Fleury | BNP Paribas | 270 000 € | 3,41 % | 01/2025 (240 mois) | 1 553 € | ~9 000 €/an (année 1) |
+
+**Amortissements (meublé au réel — estimation, le levier majeur)** : bâti + mobilier ≈ Levallois
+~4–5 k€/an, Bolivar ~7–8,5 k€/an, Robert Fleury ~6–7 k€/an (à préciser avec la ventilation
+terrain/bâti/mobilier).
+
+**Chiffrage affiné**
+- Recettes meublées brutes ≈ **16 k€/an par bien loué**.
+- Charges déductibles/an/bien : intérêts + assurance emprunteur + taxe foncière (~550–1 200 €) +
+  honoraires de gérance (~960 € à Levallois) + frais d'agence + travaux + **amortissements (~6–9 k€)**.
+- **Base BIC nette ≈ 0 à faible** la plupart des années (l'amortissement excédentaire se reporte, sans
+  créer de déficit) → **IR + PS réellement dus modestes**.
+- Conséquence stratégique : **droits probablement < 100 000 €** → on reste **sous le seuil de
+  dénonciation pénale automatique** (LPF art. L228). Le vrai enjeu est la **majoration** (80 % occulte,
+  à négocier vers 40 %/10 %) appliquée à des droits faibles, plus les **intérêts de retard**.
+
+**Reste à obtenir pour figer les montants** : relevés bancaires des loyers (recettes réelles par an et
+par bien, vacance éventuelle), ventilation terrain/bâti/mobilier, statut et date de mise en location de
+Robert Fleury, quotes-parts de chaque époux.
