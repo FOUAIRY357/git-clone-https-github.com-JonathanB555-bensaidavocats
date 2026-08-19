@@ -1,0 +1,14 @@
+{
+  "destinataire": "kmerien80@gmail.com",
+  "objet": "Votre régularisation - dernières pièces à réunir",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Je vous remercie de votre accord. Nous engageons le dossier."},
+    {"p": "Pour chiffrer précisément et préparer les déclarations, il me manque encore les éléments suivants."},
+    {"b": "les relevés du compte bancaire français ayant reçu les loyers, par an et par bien, depuis l'origine (Levallois depuis 2010, Paris 19 depuis 2021, Paris 15 depuis 2025)"},
+    {"b": "pour chaque bien, la ventilation du prix d'achat entre le terrain, le bâti et le mobilier, utile au calcul des amortissements"},
+    {"b": "pour Paris 15 (Robert Fleury), la date de mise en location et le bail, si le bien est loué"},
+    {"b": "la répartition de la propriété entre vous et votre épouse pour chaque bien"},
+    {"p": "Vous pouvez déposer ces pièces sur le même espace sécurisé que précédemment, au fur et à mesure. Je reviens vers vous dès que le chiffrage est prêt."}
+  ]
+}
