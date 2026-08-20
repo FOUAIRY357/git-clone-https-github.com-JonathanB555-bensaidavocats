@@ -333,10 +333,20 @@ les classes qu'on exploitera réellement dans les cinq ans.
 
 Le point mérite d'être tranché nettement, parce qu'il conditionne l'ordre des opérations.
 
-**Détenir une marque n'est pas exercer une activité commerciale.** L'incompatibilité de l'art. 111
-du décret n° 91-1197 vise l'exercice d'une activité commerciale et certaines fonctions de direction,
-pas la titularité d'un actif incorporel. Une personne physique peut être titulaire d'une marque ;
-un avocat aussi.
+**Correction du 20/08/2026 — le texte cité n'était pas le bon.** L'incompatibilité ne se trouve plus
+à l'art. 111 du décret n° 91-1197 mais à l'**article 22 du décret n° 2023-552 du 30 juin 2023 portant
+code de déontologie des avocats**, en vigueur depuis le 3 juillet 2023. Et ce texte est plus
+contraignant que ce que ce paragraphe retenait : il vise l'activité commerciale exercée
+« directement **ou par personne interposée** », et il n'admet la commercialisation accessoire de
+biens ou services connexes que **si ceux-ci sont destinés à des clients ou à d'autres membres de la
+profession** — ce qu'un média publicitaire grand public n'est pas. L'analyse complète, les quatre
+options de détention et la procédure à suivre devant l'Ordre figurent dans la
+[note déontologique dédiée](note-deontologie-structure.md).
+
+**La conclusion de ce paragraphe tient néanmoins.** Détenir une marque n'est pas exercer une activité
+commerciale : l'article 22 vise des activités et des fonctions, pas la titularité d'un actif
+incorporel. Une personne physique peut être titulaire d'une marque ; un avocat aussi. Le dépôt peut
+donc partir maintenant.
 
 **Conséquence pratique : le dépôt peut partir maintenant.** Il peut être fait au nom d'une personne
 physique, ou d'une holding patrimoniale non commerciale. La question déontologique porte sur la
@@ -382,7 +392,7 @@ là-dedans.
 | 3 | Recherche d'antériorités complète, classes 16/35/41 — **à étendre aux registres MUE, Madrid et INPI, et à la réconciliation de l'inventaire du § 2.2** | 1 semaine | le dépôt |
 | 4 | Arbitrer le titulaire du dépôt (personne physique ou holding) | 1 semaine | le dépôt |
 | 5 | **Dépôt INPI** : « LA VIE FINANCIÈRE » (16, 35, 41) + « LES ÉTOILES DE L'ASSURANCE VIE » (35, 41) | J+10 | — |
-| 6 | Note déontologique sur la structure d'exploitation, saisine du Bâtonnier | 3 semaines | la relance, pas le dépôt |
+| 6 | Structure d'exploitation : consultation déontologique écrite du Bâtonnier avant constitution, puis déclaration au conseil de l'ordre. **Note rédigée le 20/08 : [note-deontologie-structure.md](note-deontologie-structure.md)** | 3 semaines | la relance, pas le dépôt |
 | 7 | Documenter la notoriété résiduelle du titre (archives, Wayback, BnF, **décision UDRP D2010-0529**) | en parallèle | défense éventuelle |
 | 8 | Relance éditoriale : site, lettre hebdomadaire, première édition du palmarès | 3 à 6 mois | — |
 
