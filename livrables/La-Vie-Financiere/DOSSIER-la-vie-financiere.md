@@ -138,7 +138,7 @@ que pour que le dossier soit exact.
 
 ---
 
-## 2 bis. Noms de domaine — vérifié le 19/08/2026
+## 2 bis. Noms de domaine — vérifié le 19/08/2026, revérifié le 20/08/2026
 
 ### 2 bis.1 Résultats
 
@@ -222,6 +222,27 @@ n'accepte que les requêtes récursives.
 
 Outil : [`scripts/check-domaines.py`](../../scripts/check-domaines.py). Il refuse de rendre un
 verdict si le calibrage sur témoins échoue, plutôt que de produire un résultat faussement rassurant.
+
+**Relance du 20/08/2026.** Le script a été réécrit dans ce dépôt, en Python sans dépendance : ni
+`dig` ni `dnspython` ne sont installés dans l'environnement, les paquets DNS sont donc construits
+directement — ce qui est aussi ce qui permet d'armer le bit CD. Exécuté à nouveau sur les seize
+domaines, **il reproduit la table du § 2 bis.1 à l'identique** : mêmes NXDOMAIN, même SERVFAIL sur
+`laviefinanciere.com`, mêmes deux `.com` résolus. Les constats du 19/08 sont donc revérifiés à
+aujourd'hui.
+
+Le relevé détaillé du `.com` confirme la lecture : SERVFAIL sur les trois types NS, SOA et A, trois
+essais chacun, **et SERVFAIL encore avec le bit CD armé**. Ce n'est pas la validation DNSSEC qui
+échoue, ce sont les serveurs de noms qui ne répondent plus — ce que le § 2 bis.2 explique désormais.
+
+Les garde-fous ont été éprouvés : contre un résolveur muet, le script sort en erreur sans rendre de
+verdict ; un domaine mal formé est refusé avant toute requête ; un domaine au statut hétérogène sort
+en code 3 et non en « libre ». Usage :
+
+```
+python3 scripts/check-domaines.py                       # les seize domaines du dossier
+python3 scripts/check-domaines.py exemple.fr autre.com  # domaines donnés
+python3 scripts/check-domaines.py --json                # relevé détaillé, par type et par essai
+```
 
 **Limite** : un domaine peut être enregistré sans être délégué — cas des réservations purement
 défensives, qui n'ont aucun serveur de noms. Un tel domaine apparaît en NXDOMAIN et serait donc
