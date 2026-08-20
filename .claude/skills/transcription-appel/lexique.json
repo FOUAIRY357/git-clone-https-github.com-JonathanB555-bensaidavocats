@@ -1,0 +1,17 @@
+{
+  "_doc": "Corrections appliquées après transcription. Clé = expression régulière (insensible à la casse, bornée par des limites de mot), valeur = graphie correcte. Ajouter ici les noms récurrents du cabinet ; passer les noms propres d'un dossier précis via --lexique dossier.json.",
+  "corrections": {
+    "ban(c|s)(e|é|ai)(t|d|)\\s+d['’]?avocats?": "BENSAID Avocats",
+    "ben\\s?sa(i|ï)d": "BENSAID",
+    "ban(c|s)(e|é)(t|d)": "BENSAID",
+    "w[ae]r+i(o|u)r?(i|y|e)": "OUAIRY",
+    "ou[ae]ir?(i|y|ie)": "OUAIRY",
+    "maitre": "Maître",
+    "bofip|beau fip": "BOFiP",
+    "l['’]?ifi\\b": "l'IFI",
+    "cerfa": "Cerfa",
+    "pl(u|ue)s?[- ]value": "plus-value",
+    "non[- ]resident(e|s|es|)\\b": "non-résident\\1",
+    "conv(en|an)tion fiscale": "convention fiscale"
+  }
+}

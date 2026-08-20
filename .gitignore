@@ -7,3 +7,5 @@ dist/
 Icon?
 Icon
 
+
+__pycache__/
