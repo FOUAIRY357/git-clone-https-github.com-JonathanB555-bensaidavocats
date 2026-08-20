@@ -9,3 +9,9 @@ Icon
 
 
 __pycache__/
+
+# Enregistrements d'appels : l'audio brut d'un client ne quitte pas la machine
+livrables/**/*.wav
+livrables/**/*.mp3
+livrables/**/*.m4a
+livrables/**/*.opus
