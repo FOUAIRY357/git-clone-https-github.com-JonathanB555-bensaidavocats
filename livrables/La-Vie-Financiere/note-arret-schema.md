@@ -21,7 +21,7 @@ bulletin (affaire Watomet), rapprochée de 1re civ., 6 décembre 2007, n° 05-18
 | Étage | Entité | Détient | Fait | Dirigée par |
 |---|---|---|---|---|
 | 1 | **Société civile**, 50 % FO / 50 % JB | marques, noms de domaine | détient et concède, rien d'autre | **l'un de nous deux, sous conditions** — position défendable, repli écrit d'avance (§ 2.1) |
-| 2 | **Société commerciale** — l'entreprise éditrice | l'installation technique, les contenus, les contrats | édite, emploie la rédaction, encaisse la publicité | des tiers non-avocats |
+| 2 | **Société commerciale** — l'entreprise éditrice | l'installation technique, les contenus, les contrats | édite, emploie la rédaction, encaisse la publicité | des tiers non-avocats — **édition confiée à Mikael, voir [note éditrice et licence](note-editrice-et-licence.md)** |
 | — | **Le mur** | — | le média informe sous son nom, le cabinet conseille sous le sien | — |
 
 Le schéma est bon. Il évacue l'incompatibilité commerciale par la seule voie qui tienne : nous ne
