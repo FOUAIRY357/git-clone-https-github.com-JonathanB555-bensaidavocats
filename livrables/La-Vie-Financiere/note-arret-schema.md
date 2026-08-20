@@ -9,6 +9,10 @@ une société commerciale dirigée par des tiers.
 **Textes vérifiés sur Légifrance le 20/08/2026** : décret n° 2023-552 du 30 juin 2023, art. 22 et 24 ;
 code civil, art. 1852 ; CPI, art. L. 714-5 ; loi du 29 juillet 1881, art. 6 et 42 ; loi n° 86-897 du
 1er août 1986, art. 2 et 5.
+**Jurisprudence lue en texte intégral** : Cass. 1re civ., 14 mai 2009, n° 08-13.422, publié au
+bulletin (affaire Watomet), rapprochée de 1re civ., 6 décembre 2007, n° 05-18.795, Bull. I n° 377.
+**Révision du 20/08/2026, § 2.1** : la première version concluait à tort que la gérance était fermée
+à un avocat. Elle est défendable. Deux arguments antérieurs sont en revanche retirés — voir § 2.1.
 
 ---
 
@@ -16,7 +20,7 @@ code civil, art. 1852 ; CPI, art. L. 714-5 ; loi du 29 juillet 1881, art. 6 et 4
 
 | Étage | Entité | Détient | Fait | Dirigée par |
 |---|---|---|---|---|
-| 1 | **Société civile**, 50 % FO / 50 % JB | marques, noms de domaine | détient et concède, rien d'autre | **un gérant non-avocat** (voir § 2.1) |
+| 1 | **Société civile**, 50 % FO / 50 % JB | marques, noms de domaine | détient et concède, rien d'autre | **l'un de nous deux, sous conditions** — position défendable, repli écrit d'avance (§ 2.1) |
 | 2 | **Société commerciale** — l'entreprise éditrice | l'installation technique, les contenus, les contrats | édite, emploie la rédaction, encaisse la publicité | des tiers non-avocats |
 | — | **Le mur** | — | le média informe sous son nom, le cabinet conseille sous le sien | — |
 
@@ -30,37 +34,153 @@ Trois décisions restent à prendre, et elles découlent des textes, non de pré
 
 ## 2. Les trois décisions que le schéma impose
 
-### 2.1 Le gérant de la société civile ne peut pas être un avocat
+### 2.1 La gérance par un avocat : position défendable, mais à construire
 
-C'est le point que la décision de détenir à 50/50 fait apparaître, et il faut le trancher maintenant.
+**Révision du 20/08/2026.** Une première version de cette note concluait à l'impossibilité, au motif
+que deux avocats non parents ne peuvent pas avoir d'« intérêts familiaux » communs. **Ce
+raisonnement était faux**, et la jurisprudence montre pourquoi : le critère n'est pas la composition
+familiale du capital, c'est la finalité de la société.
 
-L'article 22 b) du code de déontologie déclare la profession incompatible avec les fonctions de
-**gérant d'une société civile**, « à moins que celles-ci n'aient pour objet la gestion d'intérêts
-familiaux ou l'exercice de la profession d'avocat ».
+#### Ce que dit le texte
 
-Une société civile détenue à 50/50 par deux avocats qui ne sont pas parents, et dont l'actif est une
-marque de média concédée à un éditeur, n'a pour objet **ni** la gestion d'intérêts familiaux, **ni**
-l'exercice de la profession. L'exception ne joue pas. **Aucun de nous deux ne peut donc en être
-gérant.**
+L'article 22 b) déclare la profession incompatible avec les fonctions de **gérant d'une société
+civile**, « à moins que celles-ci n'aient pour objet la gestion d'intérêts familiaux ou l'exercice de
+la profession d'avocat ».
 
-Ce que cela ne remet pas en cause : **être simple associé d'une société civile n'est pas prohibé.**
-L'article 22 b) énumère limitativement les fonctions incompatibles — associé de SNC, associé
-commandité, gérant de SARL, membre du directoire ou directeur général de SA, gérant de société
-civile. La qualité d'associé de société civile n'y figure pas. La détention à 50/50 est donc
-parfaitement praticable ; seule la gérance est fermée.
+Deux observations de rédaction, avant la jurisprudence.
 
-**Décision à prendre : qui est gérant.** Trois options, par ordre de préférence.
+Le « celles-ci » est au pluriel et renvoie à l'ensemble des sociétés énumérées, non à la seule
+société civile. L'exception a donc une portée large — et la jurisprudence le confirme, puisqu'elle
+l'a appliquée à la demande d'un avocat qui voulait gérer une **SARL**.
 
-1. **Un tiers non-avocat**, extérieur à l'édition — un proche de l'un ou de l'autre, ou un
-   professionnel. C'est le plus simple et le plus lisible. Ses pouvoirs sont volontairement étroits
-   (voir § 3.2), il n'a pas de latitude sur l'actif.
-2. **Une gérance confiée au même tiers que la présidence de l'éditrice** — à écarter. Cela
-   concentrerait l'actif et l'exploitation dans une seule main et brouillerait le mur.
-3. **Deux sociétés civiles familiales, une par associé**, détenant chacune 50 % d'une société civile
-   de tête — chacun pouvant alors être gérant de la sienne au titre de l'exception. Techniquement
-   possible, mais la société civile de tête aurait toujours besoin d'un gérant, et faire remonter la
-   gérance par des entités familiales revient à diriger par personne interposée, ce que l'article
-   22 a) prohibe. **Trop astucieux pour être sûr. À ne pas retenir.**
+En revanche, la refonte de 2023 a **rétréci la seconde branche**. L'ancien article 111 b) du décret
+n° 91-1197 visait « la gestion d'intérêts familiaux **ou professionnels** ». Le texte de 2023 dit
+« la gestion d'intérêts familiaux ou **l'exercice de la profession d'avocat** ». La branche
+« intérêts professionnels », plus accueillante, a disparu. Nous devons donc tenir sur les intérêts
+familiaux seuls.
+
+#### Ce que dit la jurisprudence — l'arrêt Watomet
+
+**Cass. 1re civ., 14 mai 2009, n° 08-13.422, publié au bulletin**, rapproché de 1re civ., 6 décembre
+2007, n° 05-18.795, Bull. I n° 377.
+
+Un avocat du barreau de Paris avait demandé l'autorisation de gérer la SARL Watomet, société
+purement financière qui avait acquis la totalité des parts d'une SARL produisant et vendant de
+l'électricité à EDF. Il détenait **avec son épouse l'intégralité du capital**. Le conseil de l'ordre a
+refusé, la cour d'appel de Paris a confirmé, la Cour de cassation a rejeté le pourvoi.
+
+Le motif, dans les termes de la Cour : la création de cette société, « société purement financière,
+ayant essentiellement pour objet la prise de participation dans une société commerciale, fût-elle
+encadrée par les pouvoirs publics, **répondait à une finalité entrepreneuriale et, partant, excédait
+la gestion d'intérêts familiaux** ».
+
+Et les motifs retenus par le conseil de l'ordre, que la Cour valide :
+
+- un investissement économique dans la recherche d'un but lucratif, la vente d'énergie restant une
+  activité commerciale **« même au profit d'un client unique »** ;
+- **« la formulation de l'objet social laisse clairement apparaître un objet large qui doit permettre
+  à cette société d'autres investissements du même type »**.
+
+La cour d'appel ajoute une lecture d'ensemble qu'il faut retenir : les alinéas a) et b) « sont
+indépendants, le second n'étant qu'une simple application du premier ». Autrement dit, la question
+posée sous le b) est toujours celle du a) — y a-t-il, au fond, une activité d'entreprise ?
+
+**Trois enseignements, dont deux contre nous.**
+
+1. **Le capital familial ne suffit pas.** Gassiat détenait 100 % avec son épouse et a perdu. Le fait
+   que nous soyons deux associés non parents n'est donc pas, en soi, l'obstacle — mais ajouter des
+   membres de nos familles au capital ne serait pas non plus le remède.
+2. **Le client unique n'est pas un argument.** Une version antérieure de cette note soutenait que le
+   licencié unique appuyait la qualification civile. L'arrêt dit le contraire : l'activité reste
+   commerciale « même au profit d'un client unique ». **Argument à retirer du dossier.**
+3. **La largeur de l'objet social a été retenue contre lui.** C'est le point le plus directement
+   actionnable : notre objet devra être étroit au point d'être presque inconfortable.
+
+#### Pourquoi notre schéma est néanmoins distinguable — et c'est l'argument à plaider
+
+Watomet avait pour objet **la prise de participation dans une société commerciale**. C'est ce qui l'a
+tuée : la société était le véhicule d'un projet industriel, et son gérant participait, par elle, à
+une entreprise.
+
+Notre société civile ne détiendrait **aucune participation, dans aucune société.** Elle détient un
+actif incorporel et le concède à un tiers qu'elle ne contrôle pas, dont elle ne possède rien, et dont
+elle ne perçoit qu'une redevance fixe. Il n'y a pas d'entreprise dans son périmètre, et aucun chemin
+par lequel son gérant participerait à l'exploitation du média.
+
+C'est la différence entre la holding d'un projet et le propriétaire d'un actif qui perçoit un loyer.
+Un bailleur d'immeuble commercial n'exerce pas le commerce de son locataire ; le propriétaire d'une
+marque n'exerce pas l'activité de son licencié.
+
+**Conséquence, et elle change le statut d'une recommandation.** Le § 2.3 recommandait de ne détenir
+aucune part de l'éditrice, pour des raisons de discrétion et de crédibilité. Cette recommandation
+devient **la pièce portante de l'argumentation déontologique** : c'est l'absence de toute
+participation dans la société commerciale qui distingue notre société civile de Watomet. La moindre
+prise de participation dans l'éditrice, même minoritaire, nous ramènerait dans l'arrêt de 2009.
+
+#### Un progrès de procédure, souvent ignoré
+
+Gassiat devait **demander une autorisation** : l'ancien article 111 b) faisait jouer l'exception
+« sous le contrôle du conseil de l'ordre qui peut demander tous renseignements nécessaires », et
+l'arrêt parle bien d'un refus d'autorisation.
+
+Le texte de 2023 a déplacé ce contrôle. L'exception ne suppose plus d'autorisation préalable :
+l'avocat qui en use « en informe par écrit le conseil de l'ordre (…) dans un délai de trente jours
+suivant le début de l'activité concernée », le conseil pouvant ensuite « demander tous
+renseignements ou documents utiles ».
+
+**Nous ne demandons donc plus la permission : nous déclarons, et c'est à l'Ordre de contester.** La
+charge de l'initiative a changé de côté. C'est un argument de méthode, pas de fond, mais il vaut
+d'être vu.
+
+#### Position retenue
+
+**Nous tentons la gérance par l'un de nous deux, en la construisant pour qu'elle tienne, et avec un
+repli écrit d'avance.**
+
+L'appréciation honnête : c'est une position discutée, et le barreau de Paris a été strict dans
+l'affaire Watomet. Mais le risque est asymétrique et bon marché. Si l'Ordre conteste, il invite à se
+démettre de la gérance ; la société civile survit, les marques survivent, la licence survit, et une
+déclaration faite de bonne foi n'est pas une faute disciplinaire. Nous perdrions un titre, pas
+l'opération.
+
+Conditions à réunir, toutes nécessaires :
+
+- objet **étroit**, limité aux marques et noms de domaine nommément désignés, **sans clause de prise
+  de participations, sans faculté de réinvestissement, sans « et généralement toutes opérations se
+  rattachant »** — c'est exactement ce qui a été reproché à Watomet ;
+- interdiction statutaire expresse de détenir une participation dans l'éditrice ou dans toute
+  société de presse ou de régie ;
+- exclusion statutaire expresse de toute activité d'édition, de régie et de caractère commercial ;
+- redevance fixe ou plafonnée, aucun intéressement au résultat de l'éditrice ;
+- aucun salarié, aucun local, aucun moyen d'exploitation ;
+- finalité patrimoniale et successorale assumée dans les statuts, et rendue crédible par des clauses
+  de transmission — détention longue, pas d'horizon de sortie, agrément, démembrement possible ;
+- **déclaration au conseil de l'ordre dans les trente jours**, précédée d'une consultation écrite du
+  Bâtonnier exposant l'ensemble du montage et la distinction avec Watomet.
+
+**Le repli, écrit dès les statuts** : un co-gérant non-avocat nommable par simple décision
+collective, et des pouvoirs de gérant si étroits (§ 3.2) que la perte de la gérance ne coûte aucun
+contrôle. Si l'Ordre objecte, un procès-verbal règle la question en une réunion.
+
+#### Et le point qui désamorce la frustration : la gérance n'est pas le contrôle
+
+Dans une société civile, le pouvoir se répartit par les statuts. L'article 1852 du code civil réserve
+aux associés tout ce qui excède les pouvoirs du gérant, selon ce que les statuts prévoient. Si le
+gérant est un mandataire administratif — sans pouvoir sur l'actif, sur la licence, sur aucune
+cession — et si toute décision de substance appartient au collège des associés, alors **être ou ne
+pas être gérant ne change presque rien au contrôle**.
+
+Ce que l'incompatibilité nous prendrait, si elle nous était opposée, c'est un titre. Pas le pouvoir.
+D'où l'ordre de priorité : on rédige d'abord les pouvoirs, on discute ensuite du titulaire.
+
+**À écarter en revanche** : le montage à deux sociétés civiles familiales détenant chacune 50 % d'une
+société civile de tête, pour que chacun soit gérant de la sienne. La société de tête aurait toujours
+besoin d'un gérant, et faire remonter la direction par des entités familiales revient à diriger par
+personne interposée — ce que l'article 22 a) prohibe expressément. Trop astucieux pour être sûr.
+
+Ce qui reste acquis, enfin : **être simple associé d'une société civile n'est pas prohibé.** L'article
+22 b) énumère limitativement les fonctions incompatibles, et la qualité d'associé de société civile
+n'y figure pas. La détention à 50/50 ne pose, en elle-même, aucune difficulté.
 
 ### 2.2 « Détenir le site » doit s'entendre strictement
 
@@ -79,7 +199,11 @@ cette seule confusion.
 
 ### 2.3 Notre participation au capital de l'éditrice : zéro
 
-Recommandation ferme, et elle va au-delà de la déontologie.
+Recommandation ferme — et depuis la lecture de l'arrêt Watomet, elle n'est plus seulement
+prudentielle : **c'est la pièce portante de l'argumentation déontologique du § 2.1.** Ce qui a
+condamné Watomet, c'est que son objet était la prise de participation dans une société commerciale.
+Notre société civile ne doit donc détenir aucune part de l'éditrice — la moindre participation nous
+ramènerait dans l'arrêt de 2009.
 
 L'article 5 de la loi n° 86-897 impose de porter dans chaque numéro l'identité de tout détenteur
 d'au moins 10 % du capital de l'entreprise éditrice. Rester sous le seuil évite la mention. **Ne rien
@@ -207,7 +331,7 @@ au capital de l'éditrice ; redevance forfaitaire ou plafonnée.
 
 | # | Point | Échéance |
 |---|---|---|
-| 1 | Qui est gérant de la société civile — un tiers non-avocat (§ 2.1) | avant la constitution |
+| 1 | Gérance : lequel de nous deux la prend, et rédaction du repli non-avocat (§ 2.1) | avant la constitution |
 | 2 | Qui préside l'éditrice, informé de sa qualité de directeur de la publication | avant la constitution de l'éditrice |
 | 3 | Méthode de valorisation des parts, pour les promesses croisées | avec les statuts |
 | 4 | IR ou IS pour la société civile | avec les statuts |
