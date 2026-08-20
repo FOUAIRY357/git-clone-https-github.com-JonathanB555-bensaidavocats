@@ -390,7 +390,7 @@ là-dedans.
 | 1 | Recherche MUE et internationale sur « LA VIE FINANCIÈRE » (EUIPO, TMview, Madrid Monitor) — **premier passage fait le 20/08 : rien trouvé, mais canal non concluant (§ 2.1). Reste à interroger les registres, soit en ouvrant l'environnement, soit via le CPI à l'étape 3** | 48 h | tout le reste |
 | 2 | **Réserver `laviefinanciere.fr`, `lesetoilesdelassurancevie.fr`, `lesetoilesdupatrimoine.fr`** — vérifiés libres le 19/08/2026, confirmation registrar au passage. **Et placer un backorder sur `laviefinanciere.com`** (§ 2 bis.2) | immédiat | rien, mais à faire avant le dépôt |
 | 3 | Recherche d'antériorités complète, classes 16/35/41 — **à étendre aux registres MUE, Madrid et INPI, et à la réconciliation de l'inventaire du § 2.2** | 1 semaine | le dépôt |
-| 4 | Arbitrer le titulaire du dépôt (personne physique ou holding) | 1 semaine | le dépôt |
+| 4 | ~~Arbitrer le titulaire du dépôt~~ — **tranché le 20/08 : société civile 50/50 FO/JB, gérance à un tiers non-avocat. Voir [note d'arrêté de schéma](note-arret-schema.md)** | fait | le dépôt |
 | 5 | **Dépôt INPI** : « LA VIE FINANCIÈRE » (16, 35, 41) + « LES ÉTOILES DE L'ASSURANCE VIE » (35, 41) | J+10 | — |
 | 6 | Structure d'exploitation : consultation déontologique écrite du Bâtonnier avant constitution, puis déclaration au conseil de l'ordre. **Note rédigée le 20/08 : [note-deontologie-structure.md](note-deontologie-structure.md)** | 3 semaines | la relance, pas le dépôt |
 | 7 | Documenter la notoriété résiduelle du titre (archives, Wayback, BnF, **décision UDRP D2010-0529**) | en parallèle | défense éventuelle |
