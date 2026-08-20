@@ -1,0 +1,531 @@
+{
+  "audio": "/home/user/git-clone-https-github.com-JonathanB555-bensaidavocats/livrables/sivam/appel-sivam-20260820.wav",
+  "duree_s": 319.49,
+  "modele": "medium",
+  "langue": "fr",
+  "diarisation": true,
+  "segments": [
+    {
+      "debut": 1.1,
+      "fin": 2.67,
+      "locuteur": "Me OUAIRY",
+      "texte": "Oui, allô, bonjour."
+    },
+    {
+      "debut": 2.92,
+      "fin": 13.39,
+      "locuteur": "Mme SIVAM",
+      "texte": "Oui bonjour. En fait, j'aimerais voir un rendez-vous pour un conseil fiscal par rapport à la Fiscalie de France."
+    },
+    {
+      "debut": 13.96,
+      "fin": 15.79,
+      "locuteur": "Mme SIVAM",
+      "texte": "Voilà."
+    },
+    {
+      "debut": 15.66,
+      "fin": 21.13,
+      "locuteur": "Me OUAIRY",
+      "texte": "Oui bien sûr je suis associé au sein du cabinet, conserverie, spécialisé justement sur..."
+    },
+    {
+      "debut": 21.74,
+      "fin": 23.63,
+      "locuteur": "Me OUAIRY",
+      "texte": "Les questions fiscales ont..."
+    },
+    {
+      "debut": 23.69,
+      "fin": 27.47,
+      "locuteur": "Me OUAIRY",
+      "texte": "je vous laisse m'exposer rapidement si vous avez"
+    },
+    {
+      "debut": 27.6,
+      "fin": 31.79,
+      "locuteur": "Me OUAIRY",
+      "texte": "5 minutes devant vous et puis après je vous dirai un peu comment on fonctionne."
+    },
+    {
+      "debut": 31.98,
+      "fin": 44.05,
+      "locuteur": "Mme SIVAM",
+      "texte": "Ça marche. Alors en fait, si vous voulez, moi et ma soeur, on a notre imposition dans le compte en debout. On est propriétaire d'une PPE à Aigle."
+    },
+    {
+      "debut": 44.01,
+      "fin": 47.31,
+      "locuteur": "Mme SIVAM",
+      "texte": "et on travaille les deux à Genève."
+    },
+    {
+      "debut": 47.15,
+      "fin": 55.28,
+      "locuteur": "Mme SIVAM",
+      "texte": "Et vu que la semaine c'est compliqué d'être toujours sur Aigle, on aimerait avoir un appartement en location à la frontière."
+    },
+    {
+      "debut": 55.18,
+      "fin": 60.49,
+      "locuteur": "Mme SIVAM",
+      "texte": "Et notre question c'est est-ce qu'on peut garder notre imposition suisse ?"
+    },
+    {
+      "debut": 61.87,
+      "fin": 64.11,
+      "locuteur": "Me OUAIRY",
+      "texte": "D'accord, nous on se scie."
+    },
+    {
+      "debut": 63.92,
+      "fin": 67.6,
+      "locuteur": "Me OUAIRY",
+      "texte": "d'avoir un avis sur votre résidence fiscale."
+    },
+    {
+      "debut": 67.5,
+      "fin": 69.07,
+      "locuteur": "Mme SIVAM",
+      "texte": "Voilà, il est exactement bon."
+    },
+    {
+      "debut": 69.1,
+      "fin": 79.15,
+      "locuteur": "Mme SIVAM",
+      "texte": "Comment on se passe concrètement, parce qu'on ne sait pas si il y a cette double imposition. Nous, on aimerait vraiment avoir toute notre imposition aussi, mais on ne sait pas tout à fait ce que c'est."
+    },
+    {
+      "debut": 79.31,
+      "fin": 84.01,
+      "locuteur": "Me OUAIRY",
+      "texte": "ça joue sur des détails donc je peux déjà vous dire que c'est sur une"
+    },
+    {
+      "debut": 84.14,
+      "fin": 86.77,
+      "locuteur": "Me OUAIRY",
+      "texte": "Voilà, il faut partir sur une consultation."
+    },
+    {
+      "debut": 86.57,
+      "fin": 90.96,
+      "locuteur": "Me OUAIRY",
+      "texte": "et derrière la consultation on est"
+    },
+    {
+      "debut": 91.28,
+      "fin": 93.61,
+      "locuteur": "Me OUAIRY",
+      "texte": "d'être sur une autre approche très pragmatique"
+    },
+    {
+      "debut": 93.45,
+      "fin": 95.6,
+      "locuteur": "Me OUAIRY",
+      "texte": "Une opération est faisable."
+    },
+    {
+      "debut": 95.34,
+      "fin": 97.39,
+      "locuteur": "Me OUAIRY",
+      "texte": "*en anglais*"
+    },
+    {
+      "debut": 97.8,
+      "fin": 99.15,
+      "locuteur": "Me OUAIRY",
+      "texte": "Et effectivement..."
+    },
+    {
+      "debut": 98.92,
+      "fin": 102.77,
+      "locuteur": "Me OUAIRY",
+      "texte": "Faire attention à un certain nombre de points, nous qu'on procéda des vérifications."
+    },
+    {
+      "debut": 102.57,
+      "fin": 104.24,
+      "locuteur": "Me OUAIRY",
+      "texte": "et on vous donnera une"
+    },
+    {
+      "debut": 104.11,
+      "fin": 109.49,
+      "locuteur": "Me OUAIRY",
+      "texte": "une to do list pour finalement prendre aucun risque et que"
+    },
+    {
+      "debut": 110.25,
+      "fin": 113.87,
+      "locuteur": "Me OUAIRY",
+      "texte": "et s'ils s'y est écartés au maximum à risque de requalification."
+    },
+    {
+      "debut": 114.0,
+      "fin": 115.21,
+      "locuteur": "Mme SIVAM",
+      "texte": "D'accord."
+    },
+    {
+      "debut": 114.96,
+      "fin": 120.01,
+      "locuteur": "Mme SIVAM",
+      "texte": "parce que nous justement on a trouvé un appart, on doit se positionner donc c'est pour ça que..."
+    },
+    {
+      "debut": 120.08,
+      "fin": 125.1,
+      "locuteur": "Mme SIVAM",
+      "texte": ">> C'est un peu urgent."
+    },
+    {
+      "debut": 126.35,
+      "fin": 131.66,
+      "locuteur": "Me OUAIRY",
+      "texte": "Oui, nous on peut intervenir rapidement."
+    },
+    {
+      "debut": 131.92,
+      "fin": 136.69,
+      "locuteur": "Me OUAIRY",
+      "texte": "notre marque de fabrique, on va dire, sur ce genre de dossier, on est prêt à intervenir rapidement."
+    },
+    {
+      "debut": 136.62,
+      "fin": 139.82,
+      "locuteur": "Me OUAIRY",
+      "texte": "Donc, que je vous propose..."
+    },
+    {
+      "debut": 139.69,
+      "fin": 144.37,
+      "locuteur": "Me OUAIRY",
+      "texte": "je vais vous envoyer un petit questionnaire"
+    },
+    {
+      "debut": 144.24,
+      "fin": 146.13,
+      "locuteur": "Me OUAIRY",
+      "texte": "Petite liste de documents"
+    },
+    {
+      "debut": 145.96,
+      "fin": 149.23,
+      "locuteur": "Me OUAIRY",
+      "texte": "Alors si vous n'avez pas toutes les réponses, tous les documents..."
+    },
+    {
+      "debut": 149.23,
+      "fin": 151.44,
+      "locuteur": "Me OUAIRY",
+      "texte": "Tu vas très grave à ce stade."
+    },
+    {
+      "debut": 151.5,
+      "fin": 156.08,
+      "locuteur": "Me OUAIRY",
+      "texte": "C'est juste pour que nous on puisse avoir une idée de l'étendue du travail réalisé."
+    },
+    {
+      "debut": 156.08,
+      "fin": 162.32,
+      "locuteur": "Me OUAIRY",
+      "texte": "Et dans la foulée je vous envoie un devis et si vous voulez débuter la mission, si vous avez des questions, vous me dites."
+    },
+    {
+      "debut": 162.76,
+      "fin": 164.05,
+      "locuteur": "Mme SIVAM",
+      "texte": "- Je vous jure."
+    },
+    {
+      "debut": 163.85,
+      "fin": 165.87,
+      "locuteur": "Me OUAIRY",
+      "texte": "Et je vous donnerai un délai évident pour"
+    },
+    {
+      "debut": 167.21,
+      "fin": 168.72,
+      "locuteur": "Mme SIVAM",
+      "texte": "Ok, super."
+    },
+    {
+      "debut": 169.42,
+      "fin": 172.46,
+      "locuteur": "Me OUAIRY",
+      "texte": "Alors vous êtes madame, j'ai juste prendre vos coordonnées."
+    },
+    {
+      "debut": 172.24,
+      "fin": 174.99,
+      "locuteur": "Me OUAIRY",
+      "texte": "et votre adresse mail, s'il vous plait."
+    },
+    {
+      "debut": 174.89,
+      "fin": 178.51,
+      "locuteur": "Mme SIVAM",
+      "texte": "Alors mon nom c'est Sivam, c'est S-I-V-A-"
+    },
+    {
+      "debut": 179.95,
+      "fin": 181.2,
+      "locuteur": "Me OUAIRY",
+      "texte": "et oh"
+    },
+    {
+      "debut": 186.57,
+      "fin": 187.5,
+      "locuteur": "Me OUAIRY",
+      "texte": "S"
+    },
+    {
+      "debut": 189.52,
+      "fin": 192.11,
+      "locuteur": "Mme SIVAM",
+      "texte": "- C'est pas vrai. - C'est pas vrai."
+    },
+    {
+      "debut": 191.92,
+      "fin": 193.81,
+      "locuteur": "Me OUAIRY",
+      "texte": "VMC va moins d'accord."
+    },
+    {
+      "debut": 197.42,
+      "fin": 198.45,
+      "locuteur": "Me OUAIRY",
+      "texte": "D'accord."
+    },
+    {
+      "debut": 204.97,
+      "fin": 206.83,
+      "locuteur": "Mme SIVAM",
+      "texte": "C'est AVI."
+    },
+    {
+      "debut": 207.18,
+      "fin": 208.11,
+      "locuteur": "Me OUAIRY",
+      "texte": "Ça va être d'"
+    },
+    {
+      "debut": 208.56,
+      "fin": 209.65,
+      "locuteur": "Me OUAIRY",
+      "texte": "C'est moi qui est"
+    },
+    {
+      "debut": 210.35,
+      "fin": 212.85,
+      "locuteur": "Me OUAIRY",
+      "texte": "Je vous ai perdu pendant..."
+    },
+    {
+      "debut": 212.97,
+      "fin": 215.44,
+      "locuteur": "Me OUAIRY",
+      "texte": "Oui, je vous entend très bien."
+    },
+    {
+      "debut": 215.34,
+      "fin": 216.75,
+      "locuteur": "Me OUAIRY",
+      "texte": "Vous m'entendez mieux ?"
+    },
+    {
+      "debut": 216.75,
+      "fin": 218.38,
+      "locuteur": "Mme SIVAM",
+      "texte": "Là un peu oui."
+    },
+    {
+      "debut": 218.64,
+      "fin": 222.96,
+      "locuteur": "Me OUAIRY",
+      "texte": "S'il vous plaît, s'il vous plaît, s'il vous plaît, s'il vous"
+    },
+    {
+      "debut": 225.42,
+      "fin": 226.32,
+      "locuteur": "Me OUAIRY",
+      "texte": "Oui."
+    },
+    {
+      "debut": 226.35,
+      "fin": 227.53,
+      "locuteur": "Mme SIVAM",
+      "texte": "T-S"
+    },
+    {
+      "debut": 230.96,
+      "fin": 232.37,
+      "locuteur": "Me OUAIRY",
+      "texte": "à vous de vous abonner"
+    },
+    {
+      "debut": 232.56,
+      "fin": 235.69,
+      "locuteur": "Mme SIVAM",
+      "texte": "Avec ICHAA"
+    },
+    {
+      "debut": 236.24,
+      "fin": 237.13,
+      "locuteur": "Me OUAIRY",
+      "texte": "D'accord."
+    },
+    {
+      "debut": 237.64,
+      "fin": 239.57,
+      "locuteur": "Mme SIVAM",
+      "texte": "Tirez du bas, dit vite."
+    },
+    {
+      "debut": 243.12,
+      "fin": 245.13,
+      "locuteur": "Mme SIVAM",
+      "texte": "Arromba toutes mille francs comme."
+    },
+    {
+      "debut": 246.67,
+      "fin": 248.78,
+      "locuteur": "Me OUAIRY",
+      "texte": "www.arovaz.meuil.com"
+    },
+    {
+      "debut": 251.63,
+      "fin": 254.25,
+      "locuteur": "Me OUAIRY",
+      "texte": "Donc c'est Alita."
+    },
+    {
+      "debut": 254.41,
+      "fin": 258.22,
+      "locuteur": "Me OUAIRY",
+      "texte": "Alors on va le mettre en commun, d'accord ? Avis à tirer le bas qui route."
+    },
+    {
+      "debut": 258.22,
+      "fin": 259.18,
+      "locuteur": "Me OUAIRY",
+      "texte": "Oui."
+    },
+    {
+      "debut": 260.17,
+      "fin": 265.71,
+      "locuteur": "Me OUAIRY",
+      "texte": "avithaa-du-bas@zotme.com"
+    },
+    {
+      "debut": 265.87,
+      "fin": 267.44,
+      "locuteur": "Mme SIVAM",
+      "texte": "Oui, c'est ça."
+    },
+    {
+      "debut": 268.27,
+      "fin": 269.45,
+      "locuteur": "Me OUAIRY",
+      "texte": "Très bien."
+    },
+    {
+      "debut": 269.36,
+      "fin": 273.2,
+      "locuteur": "Mme SIVAM",
+      "texte": "18, dans le cas où vous avez... vous avez bien été tiré du bas d'18."
+    },
+    {
+      "debut": 273.52,
+      "fin": 274.8,
+      "locuteur": "Me OUAIRY",
+      "texte": "et puis..."
+    },
+    {
+      "debut": 275.02,
+      "fin": 275.92,
+      "locuteur": null,
+      "texte": "Oui."
+    },
+    {
+      "debut": 276.11,
+      "fin": 277.49,
+      "locuteur": "Me OUAIRY",
+      "texte": "D'accord."
+    },
+    {
+      "debut": 277.48,
+      "fin": 281.55,
+      "locuteur": "Me OUAIRY",
+      "texte": "Je vous décris votre numéro, c'est bien."
+    },
+    {
+      "debut": 281.74,
+      "fin": 283.69,
+      "locuteur": "Me OUAIRY",
+      "texte": "Je veux l'équipe à piste."
+    },
+    {
+      "debut": 283.66,
+      "fin": 284.59,
+      "locuteur": "Me OUAIRY",
+      "texte": "Oui."
+    },
+    {
+      "debut": 284.4,
+      "fin": 287.18,
+      "locuteur": "Me OUAIRY",
+      "texte": "Yo yo cat son set"
+    },
+    {
+      "debut": 287.95,
+      "fin": 290.64,
+      "locuteur": "Me OUAIRY",
+      "texte": "Je fais ça en train de vestiguer."
+    },
+    {
+      "debut": 293.77,
+      "fin": 298.35,
+      "locuteur": "Me OUAIRY",
+      "texte": "Oui c'est ça, 00 41616"
+    },
+    {
+      "debut": 298.86,
+      "fin": 300.81,
+      "locuteur": "Me OUAIRY",
+      "texte": "et"
+    },
+    {
+      "debut": 300.78,
+      "fin": 302.73,
+      "locuteur": "Me OUAIRY",
+      "texte": "40, 126"
+    },
+    {
+      "debut": 303.4,
+      "fin": 306.73,
+      "locuteur": "Mme SIVAM",
+      "texte": "Alors 076 204 05 26."
+    },
+    {
+      "debut": 309.04,
+      "fin": 315.63,
+      "locuteur": "Me OUAIRY",
+      "texte": "Très bien. Écoutez, j'ai vos coordonnées, j'ai les informations, je vous écris. Je vous en vais très vite. Super."
+    },
+    {
+      "debut": 315.44,
+      "fin": 316.65,
+      "locuteur": "Mme SIVAM",
+      "texte": "Merci beaucoup."
+    },
+    {
+      "debut": 316.59,
+      "fin": 319.49,
+      "locuteur": "Me OUAIRY",
+      "texte": "Je vous en prie, très bonne journée. Bonne journée, au revoir"
+    }
+  ]
+}

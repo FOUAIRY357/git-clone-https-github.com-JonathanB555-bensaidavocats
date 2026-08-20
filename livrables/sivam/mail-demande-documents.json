@@ -1,0 +1,29 @@
+{
+  "destinataire": "avithaa_18@hotmail.com",
+  "objet": "Votre résidence fiscale franco-suisse, pièces à nous transmettre",
+  "civilite": "Chère Madame,",
+  "corps": [
+    {"p": "Je vous remercie de votre appel de ce jour."},
+    {"p": "Votre sœur et vous êtes aujourd'hui imposées dans le canton de Vaud, où vous détenez un appartement en PPE à Aigle. Vous travaillez toutes deux à Genève. Pour éviter les trajets en semaine, vous envisagez de prendre en location un logement du côté français de la frontière. La question est de savoir si cette location vous fera basculer en résidence fiscale française."},
+    {"p": "La réponse se joue sur des éléments de fait. Le lieu où vous disposez d'un foyer permanent d'habitation, le temps que vous passez de part et d'autre de la frontière, et le centre de vos intérêts personnels et économiques. Nous avons donc besoin des éléments ci-dessous avant de nous prononcer. Ce sont des dossiers que nous traitons régulièrement."},
+    {"titre": "1. Votre situation personnelle"},
+    {"b": "une pièce d'identité et le titre de séjour suisse (permis B ou C), pour vous et pour votre sœur"},
+    {"b": "votre situation de famille à chacune, en précisant le conjoint éventuel, les enfants et leur lieu de scolarisation"},
+    {"titre": "2. Votre situation actuelle en Suisse"},
+    {"b": "l'attestation de domicile délivrée par la commune d'Aigle"},
+    {"b": "vos deux dernières décisions de taxation vaudoises, avec les déclarations correspondantes"},
+    {"b": "l'acte d'acquisition de l'appartement d'Aigle, en précisant la répartition de la propriété entre vous deux"},
+    {"b": "vos contrats de travail genevois et vos trois derniers certificats de salaire"},
+    {"titre": "3. Le projet de location en France"},
+    {"b": "le projet de bail ou, à défaut, l'annonce, avec l'adresse, la surface, le loyer et la durée envisagée"},
+    {"b": "une attestation de votre employeur précisant votre lieu de travail effectif et la part de télétravail autorisée"},
+    {"titre": "4. Quelques précisions à nous confirmer"},
+    {"b": "le nombre de nuits par semaine que chacune de vous compte passer dans le logement français"},
+    {"b": "l'usage que vous conserverez de l'appartement d'Aigle, en semaine et le week-end"},
+    {"b": "le lieu où résident vos proches et où se situent vos attaches personnelles"},
+    {"b": "les autres biens et revenus que vous détenez, en Suisse, en France ou ailleurs"},
+    {"titre": "5. La suite"},
+    {"p": "Il n'est pas grave que certaines pièces manquent à ce stade. Ces éléments nous servent à mesurer l'étendue du travail. Je vous adresse un devis dès réception, avec le délai de remise de la consultation."},
+    {"p": "Compte tenu de l'échéance sur l'appartement que vous avez trouvé, nous pouvons intervenir rapidement."}
+  ]
+}
