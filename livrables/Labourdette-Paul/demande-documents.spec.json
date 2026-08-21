@@ -1,0 +1,56 @@
+{
+  "destinataire": "Paul.Labourdette@gmail.com",
+  "objet": "Votre société à Genève, première demande d'informations",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Suite à notre échange de ce matin, voici la première demande d'informations annoncée."},
+    {"p": "Vous créez à Genève, avec un associé déjà conseillé, une société destinée à exploiter une activité de boulangerie, pour un capital d'environ 100 000 francs. Vos questions dépassent la seule constitution de la société. Elles portent aussi sur l'articulation des contrats et sur la fiscalité, la vôtre comme celle de la société."},
+    {"p": "Vos réponses nous permettront d'arrêter la forme sociale, SARL ou SA, puis de vous proposer la formule d'intervention la mieux adaptée. Peu de documents à ce stade, surtout des questions. Répondez directement dans le corps de votre message, en conservant la numérotation."},
+
+    {"titre": "1. Vous"},
+    {"b": "une copie de votre passeport ou de votre carte d'identité"},
+    {"b": "un justificatif de domicile de moins de trois mois"},
+    {"b": "votre nationalité, votre état civil et, si vous êtes marié, votre régime matrimonial"},
+    {"b": "votre pays de résidence fiscale à ce jour"},
+    {"b": "êtes-vous déjà titulaire d'un permis de séjour ou de travail suisse ?"},
+    {"b": "détenez-vous d'autres sociétés ou participations, en France ou ailleurs ?"},
+
+    {"titre": "2. Vos associés"},
+    {"b": "l'identité, la nationalité et le pays de résidence de chaque associé"},
+    {"b": "s'agit-il de personnes physiques, ou l'un d'eux intervient-il par une société ?"},
+    {"b": "la répartition du capital envisagée entre vous"},
+    {"b": "le nom et les coordonnées du conseil qui les représente, afin que nous échangions directement avec lui"},
+
+    {"titre": "3. Le projet"},
+    {"b": "l'activité exacte, production sur place, vente au détail, livraison, plusieurs points de vente"},
+    {"b": "l'adresse d'exploitation envisagée à Genève, et l'état du bail, signé, en négociation ou à trouver"},
+    {"b": "la date de démarrage visée"},
+    {"b": "l'effectif prévu la première année"},
+    {"b": "votre chiffre d'affaires prévisionnel, même approximatif"},
+
+    {"titre": "4. Le capital et le financement"},
+    {"b": "le montant exact du capital et la part de chacun"},
+    {"b": "la devise retenue, francs suisses ou euros"},
+    {"b": "la nature des apports, numéraire ou apports en nature (matériel, fonds de commerce, marque, recettes)"},
+    {"b": "un financement bancaire est-il prévu, et pour quel montant ?"},
+
+    {"titre": "5. Votre situation personnelle"},
+    {"b": "comment envisagez-vous de vous rémunérer, salaire, dividendes, ou les deux ?"},
+    {"b": "vous installez-vous en Suisse, ou restez-vous résident français ?"},
+    {"b": "votre conjoint travaillera-t-il dans l'entreprise ?"},
+
+    {"titre": "6. Les relations entre associés"},
+    {"b": "qui dirigera l'entreprise au quotidien, et avec quels pouvoirs ?"},
+    {"b": "comment les décisions importantes seront-elles prises ?"},
+    {"b": "avez-vous déjà évoqué une convention entre associés, sortie, préemption, non-concurrence ?"},
+    {"b": "un projet de statuts ou de pacte a-t-il déjà été rédigé par le conseil de vos associés ?"},
+
+    {"titre": "7. Documents à joindre, s'ils existent déjà"},
+    {"b": "votre business plan ou votre prévisionnel"},
+    {"b": "le projet de bail"},
+    {"b": "l'accord ou la proposition de financement bancaire"},
+    {"b": "tout projet de statuts ou de pacte d'associés déjà en circulation"},
+
+    {"p": "Des réponses même partielles suffisent pour engager le travail. À leur lecture, je vous adresserai deux formules d'intervention et ma recommandation entre les deux."}
+  ]
+}
