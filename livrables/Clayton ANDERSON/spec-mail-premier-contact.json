@@ -5,104 +5,36 @@
   "civilite": "Cher Monsieur,",
   "disponibilite": "Je reste à votre disposition.",
   "corps": [
-    {
-      "p": "Vous êtes ressortissant américain, résident et salarié en France, et vous devez régulariser vos déclarations françaises des années passées tout en restant soumis à vos obligations déclaratives aux États-Unis. Nous accompagnons régulièrement des contribuables américains installés en France dans cette situation. Nous acceptons volontiers votre dossier."
-    },
-    {
-      "titre": "1. Votre situation se traite dans un cadre connu"
-    },
-    {
-      "p": "Le retard déclaratif d'un résident étranger arrivé en France est une situation courante, et elle se règle par une démarche organisée. Quatre éléments jouent en votre faveur."
-    },
-    {
-      "b": "Vous prenez l'initiative. Tant que l'administration n'a formulé aucune demande, la régularisation reste spontanée, ce qui est la position la plus favorable pour discuter des pénalités."
-    },
-    {
-      "b": "La convention fiscale franco-américaine du 31 août 1994 élimine la double imposition. L'impôt acquitté dans un pays s'impute dans l'autre selon les règles qu'elle fixe. Une régularisation française ne revient donc pas à payer deux fois le même revenu."
-    },
-    {
-      "b": "Les majorations et amendes peuvent faire l'objet d'une remise gracieuse ou d'une transaction avec l'administration (article L. 247 du livre des procédures fiscales). Votre bonne foi se plaide, en particulier pour un contribuable qui découvre un système déclaratif étranger."
-    },
-    {
-      "b": "Sur les comptes détenus hors de France, le délai de reprise de l'administration demeure limité à trois ans dès lors que le total de leurs soldes créditeurs n'a jamais dépassé 50 000 € au cours de l'année concernée (article L. 169 du livre des procédures fiscales). L'extension du délai à dix ans est alors écartée. Vos relevés bancaires permettront de le vérifier immédiatement."
-    },
-    {
-      "p": "L'échange automatique d'informations entre la France et les États-Unis fait de la démarche spontanée la seule voie à retenir, et le calendrier vous appartient encore. Vos pièces et nos échanges sont couverts par le secret professionnel de l'avocat dès leur transmission. Rien ne sera adressé à l'administration sans votre accord écrit."
-    },
-    {
-      "titre": "2. Pièces à réunir"
-    },
-    {
-      "p": "Nous avons besoin de mesurer l'étendue exacte du retard avant de vous proposer quoi que ce soit. Merci de nous adresser ce qui suit, dans l'état où vous le détenez. Une pièce manquante sera traitée comme une inconnue à lever, sans retarder notre examen."
-    },
-    {
-      "p": "Sur votre installation et votre situation française."
-    },
-    {
-      "b": "Votre passeport et, le cas échéant, votre titre de séjour."
-    },
-    {
-      "b": "La date de votre arrivée en France et les pièces qui l'établissent (contrat de travail, bail ou acte d'achat, attestation d'employeur)."
-    },
-    {
-      "b": "Vos déclarations de revenus françaises déposées et vos avis d'imposition, pour toutes les années depuis votre arrivée. Pour les années non déposées, la seule liste de ces années suffit."
-    },
-    {
-      "b": "Vos contrats de travail et bulletins de salaire français, ou à défaut vos récapitulatifs annuels de rémunération."
-    },
-    {
-      "b": "Votre situation de famille (situation matrimoniale, régime matrimonial, personnes à charge, résidence fiscale de votre conjoint)."
-    },
-    {
-      "p": "Sur vos obligations américaines."
-    },
-    {
-      "b": "Vos déclarations fiscales américaines (Forms 1040 et annexes) des six dernières années, avec les W-2 et 1099 correspondants."
-    },
-    {
-      "b": "Vos déclarations de comptes étrangers déposées le cas échéant (FBAR, FinCEN Form 114) et vos Forms 8938."
-    },
-    {
-      "b": "Le nom de votre conseil fiscal américain, si vous en avez un, afin que nous coordonnions les positions prises dans les deux pays."
-    },
-    {
-      "p": "Sur vos comptes et vos actifs."
-    },
-    {
-      "b": "La liste de tous vos comptes bancaires, comptes de titres et comptes de courtage détenus hors de France, avec les relevés annuels de chacun, le solde au 31 décembre et le solde le plus élevé de chaque année."
-    },
-    {
-      "b": "Vos plans de retraite américains (401(k), IRA, Roth IRA, pension d'employeur) avec leurs relevés annuels."
-    },
-    {
-      "b": "Vos plans d'actionnariat salarié et instruments d'intéressement (stock-options, RSU, ESPP), avec les tableaux d'attribution, d'acquisition et de cession."
-    },
-    {
-      "b": "Vos contrats d'assurance-vie, rentes et produits assimilés souscrits hors de France."
-    },
-    {
-      "b": "Vos biens immobiliers en France et à l'étranger, avec les revenus locatifs correspondants et leur valeur estimée."
-    },
-    {
-      "b": "Vos comptes et portefeuilles de crypto-actifs, avec les relevés de plateformes."
-    },
-    {
-      "b": "Toute correspondance reçue de l'administration fiscale française ou de l'IRS, y compris les courriers restés sans réponse."
-    },
-    {
-      "p": "Nous vous ouvrirons un espace de dépôt sécurisé si le volume le justifie."
-    },
-    {
-      "titre": "3. La suite"
-    },
-    {
-      "p": "À réception de ces pièces, nous établissons les années à régulariser, les obligations déclaratives concernées et l'ordre des démarches. Nous vous adressons ensuite un devis, assorti d'un honoraire forfaitaire, couvrant la régularisation française et la consultation générale sur votre situation dans les deux pays. Aucun honoraire n'est engagé avant votre accord sur ce devis."
-    },
-    {
-      "p": "Un premier échange téléphonique de quelques minutes peut précéder l'envoi des pièces, si vous préférez cadrer les priorités de vive voix. Notre secrétariat vous proposera un créneau à votre convenance."
-    },
-    {
-      "p": "Si vous avez reçu une demande de l'administration fiscale française assortie d'un délai de réponse, dites-le nous sans attendre. Ce délai commanderait alors notre calendrier."
-    }
+    {"p": "Des déclarations françaises à rattraper sur plusieurs années, des obligations qui continuent de courir aux États-Unis, et deux administrations qui doivent recevoir des positions cohérentes. Nous traitons ce dossier régulièrement pour des contribuables américains installés en France. Nous acceptons volontiers le vôtre."},
+
+    {"titre": "1. Notre approche"},
+    {"p": "Nous menons la régularisation à titre spontané, avant toute demande de l'administration. C'est la position qui permet de négocier les pénalités, et elle vous appartient encore aujourd'hui."},
+    {"p": "La convention fiscale franco-américaine du 31 août 1994 écarte la double imposition. Solder le passé en France ne revient donc pas à payer deux fois les mêmes revenus."},
+    {"p": "Nous avons une idée précise de la marche à suivre sur votre dossier. Il nous manque vos pièces pour la chiffrer et fixer le calendrier. Rien ne part à l'administration sans votre accord écrit."},
+
+    {"titre": "2. Pièces à réunir"},
+    {"p": "Merci de nous adresser ce qui suit, dans l'état où vous le détenez. Une pièce manquante sera traitée comme une inconnue à lever, sans retarder notre examen."},
+    {"p": "Votre installation et votre situation française."},
+    {"b": "Votre passeport et, le cas échéant, votre titre de séjour."},
+    {"b": "La date de votre arrivée en France et les pièces qui l'établissent (contrat de travail, bail ou acte d'achat, attestation d'employeur)."},
+    {"b": "Vos déclarations de revenus françaises déposées et vos avis d'imposition, pour toutes les années depuis votre arrivée. Pour les années non déposées, la seule liste de ces années suffit."},
+    {"b": "Vos contrats de travail et bulletins de salaire français, ou à défaut vos récapitulatifs annuels de rémunération."},
+    {"b": "Votre situation de famille (situation matrimoniale, régime matrimonial, personnes à charge, résidence fiscale de votre conjoint)."},
+    {"p": "Vos obligations américaines."},
+    {"b": "Vos déclarations fiscales américaines (Forms 1040 et annexes) des six dernières années, avec les W-2 et 1099 correspondants."},
+    {"b": "Vos déclarations de comptes étrangers déposées le cas échéant (FBAR, FinCEN Form 114) et vos Forms 8938."},
+    {"b": "Le nom de votre conseil fiscal américain, si vous en avez un, afin que nous coordonnions les positions prises dans les deux pays."},
+    {"p": "Vos comptes et vos actifs."},
+    {"b": "La liste de tous vos comptes bancaires, comptes de titres et comptes de courtage détenus hors de France, avec les relevés annuels de chacun, le solde au 31 décembre et le solde le plus élevé de chaque année."},
+    {"b": "Vos plans de retraite américains (401(k), IRA, Roth IRA, pension d'employeur) avec leurs relevés annuels."},
+    {"b": "Vos plans d'actionnariat salarié et instruments d'intéressement (stock-options, RSU, ESPP), avec les tableaux d'attribution, d'acquisition et de cession."},
+    {"b": "Vos contrats d'assurance-vie, rentes et produits assimilés souscrits hors de France."},
+    {"b": "Vos biens immobiliers en France et à l'étranger, avec les revenus locatifs correspondants et leur valeur estimée."},
+    {"b": "Vos comptes et portefeuilles de crypto-actifs, avec les relevés de plateformes."},
+    {"b": "Toute correspondance reçue de l'administration fiscale française ou de l'IRS, y compris les courriers restés sans réponse."},
+
+    {"titre": "3. La suite"},
+    {"p": "À réception, nous arrêtons les années à régulariser, les obligations concernées et l'ordre des démarches. Nous vous adressons ensuite un devis à honoraire forfaitaire, couvrant la régularisation française et la consultation sur votre situation dans les deux pays. Aucun honoraire n'est engagé avant votre accord."},
+    {"p": "Si vous avez reçu une demande de l'administration fiscale française assortie d'un délai de réponse, dites-le nous sans attendre. Ce délai commanderait notre calendrier."}
   ]
 }
