@@ -38,6 +38,9 @@ présente charte, la charte prévaut.** Un skill ne redéclare pas ces règles, 
 ## 2. Formules
 - **Appel** (mail et courrier) : « Cher Monsieur, » ou « Chère Madame, ». « Cher <Prénom>, » admis
   si la relation est établie. Jamais « Bonjour », jamais « Madame, Monsieur, ».
+- **Remerciement d'ouverture** : un mail qui répond à un message reçu s'ouvre, après l'appel,
+  sur une ligne de remerciement seule (« Je vous remercie pour ce message. », « Je vous remercie
+  de votre message. »). Une ligne, pas deux, et rien d'autre dans le paragraphe.
 - **Clôture mail** : « Salutations dévouées, ».
 - **Clôture courrier / note formelle** : « Je vous prie d'agréer, <même civilité>, l'expression de
   mes salutations distinguées. »
@@ -49,6 +52,9 @@ présente charte, la charte prévaut.** Un skill ne redéclare pas ces règles, 
 ## 3. Style
 - Langage d'avocat : phrases courtes, une idée par phrase, sujet-verbe-complément. On affirme, on
   ne délaye pas. Deux-points rares. Listes en tirets « - ».
+- **Aucune injonction au destinataire.** Une demande se formule à l'interrogative
+  (« Pourriez-vous nous l'indiquer ? »), jamais à l'impératif (« dites-le nous »,
+  « envoyez-nous », « confirmez »). Vaut pour les clients, les prospects et les confrères.
 - Prix en **HT** (la TVA est due en sus, selon le régime applicable au jour de la facturation).
 
 ## 4. Livraison (contexte cloud)
@@ -65,4 +71,8 @@ présente charte, la charte prévaut.** Un skill ne redéclare pas ces règles, 
 - Vérifier toute référence (article, jurisprudence) via le MCP Bensaid (Legifrance / Judilibre)
   avant de la citer. Sinon, reformuler en langage courant ou signaler « à confirmer ».
 - Charger le skill métier adapté (`paperasse_skill` : fiscaliste, notaire, comptable...) pour le fond.
+- **Ne jamais s'engager sur le droit étranger.** Nos écrits, devis et missions portent sur le
+  droit français. On ne promet ni consultation ni position « dans les deux pays » : on traite le
+  volet français et on coordonne avec les conseils locaux. Proscrire toute formule qui étend
+  implicitement le périmètre à une législation étrangère.
 - Lister les points à faire valider par François avant diffusion.

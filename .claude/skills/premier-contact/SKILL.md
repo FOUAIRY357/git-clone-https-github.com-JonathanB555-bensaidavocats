@@ -23,6 +23,15 @@ dossier et l'enjeu, on nomme ce qu'on livre, on propose une date.
 Dans ce premier mail : **pas d'honoraires, pas de montant, pas de facture.** Le prix se cadre
 au call ou via [[rdv-cadrage]].
 
+**On n'annonce pas qu'on accepte le dossier.** Bannir « Nous acceptons volontiers votre dossier »
+et ses variantes. L'entree en relation se decide apres examen des pieces, et se formalise par le
+devis puis la lettre de mission. Dire qu'on traite ce type de dossier regulierement suffit a
+rassurer, sans nous engager.
+
+**On ne demande aucune piece d'identite dans ce premier mail** (passeport, titre de sejour,
+justificatif de domicile). Ces pieces relevent de l'entree en relation et se demandent au stade
+de la [[lettre-mission]]. Un premier mail ne reclame que ce qui sert a mesurer le dossier.
+
 ## Règle d'or du style
 
 **Ton assuré, business, jamais scolaire.** On écrit d'égal à égal, en professionnel qui
@@ -108,6 +117,9 @@ Briques courtes et interchangeables. Piocher, adapter le sujet, assembler.
 **Ouverture**
 ```
 Je vous remercie de votre message.
+```
+```
+Je vous remercie pour ce message.
 ```
 
 **Le hook (reformuler + pointer l'enjeu, sans phrase-chapeau)**
