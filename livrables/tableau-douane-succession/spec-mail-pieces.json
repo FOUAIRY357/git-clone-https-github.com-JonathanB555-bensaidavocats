@@ -1,0 +1,25 @@
+{
+  "destinataire": "[adresse du client]",
+  "objet": "Tableau retenu en douane - pièces nécessaires à notre intervention",
+  "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition pour tout complément.",
+  "corps": [
+    {"p": "Je fais suite à notre entretien téléphonique de cet après-midi, concernant le tableau ayant appartenu à votre père. Cette œuvre aurait été retenue par une administration douanière lors d'un trajet entre Monaco et la Hongrie, vraisemblablement à la frontière entre l'Italie et la Suisse."},
+    {"p": "Comme je vous l'indiquais, la première étape consiste à établir deux choses. D'une part l'existence et l'identification du tableau. D'autre part votre qualité à le revendiquer. Sans ces éléments, aucune administration ne nous répondra, et le cabinet ne serait pas en mesure d'engager utilement une démarche."},
+    {"p": "Je vous remercie de bien vouloir me transmettre, en réponse à ce mail, les documents suivants, ou ceux dont vous disposez parmi eux."},
+    {"titre": "1. Votre père et la succession"},
+    {"b": "l'acte de décès de votre père ;"},
+    {"b": "l'acte de notoriété ou le certificat d'héritier, s'il a déjà été établi, ou à défaut les coordonnées du notaire en charge de la succession ;"},
+    {"b": "les coordonnées de l'avocat qui intervient déjà sur la succession, afin de coordonner nos interventions ;"},
+    {"b": "une copie de votre pièce d'identité."},
+    {"titre": "2. Le tableau"},
+    {"b": "tout document relatif à son acquisition, facture, bordereau de vente aux enchères ou certificat d'authenticité ;"},
+    {"b": "toute police d'assurance le mentionnant ;"},
+    {"b": "toute photographie de l'œuvre ;"},
+    {"b": "tout inventaire, estimation ou document successoral le mentionnant."},
+    {"titre": "3. Les recherches déjà effectuées"},
+    {"b": "le rapport ou les conclusions du détective privé que vous avez mandaté, même partiels, et en particulier tout élément permettant d'identifier la douane concernée et la date du passage."},
+    {"p": "Il n'est pas nécessaire de disposer de l'ensemble de ces pièces pour avancer. Il nous faut en revanche un socle minimal, soit au moins un document rattachant le tableau à votre père, et un document établissant votre qualité d'héritier."},
+    {"p": "À réception, je serai en mesure de vous proposer une stratégie d'intervention et le forfait d'honoraires correspondant, comme évoqué au téléphone."}
+  ]
+}
