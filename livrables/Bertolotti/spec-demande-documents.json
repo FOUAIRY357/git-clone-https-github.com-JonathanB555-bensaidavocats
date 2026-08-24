@@ -1,0 +1,101 @@
+{
+  "destinataire": "bertolotti_eric@yahoo.fr",
+  "objet": "Vos stock-options suisses, les pièces à nous transmettre",
+  "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition pour toute question.",
+  "corps": [
+    {
+      "p": "Comme convenu lors de notre entretien, voici les pièces nécessaires à l'analyse de votre situation."
+    },
+    {
+      "p": "Vous êtes résident fiscal français, domicilié dans la région d'Évian, et salarié d'une société établie à Lausanne. Vous avez exercé cette année des options acquises sur plusieurs exercices. Le produit, de l'ordre de 500 000 francs, apparaît sur vos bulletins de salaire et sur votre certificat de salaire comme un revenu non récurrent."
+    },
+    {
+      "titre": "1. Les trois questions que nous allons trancher"
+    },
+    {
+      "p": "La première porte sur la répartition du droit d'imposer entre la France et la Suisse. Le gain de levée se rattache à la période comprise entre l'attribution des options et l'acquisition définitive des droits. La fraction de ce gain qui se rattache à une activité exercée en Suisse ne suit donc pas nécessairement le même régime que votre salaire courant."
+    },
+    {
+      "p": "La deuxième porte sur le caractère exceptionnel du revenu. Vous évoquiez une décision allant en ce sens. Le mécanisme existe bien en droit interne. L'article 163-0 A du code général des impôts permet, sous conditions, d'atténuer la progressivité du barème sur un revenu exceptionnel ou sur un revenu différé. Son application à votre cas dépend du montant de vos revenus nets des trois dernières années et de la nature exacte du gain. C'est précisément ce que les pièces ci-dessous permettront de vérifier."
+    },
+    {
+      "p": "La troisième porte sur les suites, à savoir votre taux de prélèvement à la source pour les mois qui viennent, l'imputation de l'impôt suisse déjà supporté et les dispositifs de déduction encore mobilisables d'ici la fin de l'année."
+    },
+    {
+      "titre": "2. Les pièces relatives aux options"
+    },
+    {
+      "b": "le règlement du plan d'options et vos lettres d'attribution, pour chaque tranche concernée"
+    },
+    {
+      "b": "le tableau récapitulatif des attributions, avec les dates d'octroi, les dates d'acquisition définitive, la date d'exercice, le prix d'exercice et le nombre de titres"
+    },
+    {
+      "b": "l'avis d'exercice et le décompte établi par l'employeur ou par l'établissement teneur du plan"
+    },
+    {
+      "b": "toute attestation de l'employeur ventilant le gain par période et par lieu d'activité"
+    },
+    {
+      "b": "si les titres ont été cédés, l'avis d'opéré ou l'acte de cession"
+    },
+    {
+      "titre": "3. Les pièces relatives à votre rémunération suisse"
+    },
+    {
+      "b": "vos bulletins de salaire de l'année en cours, y compris ceux portant la mention de revenu non récurrent"
+    },
+    {
+      "b": "vos certificats de salaire des trois dernières années"
+    },
+    {
+      "b": "votre contrat de travail et ses avenants"
+    },
+    {
+      "b": "le détail de l'impôt suisse effectivement prélevé sur ce gain, retenue à la source et décompte cantonal vaudois"
+    },
+    {
+      "titre": "4. Les pièces relatives à votre situation française"
+    },
+    {
+      "b": "vos trois derniers avis d'imposition et les déclarations correspondantes, formulaires 2042 et 2047"
+    },
+    {
+      "b": "vos déclarations de comptes détenus à l'étranger, formulaires 3916 et 3916 bis, si vous en avez déposé"
+    },
+    {
+      "b": "votre attestation de résidence fiscale remise à l'employeur, si vous êtes traité comme travailleur frontalier"
+    },
+    {
+      "b": "la composition de votre foyer, avec votre situation matrimoniale, votre régime et vos enfants à charge"
+    },
+    {
+      "b": "vos autres revenus de l'année, notamment fonciers et mobiliers, ainsi que vos versements d'épargne retraite"
+    },
+    {
+      "titre": "5. Quatre précisions à nous confirmer"
+    },
+    {
+      "b": "rentrez-vous chaque jour à votre domicile français depuis Lausanne ?"
+    },
+    {
+      "b": "avez-vous exercé votre activité ailleurs qu'en Suisse entre l'attribution des options et leur acquisition définitive ?"
+    },
+    {
+      "b": "les titres issus de la levée ont-ils été vendus immédiatement ou conservés ?"
+    },
+    {
+      "b": "détenez-vous d'autres instruments du même plan, non encore exercés ?"
+    },
+    {
+      "titre": "6. La suite"
+    },
+    {
+      "p": "Vous pouvez me transmettre ces éléments par simple retour de ce message. Une transmission partielle ne bloque pas le travail, nous commencerons avec ce que vous aurez."
+    },
+    {
+      "p": "Dès réception, je vous adresserai un devis au forfait ainsi que la stratégie que nous vous proposons, chiffrée sur votre situation. Nous en discuterons ensemble avant tout engagement de votre part."
+    }
+  ]
+}
