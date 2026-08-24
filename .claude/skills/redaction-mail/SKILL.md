@@ -54,6 +54,9 @@ un collage deja mis en forme.
 ### Style
 - Langage d'avocat : precis, sobre, sans familiarite. On affirme, on ne delaye pas.
 - Phrases courtes, une idee par phrase. Paragraphes courts et aeres.
+- **Pas d'antithese en miroir** (« Ce n'est pas X. C'est Y. », « Nous ne faisons jamais X. Nous
+  faisons Y. ») : on enonce directement ce qui est. Regle detaillee dans [[charte-cabinet]], le
+  renderer avertit.
 - Pas de formule commerciale (« n'hesitez pas a », « au plaisir de », « je me permets de »).
 - **Deux-points rares** : preferer deux phrases. Le renderer avertit s'il y en a trop.
 - **Listes en tirets « - »** (jamais de puce ronde) ; numerotation admise pour une sequence ordonnee.

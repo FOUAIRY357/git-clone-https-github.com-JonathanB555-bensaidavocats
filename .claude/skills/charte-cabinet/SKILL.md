@@ -23,6 +23,12 @@ présente charte, la charte prévaut.** Un skill ne redéclare pas ces règles, 
 - **Guillemets français « »** quand des guillemets sont nécessaires.
 - **Aucun marqueur IA** : pas de couleur « signature » type Claude, pas d'emoji décoratif dans les
   écrits juridiques.
+- **Aucune antithèse en miroir.** On n'écrit pas ce que la chose n'est pas pour dire ensuite ce
+  qu'elle est. Sont bannies les tournures « Ce n'est pas X. C'est Y. », « Nous ne faisons jamais X.
+  Nous faisons Y. », « Le point sensible n'est pas X, ce sont les Y », « non pas X mais Y »,
+  « Y, et non X ». C'est le marqueur d'IA le plus reconnaissable de tous, et il sonne publicitaire
+  sous la plume d'un avocat. On énonce directement ce qui est. Le contraste, quand il est utile,
+  se porte par un fait, une date ou un chiffre, pas par une négation symétrique.
 - **Aucune phrase-chapeau qui annonce la compréhension.** Bannies partout (mails, courriers, notes) :
   « Votre demande est claire », « Si je comprends bien », « Je comprends bien », « C'est bien noté »,
   « Nous avons bien compris votre demande ». On entre directement dans les faits : on reformule la

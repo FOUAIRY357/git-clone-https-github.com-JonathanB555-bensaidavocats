@@ -5,48 +5,122 @@
   "civilite": "Cher Monsieur,",
   "disponibilite": "Je reste à votre disposition.",
   "corps": [
-    {"p": "Vous êtes ressortissant américain, résident et salarié en France, et vous devez régulariser vos déclarations françaises des années passées tout en restant soumis à vos obligations déclaratives aux États-Unis. Nous accompagnons régulièrement ce type de dossier. Nous l'acceptons volontiers."},
-
-    {"titre": "1. Ce qui se joue dans votre dossier"},
-    {"p": "Votre situation relève de deux souverainetés fiscales simultanées. La France impose ses résidents sur leurs revenus de source mondiale, la résidence étant appréciée au regard de l'article 4 B du code général des impôts. Les États-Unis vous imposent en raison de votre seule nationalité, où que vous viviez. La convention franco-américaine du 31 août 1994 répartit les droits d'imposer et élimine la double imposition, mais elle ne dispense d'aucune déclaration."},
-    {"p": "Le point sensible n'est pas l'impôt lui-même. Ce sont les obligations déclaratives annexes et les sanctions attachées à leur omission."},
-    {"b": "Les comptes bancaires détenus hors de France doivent être déclarés chaque année avec la déclaration de revenus (article 1649 A du CGI). L'omission est sanctionnée par une amende de 1 500 € par compte non déclaré (article 1736 du CGI)."},
-    {"b": "Cette omission porte le délai de reprise de l'administration de trois à dix ans (article L. 169 du livre des procédures fiscales). Le délai de trois ans est préservé si vous démontrez que le total des soldes créditeurs de vos comptes étrangers n'a jamais dépassé 50 000 € au cours de l'année concernée."},
-    {"b": "Les sommes transférées par l'intermédiaire de comptes non déclarés sont présumées être des revenus imposables, et les droits correspondants sont assortis d'une majoration de 40 % (article 1758 du CGI). Cette présomption se combat par la preuve de l'origine des fonds."},
-    {"b": "Vos plans de retraite, plans d'actionnariat et contrats d'assurance américains ne reçoivent pas le même traitement dans les deux pays. Une qualification erronée crée une double imposition qui n'apparaît que des années plus tard."},
-    {"p": "Une régularisation spontanée, préparée et documentée avant toute demande de l'administration, se négocie. Une régularisation subie après une demande d'éclaircissements ne se négocie plus. L'échange automatique d'informations entre la France et les États-Unis rend la première voie la seule raisonnable."},
-
-    {"titre": "2. Le rendez-vous de cadrage stratégique"},
-    {"p": "Nous ne commençons jamais un dossier de régularisation par des déclarations rectificatives. Nous le commençons par un rendez-vous de cadrage stratégique, d'une durée d'une heure trente à deux heures, en visioconférence ou au cabinet à Paris. Ses honoraires sont de 2 400 € HT."},
-    {"p": "Le cadrage n'est pas un entretien de découverte. C'est le travail de décision du dossier. Nous l'avons construit ainsi parce qu'une régularisation se gagne ou se perd sur les choix faits avant le premier envoi à l'administration."},
-    {"b": "Nous établissons votre situation de résidence année par année, depuis votre installation en France. C'est cette chronologie qui détermine les années à régulariser et celles qui sont hors de portée de l'administration."},
-    {"b": "Nous délimitons le périmètre exact du retard. Années non déposées, revenus omis, comptes et actifs non déclarés, chaque anomalie étant qualifiée séparément car chacune ouvre son propre délai et sa propre sanction."},
-    {"b": "Nous chiffrons. Impôt en principal, prélèvements sociaux, intérêts de retard, majorations et amendes, dans une hypothèse haute et une hypothèse basse. Vous connaissez votre exposition maximale avant de décider quoi que ce soit."},
-    {"b": "Nous arrêtons la stratégie de régularisation. Voie choisie, service compétent, ordre des envois, argumentation de bonne foi, demande de remise gracieuse des pénalités, et articulation avec votre situation américaine pour que les deux pays reçoivent des positions cohérentes."},
-    {"b": "Nous traitons les points de friction franco-américains propres à votre dossier. Traitement de vos plans de retraite et d'actionnariat, imputation du crédit d'impôt conventionnel, coordination avec vos déclarations américaines et vos déclarations de comptes étrangers."},
-    {"b": "Nous vous remettons enfin une projection de votre situation pour l'avenir, une fois le passé purgé. C'est la consultation générale que vous appelez de vos vœux, mais adossée à des chiffres et non à des généralités."},
-    {"p": "Vous repartez du rendez-vous avec un support de présentation écrit, les options qui s'offrent à vous, leurs chiffres respectifs, notre recommandation, et un devis pour la suite. Vous êtes alors en mesure de décider, y compris de ne rien nous confier au-delà du cadrage."},
-
-    {"titre": "3. Pièces à réunir avant le rendez-vous"},
-    {"p": "La qualité du cadrage dépend entièrement des pièces dont nous disposons à ce moment-là. Merci de nous adresser ce qui suit, dans l'état où vous le détenez. Une pièce manquante ne bloque pas le rendez-vous, elle sera traitée comme une inconnue à lever."},
-    {"b": "Votre passeport et, le cas échéant, votre titre de séjour."},
-    {"b": "La date exacte de votre installation en France, ainsi que les pièces qui l'établissent (contrat de travail, bail ou acte d'achat, attestation d'employeur, factures d'énergie de la première année)."},
-    {"b": "Vos déclarations de revenus françaises déposées et vos avis d'imposition, pour toutes les années depuis votre arrivée. Pour les années non déposées, la seule liste de ces années suffit."},
-    {"b": "Vos contrats de travail français et vos bulletins de salaire, ou à défaut vos récapitulatifs annuels de rémunération."},
-    {"b": "Vos déclarations fiscales américaines (Forms 1040 et annexes) des six dernières années, avec les W-2 et 1099 correspondants."},
-    {"b": "Vos déclarations de comptes étrangers américaines déposées le cas échéant (FBAR, FinCEN Form 114) et vos Forms 8938."},
-    {"b": "La liste de tous vos comptes bancaires, comptes de titres et comptes de courtage détenus hors de France, avec les relevés annuels de chacun, le solde au 31 décembre et le solde le plus élevé de chaque année."},
-    {"b": "Vos plans de retraite américains (401(k), IRA, Roth IRA, pension d'employeur) avec leurs relevés annuels."},
-    {"b": "Vos plans d'actionnariat salarié et instruments d'intéressement (stock-options, RSU, ESPP), avec les tableaux d'attribution, d'acquisition et de cession."},
-    {"b": "Vos contrats d'assurance-vie, rentes et produits assimilés souscrits hors de France."},
-    {"b": "Vos biens immobiliers en France et à l'étranger, avec les revenus locatifs correspondants et leur valeur estimée."},
-    {"b": "Vos comptes et portefeuilles de crypto-actifs, avec les relevés de plateformes."},
-    {"b": "Votre situation de famille (situation matrimoniale, régime matrimonial, personnes à charge, résidence fiscale de votre conjoint)."},
-    {"b": "Toute correspondance reçue de l'administration fiscale française ou de l'IRS, y compris les courriers restés sans réponse."},
-    {"p": "Ces pièces relèvent du secret professionnel de l'avocat dès leur transmission. Nous vous ouvrirons un espace de dépôt sécurisé si le volume le justifie."},
-
-    {"titre": "4. Prochaine étape"},
-    {"p": "Notre secrétariat vous adressera dans les prochains jours quatre créneaux de deux heures. Vous nous indiquerez celui qui vous convient et le format retenu, visioconférence ou présentiel dans nos locaux du 49 rue de Courcelles à Paris. Les honoraires du cadrage sont réglés avant le rendez-vous, sur facture."},
-    {"p": "Si vous avez reçu une demande de l'administration fiscale française assortie d'un délai de réponse, dites-le nous sans attendre. Nous avancerions alors le rendez-vous."}
+    {
+      "p": "Vous êtes ressortissant américain, résident et salarié en France, et vous devez régulariser vos déclarations françaises des années passées tout en restant soumis à vos obligations déclaratives aux États-Unis. Nous accompagnons régulièrement ce type de dossier. Nous l'acceptons volontiers."
+    },
+    {
+      "titre": "1. Ce qui se joue dans votre dossier"
+    },
+    {
+      "p": "Votre situation relève de deux souverainetés fiscales simultanées. La France impose ses résidents sur leurs revenus de source mondiale, la résidence étant appréciée au regard de l'article 4 B du code général des impôts. Les États-Unis vous imposent en raison de votre seule nationalité, où que vous viviez. La convention franco-américaine du 31 août 1994 répartit les droits d'imposer et élimine la double imposition, mais elle ne dispense d'aucune déclaration."
+    },
+    {
+      "p": "Le risque principal se situe moins dans l'impôt lui-même que dans les obligations déclaratives annexes et les sanctions attachées à leur omission."
+    },
+    {
+      "b": "Les comptes bancaires détenus hors de France doivent être déclarés chaque année avec la déclaration de revenus (article 1649 A du CGI). L'omission est sanctionnée par une amende de 1 500 € par compte non déclaré (article 1736 du CGI)."
+    },
+    {
+      "b": "Cette omission porte le délai de reprise de l'administration de trois à dix ans (article L. 169 du livre des procédures fiscales). Le délai de trois ans est préservé si vous démontrez que le total des soldes créditeurs de vos comptes étrangers n'a jamais dépassé 50 000 € au cours de l'année concernée."
+    },
+    {
+      "b": "Les sommes transférées par l'intermédiaire de comptes non déclarés sont présumées être des revenus imposables, et les droits correspondants sont assortis d'une majoration de 40 % (article 1758 du CGI). Cette présomption se combat par la preuve de l'origine des fonds."
+    },
+    {
+      "b": "Vos plans de retraite, plans d'actionnariat et contrats d'assurance américains ne reçoivent pas le même traitement dans les deux pays. Une qualification erronée crée une double imposition qui n'apparaît que des années plus tard."
+    },
+    {
+      "p": "Une démarche spontanée, préparée et documentée avant toute demande de l'administration, laisse une marge de négociation sur les pénalités. Cette marge se referme dès réception de la première demande d'éclaircissements. L'échange automatique d'informations entre la France et les États-Unis commande donc d'agir maintenant."
+    },
+    {
+      "titre": "2. Le rendez-vous de cadrage stratégique"
+    },
+    {
+      "p": "Un dossier de régularisation s'ouvre chez nous par un rendez-vous de cadrage stratégique, en amont de toute déclaration rectificative. Il dure d'une heure trente à deux heures, en visioconférence ou au cabinet à Paris. Ses honoraires sont de 2 400 € HT."
+    },
+    {
+      "p": "Ce rendez-vous constitue le travail de décision du dossier. Une régularisation se gagne ou se perd sur les choix arrêtés avant le premier envoi à l'administration, et ce sont ces choix que nous traitons ensemble."
+    },
+    {
+      "b": "Nous établissons votre situation de résidence année par année, depuis votre installation en France. C'est cette chronologie qui détermine les années à régulariser et celles qui sont hors de portée de l'administration."
+    },
+    {
+      "b": "Nous délimitons le périmètre exact du retard. Années non déposées, revenus omis, comptes et actifs non déclarés, chaque anomalie étant qualifiée séparément car chacune ouvre son propre délai et sa propre sanction."
+    },
+    {
+      "b": "Nous chiffrons. Impôt en principal, prélèvements sociaux, intérêts de retard, majorations et amendes, dans une hypothèse haute et une hypothèse basse. Vous connaissez votre exposition maximale avant de décider quoi que ce soit."
+    },
+    {
+      "b": "Nous arrêtons la stratégie de régularisation. Voie choisie, service compétent, ordre des envois, argumentation de bonne foi, demande de remise gracieuse des pénalités, et articulation avec votre situation américaine pour que les deux pays reçoivent des positions cohérentes."
+    },
+    {
+      "b": "Nous traitons les points de friction franco-américains propres à votre dossier. Traitement de vos plans de retraite et d'actionnariat, imputation du crédit d'impôt conventionnel, coordination avec vos déclarations américaines et vos déclarations de comptes étrangers."
+    },
+    {
+      "b": "Nous vous remettons enfin une projection de votre situation pour l'avenir, une fois le passé purgé. Il s'agit de la consultation générale que vous demandez, adossée aux chiffres de votre propre dossier."
+    },
+    {
+      "p": "Vous repartez du rendez-vous avec un support de présentation écrit, les options qui s'offrent à vous, leurs chiffres respectifs, notre recommandation, et un devis pour la suite. Vous êtes alors en mesure de décider, y compris de ne rien nous confier au-delà du cadrage."
+    },
+    {
+      "titre": "3. Pièces à réunir avant le rendez-vous"
+    },
+    {
+      "p": "La qualité du cadrage dépend entièrement des pièces dont nous disposons à ce moment-là. Merci de nous adresser ce qui suit, dans l'état où vous le détenez. Une pièce manquante sera traitée comme une inconnue à lever, sans retarder le rendez-vous."
+    },
+    {
+      "b": "Votre passeport et, le cas échéant, votre titre de séjour."
+    },
+    {
+      "b": "La date exacte de votre installation en France, ainsi que les pièces qui l'établissent (contrat de travail, bail ou acte d'achat, attestation d'employeur, factures d'énergie de la première année)."
+    },
+    {
+      "b": "Vos déclarations de revenus françaises déposées et vos avis d'imposition, pour toutes les années depuis votre arrivée. Pour les années non déposées, la seule liste de ces années suffit."
+    },
+    {
+      "b": "Vos contrats de travail français et vos bulletins de salaire, ou à défaut vos récapitulatifs annuels de rémunération."
+    },
+    {
+      "b": "Vos déclarations fiscales américaines (Forms 1040 et annexes) des six dernières années, avec les W-2 et 1099 correspondants."
+    },
+    {
+      "b": "Vos déclarations de comptes étrangers américaines déposées le cas échéant (FBAR, FinCEN Form 114) et vos Forms 8938."
+    },
+    {
+      "b": "La liste de tous vos comptes bancaires, comptes de titres et comptes de courtage détenus hors de France, avec les relevés annuels de chacun, le solde au 31 décembre et le solde le plus élevé de chaque année."
+    },
+    {
+      "b": "Vos plans de retraite américains (401(k), IRA, Roth IRA, pension d'employeur) avec leurs relevés annuels."
+    },
+    {
+      "b": "Vos plans d'actionnariat salarié et instruments d'intéressement (stock-options, RSU, ESPP), avec les tableaux d'attribution, d'acquisition et de cession."
+    },
+    {
+      "b": "Vos contrats d'assurance-vie, rentes et produits assimilés souscrits hors de France."
+    },
+    {
+      "b": "Vos biens immobiliers en France et à l'étranger, avec les revenus locatifs correspondants et leur valeur estimée."
+    },
+    {
+      "b": "Vos comptes et portefeuilles de crypto-actifs, avec les relevés de plateformes."
+    },
+    {
+      "b": "Votre situation de famille (situation matrimoniale, régime matrimonial, personnes à charge, résidence fiscale de votre conjoint)."
+    },
+    {
+      "b": "Toute correspondance reçue de l'administration fiscale française ou de l'IRS, y compris les courriers restés sans réponse."
+    },
+    {
+      "p": "Ces pièces relèvent du secret professionnel de l'avocat dès leur transmission. Nous vous ouvrirons un espace de dépôt sécurisé si le volume le justifie."
+    },
+    {
+      "titre": "4. Prochaine étape"
+    },
+    {
+      "p": "Notre secrétariat vous adressera dans les prochains jours quatre créneaux de deux heures. Vous nous indiquerez celui qui vous convient et le format retenu, visioconférence ou présentiel dans nos locaux du 49 rue de Courcelles à Paris. Les honoraires du cadrage sont réglés avant le rendez-vous, sur facture."
+    },
+    {
+      "p": "Si vous avez reçu une demande de l'administration fiscale française assortie d'un délai de réponse, dites-le nous sans attendre. Nous avancerions alors le rendez-vous."
+    }
   ]
 }

@@ -39,6 +39,25 @@ import sys, json, os, re, html
 
 FATAL_CHARS = {"—": "tiret cadratin (—)", "–": "demi-cadratin (–)"}
 
+# Antitheses en miroir : on dit ce que la chose n'est pas, puis ce qu'elle est.
+# Marqueur IA le plus reconnaissable, banni par la charte du cabinet.
+APO = r"['\u2019]"
+NEG = (r"n(?:e\s|" + APO + r")[^.!?]{0,160}?\b(?:pas|jamais|plus|aucun|aucune|rien)\b")
+ANTITHESES = [
+    # « Ce n'est pas X. C'est Y. » / « ... n'est pas X, c'est Y »
+    (re.compile(NEG + r"[^.!?]{0,160}[.,;]\s+(?:C'est|Ce sont|C'était|Il s'agit)\b"),
+     "negation puis « c'est »"),
+    # « Nous ne faisons jamais X. Nous faisons Y. »
+    (re.compile(r"\b(Nous|Je|Vous|Il|Elle|On)\b\s" + NEG +
+                r"[^.!?]{0,200}[.]\s+\1\b"),
+     "meme sujet nie puis affirme"),
+    # « non pas X mais Y »
+    (re.compile(r"\bnon pas\b[^.!?]{0,120}\bmais\b"), "« non pas ... mais »"),
+    # « Y, et non X »
+    (re.compile(r",\s*(?:mais\s+)?[^.!?]{0,80}\bet non\b(?!\s+(?:seulement|plus))"),
+     "« ..., et non ... »"),
+]
+
 # Cloture standard du cabinet : une phrase de disponibilite, puis la signature courte.
 # Aucun nom : la signature Outlook de Francois s'en charge.
 DISPO_DEF = "Je reste à votre disposition pour toute question."
@@ -76,7 +95,15 @@ def _check_style(spec):
                 "STYLE (avertissement) : %d deux-points pour ~%d phrases. "
                 "Le cabinet en limite l'usage, privilegier des phrases courtes.\n"
                 % (colons, phrases))
-    # 3. phrases trop longues
+    # 3. antithese en miroir : marqueur IA banni par la charte
+    for motif, exemple in ANTITHESES:
+        for m in motif.finditer(joined):
+            sys.stderr.write(
+                "STYLE (avertissement) : antithese en miroir (%s), bannie par la charte :\n"
+                "  \"%s\"\n"
+                "  Enoncer directement ce qui est, sans passer par ce qui n'est pas.\n"
+                % (exemple, m.group(0)[:160].replace("\n", " ")))
+    # 4. phrases trop longues
     for frag in fragments:
         for phrase in re.split(r"(?<=[.!?])\s+", frag):
             if len(phrase) > 240:
@@ -94,6 +121,8 @@ def _plain(spec):
             lignes += ["", blk["titre"], ""]
             prev_bullet = False
         elif "p" in blk:
+            if prev_bullet:
+                lignes.append("")
             lignes += [blk["p"], ""]
             prev_bullet = False
         elif "b" in blk:
