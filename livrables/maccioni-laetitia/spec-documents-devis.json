@@ -1,0 +1,25 @@
+{
+  "destinataire": "lmaccioni@gmail.com",
+  "copie": "jonathan@bensaid-avocats.fr",
+  "objet": "Les documents nécessaires à votre devis",
+  "civilite": "Chère Madame,",
+  "corps": [
+    {"p": "Comme convenu lors de notre échange, voici les éléments dont j'ai besoin pour chiffrer votre situation. Ils couvrent les trois volets que nous avons identifiés, votre conformité américaine, l'impact fiscal du mariage et le choix de la structure de votre agence."},
+    {"titre": "1. Votre situation personnelle"},
+    {"b": "vos deux dernières déclarations de revenus françaises et les avis d'imposition correspondants"},
+    {"b": "l'année de votre départ des États-Unis et votre numéro de sécurité sociale américain, si vous en disposez"},
+    {"b": "les revenus annuels de votre conjoint et les éléments établissant son statut de quasi-résident suisse"},
+    {"titre": "2. Votre patrimoine"},
+    {"b": "un tableau de vos comptes et placements, avec le solde de chacun au 31 décembre des trois dernières années"},
+    {"b": "les conditions générales et le dernier relevé de votre assurance-vie et de votre PER"},
+    {"b": "pour chacun de vos trois appartements, la date et le prix d'acquisition, le loyer annuel et le régime sous lequel il est déclaré"},
+    {"titre": "3. Votre projet d'agence"},
+    {"b": "le chiffre d'affaires et les charges que vous prévoyez sur trois ans"},
+    {"b": "le revenu annuel dont vous avez besoin pour vivre"},
+    {"b": "les raisons qui vous ont orientée vers l'EURL plutôt que vers la SASU"},
+    {"titre": "4. La suite"},
+    {"p": "Ces éléments suffisent à établir l'état des lieux. Ils n'appellent aucune mise en forme particulière, un envoi en l'état vaut mieux qu'un envoi tardif. Votre tableau Excel fera parfaitement l'affaire."},
+    {"p": "Dès réception, je vous adresse un devis définitif et plafonné. Aucun dépassement d'honoraires ne vous sera facturé."},
+    {"p": "Ces documents et nos échanges sont couverts par le secret professionnel de l'avocat français."}
+  ]
+}
