@@ -3,26 +3,25 @@
   "objet": "Avoirs de prévoyance suisses, analyse préliminaire et propositions d'accompagnement",
   "civilite": "Cher Monsieur,",
   "corps": [
-    {"p": "J'ai examiné vos pièces, sans frais pour vous. Voici ce que j'en retiens, puis ce que j'attends de votre part."},
+    {"p": "J'ai examiné vos pièces. Voici ce que j'en retiens, puis ce que j'attends de votre part."},
     {"titre": "Le dossier"},
     {"p": "Le règlement de prévoyance vous est favorable. Son article 12.1 qualifie lui-même le versement de prestation en capital de décès, versée indépendamment du droit successoral, et vous relevez du groupe 3 de la cascade. Vous recevez donc comme bénéficiaires désignés par le règlement, non comme héritiers. Cet argument ne figure pas dans l'analyse qui vous a été remise. L'enjeu est par ailleurs le double de ce que nous avions retenu, 598 394,72 CHF, soit environ 327 000 euros par héritier."},
     {"titre": "Les qualifications"},
     {"p": "La piste de l'assurance-vie est la plus fragile. Elle suppose un organisme d'assurance, ce qu'une fondation de libre passage n'est pas, et son abattement est de 152 500 euros par bénéficiaire, non de 250 000 euros. La non-imposition reste la position la plus favorable, et elle se défend."},
-    {"p": "Mais il existe une troisième qualification, que vos interlocuteurs ont manquée. Moins favorable que la non-imposition, bien plus sûre, et très loin du barème progressif. Elle repose sur une option irrévocable et sur des conditions que votre dossier ne remplit pas d'office."},
+    {"p": "Mais il existe une troisième qualification, que vos interlocuteurs ont manquée, reposant sur une option irrévocable et sur des conditions que votre dossier ne remplit pas d'office."},
     {"p": "Deux difficultés propres à votre situation commandent le résultat. L'unicité du versement, avec deux comptes et deux bénéficiaires. Et la composition différente des deux comptes, qui pourrait leur valoir deux régimes distincts. Cela se traite avant la demande de versement, pas après."},
     {"titre": "Deux alertes"},
     {"b": "le versement ne peut aller que sur un compte bancaire en Suisse, l'article 20 du règlement l'imposant aux bénéficiaires domiciliés hors de Suisse. Votre demande du 5 août était donc la bonne."},
     {"b": "la retenue de Schwytz pourrait n'être remboursable qu'en cas d'imposition effective en France, ce qui relativiserait l'intérêt de la non-imposition. À vérifier."},
     {"titre": "Les deux options"},
     {"p": "Consultation juridique, 8 500 euros HT. Une à deux semaines. Le cabinet engage sa responsabilité civile professionnelle, votre bonne foi est établie en cas de contrôle, et rien n'est révélé à l'administration."},
-    {"p": "Demande de rescrit fiscal, 6 000 euros HT. Sécurité totale si la réponse est favorable. Mais quatre à six mois, un refus possible, et l'absence de réponse vaut refus."},
-    {"p": "Je vous recommande la consultation, bien qu'elle soit la plus chère. On ne saisit pas l'administration avec un relevé illisible et un relevé manquant. Et un rescrit ne tranche pas l'arbitrage entre la non-imposition et la position de repli. Il reste ouvert ensuite."},
+    {"p": "Demande de rescrit fiscal, 6 500 euros HT. Sécurité totale si la réponse est favorable. Mais quatre à six mois, un refus possible, et l'absence de réponse vaut refus."},
+    {"p": "Je vous recommande la consultation, bien qu'elle soit la plus chère, car un rescrit ne tranche pas l'arbitrage entre la non-imposition et la position de repli. Il reste ouvert ensuite."},
     {"titre": "Votre retour"},
-    {"p": "Un mail suffit, avec trois éléments."},
+    {"p": "Un mail suffit, avec deux éléments."},
     {"b": "votre accord sur l'option retenue"},
     {"b": "la date de dépôt de la déclaration de succession, dont le délai est échu depuis le 21 août"},
-    {"b": "le relevé des deux comptes en version lisible, celui que vous m'avez adressé étant inexploitable"},
     {"p": "Je vous adresse ensuite la lettre de mission et j'engage le travail. Le forfait est fixe, hors taxes, et couvre le dossier pour votre frère et pour vous."},
-    {"p": "D'ici là, ne signez pas le formulaire de demande de versement et n'exercez aucune option fiscale. Plusieurs de ces choix sont irrévocables."}
+    {"p": "D'ici là, je vous recommande de ne pas signer le formulaire de demande de versement et de n'exercer aucune option fiscale. Plusieurs de ces choix sont irrévocables."}
   ]
 }
