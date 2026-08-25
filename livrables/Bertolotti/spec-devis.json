@@ -1,0 +1,35 @@
+{
+  "destinataire": "bertolotti_eric@yahoo.fr",
+  "objet": "Vos stock-options suisses, notre proposition",
+  "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition pour toute question.",
+  "corps": [
+    {
+      "p": "Je vous remercie pour vos pièces et vos précisions."
+    },
+    {
+      "p": "Vous avez exercé l'intégralité de votre activité en Suisse sur la période d'acquisition des options, votre impôt n'est prélevé qu'en France et vous n'avez pas d'autre revenu. Votre dossier se joue donc sur trois points."
+    },
+    {
+      "titre": "Notre stratégie"
+    },
+    {
+      "b": "sécuriser le rattachement du gain. Le produit de la levée se rattache à la période comprise entre l'attribution et l'acquisition définitive des droits, période durant laquelle vous n'avez travaillé qu'en Suisse. Il faut verrouiller ce point pour écarter toute prétention suisse sur ce revenu, votre employeur ayant lui-même qualifié la somme de non récurrente."
+    },
+    {
+      "b": "faire jouer l'atténuation du barème. L'article 163-0 A du code général des impôts ouvre deux voies, celle du revenu exceptionnel et celle du revenu différé. Vos options ayant été acquises sur plusieurs exercices, la seconde est souvent la plus favorable. Nous chiffrerons les deux sur vos revenus des trois dernières années et retiendrons la plus efficace."
+    },
+    {
+      "b": "traiter les suites. Nous neutraliserons l'effet de ce revenu sur votre taux de prélèvement à la source et nous examinerons les versements encore déductibles d'ici le 31 décembre, votre épargne retraite en premier lieu."
+    },
+    {
+      "titre": "Nos honoraires"
+    },
+    {
+      "p": "Nous vous proposons un forfait de 9 500 € HT. Il couvre l'analyse, le chiffrage comparatif des deux méthodes, la préparation et le dépôt de votre déclaration et de ses annexes. Il comprend également une note écrite vous exposant la position retenue et sa justification. Un éventuel contrôle ferait l'objet d'une mission distincte."
+    },
+    {
+      "p": "Si cette proposition vous convient, je vous adresse la lettre de mission et nous démarrons. Nous pouvons également en parler de vive voix cette semaine."
+    }
+  ]
+}
