@@ -1,0 +1,59 @@
+{
+  "ville": "Paris",
+  "date": "26 August 2026",
+  "destinataire": [
+    "Mr Alexander BOROZANOV",
+    "Heir to the estate of the late Krassimira Bouboulis Borozanova",
+    "[address to be completed]"
+  ],
+  "ref": "2026-BOROZANOV / FO",
+  "objet": "Estate of the late Krassimira Bouboulis Borozanova: review of your memorandum of 26 August 2026 on the Valais succession-tax line",
+  "salutation": "Dear Mr Borozanov,",
+  "corps": [
+    "You have sent me a four page memorandum on the Valais succession-tax line in the above estate, and asked for an independent review of the reconciliation it sets out. I have completed that review. This letter states my conclusions and what I propose to do next.",
+
+    {"sub": "Your central point is well founded"},
+    "The arithmetic of your memorandum holds. I have recalculated every figure and none of them moves. An advance of CHF 436,495 was paid to the State of Valais on 4 November 2022. The canton then assessed the succession tax at CHF 133,625. The difference of CHF 302,870 is not a reconstruction of yours: it is the balance the canton itself established in favour of the estate and undertook to reimburse by postal payment order.",
+    "The absence of any record of that reimbursement in the file is the substance of this matter. Your observation that the words « est totalement réglé » record only that the tax due has been collected, and say nothing of the payment of the credit, is correct.",
+
+    {"sub": "A further point, which your memorandum does not make"},
+    "In the inventory of 30 June 2024 the advance of CHF 436,495 is deducted in full on the liabilities side. By that date the assessment had already been issued, the tax actually due was CHF 133,625, and the estate held a claim of CHF 302,870 against the canton. If that claim was not carried on the assets side, the net estate available for distribution was understated by CHF 302,870.",
+    "Against a stated net of CHF 1,698,459.27, that is close to eighteen per cent of what was divided. This, and not the difference of CHF 8,875 between two drafts, is the point on which the file turns. It can be settled by reading a single page.",
+
+    {"sub": "Five of your nine items will not be put forward"},
+    "I must be as clear on the remainder. Items 2, 3, 4, 5 and 9 do not hold, and I will not put them to the executor.",
+    {"b": "Item 2, the alleged understatement of CHF 37,500. The Valais scale is not progressive by bracket. Under article 116 of the cantonal tax law the rate follows the beneficiary's degree of kinship, not the amount. Two rates on one assessment therefore denote two classes of beneficiary. The figure of CHF 96,125 in the Transaction is in all probability correct."},
+    {"b": "Item 4, the alleged discrepancy of CHF 32,999.97. This is an artefact of the optical character recognition, not an accounting inconsistency. The page is internally coherent, and I can demonstrate it in three lines."},
+    {"b": "Item 3, the movement from CHF 105,000 to CHF 96,125. A round provisional estimate was replaced by the assessed figure. That is a correction, not a reduction."},
+    {"b": "Item 5, the difference of CHF 22,022.15 in liabilities. The two inventories are six months apart."},
+    {"b": "Item 9, the apostille fee of CHF 30. To be removed. It adds nothing and gives the document a tone that will not serve you."},
+    "I would rather take you through the reasoning on items 2 and 4 by telephone than in writing. The principle, however, is simple. A claim that can be refuted in one sentence will be used to discredit the claim that cannot. Your first item is strong. It must not travel in the company of four weak ones.",
+
+    {"sub": "Three matters that are time sensitive"},
+    "The Transaction was signed in February 2025. If it contains a receipt or a full and final settlement clause, it can be reopened only for fundamental error or fraud, and that right lapses one year after the discovery of the ground relied upon. I therefore need, as a matter of priority, the date on which you first became aware of the CHF 302,870 balance and whatever evidences it. Should that date be an old one, the remainder of this file may already be out of time.",
+    "The claim against the canton is itself subject to limitation. The payment dates from 4 November 2022. Your position here is a favourable one, since this is not a contested claim for the repayment of tax paid in error: the canton itself established and notified the balance. It is a recognised debt, and it should not be left to age.",
+    "The claim belongs to the community of heirs and not to you personally. You cannot alone collect it or compromise it. One avenue is nonetheless open to you individually. The right to information of a contractual nature that belonged to the deceased may be exercised by each heir acting alone, and you may therefore request the account records from the bank in your own name.",
+
+    {"sub": "What I propose to do, in this order"},
+    "The reimbursement was to be made by postal payment order. In Switzerland such an order is made out to a named payee and is cashed against proof of identity. CHF 302,870 cannot have left without trace: either the canton still holds the funds, or someone collected them and the canton knows who.",
+    "The first step is therefore a single letter to the Service cantonal des contributions in Sion, under the tax reference appearing in the file, seeking the taxpayer account statement, the fate of the balance, and a certified copy of the assessment file including its allocation between beneficiaries. That letter answers the central question for the cost of a stamp.",
+    "In parallel, a request to Lombard Odier for the account records from January 2022 to date, for the debit that funded the advance of 4 November 2022 together with its payment instruction and signatory, and for any credit of CHF 300,000 or more received from the State of Valais.",
+    "Only then, and only so far as the answers require it, a short letter to the executor. Three questions on one page, not the five you have drafted.",
+
+    {"sub": "What I need from you"},
+    {"b": "the original documents, not the scans. Two of your nine items are reading errors introduced by the digitisation, and nothing should be built on scanned copies;"},
+    {"b": "the signed Transaction of 12 February 2025 in full, together with every earlier draft;"},
+    {"b": "the date on which you learned of the CHF 302,870 balance, and how;"},
+    {"b": "the certificate of heirs, and your exact standing in the estate. The rate of ten per cent applied to the principal share indicates a beneficiary who is neither a descendant nor the spouse of the deceased, both of whom are exempt in Valais. I need to know precisely where you stand;"},
+    {"b": "the identity and the powers of the executor, and of Swiss counsel of record."},
+
+    {"sub": "One reservation on scope"},
+    "Your memorandum states that it is confined to the Valais tax line. The same inventory carries a liability of CHF 6,500,000 and an account of some CHF 8.17 million in Geneva. The Valais tax line is a small part of this estate, and the size of the advance, more than three times the tax finally assessed, suggests that the basis of assessment changed between November 2022 and the final decision. That question governs a good deal more than the tax line.",
+    "Before I fix the scope of my engagement I need to know whether your limitation is a real one or a first step. I must also complete our conflict checks and send you an engagement letter before any step is taken on your behalf. The Swiss elements of the file will be handled through our Geneva office.",
+
+    "I remain available to go through the above by telephone, and I suggest that we do so before anything leaves this office."
+  ],
+  "politesse": "Yours sincerely,",
+  "signataire": "François OUAIRY",
+  "qualite": "Avocat associé"
+}
