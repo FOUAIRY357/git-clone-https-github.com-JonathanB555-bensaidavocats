@@ -5,17 +5,47 @@
   "disponibilite": "I remain available to answer any question on these terms.",
   "signoff": "Kind regards,",
   "corps": [
-    {"p": "I have reviewed your memorandum on the Valais succession-tax line."},
-    {"p": "Your central point is sound. The advance of CHF 436,495 and the assessment of CHF 133,625 leave a balance of CHF 302,870 which the canton itself established in favour of the estate, and nothing in the file records its reimbursement."},
-    {"p": "There is a second point, which your memorandum does not make, and which puts a further amount of the same order in issue. It arises from the way the advance is carried in the inventory of 30 June 2024."},
-    {"p": "Several of your nine items, on the other hand, do not hold. Among them are the alleged understatement of CHF 37,500 and the discrepancy of CHF 32,999.97. Sent to the executor in their present form they would be answered in a sentence, and they would weaken the one item that cannot be answered."},
-    {"p": "One matter is urgent and I will deal with it now, whatever you decide on the rest. Please tell me the date on which you first learned of the CHF 302,870 balance, and how. A one year time limit runs from that date, and it may already be spent."},
-    {"p": "For the rest I propose a written opinion, at a fixed fee of EUR 4,500 excluding tax, covering"},
-    {"b": "a reasoned position on each of your nine items, with the reasoning I have not set out here"},
-    {"b": "the second point above, quantified"},
-    {"b": "the time limits, and your standing to act alone or jointly with the other heirs"},
-    {"b": "the three production requests, drafted and ready to be sent to the canton, to Lombard Odier and to the executor"},
-    {"p": "The work is done on the originals, not on the scans. Two of your nine items are reading errors introduced by the digitisation, and nothing should be built on them."},
-    {"p": "Confirm and I will send you the engagement letter."}
+    {
+      "p": "I have reviewed your memorandum on the Valais succession-tax line."
+    },
+    {
+      "p": "Your central point is sound. The advance of CHF 436,495 and the assessment of CHF 133,625 leave a balance of CHF 302,870 which the canton itself established in favour of the estate, and nothing in the file records its reimbursement."
+    },
+    {
+      "p": "There is a second point, which your memorandum does not make, and which puts a further amount of the same order in issue. It arises from the way the advance is carried in the inventory of 30 June 2024."
+    },
+    {
+      "p": "Several of your nine items, on the other hand, do not hold. Among them are the alleged understatement of CHF 37,500 and the discrepancy of CHF 32,999.97. Sent to the executor in their present form they would be answered in a sentence, and they would weaken the one item that cannot be answered."
+    },
+    {
+      "p": "One matter is urgent and I will deal with it now, whatever you decide on the rest. Please tell me the date on which you first learned of the CHF 302,870 balance, and how. A one year time limit runs from that date, and it may already be spent."
+    },
+    {
+      "p": "For the rest I propose to take the matter on a monthly retainer of CHF 6,000 excluding tax, terminable at the end of any month."
+    },
+    {
+      "p": "The first month covers"
+    },
+    {
+      "b": "a reasoned position on each of your nine items, with the reasoning I have not set out here"
+    },
+    {
+      "b": "the second point above, quantified"
+    },
+    {
+      "b": "the time limits, and your standing to act alone or jointly with the other heirs"
+    },
+    {
+      "b": "the three production requests, drafted and sent to the canton, to Lombard Odier and to the executor"
+    },
+    {
+      "p": "Thereafter I carry the file. That means the replies, the follow up with the canton and the bank, and whatever those open up."
+    },
+    {
+      "p": "The work is done on the originals, not on the scans. Two of your nine items are reading errors introduced by the digitisation, and nothing should be built on them."
+    },
+    {
+      "p": "Confirm and I will send you the engagement letter."
+    }
   ]
 }
