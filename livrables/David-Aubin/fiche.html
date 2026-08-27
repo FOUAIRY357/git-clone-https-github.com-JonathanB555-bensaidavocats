@@ -1,0 +1,754 @@
+<title>Fiche prospect David Aubin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#F3F4F6;
+  --card:#FFFFFF;
+  --card-2:#EBEDF0;
+  --ink:#15181C;
+  --ink-2:#3E454E;
+  --ink-3:#6B7480;
+  --rule:#D3D7DD;
+  --rule-2:#E4E7EB;
+  --gold:#8F6D31;
+  --gold-bright:#B08A46;
+  --gold-wash:#F5EFE2;
+  --warn:#8C4415;
+  --warn-wash:#FAEEE5;
+  --crit:#8E2A2A;
+  --crit-wash:#FAEAEA;
+  --ok:#25604A;
+  --ok-wash:#E7F1ED;
+  --slab:#1A1E24;
+  --slab-ink:#EDEEF0;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151A;
+    --card:#191D23;
+    --card-2:#20252C;
+    --ink:#E8EAED;
+    --ink-2:#B4BBC4;
+    --ink-3:#848D98;
+    --rule:#2E343C;
+    --rule-2:#242A31;
+    --gold:#C9A360;
+    --gold-bright:#D9B673;
+    --gold-wash:#241F14;
+    --warn:#D9955F;
+    --warn-wash:#251A11;
+    --crit:#D98080;
+    --crit-wash:#251314;
+    --ok:#79BFA1;
+    --ok-wash:#122019;
+    --slab:#080A0D;
+    --slab-ink:#E8EAED;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151A;
+  --card:#191D23;
+  --card-2:#20252C;
+  --ink:#E8EAED;
+  --ink-2:#B4BBC4;
+  --ink-3:#848D98;
+  --rule:#2E343C;
+  --rule-2:#242A31;
+  --gold:#C9A360;
+  --gold-bright:#D9B673;
+  --gold-wash:#241F14;
+  --warn:#D9955F;
+  --warn-wash:#251A11;
+  --crit:#D98080;
+  --crit-wash:#251314;
+  --ok:#79BFA1;
+  --ok-wash:#122019;
+  --slab:#080A0D;
+  --slab-ink:#E8EAED;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{
+  max-width:1140px;
+  margin:0 auto;
+  padding:0 clamp(16px,4vw,40px) 96px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:2px solid var(--gold);
+  padding:clamp(32px,6vw,64px) 0 22px;
+  margin-bottom:0;
+}
+.stamp{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--crit);
+  background:var(--crit-wash);
+  border:1px solid color-mix(in srgb, var(--crit) 32%, transparent);
+  padding:5px 11px;border-radius:2px;
+  margin-bottom:24px;
+}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;
+  margin:0 0 10px;
+}
+h1{
+  font-family:Spectral,Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2.5rem,6.5vw,4.1rem);
+  line-height:1.02;
+  letter-spacing:-.02em;
+  margin:0 0 6px;
+  text-wrap:balance;
+}
+h1 .sub{display:block;font-size:.4em;font-style:italic;color:var(--ink-3);font-weight:400;letter-spacing:0;margin-top:14px}
+
+.meta{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;
+  background:var(--rule-2);
+  border:1px solid var(--rule-2);
+  margin-top:34px;
+}
+.meta div{background:var(--paper);padding:13px 16px}
+.meta dt{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);
+  margin:0 0 4px;
+}
+.meta dd{margin:0;font-size:15px;color:var(--ink);font-weight:600}
+.meta dd.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px;font-weight:500}
+
+/* ---------- layout with rail ---------- */
+.body-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+@media (min-width:1000px){
+  .body-grid{grid-template-columns:186px minmax(0,1fr);gap:48px;align-items:start}
+  .rail{position:sticky;top:28px;padding-top:44px}
+}
+.rail{font-size:14px}
+.rail-h{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);
+  padding-bottom:10px;border-bottom:1px solid var(--rule);margin-bottom:4px;
+}
+.rail ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.rail a{
+  display:flex;gap:9px;
+  padding:6px 0;
+  color:var(--ink-2);text-decoration:none;
+  border-bottom:1px solid var(--rule-2);
+  line-height:1.3;
+}
+.rail a:hover,.rail a:focus-visible{color:var(--gold);outline:none}
+.rail a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.rail .n{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;color:var(--gold);font-weight:600;padding-top:2px;flex:none;
+}
+@media (max-width:999px){.rail{display:none}}
+
+/* ---------- sections ---------- */
+section{padding-top:44px;scroll-margin-top:20px}
+h2{
+  font-family:Spectral,Georgia,serif;
+  font-weight:500;font-size:clamp(1.55rem,3.4vw,2.1rem);
+  line-height:1.15;letter-spacing:-.015em;
+  margin:0 0 20px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:baseline;gap:14px;
+  text-wrap:balance;
+}
+h2 .num{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.5em;font-weight:600;color:var(--gold);flex:none;
+  letter-spacing:.04em;
+}
+h3{
+  font-family:"Source Sans 3",sans-serif;
+  font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);
+  margin:34px 0 12px;
+}
+p{margin:0 0 15px;max-width:68ch}
+p.lead{font-size:19px;color:var(--ink-2);max-width:64ch}
+strong{font-weight:700;color:var(--ink)}
+em{font-style:italic}
+a{color:var(--gold);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--gold) 34%,transparent)}
+a:hover{border-bottom-color:var(--gold)}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:1px}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- TL;DR ---------- */
+.tldr{
+  background:var(--slab);
+  color:var(--slab-ink);
+  padding:clamp(26px,4vw,42px);
+  border-top:3px solid var(--gold-bright);
+}
+.tldr p{color:color-mix(in srgb,var(--slab-ink) 82%,transparent);max-width:70ch}
+.tldr p.lead{color:var(--slab-ink);font-size:20px;font-family:Spectral,Georgia,serif;line-height:1.5}
+.tldr strong{color:#fff;font-weight:600}
+:root[data-theme="dark"] .tldr strong{color:var(--gold-bright)}
+.tldr .key{
+  border-left:2px solid var(--gold-bright);
+  padding:2px 0 2px 18px;
+  margin:24px 0;
+}
+.tldr .key p:last-child{margin-bottom:0}
+
+/* ---------- callouts ---------- */
+.callout{
+  border-left:3px solid;
+  padding:16px 20px;
+  margin:22px 0;
+  font-size:16px;
+}
+.callout p{margin:0;max-width:66ch}
+.callout p+p{margin-top:10px}
+.callout .tag{
+  display:block;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;
+  margin-bottom:7px;
+}
+.c-warn{border-color:var(--warn);background:var(--warn-wash)}
+.c-warn .tag{color:var(--warn)}
+.c-crit{border-color:var(--crit);background:var(--crit-wash)}
+.c-crit .tag{color:var(--crit)}
+.c-ok{border-color:var(--ok);background:var(--ok-wash)}
+.c-ok .tag{color:var(--ok)}
+.c-gold{border-color:var(--gold);background:var(--gold-wash)}
+.c-gold .tag{color:var(--gold)}
+
+/* ---------- statute quote ---------- */
+.statute{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-left:3px solid var(--gold);
+  padding:18px 22px;
+  margin:16px 0;
+  font-size:15.5px;
+  color:var(--ink-2);
+}
+.statute cite{
+  display:block;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-style:normal;
+  color:var(--gold);font-weight:600;margin-bottom:9px;
+}
+.statute p{margin:0;max-width:none}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto;margin:20px 0;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--card);min-width:560px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule-2);vertical-align:top}
+thead th{
+  background:var(--card-2);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  white-space:nowrap;border-bottom:1px solid var(--rule);
+}
+tbody tr:last-child td{border-bottom:none}
+td .siren{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13.5px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.kv th{width:34%;font-weight:600;color:var(--ink-2);background:var(--card-2);
+  font-family:"Source Sans 3",sans-serif;font-size:15px;letter-spacing:0;text-transform:none;white-space:normal}
+.flag{white-space:nowrap;font-weight:700}
+.f-warn{color:var(--warn)}
+.f-crit{color:var(--crit)}
+.f-ok{color:var(--ok)}
+
+/* ---------- figures ---------- */
+.figs{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+  gap:1px;background:var(--rule-2);border:1px solid var(--rule-2);margin:24px 0;
+}
+.fig{background:var(--card);padding:17px 18px}
+.fig .v{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:clamp(1.15rem,2.6vw,1.5rem);font-weight:600;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;color:var(--ink);display:block;line-height:1.15;
+}
+.fig .v.neg{color:var(--crit)}
+.fig .l{font-size:13px;color:var(--ink-3);margin-top:6px;line-height:1.35}
+
+/* ---------- questions ---------- */
+ol.q{list-style:none;counter-reset:q;margin:22px 0;padding:0;display:flex;flex-direction:column;gap:1px;background:var(--rule-2);border:1px solid var(--rule-2)}
+ol.q li{counter-increment:q;background:var(--card);padding:15px 18px 15px 56px;position:relative;font-size:16px}
+ol.q li::before{
+  content:counter(q);
+  position:absolute;left:18px;top:15px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:13px;font-weight:600;color:var(--gold);
+}
+
+ul.plain{margin:14px 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+ul.plain li{padding-left:20px;position:relative;max-width:68ch;font-size:16.5px}
+ul.plain li::before{content:"";position:absolute;left:2px;top:.72em;width:7px;height:1px;background:var(--gold)}
+
+/* ---------- verdict ---------- */
+.verdict{
+  background:var(--gold-wash);
+  border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);
+  border-top:3px solid var(--gold-bright);
+  padding:clamp(24px,4vw,38px);
+  margin:22px 0;
+}
+.verdict .call{
+  font-family:Spectral,Georgia,serif;
+  font-size:clamp(1.45rem,3.4vw,1.95rem);
+  line-height:1.2;color:var(--ink);margin:0 0 20px;font-weight:500;
+  text-wrap:balance;
+}
+.next{
+  background:var(--card);border:1px solid var(--rule);
+  border-left:3px solid var(--gold);
+  padding:18px 22px;margin-top:26px;
+}
+.next .tag{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--gold);
+  display:block;margin-bottom:8px;
+}
+
+/* ---------- sources ---------- */
+.src{font-size:14.5px;color:var(--ink-2)}
+.src h3{margin-top:26px}
+.src ul{margin:0;padding-left:19px;display:flex;flex-direction:column;gap:7px}
+.src li{max-width:78ch}
+
+footer{
+  margin-top:64px;padding-top:20px;
+  border-top:1px solid var(--rule);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <span class="stamp">Confidentiel · usage interne</span>
+  <p class="eyebrow">Fiche de renseignement pré-rendez-vous</p>
+  <h1>David Aubin
+    <span class="sub">Réhabilitation et extension — TVA immobilière</span>
+  </h1>
+
+  <dl class="meta">
+    <div><dt>Établie le</dt><dd>27 août 2026</dd></div>
+    <div><dt>Origine</dt><dd>LinkedIn entrant, 13h23</dd></div>
+    <div><dt>Téléphone</dt><dd class="mono">06 76 90 30 50</dd></div>
+    <div><dt>Rappel proposé</dt><dd>Ce jour, à partir de 16h</dd></div>
+    <div><dt>Antécédent cabinet</dt><dd>Aucun</dd></div>
+  </dl>
+</header>
+
+<div class="body-grid">
+
+  <nav class="rail" aria-label="Sommaire">
+    <div class="rail-h">Sommaire</div>
+    <ol>
+      <li><a href="#s1"><span class="n">01</span><span>L'essentiel</span></a></li>
+      <li><a href="#s2"><span class="n">02</span><span>La personne</span></a></li>
+      <li><a href="#s3"><span class="n">03</span><span>Les sociétés</span></a></li>
+      <li><a href="#s4"><span class="n">04</span><span>Le précédent</span></a></li>
+      <li><a href="#s5"><span class="n">05</span><span>Poids financier</span></a></li>
+      <li><a href="#s6"><span class="n">06</span><span>Objet du RDV</span></a></li>
+      <li><a href="#s7"><span class="n">07</span><span>Vigilance</span></a></li>
+      <li><a href="#s8"><span class="n">08</span><span>Verdict</span></a></li>
+      <li><a href="#s9"><span class="n">09</span><span>Sources</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+  <!-- ========== 1 ========== -->
+  <section id="s1">
+    <h2><span class="num">01</span>L'essentiel</h2>
+    <div class="tldr">
+      <p class="lead"><strong>David Michel Marie Aubin, 57 ans, né le 15 décembre 1968 à Lyon 6<sup>e</sup>.</strong> Ce n'est pas un particulier avec un chantier : c'est un professionnel de l'immobilier et de la finance immobilière depuis trente ans.</p>
+
+      <p>Ex-Société Générale, ex-directeur de <strong>BNP Paribas REIM</strong>, cofondateur de <strong>ClubFunding</strong> et de <strong>Victoires Haussmann</strong>, et depuis juin 2025 <strong>directeur général délégué de PAREF Gestion</strong>. Il a débuté sa carrière chez Coopers &amp; Lybrand puis Arthur Andersen, côté fiscal : <strong>il connaît la matière</strong>.</p>
+
+      <p>En parallèle, il opère pour son compte propre une machine à <strong>réhabiliter, découper et revendre</strong> dans l'ouest parisien — Sèvres, Chaville, Viroflay, Ville-d'Avray — via sa holding personnelle <strong>Atlantistar</strong> (détenue à 100 %), trois SCI et des SAS de marchand de biens créées pour chaque opération.</p>
+
+      <div class="key">
+        <p><strong>Le point décisif : il a déjà réalisé exactement l'opération qu'il décrit.</strong> La SAS <em>2A Sainte Marie</em> (nom commercial Altaïs Carmel), présidée par Atlantistar, a pour objet « achat d'immeubles en vue de les réhabiliter, les transformer et les revendre ». Elle a mené à Chaville une opération de réhabilitation et de construction sous permis délivré le 23 octobre 2023, dénouée en 2025 — dont une <strong>VEFA de 3 522 000 €</strong>.</p>
+        <p>Et il vient de créer, le <strong>21 mai 2026</strong>, un véhicule neuf : <strong>Ovalistar</strong>, marchand de biens, capital 1 000 €, encore sans aucun actif au cadastre.</p>
+      </div>
+
+      <p><strong>Traduction : le rendez-vous porte sur une opération à venir, en amont de l'acquisition, sur un modèle qu'il répète.</strong> C'est le meilleur moment possible pour intervenir, et l'enjeu de TVA n'est pas théorique — sur un programme de 3 à 5 M€, l'écart entre TVA sur marge et TVA sur prix total, et entre 10 % et 20 % sur les travaux, se chiffre en centaines de milliers d'euros.</p>
+    </div>
+
+    <div class="callout c-crit">
+      <span class="tag">Vigilance principale</span>
+      <p><em>2A Sainte Marie</em> présente des <strong>fonds propres négatifs</strong> et se trouve en situation d'<strong>actif net inférieur à la moitié du capital depuis le 31 décembre 2024, toujours en cours</strong>. Le véhicule qui a porté l'opération précédente est financièrement à l'os. Le porteur de la valeur, c'est Atlantistar — pas les SAS d'opération. À intégrer dans la structuration des honoraires : qui signe, qui paie.</p>
+    </div>
+  </section>
+
+  <!-- ========== 2 ========== -->
+  <section id="s2">
+    <h2><span class="num">02</span>La personne</h2>
+
+    <div class="scroll">
+      <table class="kv">
+        <tbody>
+          <tr><th>Nom complet</th><td>David Michel Marie <strong>Aubin</strong></td></tr>
+          <tr><th>Né le</th><td>15 décembre 1968 à Lyon 6<sup>e</sup> <span class="siren">(69386)</span> — 57 ans</td></tr>
+          <tr><th>Nationalité</th><td>Française</td></tr>
+          <tr><th>Domicile déclaré (2026)</th><td>60 rue François 1<sup>er</sup>, 92100 Boulogne-Billancourt</td></tr>
+          <tr><th>Domicile antérieur (2024)</th><td>9 rue du Regard, 75006 Paris</td></tr>
+          <tr><th>Formation</th><td>DESS Droit bancaire et financier, Paris I Panthéon-Sorbonne · Executive Program, Kellogg School of Management</td></tr>
+          <tr><th>Personne politiquement exposée</th><td><span class="flag f-ok">Non</span> — aucune exposition identifiée</td></tr>
+          <tr><th>Sanctions internationales</th><td><span class="flag f-ok">Aucune</span></td></tr>
+          <tr><th>Procédures collectives</th><td><span class="flag f-ok">Aucune</span> sur l'ensemble du périmètre</td></tr>
+          <tr><th>Antécédent au cabinet</th><td><strong>Aucun</strong> — recherche Outlook négative, prospect entièrement nouveau</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Parcours professionnel</h3>
+    <ul class="plain">
+      <li>Débuts chez <strong>Coopers &amp; Lybrand</strong> puis <strong>Arthur Andersen</strong>, en fiscalité</li>
+      <li>Environ dix ans en salle de marchés à la <strong>Société Générale</strong></li>
+      <li>Responsable des conseillers bancaires « institutions financières » chez <strong>BNP Paribas</strong></li>
+      <li>Prend la direction de <strong>BNP Paribas REIM</strong> en 2010</li>
+      <li>Fonde <strong>Atlantistar</strong> (2013) ; cofonde <strong>ClubFunding</strong> (financement participatif immobilier) et <strong>Victoires Haussmann</strong> (gestion de fonds immobiliers)</li>
+      <li><strong>Directeur général délégué d'Eternam</strong>, filiale du groupe Cyrus dédiée à la gestion de fonds alternatifs</li>
+      <li>Depuis <strong>juin 2025 : directeur général délégué de PAREF Gestion</strong>, aux côtés d'Anne Schwartz — pilotage de la gestion pour compte de tiers et des SCPI</li>
+    </ul>
+
+    <h3>Cercle familial — associés de la SCI Croix du Sud</h3>
+    <p>Ses quatre enfants sont associés : <strong>Alix</strong> (31/03/1994, née à Luxembourg, <strong>résidente à Londres</strong>), <strong>Erwan</strong> (13/06/1996), <strong>Arthur</strong> (19/07/2000) et <strong>Cyprien</strong> (05/10/2004), les trois derniers domiciliés à Meudon. La SCI remplit donc aussi une fonction de <strong>transmission</strong>, avec une <strong>associée non-résidente au Royaume-Uni</strong> — dimension à ne pas manquer si l'échange dérive vers le patrimonial.</p>
+  </section>
+
+  <!-- ========== 3 ========== -->
+  <section id="s3">
+    <h2><span class="num">03</span>Les sociétés</h2>
+
+    <h3>Le cœur du dispositif</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Entité</th><th>SIREN</th><th>Forme / capital</th><th>Rôle de M. Aubin</th><th>Détail</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Atlantistar</strong></td>
+            <td class="siren">799 795 125</td>
+            <td>SASU — 285 000 €</td>
+            <td><strong>Président, BE 100 %</strong></td>
+            <td>Holding personnelle. Fonds propres <span class="mono">2 088 584 €</span>, trésorerie <span class="mono">1 215 146 €</span> au 30/06/2022. Résultat 2021 : <span class="mono">1 731 769 €</span>. Présidente de 2A Sainte Marie, associée d'Indigo Star et Rock Star.</td>
+          </tr>
+          <tr>
+            <td><strong>Ovalistar</strong><br><span class="siren">créée le 21/05/2026</span></td>
+            <td class="siren">105 318 950</td>
+            <td>SAS — <strong>1 000 €</strong></td>
+            <td><strong>Président, BE 75 %</strong></td>
+            <td>« Activité de marchand de biens, d'achat et vente de biens immobiliers ». Domiciliée 47 rue Vivienne, 75002. <strong>Aucun actif au cadastre.</strong> TVA <span class="siren">FR23105318950</span>. <a href="https://www.bodacc.fr/annonce/detail-annonce/A/20260102/2276">BODACC</a></td>
+          </tr>
+          <tr>
+            <td><strong>2A Sainte Marie</strong><br><span class="siren">nom comm. ALTAÏS CARMEL</span></td>
+            <td class="siren">910 821 982</td>
+            <td>SAS — 10 000 €</td>
+            <td><strong>BE 30 %</strong>, indirect via Atlantistar (présidente)</td>
+            <td>« Achat d'immeubles en vue de les réhabiliter, les transformer et les revendre ». DG délégué : <strong>Bruno Cosse</strong> (11/04/1962). Autre BE : <strong>Iker Vega</strong> (12/1977), 27,5 %. TVA <span class="siren">FR14910821982</span>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Le patrimoine porté par les SCI</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Entité</th><th>SIREN</th><th>Capital</th><th>Associés</th><th>Actifs au cadastre</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>SCI Croix du Sud</strong></td>
+            <td class="siren">829 274 653</td>
+            <td class="siren">175 000 €</td>
+            <td>David Aubin, gérant, + <strong>ses quatre enfants</strong></td>
+            <td><strong>13 locaux</strong> sur six immeubles : Ville-d'Avray (16 rue de Marnes, immeuble de 1971, 235 logements) · Viroflay (2 rue des Marais, 1963, 64 logements ; 55 rue Colonel Le Sabazec, 1927, 8 logements) · Sèvres (68 Grande Rue, 1970, 23 logements) · Chaville (604 avenue Roger Salengro, 1880 ; 70 rue Alexis Maneyrol)</td>
+          </tr>
+          <tr>
+            <td><strong>SCI Indigo Star</strong></td>
+            <td class="siren">824 556 138</td>
+            <td class="siren">20 000 €</td>
+            <td>David Aubin, gérant, + <strong>Atlantistar</strong></td>
+            <td>3 rue de la Garenne, Sèvres — 2 locaux résiduels. Objet social visant expressément l'acquisition de biens <strong>« en vue de […] les agrandir »</strong></td>
+          </tr>
+          <tr>
+            <td><strong>SCI Rock Star</strong></td>
+            <td class="siren">883 933 640</td>
+            <td class="siren">2 001 €</td>
+            <td>David Aubin, gérant, + <strong>Atlantistar</strong></td>
+            <td>766 avenue Roger Salengro, Chaville — immeuble de <strong>1870</strong>, 10 logements, 224 m², DPE des lots en <strong>E et F</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Mandats professionnels et anciens mandats</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Entité</th><th>SIREN</th><th>Situation</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Paref Gestion</strong></td><td class="siren">380 373 753</td><td>SA, société de gestion. <strong>DG délégué depuis juin 2025.</strong> Détient elle-même des actifs à Rueil-Malmaison, Maisons-Laffitte, Boulogne et Clichy.</td></tr>
+          <tr><td><strong>Victoires Haussmann SGP</strong></td><td class="siren">812 965 168</td><td>SAS — 655 000 €, société de gestion agréée AMF, carte CPI (garantie GALIAN 120 000 €). <strong>Cofondateur</strong> ; la présidence est passée à Maria Ferenchak le 20/03/2025. <span class="flag f-warn">⚠ Actif net &lt; moitié du capital de 2022 à 2024</span>, régularisé.</td></tr>
+          <tr><td><strong>Eternam</strong></td><td class="siren">538 184 128</td><td>SAS, groupe Cyrus — ancien DG délégué.</td></tr>
+          <tr><td><strong>Haussmann Parcs</strong></td><td class="siren">878 796 986</td><td>SAS holding immobilière — 1 100 000 €. Résultat récurrent de 181 à 250 k€ par an, fonds propres <span class="mono">1 327 731 €</span> (2025). <span class="flag f-warn">⚠ Actif net &lt; moitié du capital de 2021 à 2022</span>, régularisé. BE déclarés : Jonathan Donio, Jose Zaraya.</td></tr>
+          <tr><td><strong>Aureus Participations</strong></td><td class="siren">450 471 164</td><td>SARL — inactive.</td></tr>
+          <tr><td><strong>Primestia</strong></td><td class="siren">817 629 041</td><td><span class="flag f-crit">⚠ Ne lui appartient pas.</span> Il en a été simple administrateur de 2016 à début 2020 — <a href="https://www.bodacc.fr/annonce/detail-annonce/B/20200040/1682">BODACC du 26/02/2020</a> : « Administrateur partant : Aubin, David ». Société du groupe Du Boucher. <strong>Ne pas la lui attribuer en rendez-vous.</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== 4 ========== -->
+  <section id="s4">
+    <h2><span class="num">04</span>Le précédent : Chaville, 6 avenue Sainte-Marie</h2>
+    <p class="lead">C'est le modèle qu'il va vouloir reproduire. Fait établi par le cadastre, le permis, les données DVF et les comptes déposés.</p>
+
+    <ul class="plain">
+      <li><strong>Assiette foncière</strong> — quatre parcelles contiguës, 1 347 m² au total : AM0759 (559 m², maison de <strong>1860</strong>, 168 m²), AM0760 (604 m²), AM0761 (94 m²), AM0762 (90 m²)</li>
+      <li><strong>Permis de construire n° <span class="mono">0920222300011</span></strong>, autorisé le <strong>23 octobre 2023</strong>, portant <strong>à la fois sur des logements et sur des locaux</strong>, superficie de terrain 788 m² — état : <strong>« Commencé »</strong></li>
+      <li><strong>Mutations 2025 sur le site</strong> — VEFA de <strong>3 522 000 €</strong> le 06/02 (AM0760) · maison de 220 m² à <strong>925 000 €</strong> le 31/01 · appartement de 104 m² à <strong>670 000 €</strong> le 31/03 · trois dépendances à 43 200 € le 06/02, soit <strong>≈ 5,16 M€</strong> sur l'exercice</li>
+    </ul>
+
+    <h3>Comptes 2025 de 2A Sainte Marie</h3>
+    <div class="figs">
+      <div class="fig"><span class="v">1 595 000 €</span><span class="l">Chiffre d'affaires</span></div>
+      <div class="fig"><span class="v">20 063 €</span><span class="l">Résultat net</span></div>
+      <div class="fig"><span class="v">594 j</span><span class="l">Ratio stock / CA</span></div>
+      <div class="fig"><span class="v">530 061 €</span><span class="l">Dettes financières</span></div>
+      <div class="fig"><span class="v">80 631 €</span><span class="l">Trésorerie</span></div>
+      <div class="fig"><span class="v neg">−9 475 €</span><span class="l">Fonds propres (−29 538 € en 2024)</span></div>
+    </div>
+
+    <div class="callout c-crit">
+      <span class="tag">Lecture</span>
+      <p>Le chiffre d'affaires 2025, très inférieur au montant des mutations, traduit une reconnaissance à l'avancement, l'essentiel restant en stock — <em>hypothèse à confirmer</em>. Surtout : <strong>un redressement de TVA sur ce type d'opération viderait le véhicule</strong>. Il n'y a ni fonds propres ni trésorerie pour l'absorber.</p>
+    </div>
+
+    <div class="callout c-gold">
+      <span class="tag">Précision de méthode</span>
+      <p>Les données DVF recensent <em>toutes</em> les mutations survenues sur une parcelle, sans distinguer l'acquéreur du vendeur. Les montants ci-dessus sont donc des <strong>mutations sur son site</strong>, et non des ventes dont il serait à coup sûr le vendeur — sauf la VEFA, cohérente avec son rôle de promoteur.</p>
+    </div>
+
+    <h3>Le modèle économique, tel qu'il se lit dans les données</h3>
+    <p>Achat d'immeubles anciens entiers, réhabilitation, puis <strong>découpe et revente lot par lot</strong>. Le cas le plus net se trouve au 3 rue de la Garenne à Sèvres : une acquisition en bloc en mars 2017 — 2 275 000 € portant sur une vingtaine de studios de 12 à 22 m² et un local commercial de 262 m² — puis des reventes échelonnées en 2020, 2021 et jusqu'en septembre 2025. Indigo Star n'y détient plus que deux lots.</p>
+    <p><strong>Cette activité de découpe a des conséquences fiscales directes</strong>, développées à la question 6 ci-dessous.</p>
+  </section>
+
+  <!-- ========== 5 ========== -->
+  <section id="s5">
+    <h2><span class="num">05</span>Poids financier</h2>
+
+    <h3>Faits établis</h3>
+    <ul class="plain">
+      <li><strong>Atlantistar</strong> — fonds propres <span class="mono">2 088 584 €</span>, trésorerie <span class="mono">1 215 146 €</span> au 30/06/2022 ; résultat 2021 de <span class="mono">1 731 769 €</span>, probable plus-value de cession de titres</li>
+      <li><strong>Haussmann Parcs</strong> — fonds propres <span class="mono">1 327 731 €</span> (2025)</li>
+      <li>Capital social cumulé des véhicules qu'il contrôle : <span class="mono">≈ 493 000 €</span></li>
+      <li><strong>17 locaux</strong> détenus au cadastre par ses trois SCI, plus les quatre parcelles de 2A Sainte Marie</li>
+      <li>Prix de marché observés en DVF sur ses communes : <strong>4 500 à 6 000 €/m²</strong> — Sèvres et Chaville dans le haut, Viroflay et Ville-d'Avray en dessous</li>
+    </ul>
+
+    <h3>Estimation</h3>
+    <p>Les SCI ne déposent pas de comptes et l'endettement bancaire n'est pas public. Sur la base de dix-sept lots d'une surface moyenne observée de 40 à 50 m², le patrimoine immobilier brut des SCI se situe dans une fourchette de <strong>3,5 à 4,5 M€</strong>. Ajoutés aux fonds propres d'Atlantistar et de Haussmann Parcs, on obtient un <strong>ordre de grandeur de 6 à 10 M€ de patrimoine consolidé</strong>, avec une incertitude forte sur le levier bancaire — qui, vu la structure de 2A Sainte Marie, est probablement élevé.</p>
+
+    <div class="callout c-warn">
+      <span class="tag">Point d'attention</span>
+      <p>Les derniers comptes déposés par <strong>Atlantistar</strong> portent sur l'exercice clos au <strong>30 juin 2022</strong>. Rien depuis. Les chiffres de la holding ont donc quatre ans.</p>
+    </div>
+  </section>
+
+  <!-- ========== 6 ========== -->
+  <section id="s6">
+    <h2><span class="num">06</span>Objet probable du rendez-vous</h2>
+    <p class="lead">Le sujet qu'il annonce — réhabilitation et extension, TVA immobilière — se joue sur quatre textes, tous vérifiés sur Légifrance.</p>
+
+    <div class="statute">
+      <cite>CGI, art. 257, I, 2, 2° — l'immeuble neuf</cite>
+      <p>Sont des immeubles neufs ceux qui ne sont pas achevés depuis plus de cinq années, qu'ils résultent d'une construction nouvelle ou de travaux ayant consisté en une <strong>surélévation</strong> ou ayant <strong>rendu à l'état neuf</strong> : <em>a)</em> la majorité des fondations ; <em>b)</em> la majorité des éléments hors fondations déterminant la résistance et la rigidité de l'ouvrage ; <em>c)</em> la majorité de la consistance des façades hors ravalement ; <em>d)</em> l'ensemble des éléments de second œuvre, dans une proportion fixée par décret qui ne peut être inférieure à la moitié pour chacun d'eux.</p>
+    </div>
+
+    <div class="statute">
+      <cite>CGI, art. 279-0 bis, 2 — la bascule à 20 %</cite>
+      <p>Par dérogation au taux de 10 %, le taux normal s'applique aux travaux réalisés sur une période de deux ans au plus : <em>a)</em> qui concourent à la production d'un immeuble neuf au sens du 2° du 2 du I de l'article 257 ; <em>b)</em> <strong>à l'issue desquels la surface de plancher des locaux existants est augmentée de plus de 10 %</strong>.</p>
+    </div>
+
+    <div class="statute">
+      <cite>CGI, art. 268 — la TVA sur marge</cite>
+      <p>Elle ne s'applique que si <strong>l'acquisition par le cédant n'a pas ouvert droit à déduction</strong> de la taxe sur la valeur ajoutée.</p>
+    </div>
+
+    <div class="statute">
+      <cite>CGI, art. 1115 — l'engagement de revendre</cite>
+      <p>Exonération des droits de mutation sous engagement de revendre dans les cinq ans — <strong>délai ramené à deux ans</strong> pour les reventes par lots déclenchant le droit de préemption de l'article 10 de la loi du 31 décembre 1975 ou de l'article 15 de la loi du 6 juillet 1989.</p>
+    </div>
+
+    <h3>Les neuf questions à poser</h3>
+    <ol class="q">
+      <li><strong>Quel véhicule porte le projet ?</strong> Ovalistar, créée il y a trois mois, capital 1 000 €, sans actif — ou une entité nouvelle ? Et <strong>qui détient les 25 % d'Ovalistar non déclarés au registre des bénéficiaires effectifs ?</strong></li>
+      <li><strong>Où en est-on ?</strong> Promesse signée, acte passé, permis déposé ? La réponse détermine s'il reste une marge de structuration ou s'il faut sécuriser l'existant.</li>
+      <li><strong>Le vendeur est-il assujetti, et l'acquisition ouvre-t-elle droit à déduction ?</strong> C'est l'unique clé de l'article 268 : sans cela, pas de TVA sur marge.</li>
+      <li><strong>L'extension augmente-t-elle la surface de plancher des locaux existants de plus de 10 % ?</strong> Si oui, <strong>tous</strong> les travaux basculent à 20 % — pas seulement l'extension. C'est le piège central de son montage.</li>
+      <li><strong>Y a-t-il surélévation ?</strong> Le texte la vise expressément : elle rend l'immeuble neuf par elle-même, sans qu'il faille passer les tests des <em>a)</em> à <em>d)</em>.</li>
+      <li><strong>Quelle sortie ?</strong> Revente en bloc, VEFA, ou découpe lot par lot ? Vu son historique de découpe, l'article 1115 réserve un piège : le délai de revente tombe de cinq à <strong>deux ans</strong>.</li>
+      <li><strong>Livraison à soi-même</strong> : le schéma en déclenche-t-il une, et le calendrier de déduction est-il calé ?</li>
+      <li><strong>Le phasage des travaux</strong> : la dérogation de l'article 279-0 bis, 2 ne vise que les travaux « réalisés sur une période de deux ans au plus ». Le découpage temporel du chantier n'est pas neutre.</li>
+      <li><strong>La recodification</strong> : l'ordonnance n° 2025-1247 du 17 décembre 2025 <strong>abroge les articles 257 et 279-0 bis au 1<sup>er</sup> janvier 2027</strong>, au profit du code des impositions sur les biens et services (art. L. 221-12 et L. 216-14). Un programme 2026-2028 traverse le changement de base légale. <strong>À mettre sur la table : peu de conseils l'auront vu, et il le mesurera.</strong></li>
+    </ol>
+
+    <div class="callout c-gold">
+      <span class="tag">Premières pièces à demander</span>
+      <p>Promesse ou acte d'acquisition · permis de construire et notice · <strong>tableau des surfaces de plancher avant et après</strong>, pièce décisive de la question 4 · descriptif des travaux par corps d'état, indispensable au test « second œuvre » de l'article 257 · statuts du véhicule porteur · plan de trésorerie TVA · liasses fiscales 2024 et 2025 de 2A Sainte Marie.</p>
+    </div>
+  </section>
+
+  <!-- ========== 7 ========== -->
+  <section id="s7">
+    <h2><span class="num">07</span>Points de vigilance</h2>
+
+    <div class="callout c-crit">
+      <span class="tag">⚠ Fonds propres négatifs</span>
+      <p><strong>2A Sainte Marie</strong> : actif net inférieur à la moitié du capital <strong>en cours depuis le 31 décembre 2024</strong>, fonds propres −9 475 €. Si le nouveau véhicule est capitalisé de la même façon — Ovalistar, 1 000 € —, <strong>faire porter l'engagement d'honoraires par Atlantistar, pas par la SAS d'opération.</strong></p>
+    </div>
+
+    <div class="callout c-crit">
+      <span class="tag">⚠ Contentieux en cours</span>
+      <p><em>2A Sainte Marie</em> est <strong>défenderesse — et non comparante</strong> — au référé de la <strong>commune de Chaville</strong> devant le tribunal judiciaire de Nanterre : <a href="https://justice.pappers.fr/decision/108bb8e0a4e6f20f0d275ba4cc059c5e880e00c6">ordonnance du 7 mai 2025, n° 25/00475</a>. Expertise préventive relative au chantier de la crèche « La Chaloupe », <strong>étendue aux opérations de construction</strong>, rapport définitif <strong>prorogé de 24 mois</strong>. Elle y est attraite comme propriétaire riverain.</p>
+      <p>Sa non-comparution signale soit une gestion légère du risque procédural, soit un conseil déjà en place qui a arbitré. <strong>À élucider.</strong></p>
+    </div>
+
+    <div class="callout c-warn">
+      <span class="tag">⚠ Comptes non déposés</span>
+      <p>Atlantistar n'a rien déposé depuis l'exercice clos au 30 juin 2022.</p>
+    </div>
+
+    <div class="callout c-warn">
+      <span class="tag">⚠ Historiques d'actif net</span>
+      <p>Actif net inférieur à la moitié du capital, désormais régularisé, chez <strong>Haussmann Parcs</strong> (2021-2022) et <strong>Victoires Haussmann SGP</strong> (2022-2024). La récurrence de structures sous-capitalisées est une méthode, pas un accident.</p>
+    </div>
+
+    <div class="callout c-warn">
+      <span class="tag">⚠ Identification</span>
+      <p>Le rapprochement repose sur un <strong>faisceau d'indices convergents</strong> — identité, profil « Entrepreneur », réhabilitation et extension, TVA immobilière, profil de promoteur-marchand de biens — et <strong>non sur une déclaration du prospect</strong>. Aucun autre David Aubin au registre ne présente ce profil. <strong>À confirmer par une question ouverte en début d'entretien.</strong></p>
+    </div>
+
+    <div class="callout c-warn">
+      <span class="tag">⚠ Conflits d'intérêts</span>
+      <p>Vérifier avant le rendez-vous que le cabinet ne représente ni la <strong>commune de Chaville</strong>, ni le <strong>département des Hauts-de-Seine</strong>, ni les autres parties au référé : 5-CINQ Architecture, Ingénierie et Environnement, STDT, Exatec Ingénierie, Franciliane, Enedis, GRDF, Socotec, Apave, BET Art Acoustique.</p>
+    </div>
+
+    <div class="callout c-ok">
+      <span class="tag">✓ Conformité</span>
+      <p>Personne politiquement exposée : <strong>non</strong>. Sanctions internationales : <strong>aucune</strong>. Procédures collectives : <strong>aucune</strong> sur l'ensemble du périmètre.</p>
+    </div>
+  </section>
+
+  <!-- ========== 8 ========== -->
+  <section id="s8">
+    <h2><span class="num">08</span>Verdict client</h2>
+
+    <div class="verdict">
+      <p class="call">Dossier à prendre. Prospect de premier rang.</p>
+
+      <h3 style="margin-top:0">Ce qui plaide pour</h3>
+      <ul class="plain">
+        <li><strong>Un professionnel, pas un amateur.</strong> Trente ans de finance immobilière, DG délégué d'une société de gestion cotée, un passage initial en fiscalité chez Coopers &amp; Lybrand et Arthur Andersen. Il saura reconnaître un travail technique — et repérer immédiatement un conseil approximatif. <strong>Ne pas venir en rendez-vous avec des généralités sur la TVA immobilière.</strong></li>
+        <li><strong>Le timing est idéal.</strong> Aucun permis n'est enregistré sur ses parcelles actuelles et Ovalistar n'a encore aucun actif : nous sommes <strong>en amont</strong>, là où le conseil vaut le plus cher et où le risque de reprise est le plus faible.</li>
+        <li><strong>Un enjeu qui justifie l'honoraire.</strong> Sur un programme de l'ordre du précédent de Chaville — environ 5 M€ de mutations —, la qualification neuf/ancien, marge/prix total et 10 %/20 % pèse plusieurs centaines de milliers d'euros. L'honoraire de conseil est une fraction du risque.</li>
+        <li><strong>Un client récurrent, pas un coup unique.</strong> Il crée un véhicule dédié par opération : 2A Sainte Marie en 2022, Ovalistar en mai 2026. Une position technique bien construite devient sa doctrine pour les opérations suivantes, et le cabinet devient son fiscaliste immobilier attitré. <strong>C'est là que se trouve la vraie valeur du dossier.</strong></li>
+        <li><strong>Des extensions naturelles</strong> : une associée non-résidente au Royaume-Uni dans la SCI familiale, une structuration de transmission déjà amorcée, une société de gestion agréée AMF dans le périmètre.</li>
+      </ul>
+
+      <h3>Ce qui appelle de la prudence</h3>
+      <ul class="plain">
+        <li>Les véhicules d'opération sont <strong>volontairement sous-capitalisés</strong>, avec des fonds propres négatifs. <strong>Le débiteur de l'honoraire doit être Atlantistar</strong> — ou, à défaut, une provision à l'ouverture.</li>
+        <li>Il est technicien : la conversation sera exigeante, et il ne paiera pas pour une note qui reformule le BOFiP. <strong>Il paiera pour une position tranchée, assumée et documentée.</strong></li>
+        <li>Pas de synergie évidente avec Genève sur ce dossier.</li>
+      </ul>
+
+      <div class="next">
+        <span class="tag">Prochaine étape recommandée</span>
+        <p>Rappel à 16h comme proposé, cadrage des neuf questions au téléphone, puis <strong>rendez-vous de cadrage stratégique à 2 400 € HT</strong> avec le tableau des surfaces de plancher et le descriptif des travaux en main.</p>
+        <p>Deux points à sortir dès le téléphone pour installer la crédibilité : <strong>le seuil des 10 % de surface de plancher</strong> de l'article 279-0 bis, 2, <em>b</em>, qui fait basculer la totalité des travaux à 20 %, et <strong>la recodification au 1<sup>er</sup> janvier 2027</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 9 ========== -->
+  <section id="s9" class="src">
+    <h2><span class="num">09</span>Sources</h2>
+
+    <h3>Registres et données publiques</h3>
+    <ul>
+      <li>Pappers — dirigeants, informations entreprises, bénéficiaires effectifs, comptes sociaux, conformité PPE et sanctions (SIREN 799795125, 105318950, 910821982, 829274653, 824556138, 883933640, 878796986, 812965168, 817629041)</li>
+      <li>Pappers Immobilier — parcelles cadastrales, mutations DVF, bâtiments, DPE, permis de construire, documents d'urbanisme : <a href="https://immobilier.pappers.fr/?siren=799795125">Atlantistar</a>, <a href="https://immobilier.pappers.fr/?siren=910821982">2A Sainte Marie</a></li>
+      <li>BODACC — <a href="https://www.bodacc.fr/annonce/detail-annonce/A/20260102/2276">création d'Ovalistar, 02/06/2026</a> · <a href="https://www.bodacc.fr/annonce/detail-annonce/B/20200040/1682">départ de M. Aubin du conseil de Primestia, 26/02/2020</a> · <a href="https://www.bodacc.fr/annonce/detail-annonce/B/20250138/5142">transfert de siège de 2A Sainte Marie, 22/07/2025</a></li>
+      <li>Permis de construire n° 0920222300011, Chaville, autorisé le 23 octobre 2023</li>
+    </ul>
+
+    <h3>Textes, vérifiés sur Légifrance</h3>
+    <ul>
+      <li><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000046196126">CGI, art. 257</a> — définition de l'immeuble neuf</li>
+      <li><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000024189151">CGI, art. 268</a> — TVA sur marge</li>
+      <li><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051215062">CGI, art. 279-0 bis</a> — taux réduit de 10 % et exclusions, version en vigueur depuis le 1<sup>er</sup> mars 2025</li>
+      <li><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000024188977">CGI, art. 1115</a> — engagement de revendre</li>
+      <li>Ordonnance n° 2025-1247 du 17 décembre 2025 — abrogation au 1<sup>er</sup> janvier 2027 et recodification dans le code des impositions sur les biens et services</li>
+    </ul>
+
+    <h3>Jurisprudence</h3>
+    <ul>
+      <li><a href="https://justice.pappers.fr/decision/108bb8e0a4e6f20f0d275ba4cc059c5e880e00c6">TJ Nanterre, référé, 7 mai 2025, n° 25/00475</a> — également sur <a href="https://www.courdecassation.fr/decision/681bb74da7f269e5c2eab3d7">Judilibre</a></li>
+    </ul>
+
+    <h3>Presse et communiqués</h3>
+    <ul>
+      <li><a href="https://paref-gestion.com/actualites/nomination-de-david-aubin-au-poste-de-directeur-general-delegue/">Paref Gestion — nomination de David Aubin</a></li>
+      <li><a href="https://www.businessimmo.com/actualites/article/1971920451/david-aubin-devient-directeur-general-delegue-de-paref-gestion">Business Immo</a> · <a href="https://zoominvest.fr/articles/view/20-06-25/paref-gestion-nomme-david-aubin-directeur-general-delegue/">Zoom Invest</a> · <a href="https://www.lemoniteur.fr/article/arrivee-au-sein-de-la-direction-du-groupe-paref.2346871">Le Moniteur</a> · <a href="https://francescpi.com/scpi/actualites-scpi/david-aubin-nomme-directeur-general-delegue-de-paref-gestion-2025">France SCPI</a></li>
+    </ul>
+
+    <h3>Recherche interne</h3>
+    <ul>
+      <li>Outlook — aucun antécédent au cabinet.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Bensaid Avocats</span>
+    <span>Établie le 27 août 2026</span>
+    <span>Données sensibles — ne pas diffuser hors du cabinet</span>
+  </footer>
+
+  </main>
+</div>
+</div>
