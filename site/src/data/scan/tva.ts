@@ -174,6 +174,7 @@ export const arbreTva: ArbreScan = {
   resultats: {
     'hors-champ': {
       id: 'hors-champ',
+      carto: { libelle: 'Hors champ', teinte: 'gris', deduction: 'non' },
       qualification: "Opération hors du champ d'application de la TVA",
       ton: 'attention',
       resume:
@@ -195,6 +196,7 @@ export const arbreTva: ArbreScan = {
     },
     'hors-territoire': {
       id: 'hors-territoire',
+      carto: { libelle: 'Hors France', teinte: 'ardoise', deduction: 'a-analyser' },
       qualification: 'Opération non imposable en France',
       ton: 'mixte',
       resume:
@@ -212,6 +214,7 @@ export const arbreTva: ArbreScan = {
     },
     taxee: {
       id: 'taxee',
+      carto: { libelle: 'Taxée', teinte: 'marine', deduction: 'oui' },
       qualification: 'Opération taxée',
       ton: 'positif',
       resume:
@@ -229,6 +232,7 @@ export const arbreTva: ArbreScan = {
     },
     'taxee-option': {
       id: 'taxee-option',
+      carto: { libelle: 'Taxée sur option', teinte: 'or', deduction: 'oui' },
       qualification: 'Opération taxée sur option',
       ton: 'positif',
       resume:
@@ -246,6 +250,7 @@ export const arbreTva: ArbreScan = {
     },
     'assimilee-taxee': {
       id: 'assimilee-taxee',
+      carto: { libelle: 'Assimilée taxée', teinte: 'vert', deduction: 'oui' },
       qualification: 'Opération exonérée ouvrant droit à déduction',
       ton: 'positif',
       resume:
@@ -263,6 +268,7 @@ export const arbreTva: ArbreScan = {
     },
     exoneree: {
       id: 'exoneree',
+      carto: { libelle: 'Exonérée', teinte: 'ardoise', deduction: 'non' },
       qualification: 'Opération exonérée sans droit à déduction',
       ton: 'negatif',
       resume:

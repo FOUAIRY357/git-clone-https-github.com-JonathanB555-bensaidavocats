@@ -47,11 +47,31 @@ export interface QuestionScan {
 
 export type TonResultat = 'positif' | 'negatif' | 'mixte' | 'attention';
 
+/** Teintes des nœuds de la cartographie. */
+export type TeinteCarto = 'marine' | 'or' | 'vert' | 'ardoise' | 'gris';
+
+export interface CartoResultat {
+  /** Libellé court affiché dans la cartographie et le rapport (ex. « Taxée »). */
+  libelle: string;
+  teinte: TeinteCarto;
+  /** Sort du droit à déduction pour cette qualification. */
+  deduction: 'oui' | 'non' | 'a-analyser';
+}
+
+/** Une opération scannée de bout en bout, telle que conservée dans le dossier. */
+export interface OperationScannee {
+  libelle: string;
+  resultatId: string;
+  reponses: { questionId: string; libelle: string }[];
+}
+
 export interface ResultatScan {
   id: string;
   /** Ex. « Opération taxée ». */
   qualification: string;
   ton: TonResultat;
+  /** Représentation dans la cartographie du dossier (mode multi-opérations). */
+  carto?: CartoResultat;
   resume: string;
   consequences: string[];
   references: ReferenceLegale[];

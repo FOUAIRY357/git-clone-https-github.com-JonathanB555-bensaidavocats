@@ -131,13 +131,97 @@ html.icones-chargees .ms {
   animation: apparition 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Cartographie du scan : entrée des nœuds, tracé des liens, nœud en cours */
+@keyframes carto-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.carto-noeud {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: carto-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes carto-trace {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.carto-lien {
+  animation: carto-trace 0.7s ease-out both;
+}
+@keyframes carto-fondu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.carto-lien-pointille {
+  animation: carto-fondu 0.7s ease-out both;
+}
+@keyframes carto-pulsation {
+  0%,
+  100% {
+    stroke-opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    stroke-opacity: 0.45;
+    transform: scale(1.06);
+  }
+}
+.carto-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: carto-pulsation 1.8s ease-in-out infinite;
+}
+@keyframes carto-marche {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+.carto-lien-pulse {
+  animation: carto-marche 1.6s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .apparition,
-  .apparition-lente {
+  .apparition-lente,
+  .carto-noeud,
+  .carto-lien,
+  .carto-lien-pointille,
+  .carto-pulse,
+  .carto-lien-pulse {
     animation: none;
   }
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* Impression : ne garder que le rapport de scan */
+@media print {
+  body > header,
+  body > footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff;
+  }
+  #rapport-scan {
+    border: none;
+    box-shadow: none;
   }
 }
 

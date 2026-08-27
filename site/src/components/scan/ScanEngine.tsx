@@ -1,5 +1,7 @@
-import { useMemo, useState } from 'react';
-import type { ArbreScan, QuestionScan, ResultatScan, TonResultat } from '@/data/scan/types';
+import { useEffect, useMemo, useState } from 'react';
+import type { ArbreScan, OperationScannee, QuestionScan, ResultatScan, TonResultat } from '@/data/scan/types';
+import CartographieScan from './CartographieScan';
+import RapportScan from './RapportScan';
 
 interface ReponseDonnee {
   questionId: string;
@@ -8,6 +10,8 @@ interface ReponseDonnee {
 
 interface Props {
   arbre: ArbreScan;
+  /** Mode dossier : plusieurs opérations, cartographie et rapport (Scan TVA). */
+  dossier?: boolean;
 }
 
 const stylesTon: Record<TonResultat, { badge: string; icone: string }> = {
@@ -17,12 +21,38 @@ const stylesTon: Record<TonResultat, { badge: string; icone: string }> = {
   attention: { badge: 'bg-attention-fond text-or-fonce', icone: 'error' },
 };
 
-export default function ScanEngine({ arbre }: Props) {
+function chargerDossier(cle: string): OperationScannee[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const brut = window.localStorage.getItem(cle);
+    const donnees = brut ? JSON.parse(brut) : [];
+    return Array.isArray(donnees) ? donnees : [];
+  } catch {
+    return [];
+  }
+}
+
+export default function ScanEngine({ arbre, dossier = false }: Props) {
+  const cleStockage = `scan-${arbre.id}-dossier-v1`;
+  const [operations, setOperations] = useState<OperationScannee[]>(() =>
+    dossier ? chargerDossier(cleStockage) : []
+  );
+  const [vue, setVue] = useState<'scan' | 'rapport'>('scan');
   const [reponses, setReponses] = useState<ReponseDonnee[]>([]);
   const [courant, setCourant] = useState<{ type: 'question' | 'resultat'; id: string }>({
     type: 'question',
     id: arbre.entree,
   });
+  const [libelleOperation, setLibelleOperation] = useState('');
+
+  useEffect(() => {
+    if (!dossier || typeof window === 'undefined') return;
+    try {
+      window.localStorage.setItem(cleStockage, JSON.stringify(operations));
+    } catch {
+      /* stockage indisponible : le dossier vit le temps de la page */
+    }
+  }, [operations, dossier, cleStockage]);
 
   const question: QuestionScan | undefined =
     courant.type === 'question' ? arbre.questions[courant.id] : undefined;
@@ -34,6 +64,8 @@ export default function ScanEngine({ arbre }: Props) {
     if (courant.type === 'resultat') return 100;
     return Math.min(Math.round((reponses.length / arbre.profondeurEstimee) * 100), 90);
   }, [courant, reponses.length, arbre.profondeurEstimee]);
+
+  const libelleParDefaut = `Opération ${operations.length + 1}`;
 
   function repondre(libelle: string, versQuestion?: string, versResultat?: string) {
     if (!question) return;
@@ -60,13 +92,52 @@ export default function ScanEngine({ arbre }: Props) {
     setCourant({ type: 'question', id: cible.questionId });
   }
 
-  function recommencer() {
+  function relancerScan() {
     setReponses([]);
+    setLibelleOperation('');
     setCourant({ type: 'question', id: arbre.entree });
+    setVue('scan');
   }
 
+  /** Mode dossier : enregistre l'opération qualifiée puis enchaîne. */
+  function validerOperation(destination: 'scan' | 'rapport') {
+    if (!resultat) return;
+    setOperations([
+      ...operations,
+      {
+        libelle: libelleOperation.trim() || libelleParDefaut,
+        resultatId: resultat.id,
+        reponses,
+      },
+    ]);
+    setReponses([]);
+    setLibelleOperation('');
+    setCourant({ type: 'question', id: arbre.entree });
+    setVue(destination);
+  }
+
+  function nouveauDossier() {
+    setOperations([]);
+    relancerScan();
+  }
+
+  if (dossier && vue === 'rapport') {
+    return (
+      <RapportScan
+        arbre={arbre}
+        operations={operations}
+        onAjouterOperation={relancerScan}
+        onNouveauDossier={nouveauDossier}
+      />
+    );
+  }
+
+  const operationEnCours = dossier
+    ? libelleOperation.trim() || libelleParDefaut
+    : undefined;
+
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_300px]">
+    <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
       <div>
         {/* Barre de progression */}
         <div className="mb-8">
@@ -246,54 +317,125 @@ export default function ScanEngine({ arbre }: Props) {
                 </div>
               )}
 
-              <div className="mt-8 flex flex-col gap-3 border-t border-bordure pt-6 sm:flex-row">
-                {resultat.etapeSuivante && (
+              {dossier ? (
+                <div className="mt-8 border-t border-bordure pt-6">
+                  <label htmlFor="nom-operation" className="block text-sm font-semibold text-encre">
+                    Ajouter cette opération à votre cartographie
+                  </label>
+                  <p className="mt-1 text-sm text-texte-2">
+                    Donnez-lui un nom parlant : il apparaîtra sur la carte et dans le rapport.
+                  </p>
+                  <input
+                    id="nom-operation"
+                    type="text"
+                    value={libelleOperation}
+                    onChange={(evenement) => setLibelleOperation(evenement.target.value)}
+                    placeholder={`ex. Loyers de l'immeuble de bureaux (${libelleParDefaut})`}
+                    maxLength={60}
+                    className="mt-3 w-full rounded border border-bordure bg-fond px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine"
+                  />
+                  <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+                    <button
+                      type="button"
+                      onClick={() => validerOperation('scan')}
+                      className="flex items-center justify-center gap-2 rounded bg-marine px-5 py-3 font-texte text-sm font-semibold text-white transition-colors hover:bg-marine-2"
+                    >
+                      <span className="ms text-lg" aria-hidden="true">add_circle</span>
+                      Ajouter et scanner une autre opération
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => validerOperation('rapport')}
+                      className="flex items-center justify-center gap-2 rounded border border-or px-5 py-3 font-texte text-sm font-semibold text-or-fonce transition-colors hover:bg-attention-fond"
+                    >
+                      <span className="ms text-lg" aria-hidden="true">print</span>
+                      Ajouter et voir le rapport
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-8 flex flex-col gap-3 border-t border-bordure pt-6 sm:flex-row">
+                  {resultat.etapeSuivante && (
+                    <a
+                      href={resultat.etapeSuivante.url}
+                      className="rounded bg-marine px-5 py-3 text-center font-texte text-sm font-semibold text-white transition-colors hover:bg-marine-2"
+                    >
+                      {resultat.etapeSuivante.libelle}
+                    </a>
+                  )}
                   <a
-                    href={resultat.etapeSuivante.url}
-                    className="rounded bg-marine px-5 py-3 text-center font-texte text-sm font-semibold text-white transition-colors hover:bg-marine-2"
+                    href="/expert/"
+                    className="rounded border border-marine px-5 py-3 text-center font-texte text-sm font-semibold text-marine transition-colors hover:bg-marine hover:text-white"
                   >
-                    {resultat.etapeSuivante.libelle}
+                    Consulter un expert
                   </a>
-                )}
-                <a
-                  href="/expert/"
-                  className="rounded border border-marine px-5 py-3 text-center font-texte text-sm font-semibold text-marine transition-colors hover:bg-marine hover:text-white"
-                >
-                  Consulter un expert
-                </a>
-                {resultat.doctrine && (
-                  <a
-                    href={resultat.doctrine.url}
-                    className="rounded border border-bordure px-5 py-3 text-center font-texte text-sm font-semibold text-texte-2 transition-colors hover:border-marine hover:text-encre"
-                  >
-                    {resultat.doctrine.libelle}
-                  </a>
-                )}
-              </div>
+                  {resultat.doctrine && (
+                    <a
+                      href={resultat.doctrine.url}
+                      className="rounded border border-bordure px-5 py-3 text-center font-texte text-sm font-semibold text-texte-2 transition-colors hover:border-marine hover:text-encre"
+                    >
+                      {resultat.doctrine.libelle}
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
 
             <button
               type="button"
-              onClick={recommencer}
+              onClick={relancerScan}
               className="mt-6 flex items-center gap-2 text-sm font-semibold text-texte-2 transition-colors hover:text-encre"
             >
               <span className="ms text-lg" aria-hidden="true">
                 restart_alt
               </span>
-              Refaire le scan
+              {dossier ? 'Refaire ce scan sans enregistrer' : 'Refaire le scan'}
             </button>
           </section>
         )}
       </div>
 
-      {/* Dossier en cours */}
+      {/* Colonne latérale */}
       <aside className="lg:sticky lg:top-24 lg:self-start">
+        {dossier && (
+          <div className="mb-4 rounded border border-bordure bg-carte p-4 shadow-ambiante">
+            <div className="flex items-center justify-between border-b border-bordure pb-3">
+              <p className="flex items-center gap-2 font-titres text-sm font-bold uppercase tracking-wide text-encre">
+                <span className="ms text-xl text-or" aria-hidden="true">radar</span>
+                Cartographie
+              </p>
+              {operations.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setVue('rapport')}
+                  className="text-xs font-semibold text-lien underline underline-offset-4"
+                >
+                  Voir le rapport
+                </button>
+              )}
+            </div>
+            <div className="pt-2">
+              <CartographieScan
+                arbre={arbre}
+                operations={operations}
+                operationEnCours={operationEnCours}
+                compacte
+              />
+            </div>
+            <p className="border-t border-bordure pt-3 text-xs leading-5 text-texte-3">
+              {operations.length === 0
+                ? 'Votre carte se construit à mesure que vous qualifiez des opérations.'
+                : `${operations.length} opération${operations.length > 1 ? 's' : ''} qualifiée${operations.length > 1 ? 's' : ''} dans ce dossier.`}
+            </p>
+          </div>
+        )}
+
         <div className="rounded border border-bordure bg-carte p-5 shadow-ambiante">
           <p className="flex items-center gap-2 border-b border-bordure pb-3 font-titres text-sm font-bold uppercase tracking-wide text-encre">
             <span className="ms text-xl text-or" aria-hidden="true">
               folder_open
             </span>
-            Dossier en cours
+            {dossier ? 'Opération en cours' : 'Dossier en cours'}
           </p>
           {reponses.length === 0 ? (
             <p className="pt-4 text-sm leading-6 text-texte-2">
