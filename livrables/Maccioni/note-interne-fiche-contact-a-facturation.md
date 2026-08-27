@@ -7,8 +7,8 @@ AU DÉPART (formulaire site / premier contact)
 - Demande initiale : conformité FATCA (jamais déclaré aux États-Unis) et coût fiscal du mariage.
 - Verdict de la fiche : patrimoine moyen, risque procédural élevé. Cliente réactive, dossier
   complet livré en moins d'une heure. Récurrence forte.
-- Premier acte facturé : aucun. Premier contact de 15 minutes offert le 25/08, devis promis
-  « définitif et plafonné », attendu depuis.
+- Premier acte facturé : aucun. Premier contact de 15 minutes offert le 25/08, devis
+  « définitif et plafonné » annoncé, à envoyer.
 
 CE QUE C'EST DEVENU
 Trois volets liés, non fragmentables. Régularisation américaine : PFIC sur ses unités de compte
@@ -45,5 +45,5 @@ l'impôt, qui est faible (TMI 11 %, restitution de 10 286 € encaissée en juil
 procédure et le calendrier. Deux échéances commandent tout et ne dépendent pas de nous : elle
 n'a pas de numéro de sécurité sociale américain, sans lequel rien ne peut être déposé, et
 l'EURL n'est pas encore immatriculée. Prévisionnel ~11,5 K€ HT, modeste au regard de McELROY,
-mais avec une récurrence solide et une cliente qui décidera vite. Le seul vrai risque sur ce
-dossier est notre retard : le devis est attendu depuis le 25 août.
+mais avec une récurrence solide et une cliente qui décidera vite. Le point à tenir est le
+tempo : elle a livré son dossier en moins d'une heure, le devis part maintenant.

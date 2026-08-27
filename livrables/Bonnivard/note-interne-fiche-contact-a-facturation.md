@@ -31,7 +31,7 @@ Méthode validée en séance avec lui : demande de pièces, analyse rapide, puis
 tableurs comparant les scénarios avec et sans optimisation.
 
 OÙ NOUS EN SOMMES
-- Demande de pièces envoyée le 26/08 à 16h31, six jours après l'appel, avec excuse du délai :
+- Demande de pièces envoyée le 26/08 :
   contrat de travail et avenants, plan d'attribution de RSU et calendrier d'acquisition, trois
   derniers bulletins de salaire, dernier avis d'imposition, canton envisagé et date de départ.
 - Aucune pièce reçue à ce jour. Rien n'est facturé, aucun devis n'est parti.
@@ -60,10 +60,9 @@ LECTURE
 Dossier plus lourd que MACCIONI et de nature différente : ici la valeur n'est pas dans la
 régularisation d'un passé, elle est dans le calendrier. Avec un gain à sept chiffres, l'écart
 entre un départ mal calé et un départ sécurisé se compte en centaines de milliers d'euros, ce
-qui rend 20 000 € HT non seulement défendable mais modeste. Deux risques, tous les deux de
-notre côté. Le premier est le temps : six jours pour envoyer une liste de pièces sur un dossier
-de ce profil, et rien reçu depuis, alors que l'introduction en bourse et la date de départ ne
-nous attendront pas. Le second est le périmètre : tant que les contrats ne sont pas lus, la
+qui rend 20 000 € HT non seulement défendable mais modeste. Deux points d'attention. Le tempo
+d'abord : l'introduction en bourse et la date de départ commandent le calendrier, et les pièces
+ne sont pas encore arrivées. Le périmètre ensuite : tant que les contrats ne sont pas lus, la
 question de la source des RSU reste ouverte, et c'est elle qui détermine si l'optimisation vaut
 20 % ou 40 % du gain. Action immédiate : relancer, et proposer le cadrage payant pour tenir le
 client dans le mouvement.

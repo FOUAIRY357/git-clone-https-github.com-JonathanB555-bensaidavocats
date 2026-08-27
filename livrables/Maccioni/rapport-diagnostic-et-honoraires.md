@@ -67,8 +67,8 @@ signés séparément), **entrée à 4 500 € HT** sur le seul lot de consultati
 | 25/08/2026 16h02 | **Réponse de la cliente avec les pièces** (15 pièces jointes) |
 | **En attente** | **Le devis définitif et plafonné promis en séance** |
 
-> ⚠️ La cliente a livré son dossier **en moins d'une heure**. Le devis est attendu depuis le
-> 25 août. Toute lenteur de notre côté se paie ici.
+> La cliente a livré son dossier **en moins d'une heure**. Elle attend le devis, et elle
+> décidera vite : c'est le tempo à tenir.
 
 ### Pièces reçues (mail du 25/08 à 16h02)
 
@@ -514,7 +514,7 @@ mentionner comme perspective, ne pas le chiffrer dans ce devis.
 
 | # | Action | Qui | Quand |
 |---|---|---|---|
-| 1 | Mail de devis : les quatre lots, 11 500 € HT en périmètre complet, entrée possible à 4 500 € HT, frais tiers annoncés, plafonnement rappelé | François | **immédiat - le devis est attendu depuis le 25 août** |
+| 1 | Mail de devis : les quatre lots, 11 500 € HT en périmètre complet, entrée possible à 4 500 € HT, frais tiers annoncés, plafonnement rappelé | François | **immédiat** |
 | 2 | Dans le même mail : **lancer la demande de numéro de sécurité sociale américain** (SS-5, consulat), et réclamer le certificat de salaire du conjoint, les conditions générales des contrats, le troisième support de PER, les soldes de trésorerie au 31/12 et le détail crypto | François | immédiat |
 | 3 | **Lui dire de ne pas immatriculer SOLUTION FINDER** avant notre arbitrage - capital, exercice, forme. Argument : le coût d'une correction après coup dépasse celui du lot 3 | François | immédiat |
 | 4 | Lettre de mission dès accord : ventilation personnelle / société, périmètre américain, absence de garantie de secret aux États-Unis, position sur le conjoint, réserve sur l'ouverture de la procédure | Cabinet | à l'accord |
