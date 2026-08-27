@@ -1,43 +1,20 @@
 {
   "destinataire": "[adresse à compléter dès réception via LinkedIn]",
-  "objet": "Maison de Clamart, pièces nécessaires avant la promesse et le dépôt du permis",
+  "objet": "Maison de Clamart, pièces et point à régler dans la promesse",
   "civilite": "Cher Monsieur,",
   "corps": [
     {"p": "Je vous remercie de notre échange de cet après-midi."},
-    {"p": "Voici les pièces qui nous permettront d'arrêter notre position. Le devis de la consultation vous parviendra séparément."},
+    {"p": "Pour arrêter une première position, quatre pièces suffisent à ce stade."},
 
-    {"titre": "1. L'acquisition"},
     {"b": "le projet de promesse dans son état actuel"},
-    {"b": "le titre de propriété du vendeur et son acte d'acquisition de janvier 2022"},
-    {"b": "l'engagement souscrit par le vendeur lors de cette acquisition, et sa date d'expiration"},
-    {"b": "la position du vendeur sur l'option de taxation de la vente"},
-    {"p": "Ce dernier point commande votre propre régime de sortie. Selon que le vendeur soumet ou non la vente à la taxe, la base d'imposition de votre revente n'est pas la même. Il doit être arrêté dans la promesse, et non découvert à la signature de l'acte."},
+    {"b": "l'esquisse de votre architecte et le tableau des surfaces, existant et projeté"},
+    {"b": "le projet de permis de construire et sa notice, si le dossier est déjà formé"},
+    {"b": "le descriptif des travaux par corps d'état, même provisoire"},
 
-    {"titre": "2. Le projet"},
-    {"b": "l'esquisse ou l'avant-projet de votre architecte"},
-    {"b": "le tableau des surfaces, existant et projeté, en surface de plancher comme en surface habitable"},
-    {"b": "le projet de permis de construire et sa notice, dans leur état actuel"},
-    {"b": "les dispositions du plan local d'urbanisme applicables à la parcelle, en particulier sur l'emprise et sur la surélévation"},
-    {"p": "Nous examinerons le degré d'autonomie des surfaces créées par rapport à l'existant. Ce point conditionne la faculté de traiter séparément les deux fractions de l'opération. Il se prépare sur les plans, avant le dépôt du permis."},
+    {"p": "Un point ne figure sans doute dans aucun de ces documents, et c'est le plus urgent. Votre vendeur est un marchand de biens. Selon qu'il soumet ou non la vente à la taxe, la base d'imposition de votre revente n'est pas la même. Cela se règle dans la promesse, et non à la signature de l'acte."},
 
-    {"titre": "3. Les travaux"},
-    {"b": "le descriptif des travaux par corps d'état, avec les quantités"},
-    {"b": "la ventilation du budget entre l'existant et la partie créée"},
-    {"b": "pour chacun des six éléments de second œuvre, la proportion déposée et remplacée"},
-    {"b": "les devis d'entreprises déjà obtenus"},
-    {"p": "La proportion s'apprécie élément par élément. Le critère n'est rempli que si les six éléments sont tous repris au-delà du seuil. Un seul élément maintenu en deçà suffit à l'écarter, à condition que la mesure soit établie et documentée."},
+    {"p": "Le devis vous parviendra séparément. Je vous répondrai sur l'opportunité de déposer le permis et de signer une fois ces pièces en main."},
 
-    {"titre": "4. La structure"},
-    {"b": "la note du bureau d'études sur les reprises de fondations et d'éléments porteurs qu'impose la surélévation"},
-    {"p": "Les critères tirés des fondations et des éléments porteurs sont indépendants de celui du second œuvre. Une reprise substantielle de la structure peut suffire, à elle seule, à emporter la qualification que vous cherchez à écarter."},
-
-    {"titre": "5. L'opération et son porteur"},
-    {"b": "l'identité du véhicule acquéreur, ses statuts et la répartition de son capital"},
-    {"b": "le business plan, avec le prix de sortie visé et le budget de travaux hors taxes"},
-    {"b": "les modalités de sortie envisagées, revente en bloc, en lots ou en volumes"},
-
-    {"titre": "6. Le calendrier"},
-    {"p": "Sur votre question, je vous répondrai précisément une fois ces pièces réunies. Je vous confirme à ce stade que la promesse et le dépôt du permis sont les deux actes qui figent le plus l'opération. Le point relevé au 1 se traite avant la promesse."},
-    {"p": "Nous fixerons ensuite la réunion que vous proposez, avec votre architecte."}
+    {"p": "Nous fixerons ensuite la réunion que vous proposez, avec votre architecte. Une partie du sujet se joue sur les plans."}
   ]
 }
