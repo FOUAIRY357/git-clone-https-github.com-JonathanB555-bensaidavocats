@@ -1,31 +1,20 @@
 {
   "destinataire": "aborozanov@gmail.com",
-  "objet": "Documents needed to open the file",
+  "objet": "A few documents to get us started",
   "civilite": "Dear Mr Borozanov,",
-  "disponibilite": "I remain available to answer any question on the above.",
+  "disponibilite": "I remain available if anything is unclear.",
   "signoff": "Kind regards,",
   "corps": [
-    {"p": "Thank you for confirming both mandates. Here is what I need in order to open the file properly."},
-
-    {"titre": "1. To finalise the fee agreement"},
-    {"p": "The agreement is drafted, in French and in English in the same document, and covers both the Swiss and the French matters. Two things are missing before I can send it to you for signature."},
-    {"b": "your full postal address"},
-    {"b": "a copy of your passport or identity card, together with a document evidencing your address dated within the last three months"},
-    {"p": "The second is a professional obligation on us before any new engagement, not a formality of our own making."},
-
-    {"titre": "2. On the Swiss matters"},
-    {"b": "the signed Transaction of 12 February 2025 in full, together with every earlier draft. Please also tell me who signed it, in what capacity and on what date. Your father died on 2 July 2024, before the first draft was circulated, so he cannot have signed it himself. This point governs the whole Swiss side and I do not want to write to the executor before it is settled."},
-    {"b": "the originals of the cantonal documents and of the two inventories, rather than the scans"},
-    {"b": "the name of the executor, and of the Swiss lawyer who acted on the file"},
-
-    {"titre": "3. On the French matters"},
-    {"b": "the emails you mention confirming that French inheritance tax was paid out of your father's estate, and any declaration or assessment notice you hold"},
-    {"b": "your father's death certificate, and the document establishing that you are his sole heir"},
-    {"b": "where your father was habitually resident at the date of his death. This determines the applicable law and the certificate I will need in order to act in France"},
-    {"b": "whatever you know of the Neuilly apartment, however partial. Its address, and the name of any notary or lawyer who mentioned it to you"},
-
-    {"titre": "4. One word on the scans"},
-    {"p": "Please send originals wherever you have them. Two of the nine points in your memorandum are not anomalies at all, but errors introduced when the documents were digitised. I would rather not build on a misread figure."},
-    {"p": "Several of these points would be quicker to cover in the conversation you suggested. I will come back to you separately on that."}
+    {"p": "Thank you for confirming. Here is a short list to get us started. Please do not worry about gaps, send what you have and we will sort out the rest together."},
+    {"p": "For the fee agreement, which is drafted and waiting"},
+    {"b": "your postal address"},
+    {"b": "a copy of your passport and a recent proof of address, which we are required to hold before opening any file"},
+    {"p": "For the matter itself"},
+    {"b": "the signed Transaction of 12 February 2025 and the earlier drafts. If you know who signed it and on what date, that would help me more than anything else at this stage"},
+    {"b": "the emails you mentioned about the French inheritance tax"},
+    {"b": "anything you have on the Neuilly apartment, even a partial address"},
+    {"b": "where your father was living at the time of his death"},
+    {"p": "Wherever you still have the original documents rather than the scans, please send those. Two of the nine points in your memorandum turned out to be scanning errors, so I would rather work from the source."},
+    {"p": "That is all for now."}
   ]
 }
