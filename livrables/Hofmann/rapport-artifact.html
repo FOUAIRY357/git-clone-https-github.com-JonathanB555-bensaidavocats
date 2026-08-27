@@ -1,0 +1,433 @@
+<title>Dossier Hofmann</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --ground:#F6F5F1;
+    --surface:#FDFCFA;
+    --line:#DFDBCE;
+    --line-soft:#EAE7DC;
+    --ink:#191710;
+    --ink-2:#4A463A;
+    --ink-3:#736E5E;
+    --gold:#8C6B33;
+    --gold-bright:#B08A46;
+    --risk:#8E3423;
+    --ok:#3D6647;
+    --shade:#201E16;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#141310;
+      --surface:#1C1B16;
+      --line:#39362C;
+      --line-soft:#2A2822;
+      --ink:#F1EFE7;
+      --ink-2:#C6C1B2;
+      --ink-3:#948E7C;
+      --gold:#C99F55;
+      --gold-bright:#D8B269;
+      --risk:#D9705A;
+      --ok:#7FAE8B;
+      --shade:#0E0D0A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#141310;
+    --surface:#1C1B16;
+    --line:#39362C;
+    --line-soft:#2A2822;
+    --ink:#F1EFE7;
+    --ink-2:#C6C1B2;
+    --ink-3:#948E7C;
+    --gold:#C99F55;
+    --gold-bright:#D8B269;
+    --risk:#D9705A;
+    --ok:#7FAE8B;
+    --shade:#0E0D0A;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+    font-size:16px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:60rem;margin:0 auto;padding:3rem 1.5rem 6rem;}
+
+  /* ---- masthead ---- */
+  .mast{border-top:3px solid var(--gold);padding-top:1.5rem;display:flex;flex-direction:column;gap:.9rem;}
+  .firm{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+  h1{
+    font-family:Newsreader,Georgia,serif;
+    font-weight:600;font-size:clamp(2.1rem,5vw,3.1rem);
+    line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.015em;
+  }
+  .standfirst{font-family:Newsreader,Georgia,serif;font-size:1.18rem;line-height:1.5;color:var(--ink-2);max-width:44ch;margin:0;}
+  .stamp{
+    display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;
+    font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--ink-3);
+    border-top:1px solid var(--line-soft);padding-top:.8rem;margin-top:.4rem;
+  }
+  .stamp b{color:var(--ink-2);font-weight:500;}
+
+  /* ---- sections ---- */
+  section{margin-top:3.4rem;}
+  h2{
+    font-family:Newsreader,Georgia,serif;font-weight:600;
+    font-size:1.55rem;line-height:1.2;margin:0 0 1rem;
+    padding-bottom:.5rem;border-bottom:1px solid var(--line);
+    display:flex;align-items:baseline;gap:.7rem;text-wrap:balance;
+  }
+  h2 .n{
+    font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--gold);
+    flex:0 0 auto;padding-top:.15rem;
+  }
+  h3{font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:.94rem;margin:1.9rem 0 .5rem;letter-spacing:.005em;}
+  p{margin:0 0 .9rem;max-width:68ch;}
+  .lede{color:var(--ink-2);}
+  strong{font-weight:600;}
+  ul{margin:0 0 1rem;padding-left:1.1rem;max-width:68ch;}
+  li{margin-bottom:.45rem;}
+  li::marker{color:var(--gold);}
+  a{color:var(--gold);text-decoration:underline;text-underline-offset:2px;}
+  a:focus-visible{outline:2px solid var(--gold-bright);outline-offset:2px;}
+
+  /* ---- fiche ---- */
+  .fiche{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+    gap:0;border:1px solid var(--line);background:var(--surface);
+  }
+  .cell{padding:.85rem 1rem;border-bottom:1px solid var(--line-soft);border-right:1px solid var(--line-soft);}
+  .cell dt{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.2rem;}
+  .cell dd{margin:0;font-size:.93rem;line-height:1.45;}
+  .cell dd span{display:block;color:var(--ink-3);font-size:.82rem;}
+
+  /* ---- chronologie ---- */
+  .chrono{list-style:none;margin:0;padding:0;max-width:none;}
+  .chrono li{
+    display:grid;grid-template-columns:6.5rem 1fr;gap:0 1.25rem;
+    padding:.62rem 0;border-bottom:1px solid var(--line-soft);margin:0;align-items:baseline;
+  }
+  .chrono .d{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-3);font-variant-numeric:tabular-nums;}
+  .chrono .e{font-size:.94rem;}
+  .chrono li.flag .d{color:var(--risk);}
+  .chrono li.flag .e{color:var(--ink);}
+  .chrono li.flag .e b{color:var(--risk);font-weight:600;}
+
+  /* ---- tables ---- */
+  .scroll{overflow-x:auto;border:1px solid var(--line);background:var(--surface);}
+  table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.9rem;}
+  caption{
+    caption-side:bottom;text-align:left;padding:.7rem 1rem;
+    font-size:.78rem;color:var(--ink-3);border-top:1px solid var(--line-soft);line-height:1.5;
+  }
+  th,td{padding:.6rem 1rem;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:top;}
+  thead th{
+    font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:400;
+    background:var(--ground);border-bottom:1px solid var(--line);
+  }
+  td.num,th.num{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tbody tr:last-child td{border-bottom:none;}
+  tr.total td{border-top:1px solid var(--line);font-weight:600;background:var(--ground);}
+
+  /* ---- positions ---- */
+  .positions{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+  .pos{background:var(--surface);padding:1.05rem 1.15rem;display:grid;gap:.35rem;}
+  .pos .head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;}
+  .pos h4{margin:0;font-size:1rem;font-weight:600;font-family:"IBM Plex Sans",sans-serif;}
+  .pos p{margin:0;font-size:.9rem;color:var(--ink-2);max-width:70ch;}
+  .chip{
+    font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+    padding:.16rem .45rem;border:1px solid currentColor;border-radius:2px;white-space:nowrap;
+  }
+  .chip.ok{color:var(--ok);}
+  .chip.mid{color:var(--gold);}
+  .chip.bad{color:var(--risk);}
+
+  /* ---- callout ---- */
+  .key{
+    background:var(--shade);color:#F1EFE7;padding:1.3rem 1.4rem;margin:1.6rem 0;
+    display:grid;gap:.5rem;border-left:3px solid var(--gold-bright);
+  }
+  .key .lab{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-bright);}
+  .key p{margin:0;color:#DEDACE;max-width:64ch;}
+  .key p strong{color:#FFF;}
+
+  /* ---- open items ---- */
+  .items{list-style:none;padding:0;margin:0;max-width:none;}
+  .items li{
+    display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;
+    padding:.7rem 0;border-bottom:1px solid var(--line-soft);margin:0;
+  }
+  .items .tag{
+    font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-3);padding-top:.25rem;white-space:nowrap;
+  }
+  .items .tag.urgent{color:var(--risk);}
+  .items .txt{font-size:.94rem;}
+  .items .txt span{display:block;color:var(--ink-3);font-size:.86rem;}
+
+  .foot{margin-top:3.4rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.82rem;color:var(--ink-3);max-width:68ch;}
+  @media (max-width:34rem){
+    .chrono li{grid-template-columns:1fr;gap:.15rem;}
+    .items li{grid-template-columns:1fr;}
+    .items .tag{padding-top:0;}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="firm">Bensaid Avocats · Note de dossier interne</div>
+    <h1>Dossier Hofmann</h1>
+    <p class="standfirst">Capitaux de prévoyance suisses recueillis hors succession par deux héritiers résidents de France. Du premier contact au chiffrage de la mission.</p>
+    <div class="stamp">
+      <span><b>Associé</b> François Ouairy</span>
+      <span><b>Prospect</b> Valentin Hofmann</span>
+      <span><b>Enjeu</b> 598 394,72 CHF</span>
+      <span><b>État</b> propositions transmises, accord attendu</span>
+      <span><b>27 août 2026</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2><span class="n">01</span> Fiche contact</h2>
+    <dl class="fiche">
+      <div class="cell">
+        <dt>Interlocuteur</dt>
+        <dd>Valentin Habib Hofmann
+          <span>Chef de projet, né le 2 mai 1996 à Annemasse</span>
+          <span>valent.hofmann@gmail.com</span>
+        </dd>
+      </div>
+      <div class="cell">
+        <dt>Co-héritier</dt>
+        <dd>Antoine Yacine Hofmann
+          <span>Étudiant, né le 15 juillet 1994 à Annemasse</span>
+          <span>Non intervenu à ce jour dans les échanges</span>
+        </dd>
+      </div>
+      <div class="cell">
+        <dt>Domicile des deux frères</dt>
+        <dd>53C allée du Parc du Chêne
+          <span>01220 Divonne-les-Bains</span>
+          <span>Résidents fiscaux français</span>
+        </dd>
+      </div>
+      <div class="cell">
+        <dt>Défunt</dt>
+        <dd>Philippe Jean Marie Hofmann
+          <span>Ingénieur, né le 14 août 1965 à Roeselare (Belgique)</span>
+          <span>Décédé le 21 février 2026 à Venerque (31810)</span>
+        </dd>
+      </div>
+      <div class="cell">
+        <dt>Situation du défunt</dt>
+        <dd>Divorcé, non remarié
+          <span>Divorce de Samia Boussora, 28 mai 2003</span>
+          <span>Ni PACS, ni conjoint survivant, ni enfant à charge</span>
+        </dd>
+      </div>
+      <div class="cell">
+        <dt>Notaire de la succession</dt>
+        <dd>Maître Romain Laurent
+          <span>Office Léman, Divonne-les-Bains</span>
+          <span>Justine Brousse, collaboratrice au dossier</span>
+        </dd>
+      </div>
+      <div class="cell">
+        <dt>Institution suisse</dt>
+        <dd>Independent Vested Benefits Foundation
+          <span>Siège à Schwyz, administrée par PensExpert AG, Lucerne</span>
+          <span>Contacts : Silvia Thalmann, Doris Chatelan</span>
+        </dd>
+      </div>
+      <div class="cell">
+        <dt>Périmètre convenu</dt>
+        <dd>Prévoyance suisse uniquement
+          <span>Le dossier américain, 115 028,85 USD chez Charles Schwab,</span>
+          <span>reste suivi par un conseil franco-américain</span>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span> Chronologie</h2>
+    <ul class="chrono">
+      <li><span class="d">5 août</span><span class="e">Valentin Hofmann interroge PensExpert sur les soldes, les comptes de destination, l'impôt à la source et les pièces à fournir. Il identifie lui-même la cascade de l'article 12.1 du règlement et se situe en groupe 3.</span></li>
+      <li><span class="d">10 août</span><span class="e">Réponse de PensExpert. Soldes au 21 février 2026, exigence d'une légalisation avec apostille pour un virement à l'étranger, annonce d'un impôt à la source.</span></li>
+      <li><span class="d">20 août</span><span class="e">Impression du projet de déclaration de succession par l'étude notariale. Document non daté et non signé.</span></li>
+      <li class="flag"><span class="d">21 août</span><span class="e"><b>Expiration du délai de six mois</b> pour le dépôt de la déclaration de succession. Statut du dépôt inconnu à ce jour.</span></li>
+      <li><span class="d">25 août<br>11 h 29</span><span class="e">Visioconférence de premier contact, Jonathan Bensaid invité. Trois options exposées, acceptation du risque, consultation, rescrit. Analyse préliminaire gratuite retenue. Aucun rendez-vous de cadrage facturé.</span></li>
+      <li><span class="d">25 août<br>12 h 59</span><span class="e">Envoi du mail de demande de pièces, engagement d'une proposition sous 48 heures ouvrées après réception d'un dossier complet.</span></li>
+      <li><span class="d">25 août<br>13 h 05</span><span class="e">Réponse du prospect avec cinq pièces, dont le règlement de prévoyance, l'acte de notoriété et le projet de déclaration de succession.</span></li>
+      <li><span class="d">25 août<br>13 h 12</span><span class="e">Transfert du fil PensExpert.</span></li>
+      <li class="flag"><span class="d">27 août</span><span class="e"><b>Échéance des 48 heures ouvrées.</b> Envoi des deux propositions chiffrées avec avis sur la voie à privilégier.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span> Les avoirs en cause</h2>
+    <p class="lede">Deux comptes de libre passage, versés hors succession selon la cascade réglementaire, à parts égales entre les deux frères. Les montants sont le double de ceux évoqués lors du premier échange téléphonique.</p>
+    <div class="scroll">
+      <table>
+        <caption>Valeurs communiquées par la fondation au 21 février 2026, jour du décès. Contre-valeur au taux de 1 CHF = 1,09505 EUR retenu par le notaire dans le projet de déclaration de succession.</caption>
+        <thead>
+          <tr><th>Compte</th><th class="num">Solde CHF</th><th class="num">Part LPP obligatoire</th><th class="num">Part surobligatoire</th><th class="num">Contre-valeur EUR</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Compte I</td><td class="num">299 351,44</td><td class="num">0,00</td><td class="num">299 351,44</td><td class="num">327 830</td></tr>
+          <tr><td>Compte II</td><td class="num">299 043,28</td><td class="num">256 384,29</td><td class="num">42 658,99</td><td class="num">327 442</td></tr>
+          <tr class="total"><td>Total</td><td class="num">598 394,72</td><td class="num">256 384,29</td><td class="num">342 010,43</td><td class="num">655 272</td></tr>
+          <tr class="total"><td>Par héritier</td><td class="num">299 197,36</td><td class="num">128 192,15</td><td class="num">171 005,22</td><td class="num">327 636</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="key">
+      <div class="lab">Le contraste entre les deux comptes</div>
+      <p>Le compte I est <strong>intégralement surobligatoire</strong>, le compte II majoritairement obligatoire. Les deux comptes n'ont donc pas la même origine et pourraient ne pas suivre le même régime fiscal français. C'est le point d'analyse le plus lourd du dossier, et il est invisible pour le client.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span> Ce que dit le règlement de prévoyance</h2>
+    <p>Version en vigueur au 1<sup>er</sup> janvier 2026, donc applicable au décès. Elle nous est globalement favorable.</p>
+    <ul>
+      <li><strong>Article 12.1.</strong> Au décès avant tout prélèvement des prestations de retraite, l'avoir de vieillesse est traité comme un capital décès et versé aux bénéficiaires « independently of inheritance law ». Le règlement qualifie donc lui-même le versement de prestation en capital de décès.</li>
+      <li><strong>Groupe 3 de la cascade.</strong> Les enfants qui ne remplissent pas les conditions de l'article 20 LPP. Nés en 1994 et 1996, les deux frères ont 31 et 29 ans au décès, donc aucun n'est enfant à charge. Ils reçoivent comme bénéficiaires désignés par le règlement, non comme héritiers, et non au titre du groupe 4 des autres héritiers légaux.</li>
+      <li><strong>Article 12.4.</strong> À défaut de désignation écrite, répartition par parts égales. Aucune désignation n'a été produite.</li>
+      <li><strong>Articles 1.2 et 19.</strong> La couverture des risques décès et invalidité est une <em>option</em>, régie par un règlement distinct et intégralement réassurée. Le compte est donc par défaut un pur produit d'épargne, ce qui affaiblit la piste de l'assurance-vie.</li>
+      <li><strong>Article 20.</strong> Les bénéficiaires domiciliés hors de Suisse doivent désigner une banque en Suisse comme lieu de paiement. Le formulaire de demande le répète trois fois. Le client nous avait indiqué l'inverse.</li>
+      <li><strong>Articles 24.2 et 27.</strong> Impôt à la source en cas de domicile hors de Suisse, au titre du canton du siège, Schwyz. Cela corrobore le taux de 4,8 % annoncé par le client.</li>
+      <li><strong>Article 14.3.</strong> Versement dû dans les 31 jours suivant la réception d'une demande complète. C'est l'argument de délai décisif contre le rescrit.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span> Le débat fiscal français</h2>
+    <p class="lede">Le client et ses précédents conseils raisonnaient sur deux qualifications. Il y en a trois, et les deux extrêmes s'excluent juridiquement.</p>
+
+    <div class="positions">
+      <div class="pos">
+        <div class="head"><h4>Non-imposition</h4><span class="chip ok">la plus favorable</span><span class="chip bad">la moins sûre</span></div>
+        <p>Le capital décès versé aux ayants droit par un régime de base ou complémentaire constitue un versement exceptionnel lié à la survenance d'un risque et ne répond pas aux conditions générales qui caractérisent un revenu. Doctrine BOI-RSA-PENS-10-20-20. Limite, elle vise un « régime de base ou complémentaire », alors que le père avait quitté le régime suisse et que les avoirs dormaient sur des comptes de libre passage, détachés de tout plan d'employeur.</p>
+      </div>
+      <div class="pos">
+        <div class="head"><h4>Prélèvement libératoire sur prestation de retraite en capital</h4><span class="chip mid">intermédiaire</span><span class="chip ok">la plus solide</span></div>
+        <p>7,5 % sur le capital diminué d'un abattement de 10 %, sur demande expresse et irrévocable du bénéficiaire, article 163 bis, II du CGI. Conditions, versement non fractionné et preuve que les cotisations étaient déductibles ou afférentes à un revenu exonéré dans l'État qui avait le droit d'imposer. La carrière suisse du défunt est corroborée par ses actions Givaudan et ses comptes en francs.</p>
+      </div>
+      <div class="pos">
+        <div class="head"><h4>Barème progressif de l'impôt sur le revenu</h4><span class="chip bad">la plus coûteuse</span></div>
+        <p>Qualification de pension, article 79 du CGI, majorée des prélèvements sociaux. C'est la position que le fiscaliste précédent a vue appliquer à un conjoint survivant, et le scénario par défaut si rien n'est fait.</p>
+      </div>
+      <div class="pos">
+        <div class="head"><h4>Régime de l'assurance-vie</h4><span class="chip bad">écartée</span></div>
+        <p>L'article 990 I du CGI suppose des sommes dues par un organisme d'assurance ou assimilé, ce qu'une fondation bancaire de libre passage n'est pas, sauf couverture décès réassurée adossée aux comptes. Son abattement est de 152 500 euros par bénéficiaire, et non de 250 000 euros comme le croyait le client.</p>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="lab">Le point structurant de l'analyse</div>
+      <p>Le prélèvement de 7,5 % n'est pas un régime autonome. C'est une option ouverte aux seules prestations de retraite en capital <strong>imposables</strong> au sens du b quinquies du 5 de l'article 158 du CGI. Elle suppose donc d'avoir concédé la qualification de pension. <strong>On ne peut pas soutenir que le capital n'est pas un revenu et revendiquer en même temps une option réservée aux pensions imposables.</strong> Un rescrit ne peut pas porter les deux positions, une consultation peut les articuler à titre principal et subsidiaire. C'est l'argument central de notre recommandation.</p>
+    </div>
+
+    <h3>Ordres de grandeur, par héritier</h3>
+    <div class="scroll">
+      <table>
+        <caption>Estimations sur une base de 327 636 euros par héritier, à seule fin de hiérarchiser les positions. Hypothèses, tranche marginale de 41 à 45 % sans prise en compte des autres revenus, prélèvements sociaux au taux des pensions à confirmer, abattement de 10 % plafonné. Le remboursement de la retenue suisse suppose vraisemblablement une imposition effective en France, point à vérifier.</caption>
+        <thead>
+          <tr><th>Position</th><th class="num">Charge française</th><th class="num">Retenue suisse récupérable</th><th class="num">Coût net indicatif</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Barème progressif et prélèvements sociaux</td><td class="num">150 000 à 170 000</td><td class="num">oui</td><td class="num">≈ 160 000</td></tr>
+          <tr><td>Prélèvement libératoire de 7,5 % et prélèvements sociaux</td><td class="num">≈ 52 000</td><td class="num">oui</td><td class="num">≈ 52 000</td></tr>
+          <tr><td>Non-imposition</td><td class="num">0</td><td class="num">probablement non</td><td class="num">≈ 15 700</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>L'écart entre la meilleure et la pire issue est donc de l'ordre de <strong>145 000 euros par héritier</strong>, soit près de 290 000 euros pour la fratrie. L'écart entre la position idéale et la position de repli n'est en revanche que d'environ 36 000 euros par héritier, ce qui rend le repli très défendable.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">06</span> La succession française, et un piège de cohérence</h2>
+    <p>Le projet de déclaration retient un actif brut de 1 001 636,83 euros, un actif net de 1 000 136,83 euros, une part de 500 068 euros par héritier et des droits de <strong>78 208 euros chacun</strong>, soit 156 416 euros au total. Les avoirs de prévoyance suisses n'y figurent pas, ce qui est cohérent avec le hors succession. Le compte américain y figure en revanche pour 97 482 euros.</p>
+    <p>Le patrimoine confirme par ailleurs l'ancrage suisse du défunt, utile à la démonstration de déductibilité des cotisations, avec un compte UBS de 71 075 CHF, un compte en francs au Crédit Mutuel de 59 398,84 CHF et quinze actions Givaudan.</p>
+    <div class="key">
+      <div class="lab">À arbitrer avant tout dépôt</div>
+      <p>La déclaration comporte une affirmation expresse, signée par les héritiers, selon laquelle le défunt <strong>n'avait souscrit aucun contrat d'assurance-vie</strong> relevant des articles 757 B ou 990 I du CGI. Toute position bâtie sur le régime de l'assurance-vie contredirait donc un écrit déjà produit. Cette incohérence a été retirée du mail de proposition, elle devra être traitée dans la consultation.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">07</span> Points ouverts</h2>
+    <ul class="items">
+      <li><span class="tag urgent">urgent</span><span class="txt">Dépôt de la déclaration de succession<span>Délai expiré le 21 août. Statut inconnu. Intérêt de retard mensuel et pénalité possible après mise en demeure.</span></span></li>
+      <li><span class="tag urgent">urgent</span><span class="txt">Ne rien signer<span>Le formulaire de demande de versement fixe les coordonnées bancaires, et l'option fiscale est irrévocable. Consigne donnée au client dans le mail de proposition.</span></span></li>
+      <li><span class="tag">pièces</span><span class="txt">Relevés des deux comptes<span>Un seul relevé transmis, non exploitable en l'état, et rien sur le second compte. Ce sont eux qui documentent l'origine des fonds et l'existence éventuelle de primes de risque.</span></span></li>
+      <li><span class="tag">pièces</span><span class="txt">Décomptes de sortie de libre passage et documents d'ouverture<span>Nécessaires à la preuve exigée par l'article 163 bis, notamment pour le compte I, intégralement surobligatoire.</span></span></li>
+      <li><span class="tag">analyse</span><span class="txt">Unicité du versement<span>Deux comptes et deux bénéficiaires. Risque que l'administration y voie un versement fractionné, ce qui fermerait l'option à 7,5 %. La mécanique du versement doit être arrêtée avant la demande.</span></span></li>
+      <li><span class="tag">analyse</span><span class="txt">Remboursement de la retenue de Schwyz<span>Environ 14 400 CHF par héritier. Vraisemblablement conditionné à une imposition effective en France, ce qui met la position à zéro en tension avec la récupération.</span></span></li>
+      <li><span class="tag">analyse</span><span class="txt">Comptes de destination en Suisse<span>Imposés par l'article 20 du règlement. Obligation déclarative française sur les comptes détenus hors de France, et arbitrage sur le moment de la conversion.</span></span></li>
+      <li><span class="tag">conformité</span><span class="txt">Vigilance et identification<span>Flux transfrontalier de près de 600 000 CHF. Identification des deux frères et origine des fonds à documenter avant la lettre de mission. Antoine Hofmann n'est jamais intervenu directement.</span></span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">08</span> Ce que nous proposons de facturer</h2>
+    <div class="scroll">
+      <table>
+        <caption>Forfaits fixes hors taxes, sans facturation horaire, couvrant le dossier pour les deux frères. Aucun acompte demandé au stade de l'évaluation préliminaire. Lettre de mission adressée dès accord.</caption>
+        <thead>
+          <tr><th>Prestation</th><th class="num">Honoraires</th><th>Délai</th><th>Ce qui justifie le prix</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Consultation juridique</strong><br><span style="color:var(--ink-3);font-size:.85rem">Option recommandée</span></td>
+            <td class="num">8 500 € HT</td>
+            <td>1 à 2 semaines</td>
+            <td>Responsabilité civile professionnelle engagée à hauteur du risque fiscal, preuve de bonne foi en cas de contrôle, aucune révélation à l'administration, arbitrage entre position principale et position de repli.</td>
+          </tr>
+          <tr>
+            <td><strong>Demande de rescrit fiscal</strong></td>
+            <td class="num">6 500 € HT</td>
+            <td>4 à 6 mois</td>
+            <td>Charge de travail équivalente mais responsabilité moindre. Sécurité totale si la réponse est favorable, refus possible, absence de réponse valant refus.</td>
+          </tr>
+          <tr>
+            <td>Analyse préliminaire des pièces</td>
+            <td class="num">non facturée</td>
+            <td>réalisée</td>
+            <td>Promesse tenue du premier échange. C'est elle qui a produit l'essentiel de la valeur déjà livrée, dont la troisième qualification.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Le forfait de 8 500 euros représente environ <strong>2,9 % de l'enjeu</strong> pour la fratrie, et environ 6 % du seul écart entre la position de repli et le scénario par défaut. Le rapport reste très favorable au client, ce qui rend la proposition facile à défendre si elle est discutée.</p>
+    <h3>Notre recommandation, et pourquoi elle porte sur l'option la plus chère</h3>
+    <ul>
+      <li>On ne saisit pas l'administration sur un dossier dont un relevé n'est pas exploitable et dont l'autre manque.</li>
+      <li>Le rescrit immobiliserait quatre à six mois quand la fondation verse dans les 31 jours suivant une demande complète.</li>
+      <li>Le vrai arbitrage porte sur le choix entre non-imposition et position de repli, et ces deux positions étant juridiquement exclusives, un rescrit ne peut pas le trancher.</li>
+      <li>Le rescrit reste ouvert ensuite, la consultation en constituant la matrice.</li>
+    </ul>
+    <p><strong>Attente actuelle.</strong> Accord du client par retour de mail sur l'option retenue, et date de dépôt de la déclaration de succession. La lettre de mission suit immédiatement.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">09</span> Fiabilité des sources</h2>
+    <p><strong>Vérifiés sur Legifrance.</strong> Les articles 990 I, 163 bis et 158, 5, b quinquies du CGI, cités ci-dessus dans leur rédaction en vigueur. L'existence de CAA Nancy, 18 juin 2020, n° 18NC01095 et de CAA Marseille, 16 décembre 2022, n° 20MA03453, cette dernière classée en traitements, salaires et rentes viagères.</p>
+    <p><strong>Non vérifiés, à contrôler au cabinet.</strong> Le contenu exact de ces deux arrêts, Legifrance étant inaccessible depuis la session de travail. Ils portent probablement sur des capitaux perçus par l'assuré de son vivant et non sur un capital décès, ce qui laisserait notre question ouverte. Une décision présentée par la recherche comme traitant de la CSG sur les prestations de réversion du deuxième pilier, CE, 25 octobre 2024, n° 473997, existe bien mais porte en réalité sur la coordination européenne des cotisations assises sur des pensions de plusieurs États.</p>
+    <p><strong>Aucune jurisprudence française</strong> sur un capital décès du deuxième pilier suisse versé aux enfants n'a pu être identifiée. C'est en soi une donnée d'appréciation du risque, et un argument en faveur d'une position écrite et motivée.</p>
+    <p><strong>Doctrine.</strong> BOI-RSA-PENS-10-20-20 pour le capital décès. Référence à recontrôler dans sa version applicable avant citation dans la consultation.</p>
+  </section>
+
+  <p class="foot">Note interne, couverte par le secret professionnel. Les estimations chiffrées du point 05 sont des ordres de grandeur destinés à hiérarchiser les positions, non un calcul opposable.</p>
+
+</div>
