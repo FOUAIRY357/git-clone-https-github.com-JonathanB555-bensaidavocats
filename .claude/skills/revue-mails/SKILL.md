@@ -135,9 +135,27 @@ question qui debloque.
 
 Deux sorties, toujours :
 
-1. **Un Artifact HTML** (charger d'abord le skill `artifact-design`), une fiche par fil :
-   expediteur, objet, date et anciennete, ce que la personne attend en une phrase, puis le projet
-   de reponse dans un bloc selectionnable en un geste. Titre stable : « Revue des mails ».
+1. **Un Artifact HTML** (charger d'abord le skill `artifact-design`), une fiche par fil.
+   Titre stable : « Revue des mails ».
+
+   Chaque fiche porte, dans cet ordre : l'anciennete en jours, le correspondant et sa qualite,
+   l'horodatage, **les champs copiables**, ce que la personne attend en une phrase, puis le projet
+   de reponse.
+
+   **Les champs copiables sont le coeur de la fiche.** Francois travaille souvent depuis son
+   telephone : il doit pouvoir monter le mail dans Outlook sans jamais selectionner de texte a la
+   main. Un bouton par element, chacun copiant sa seule valeur dans le presse-papier, dans l'ordre
+   de [[redaction-mail]] :
+
+   - **A** : l'adresse du destinataire, seule, sans nom ni chevrons (`micael@igeneve.com`).
+   - **Copie** : uniquement si le fil d'origine portait une copie a conserver.
+   - **Objet** : l'objet **de la reponse**, pas celui recu. Reprendre l'objet d'origine prefixe de
+     `RE: ` pour rester dans le fil, en une seule occurrence du prefixe.
+   - **Corps** : le projet de reponse, de la salutation a la formule de cloture.
+
+   Chaque bouton affiche sa valeur en clair (police a chasse fixe, pour verifier une adresse d'un
+   coup d'oeil) et confirme la copie. Prevoir le repli sur `document.execCommand("copy")` quand
+   `navigator.clipboard` est indisponible, et ne jamais livrer une valeur uniquement selectionnable.
    **Republier a la meme URL** a chaque passage : appeler d'abord `Artifact` avec `action: "list"`
    pour retrouver la page qui porte ce titre, puis republier en passant son `url`. Francois garde
    ainsi un seul lien, qu'il peut mettre en favori. N'en creer une nouvelle que s'il n'en existe pas.
