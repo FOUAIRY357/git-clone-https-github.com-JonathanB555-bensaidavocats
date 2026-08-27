@@ -1,0 +1,30 @@
+---
+url_origine: https://taxesalaire.com/taxe-salaires-etablissements-financiers/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Taxe sur les salaires des établissements financiers
+
+L'assujettissement à la taxe sur les salaires des établissements financiers et bancaires s'avère préjudiciable. D'une part, la taxe sur les salaires ne donne pas lieu à déduction, contrairement à la TVA. D'autre part, l'assujettissement à la taxe sur les salaires des établissements financiers et bancaires entraîne des distorsions de concurrence avec les autres banques mondiales non assujetties à la taxe. Enfin, les rémunérations particulièrement importantes perçues dans ces établissements viennent d'autant plus alourdir le montant de taxe sur les salaires à acquitter.
+
+## Taxe sur les salaires dans le secteur financier : le champ d'application
+
+Pour rappel, la taxe sur les salaires s'applique dans trois situations :
+
+- absence d'assujettissement à la TVA ;
+- assujettissement à la TVA pour moins de 90 % du chiffre d'affaires au titre de l'année N-1 ;
+- assujettissement, mais exonération de TVA.
+
+## Taxe sur les salaires et coefficient d'assujettissement : secteur financier
+
+Le coefficient d'assujettissement des établissements financiers va dépendre de la proportion de ses activités taxées à la TVA (notamment sur option) et de la nature de ses flux.
+
+Soulignons également que le chiffre d'affaires composé de situations hors du champ d'application de la TVA ou exonéré viendra alourdir le coefficient.
+
+## Sectorisation dans le secteur financier
+
+Les établissements financiers n'échappent pas aux règles générales de sectorisation applicables en taxe sur les salaires.
+
+## Taxe sur les salaires et règles d'affectation : secteur financier
+
+Le secteur financier obéit à des règles d'affectation qui lui sont propres et qu'il est nécessaire de prendre en compte afin d'éviter des surcoûts en taxe sur les salaires. Ces règles sont notamment cruciales du point de vue des dirigeants.

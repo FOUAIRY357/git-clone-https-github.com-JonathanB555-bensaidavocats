@@ -1,0 +1,30 @@
+---
+url_origine: https://taxesalaire.com/taxe-salaires-holdings/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Taxe sur les salaires des holdings
+
+La taxe sur les salaires revêt un intérêt tout particulier s'agissant des holdings. En effet, ces entités sont amenées à exécuter des opérations tant hors champ de la TVA qu'exonérées, ce qui est susceptible d'avoir des conséquences en matière de taxe sur les salaires. Également, la taxe sur les salaires dans les holdings peut revêtir un intérêt tout particulier s'agissant de la rémunération des dirigeants.
+
+Dans une perspective de création d'une holding, la maîtrise de la taxe sur les salaires est fondamentale en raison de la complexité et de la diversité des opérations réalisées.
+
+## Champ d'application de la taxe sur les salaires pour les holdings
+
+Pour rappel, la taxe sur les salaires s'applique dans trois situations :
+
+- absence d'assujettissement à la TVA ;
+- assujettissement à la TVA pour moins de 90 % du chiffre d'affaires au titre de l'année N-1 ;
+- exonération de TVA.
+
+## Holdings et taxe sur les salaires : le coefficient d'assujettissement
+
+Le coefficient d'assujettissement de la holding va dépendre de la nature de son activité. En tout état de cause, le chiffre d'affaires relatif aux situations hors du champ de la TVA ou exonérées viendra alourdir le coefficient.
+
+## Taxe sur les salaires et holdings : la sectorisation
+
+Les holdings n'échappent pas aux règles générales de la sectorisation en taxe sur les salaires.
+
+## Taxe sur les salaires : les règles d'affectation dans les holdings
+
+Les règles d'affectation dans les holdings revêtent un intérêt tout particulier, notamment s'agissant du dirigeant de holding mixte. Son affectation mérite une grande attention afin d'éviter des surcoûts de taxe sur les salaires.

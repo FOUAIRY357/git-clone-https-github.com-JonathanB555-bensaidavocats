@@ -1,0 +1,35 @@
+---
+url_origine: https://taxesalaire.com/la-tva-des-etablissements-financiers/deduction-tva-financiere/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Les déductions de TVA du secteur financier
+
+Voir aussi : les règles générales du droit à déduction de la TVA appliquées aux holdings (/holdings-tva/recuperation-tva-holdings/).
+
+## Les déductions de TVA des établissements financiers
+
+Les établissements financiers déduisent la TVA à proportion de leurs activités taxées.
+
+Dans le secteur financier, les règles de déduction de la TVA présentent des spécificités notables, notamment en ce qui concerne le calcul du coefficient de taxation forfaitaire.
+
+## Les règles TVA sur le marché à terme
+
+Pour les opérations réalisées sur les marchés à terme, comme le MATIF ou le MONEP, ce sont les résultats de ces opérations qui sont pris en compte pour le calcul du prorata de déduction de la TVA.
+
+- Calcul du pourcentage de déduction : pour déterminer le pourcentage de déduction de TVA, seul le montant net résultant de la somme algébrique des gains et des pertes annuels sur ces marchés doit être pris en compte. Ce montant net doit figurer uniquement au dénominateur du rapport de calcul.
+- Traitement des résultats négatifs : si le solde annuel est négatif, il ne peut pas être déduit des autres recettes de l'entreprise. Au lieu de cela, il doit être reporté sur les résultats nets de l'année suivante pour les opérations réalisées sur ces marchés.
+- Opérations sur plusieurs marchés : lorsque des opérations sont réalisées simultanément sur le MATIF et le MONEP, le profit retenu pour le calcul du coefficient de taxation forfaitaire est la somme algébrique des gains et des pertes annuels sur ces deux marchés.
+
+### L'exclusion de certaines opérations financières du calcul du prorata
+
+- Opérations immobilières et financières accessoires : pour le calcul du rapport de déduction, le chiffre d'affaires généré par les opérations immobilières et financières accessoires est exclu. Pour rappel, ces opérations sont en principe exonérées de TVA.
+- Définition des opérations accessoires : les opérations sont considérées comme accessoires lorsqu'elles remplissent deux conditions cumulatives. D'une part, il doit y avoir un lien avec l'activité principale de l'entreprise. D'autre part, ces opérations doivent limiter l'utilisation des biens et services taxés qu'elle a acquis à moins de 10 %.
+
+Ces règles reflètent la complexité et la spécificité du secteur financier en matière de TVA. Celle-ci s'explique notamment en raison de la nature des opérations et des transactions réalisées. La précision dans le calcul et la considération des opérations spécifiques sont essentielles pour une gestion fiscale efficace dans ce secteur.
+
+## La remise en cause de la déduction de la TVA initialement déduite
+
+Au moment de l'acquisition, l'assujetti est réputé conserver la situation qui était la sienne au moment de l'acquisition. Si un changement affectant les droits à déduction a lieu pendant la période de régularisation (5 ans pour les meubles), la déduction de la TVA peut être remise en cause.
+
+Or, des changements peuvent intervenir, spécifiquement en cas d'évolution de l'activité faisant varier l'étendue du droit à déduction. Tel est également le cas en cas de cession d'une immobilisation. Le dispositif des régularisations annuelles prévu par l'article 207 de l'annexe II au CGI a pour objectif de prendre en compte l'évolution de l'utilisation d'un bien immobilisé.

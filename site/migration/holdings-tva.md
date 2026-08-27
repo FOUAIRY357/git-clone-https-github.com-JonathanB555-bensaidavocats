@@ -1,0 +1,51 @@
+---
+url_origine: https://taxesalaire.com/holdings-tva/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# TVA des holdings
+
+La question de la TVA au sein des holdings représente un enjeu crucial et persistant dans l'univers de la finance et de la fiscalité d'entreprise.
+
+Aborder cette thématique demande une compréhension approfondie des règles complexes et changeantes, particulièrement pour les holdings pures, qui peuvent potentiellement faire face à des pertes financières significatives dues à une gestion inadaptée de la TVA.
+
+Il est essentiel de non seulement comprendre les règles en vigueur, mais également de les anticiper. Dans ce contexte, l'accompagnement par un avocat fiscaliste devient un atout indispensable, permettant d'optimiser la gestion fiscale et de minimiser les risques financiers liés à la TVA dans les holdings.
+
+Ce guide vise à fournir une perspective éclairée et à jour sur la gestion de la TVA dans les holdings.
+
+## TVA des holding : les principales questions
+
+### Les holdings sont-elles assujetties à la TVA ?
+
+Les holdings animatrices sont assujetties à la TVA, contrairement aux holdings pures qui ne sont pas assujetties.
+
+### Les holdings peuvent-elles déduire la TVA ?
+
+Les holdings pures ne peuvent jamais déduire la TVA. Les holdings animatrices peuvent déduire la TVA dans les conditions de droit commun.
+
+### Quels sont les pièges TVA à éviter pour les holdings ?
+
+Le premier piège pour une holding est de recevoir une prestation taxée lorsque celle-ci est une holding pure.
+
+Concernant les holdings animatrices, aucun droit à déduction ne peut s'exercer si la dépense est affectée à une opération exonérée comme l'octroi d'un crédit à une filiale. Cet obstacle est contourné sur la recette procurée par l'octroi du crédit est dite accessoire.
+
+### Comment distinguer les holdings au sens de la TVA ?
+
+- La holding non assujettie : ces entités ont un chiffre d'affaires constitué uniquement de situations hors du champ de la TVA. Ces holdings sont dites « holdings pures ».
+- La holding assujettie partielle : ces entités, y compris les holdings, effectuent à la fois des opérations taxables et des activités hors champ, comme la perception de dividendes ou d'intérêts de placement occasionnel. Ces holdings sont couramment appelées « holdings animatrices ». Les holdings peuvent cumuler le statut d'assujetti partiel avec celui de redevable partiel.
+
+## Holdings et champ d'application de la TVA
+
+En premier lieu, il est essentiel de distinguer les « situations » hors champ de la TVA des « opérations » taxables. Cette distinction est cruciale pour comprendre la portée de la TVA sur les activités des holdings.
+
+Sous-page : Le champ d'application de la TVA dans les holdings (/holdings-tva/champ-application-tva-holding/)
+
+## La récupération de la TVA dans les holdings pures
+
+Les holdings pures ne bénéficient jamais de droit à déduction de la TVA. Des stratégies adaptées doivent être mises en place afin d'éviter des pertes sèches de TVA.
+
+## La récupération de la TVA dans les holdings animatrices
+
+Sous certaines conditions, les holdings animatrices ont la possibilité de déduire la TVA. Cette déduction n'est généralement pas complète. Il convient de procéder aux calculs des droits à déduction en fonction de la nature des prestations rendues par la holding.
+
+Sous-pages : La récupération de la TVA dans les holdings (/holdings-tva/recuperation-tva-holdings/), La taxe sur les salaires dans les holdings (/taxe-salaires-holdings/)

@@ -1,0 +1,52 @@
+---
+url_origine: https://taxesalaire.com/tva-immobiliere/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# TVA immobilière
+
+Dans le secteur immobilier, la compréhension et la gestion de la TVA immobilière sont cruciales pour les investisseurs et les acteurs du marché. L'impact de la TVA immobilière sur les coûts totaux d'un projet immobilier est significatif, influençant fortement les prévisions financières.
+
+Une bonne gestion de la TVA immobilière peut non seulement optimiser le budget d'un projet, mais également prévenir les pertes financières conséquentes. Pour les investisseurs désireux d'acquérir ou de céder un bien immobilier, il est donc impératif de maîtriser ces aspects de la TVA.
+
+## Qu'est-ce que la TVA immobilière ?
+
+La TVA immobilière est un impôt indirect et proportionnel appliqué sur les transactions ou les locations de biens immobiliers neufs ou de terrains à bâtir, effectuées par des professionnels.
+
+Voir aussi : SCI et TVA (/sci-tva/).
+
+## TVA immobilière : opérations dans le champ d'application
+
+Seules les opérations effectuées à titre habituel par des professionnels entrent dans le champ d'application de la TVA. Ces opérations sont principalement les cessions, les apports en société, les locations, les crédits-bails ou encore les travaux immobiliers.
+
+Les professionnels (ou assujettis à la TVA) sont ceux réalisant une activité économique de manière habituelle. En conséquence, les particuliers sont en principe exclus du champ d'application de la TVA.
+
+## Les livraisons à soi-même en TVA immobilière
+
+Les livraisons à soi-même (LASM) sont des opérations intégrées par la loi dans le champ d'application de la TVA. Ces opérations donnent lieu à la déclaration d'une opération taxable et à la liquidation de la taxe.
+
+## Les exonérations de TVA immobilière
+
+Sont imposées de plein droit à la TVA les livraisons d'immeubles autres que de terrains qui ne sont pas à bâtir et d'immeubles bâtis achevés depuis plus de cinq ans. [NOTE MIGRATION : formulation d'origine à revoir — probablement « sont exonérées les livraisons de terrains qui ne sont pas à bâtir et d'immeubles achevés depuis plus de cinq ans ».]
+
+Les autres opérations sont en principe exonérées de TVA, mais le vendeur conserve la possibilité d'opter pour soumettre la cession à la TVA (/lettre-option-tva/). Si l'option n'est pas expressément formulée, c'est l'exonération qui s'applique.
+
+Les autres opérations, à savoir les cessions de terrains à bâtir et d'immeubles neufs, sont taxées de plein droit à la TVA.
+
+Liens externes d'origine : guide TVA transactions immobilières, exonérations opérations immobilières, exonérations locations immobilières (bensaid-avocats.fr).
+
+## L'application de l'article 257 bis en TVA immobilière
+
+L'article 257 bis du CGI est un régime qui s'applique de plein droit à certaines opérations immobilières. Celui-ci entraîne une neutralisation de l'opération d'un point de vue TVA.
+
+## Les déductions de TVA immobilière
+
+La déduction de la TVA immobilière est un enjeu crucial pour les investisseurs immobiliers. Or, il existe de nombreuses situations ou montages financiers ayant pour conséquence, soit d'empêcher, soit de décaler dans le temps la déduction de la TVA.
+
+L'autre élément déterminant consiste à anticiper les situations conduisant à des régularisations de TVA afin de les éviter ou de réduire leur impact.
+
+## L'avocat en TVA immobilière
+
+La complexité de la matière nécessite souvent de faire appel à un avocat fiscaliste spécialisé en fiscalité immobilière.
+
+Celui-ci intervient la plupart du temps en amont afin de sécuriser les opérations (planification fiscale, rédaction d'actes, rescrits fiscaux, etc.). Il peut également intervenir en contentieux au stade du contrôle fiscal, de la proposition de rectification ou devant les tribunaux.

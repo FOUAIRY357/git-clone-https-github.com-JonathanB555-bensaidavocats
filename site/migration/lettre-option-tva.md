@@ -1,0 +1,39 @@
+---
+url_origine: https://taxesalaire.com/lettre-option-tva/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Lettre d'option TVA immobilière
+
+## Lettre d'option TVA : la possibilité pour le bailleur d'opter pour la TVA immobilière
+
+Qui peut opter pour l'application de la TVA immobilière ?
+
+- Aux termes de l'article 260, 2° du CGI, peuvent sur leur demande acquitter la TVA les personnes qui donnent en location des locaux nus. Il s'agit de la rédaction d'une lettre d'option à la TVA. Cette location peut être destinée aux besoins de l'activité d'un preneur assujetti à la TVA ou pour les besoins de l'activité d'un preneur non assujetti (ex. : administration). La possibilité d'opter en présence d'un preneur non assujetti à la TVA est conditionnée à ce que le bail fasse mention de l'option par le bailleur.
+- A contrario, l'article 260, 2° du CGI précise que l'option à la TVA ne peut pas être exercée lorsque la location porte sur des locaux nus destinés à l'habitation. Cette interdiction est liée à la nature des locaux et s'applique donc quelles que soient la qualité du preneur et sa situation au regard de la TVA.
+
+### Peut-on opter à la TVA en cas de sous-location ?
+
+En cas de sous-location d'un immeuble, l'option peut être exercée par le locataire principal (Rép. Jourdan : AN 10-6-1985, n° 56118 et 66282).
+
+### Doit-on attendre la fin des travaux immobiliers pour opter à la TVA ?
+
+L'article 193, al. 1 de l'annexe II au CGI prévoit que l'option à la TVA immobilière peut être exercée pour les immeubles en cours de construction et non encore achevés. L'immeuble (et non le bâtiment) devant exister à la date de l'option à la TVA, même s'il n'est pas encore achevé, l'option doit être déposée après le début des travaux de construction (TA Marseille, 2-4-2008, n° 0504299).
+
+### Comment délimiter l'option TVA immobilière ?
+
+La nouveauté est qu'il est désormais possible d'opter à la TVA local par local. Pour ce faire, la lettre d'option TVA mentionne de façon expresse, précise et non équivoque les locaux nus à usage professionnel faisant l'objet de l'option TVA (CE, 9 septembre 2020, n° 439143, SCI EMO). La limite est que l'option TVA couvre nécessairement tous les locaux concernés par le bail. Il n'est donc pas possible de découper, au sein d'une seule opération de location de locaux nus à usage professionnel, lesquels de ces locaux sont dans l'option ou pas (rép. min. Grau, AN, 16 novembre 2021, n° 38389).
+
+## Lettre d'option TVA : les modalités
+
+### À quoi sert la lettre d'option TVA ?
+
+La lettre d'option TVA permet de formaliser l'intention de son auteur de soumettre à la TVA son activité de location de locaux nus à usage professionnel. À partir de cette lettre, le bailleur matérialise son intention de réaliser une activité taxée, permettant ainsi de sécuriser les droits à déduction.
+
+### À qui et comment envoyer la lettre d'option TVA ?
+
+La lettre d'option à la TVA peut être envoyée par lettre simple adressée au service des impôts territorialement compétent. Néanmoins, nous recommandons de procéder par lettre recommandée avec accusé de réception pour des raisons de preuve évidentes.
+
+### À partir de quand la lettre d'option TVA fait-elle effet ?
+
+Depuis 2014, l'article 194 de l'annexe II au CGI prévoit que l'option produit effet à compter du 1er jour du mois au cours duquel elle est formulée.

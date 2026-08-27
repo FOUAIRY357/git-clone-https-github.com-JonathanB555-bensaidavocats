@@ -1,0 +1,48 @@
+---
+url_origine: https://taxesalaire.com/la-tva-des-etablissements-financiers/operations-taxees-tva-financiere/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# TVA financière : les opérations taxées
+
+## Les opérations bancaires et financières taxables de plein droit à la TVA
+
+### La TVA liée à la gestion de crédits ou de garanties effectuées par des personnes autres que celles qui ont octroyé les crédits
+
+Cela inclut les services fournis par des tiers pour la gestion de crédits ou de garanties.
+
+### La TVA spécifique au seul recouvrement de créances
+
+Sont taxées à la TVA les activités liées au recouvrement de créances impayées.
+
+### La TVA sur les opérations de garde ou de gestion de valeurs mobilières
+
+La gestion de portefeuilles de valeurs mobilières, ainsi que les services de garde, sont imposés à la TVA.
+
+### La TVA sur les opérations sur les pièces négociées sur le marché libre de l'or
+
+Les transactions impliquant des pièces d'or qui sont négociées en tant que biens d'investissement sont également taxées à la TVA.
+
+### La TVA sur les opérations de crédit-bail
+
+Le crédit-bail (ou leasing), une forme de financement par location avec option d'achat. Cette opération est soumise de plein droit à la TVA.
+
+### La taxation à la TVA des locations de coffres-forts
+
+### Les autres opérations taxées à la TVA
+
+Cette catégorie inclut diverses autres opérations qui ne sont pas spécifiquement liées au commerce des valeurs et de l'argent.
+
+## Les opérations bancaires et financières taxées à la TVA sur option
+
+### Que couvre l'option à la TVA sur les opérations bancaires et financières ?
+
+L'article 260 B, 1° du CGI offre aux acteurs du secteur bancaire et financier la possibilité d'opter pour l'assujettissement à la TVA sur les opérations normalement exonérées, à l'exception de celles énumérées à l'article 260 C du CGI. L'avantage de cette option est de permettre aux opérateurs de déduire la TVA amont. En parallèle, la taxation à la TVA réduit mécaniquement le montant de taxe sur les salaires.
+
+Jusqu'au 31 décembre 2021, cette option était appliquée de manière globale, couvrant l'ensemble des opérations bancaires et financières éligibles. La loi de finances pour 2022 a introduit une flexibilité significative. Désormais, il est possible d'opter opération par opération. Les opérateurs peuvent ainsi choisir d'appliquer la TVA selon leurs besoins spécifiques ou ceux de leurs clients.
+
+### Quels sont la portée et l'intérêt de l'option à la TVA sur les opérations bancaires et financières ?
+
+Lorsqu'un opérateur ayant opté pour l'assujettissement à la TVA effectue une opération bancaire ou financière éligible, il a la liberté de décider si cette opération spécifique sera soumise à la TVA. Cette flexibilité permet en théorie une gestion plus personnalisée de la TVA et de la taxe sur les salaires.
+
+La décision d'exercer ou non cette option dépend entièrement de la stratégie de l'établissement financier. Il peut choisir d'appliquer cette option sur des opérations spécifiques, par catégories ou types d'opérations. L'option par client, ou de manière globale pour l'ensemble de ses opérations bancaires et financières éligibles est également envisageable.

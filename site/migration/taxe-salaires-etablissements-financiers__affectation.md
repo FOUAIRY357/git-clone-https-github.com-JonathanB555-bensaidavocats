@@ -1,0 +1,12 @@
+---
+url_origine: https://taxesalaire.com/taxe-salaires-etablissements-financiers/affectation/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Règles d'affectation dans le secteur financier
+
+## Règles d'affectation et secteur financier
+
+Les dirigeants de société sont présumés être affectés tant au secteur commercial qu'au secteur financier. Ils sont par conséquent présumés exercer des fonctions transversales (CE, 9e ch., 09/12/2021 et CE, 8 juin 2011, 4 arrêts, n° 331848, n° 331849, n° 341018 et n° 340863).
+
+Cette présomption est une présomption simple et elle peut être renversée par la société en apportant la preuve que le dirigeant de société n'est pas affecté au secteur financier (CAA Paris, 21 janvier 2015, n° 14PA02737). La preuve est apportée notamment quand, compte tenu de l'organisation adoptée, l'un des dirigeants est dépourvu de tout contrôle et responsabilité en la matière (CE, 8e et 3e ss-sect., 8 juin 2011, n° 340863, SA Balsa).

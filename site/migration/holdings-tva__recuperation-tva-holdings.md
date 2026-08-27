@@ -1,0 +1,71 @@
+---
+url_origine: https://taxesalaire.com/holdings-tva/recuperation-tva-holdings/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Récupération de la TVA des holdings
+
+## La récupération de la TVA dans les holdings pures
+
+### L'absence totale de droit à déduction de la TVA des holdings pures
+
+Étant donné que les holdings pures ne réalisent pas d'activités taxables, elles ne bénéficient généralement pas du droit à déduction de la TVA sur leurs dépenses. Les coûts liés à l'acquisition et à la gestion de leurs participations ne donnent pas lieu à une récupération de la TVA.
+
+Des solutions de restructuration apparaissent pertinentes afin de limiter les pertes fiscales :
+
+- mise en place d'un groupe TVA.
+- facturation par la holding de prestations taxées à la TVA, dans le but de rendre la holding animatrice.
+- éviter les facturations de prestations taxées à la holding.
+
+## La récupération de la TVA dans les holdings animatrices
+
+En application des principes généraux, la TVA grevant la dépense des holdings animatrices est déduite à hauteur d'un « coefficient de déduction », correspondant au produit de trois coefficients :
+
+1) Le coefficient d'assujettissement, qui traduit l'affectation des dépenses à la réalisation des opérations dans le champ de la TVA (taxables et exonérées).
+2) Le coefficient de taxation, qui mesure l'affectation des dépenses à la réalisation d'opérations effectivement taxées (le « prorata »).
+3) Le coefficient d'admission, qui est en principe de 1, sauf lorsqu'une exclusion du droit à déduction est spécifiquement prévue par la loi.
+
+## Le coefficient d'assujettissement à la TVA des holdings animatrices
+
+### Qu'est-ce que l'immixtion de la holding dans la gestion des filiales ?
+
+Contrairement aux holdings pures, les holdings animatrices s'impliquent directement ou indirectement dans la gestion de leurs filiales. Cette immixtion est reconnue comme une activité économique au sens de la directive TVA de l'UE. Ce principe est illustré par décisions de la CJUE des cas tels que l'arrêt Floridienne et Berginvest (C-142/99). Dans cette affaire, la Cour a jugé que la fourniture de services administratifs, financiers ou de gestion constitue une activité économique.
+
+Depuis l'arrêt Lagardère (CE, 13 décembre 2017), il est également clairement admis que les refacturations à l'euro l'euro sont taxables. Le fait que les prestations ne sont pas réalisées par la holding est indifférent.
+
+### Pourquoi les holdings animatrices peuvent déduire la TVA ?
+
+Lorsque ces holdings fournissent des services de gestion ou autres à leurs filiales et facturent ces services, ces opérations sont dans le champ d'application de la TVA, ce qui ouvre le droit à déduction sur le principe.
+
+### Quelles sont les conditions de récupération de la TVA par les holdings animatrices ?
+
+Pour récupérer la TVA, la holding animatrice doit démontrer que les coûts pour lesquels elle demande une déduction sont directement liés à ses activités taxables.
+
+Ce principe est conforme à la décision de la CJUE dans l'affaire C-16/00 (Cibo Participations SA), qui précise que les dépenses doivent être des éléments constitutifs du prix des opérations taxées en aval.
+
+Pour rappel, les dividendes perçus par les holdings animatrices peuvent ne pas être considérées comme des opérations taxables au sens de la TVA. Par conséquent, la TVA sur les coûts liés à la perception de dividendes n'est pas récupérable.
+
+Or la perception de dividende ne nécessite généralement pas de supporter des coûts humains ou matériels.
+
+En conséquence, il est possible de considérer que les dépenses supportées par la holding animatrice ne sont pas affectées aux situations hors champ. Il s'ensuit que la perception d'intérêts par la holding ne va pas dégrader ses droits à déduction.
+
+La capacité de la holding à pouvoir effectivement déduire la TVA d'amont va dépendre de son prorata de déduction.
+
+## Le prorata de déduction des holdings animatrices
+
+### Comment calculer le prorata de déduction de TVA de la holding animatrice ?
+
+Si la holding effectue à la fois des opérations taxables et non taxables, elle doit calculer un prorata de déduction. Ce calcul est basé sur la proportion des opérations taxables par rapport à l'ensemble de ses activités, comme indiqué dans l'arrêt Securenta (C-437/06).
+
+- Le dénominateur comprend toutes les opérations dans le champ (et n'inclut donc pas les situations hors champ).
+- Le numérateur comprend les opérations ouvrant droit à déduction de la TVA : les opérations effectivement soumises à la TVA (art. 271, I-1 du CGI) et certaines opérations exonérées (exportations et livraisons intracommunautaires, opérations donnant lieu à autoliquidation) qui sont expressément assimilées à des opérations soumises à la TVA pour l'exercice du droit à déduction.
+
+### L'impact des produits financiers exonérés de TVA sur la récupération de TVA de la holding animatrice
+
+Les produits financiers dans le champ de la TVA, mais exonérés viennent en principe dégrader le droit à déduction des holdings animatrices.
+
+### L'exception concernant les produits financiers accessoires
+
+Sont considérées comme accessoires les opérations qui présentent un lien avec l'activité principale de l'entreprise et dont la réalisation nécessite une utilisation limitée au maximum à 10 % des biens et services grevés de TVA qu'elle a acquis (CGI, ann. II, art. 206, III-3-3°-b).
+
+Par simplification, l'administration fiscale admet que la condition liée à la très faible utilisation de biens et de services grevés de TVA prévue au b du 3° du 3 du III de l'article 206 de l'annexe II au CGI est également réputée satisfaite lorsque le produit des opérations financières exonérées présentant un lien avec l'activité principale de l'entreprise, n'excède pas 5 % du montant du chiffre d'affaires total toutes taxes comprises de l'entreprise.

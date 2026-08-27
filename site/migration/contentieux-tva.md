@@ -1,0 +1,22 @@
+---
+url_origine: https://taxesalaire.com/contentieux-tva/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Contentieux TVA
+
+Le contentieux TVA peut prendre 4 formes. Outre les contentieux devant les tribunaux, le contribuable peut être confronté à un contrôle fiscal, un redressement fiscal ou encore à des problématiques relevant de la fraude fiscale.
+
+## Le contrôle fiscal en TVA
+
+Deux types de procédures peuvent s'appliquer au contrôle fiscal de la TVA. Il s'agit de la vérification de comptabilité et de l'examen de comptabilité. La principale différence sera que la seconde procédure se déroulera à distance.
+
+## Le redressement fiscal en TVA
+
+Le redressement fiscal en TVA prend la forme d'une proposition de rectification. Selon les inexactitudes relevées par l'administration, les pénalités varient de 10 % pour les infractions les moins graves, à 80 % pour les plus graves.
+
+Il est possible de répondre à la proposition de rectification dans un délai de 30 jours prorogeable.
+
+## La TVA et le risque pénal
+
+Les infractions fiscales les plus importantes peuvent conduire à une pénalisation de l'affaire. Outre les sanctions financières pouvant atteindre 2 millions d'euros, le contribuable s'expose à des peines de prison allant de 5 ans à 7 ans.

@@ -1,0 +1,34 @@
+---
+url_origine: https://taxesalaire.com/tva-immobiliere/257-bis-vente-immeuble/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# 257 bis et ventes d'immeubles
+
+## Qu'est-ce que l'article 257 bis du CGI ?
+
+L'article 257 bis consacre une dispense de TVA pour la transmission à titre onéreux, à titre gratuit ou sous forme d'apport à une société d'une universalité totale ou partielle de biens effectuée entre redevables de la taxe sur la valeur ajoutée.
+
+Il s'agit d'un régime applicable de plein droit lorsque les conditions d'application sont remplies.
+
+## Les opérations placées sous le 257 bis sont-elles taxées ?
+
+Les opérations pour lesquelles l'article 257 bis du CGI est applicable ne sont pas taxées à la TVA. Au sens de la TVA, aucune livraison de biens ou prestation de services n'est réputée intervenir.
+
+## Doit-on opérer des régularisations de TVA lorsque le 257 bis est appliqué ?
+
+Aucune régularisation de TVA ne doit être effectuée lorsque l'article 257 bis est appliqué. Le vendeur devra transmettre un état récapitulatif des régularisations à effectuer (suivi de la TVA déduite sur l'immeuble).
+
+L'acquéreur est présumé continuer l'activité du vendeur et reprend à son compte les éventuelles régularisations de TVA sur les vingtièmes restant à courir. Pour chaque bien immobilisé transmis, l'acquéreur continue le délai de régularisation initié chez le précédent exploitant. En cas d'applications successives du 257 bis, il convient de suivre le délai initié par les précédents exploitants.
+
+## Qui est concerné par l'article 257 bis du CGI ?
+
+Sont concernés par l'article 257 bis du CGI les assujettis redevables de la TVA, c'est-à-dire réalisant des opérations taxées à la TVA.
+
+## Quelles sont les situations dans lesquelles l'article 257 bis s'applique ?
+
+La dispense de taxation à la TVA prévue à l'article 257 bis du CGI vise exclusivement les transferts qui interviennent dans le cadre de la transmission d'une entreprise. Ces transferts doivent être réalisés au profit d'une personne qui entend exploiter l'universalité transmise.
+
+L'objectif est de consacrer une non-opération au regard de la TVA : ni taxation, ni exonération.
+
+L'acquéreur est présumé continuer l'activité du vendeur et reprend à son compte les éventuelles régularisations de TVA sur les vingtièmes restant à courir.

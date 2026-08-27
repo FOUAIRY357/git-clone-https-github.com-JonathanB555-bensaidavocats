@@ -1,0 +1,26 @@
+---
+url_origine: https://taxesalaire.com/taxe-salaires-holdings/coefficient-assujettissement-holdings/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Taxe sur les salaires : coefficient d'assujettissement des holdings
+
+## Taxe sur les salaires et holdings pures
+
+S'agissant des holdings pures ayant pour seul objet de détenir des participations, celles-ci ne facturent pas de prestations de services et sont donc insusceptibles d'être assujetties à la TVA.
+
+En conséquence, elles sont 100 % assujetties à la taxe sur les salaires si elles emploient des salariés.
+
+## Taxe sur les salaires et holdings animatrices
+
+S'agissant des holdings animatrices dont l'objet est d'intervenir directement dans la vie de leurs filiales, elles sont amenées à facturer des prestations de services.
+
+Ces holdings animatrices peuvent également effectuer des opérations taxées ou exonérées de TVA (holdings mixtes).
+
+En TVA, on distingue les assujettis redevables de TVA, les assujettis non redevables de la TVA et les assujettis redevables partiels de TVA. Les holdings mixtes sont en pratique des redevables partiels de la TVA.
+
+Ces holdings mixtes sont assujetties à la taxe sur les salaires au prorata des activités exonérées ou hors du champ de la TVA. Pour rappel, une situation hors du champ de la TVA n'affecte pas pour autant les droits à déduction de l'assujetti. Or, en matière de taxe sur les salaires, une situation hors champ vient augmenter le coefficient d'assujettissement de la taxe sur les salaires.
+
+Pour déterminer le rapport d'assujettissement à la taxe sur les salaires en présence d'une holding mixte, l'assiette de la taxe sur les salaires est obtenue en multipliant le montant total des rémunérations imposables par le rapport d'assujettissement suivant : au numérateur est pris en compte l'ensemble du chiffre d'affaires exonéré n'ouvrant pas droit à déduction ainsi que le chiffre d'affaires hors champ d'application de la TVA. Au dénominateur va figurer le chiffre d'affaires total.
+
+Ce calcul peut être préjudiciable pour ces holdings, car les règles de calcul du rapport d'assujettissement à la taxe sur les salaires sont autonomes par rapport au calcul du coefficient de taxation servant à déterminer le coefficient de déduction de TVA (CE, 8e et 3e chambres, 14 février 2018, n° 410302, inédit au recueil).

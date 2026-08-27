@@ -1,0 +1,74 @@
+---
+url_origine: https://taxesalaire.com/taxe-salaires-sante/coefficient-assujettissement-sante/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# Coefficient d'assujettissement dans le secteur de la santé
+
+## Coefficient d'assujettissement à la taxe sur les salaires des établissements privés de santé
+
+Le 1° bis du 4 de l'article 261 du CGI exonère de TVA une partie des activités exercées par les établissements privés de santé titulaires d'une autorisation. Il s'agit précisément des frais d'hospitalisation et de traitement, y compris la mise à disposition de chambres individuelles. Sont également visés par l'exonération :
+
+1. les prestations de soins à la personne (CGI, art. 261, 4, 1°) ;
+2. les travaux d'analyse de biologie médicale (CGI, art. 261, 4, 1°) ;
+3. les fournitures de prothèses dentaires (CGI, art. 261, 4, 1°) ;
+4. le transport de malades et de blessés (CGI, art. 261, 4, 3°).
+
+Ainsi, ces établissements sont soumis à la taxe sur les salaires pour la part des opérations exonérées ou les situations hors du champ de la TVA.
+
+## Coefficient d'assujettissement à la taxe sur les salaires des établissements publics de santé
+
+Les établissements publics de santé se situent hors du champ de la TVA (article 256 B du CGI), qu'il s'agisse des séjours de nuit comme de jour.
+
+En effet, ils sont considérés comme des personnes morales de droit public qui ne sont pas assujetties à la TVA pour l'activité de leurs services administratifs, sociaux, éducatifs, culturels et sportifs.
+
+En conséquence, les établissements publics de santé sont redevables de la taxe sur les salaires.
+
+## Coefficient d'assujettissement à la taxe sur les salaires : les exonérations
+
+Certaines rémunérations sont expressément exonérées de taxe sur les salaires. C'est notamment le cas des rémunérations versées au personnel de cantine et de celles versées aux bénéficiaires de contrat d'accompagnement ou d'avenir.
+
+### 1. Les cantines
+
+Il est admis que, pour le personnel affecté partiellement au service des cantines, la partie du salaire correspondant à ce service soit exonérée de taxe sur les salaires (BOI-TPS-TS-20-20, § 300).
+
+Dans un arrêt « Organisme de gestion de l'établissement catholique d'enseignement Notre-Dame de Saint-Mandé », le Conseil d'État a précisé que dans le silence de cette doctrine, et en l'absence de dispositions légales prévoyant cette exonération, il y a lieu de soumettre séparément les différentes rémunérations au barème progressif de la taxe sur les salaires, puis d'appliquer à chacun des montants obtenus le rapport entre les services autres que ceux exonérés de taxe sur les salaires et l'ensemble des services du salarié (CE, 9e et 10e s-s-r., 6 août 2008, n° 288453, mentionné aux tables du recueil Lebon).
+
+Les établissements qui proposent un ensemble de prestations de services distinctes dans lesquelles va être comprise la nourriture de leurs patients, adhérents ou pensionnaires, ne pourront pas bénéficier de l'exonération de taxe sur les salaires (BOI-TPS-TS-20-20, § 300).
+
+Cependant, si ces établissements parviennent à démontrer que les salariés qui réalisent les missions de distribution de repas se trouvent dans l'obligation de prendre leur repas sur place, ils pourront bénéficier de l'exonération (BOI-TPS-TS-20-20, § 300).
+
+[NOTE MIGRATION : la page d'origine annonce « Le calcul à opérer est le suivant : » suivi d'un élément non textuel (image ou formule) à récupérer depuis WordPress.]
+
+### 2. Les contrats d'avenir et d'accompagnement
+
+La rémunération versée aux salariés bénéficiaires d'un contrat d'accompagnement ou d'un contrat d'avenir est exonérée de taxe sur les salaires (article 231 bis N du CGI et article L. 5134-31 du Code du travail).
+
+## Coefficient d'assujettissement à la taxe sur les salaires des EHPAD
+
+Les EHPAD peuvent être gérés tant par des organismes privés que par des organismes publics. Or les règles d'assujettissement à la taxe sur les salaires diffèrent selon l'organe en charge des EHPAD.
+
+Pour déterminer l'assujettissement à la taxe sur les salaires des EHPAD, c'est la nature de l'activité exercée par les établissements et leur statut qui sont pris en compte. A contrario, le caractère « social » d'un EHPAD n'est pas pris en compte (CAA Toulouse, 1re ch., 25 janv. 2024, n° 22TL20761).
+
+Tout d'abord, si les EHPAD sont gérés par des personnes morales de droit public, ces derniers sont soumis à la taxe sur les salaires, car les personnes morales de droit public ne sont pas des assujettis à la TVA (article 256 B du CGI). En effet, selon le Conseil d'État, l'activité d'hébergement de personnes âgées par un hôpital étant exercée par une autorité publique et n'entraînant pas de distorsion de concurrence avec les établissements privés, celle-ci demeure hors du champ de la TVA (CE, 9e-10e chambres réunies, 07/04/2023, n° 463241, inédit au recueil Lebon).
+
+Dans la pratique, les EHPAD gérés par des personnes morales de droit public susceptibles d'être visés par l'article 256 B du CGI concernent :
+
+- les EHPAD gérés par des personnes morales de droit public, habilités à accueillir entièrement ou principalement des personnes âgées à faibles ressources ;
+- les EHPAD gérés par des personnes morales de droit public soumis en principe à une tarification administrée de leurs prestations relatives à l'hébergement.
+
+En conséquence, la taxe sur les salaires trouve à s'appliquer à ces EHPAD de droit public (CAA Nantes, 1re ch., 15 févr. 2022, n° 19NT04979, Centre hospitalier de Vire et CAA Toulouse, 1re ch., 25 janv. 2024, n° 22TL20761).
+
+En outre, si les EHPAD sont gérés par des associations à but lucratif dont les activités sont taxées à taux réduit pour certaines, et exonérées pour d'autres, la taxe sur les salaires sera due pour la partie de ces activités exonérées ou hors champ. Les activités de soin sont exonérées de TVA (261, 4, 1° ter CGI), là où les activités de fourniture de repas et de logement sont taxées à la TVA au taux réduit de 5,5 % (C de l'article 278-0 bis du CGI).
+
+En revanche, si les EHPAD sont gérés par des associations dont la gestion est désintéressée, dont l'activité ne rentre pas en concurrence avec les entreprises du secteur lucratif et dont l'activité est exercée dans des conditions non similaires à ces entreprises : la taxe sur les salaires trouve aussi à s'appliquer, car les associations remplissant ces conditions sont exonérées de TVA (article 261, 7, 1° du CGI).
+
+## Coefficient d'assujettissement à la taxe sur les salaires des établissements de santé : les subventions
+
+Les subventions sont hors du champ d'application de la TVA. De ce fait, celles-ci doivent être prises en compte pour le calcul du rapport d'assujettissement à la taxe sur les salaires, et ce, même quand le redevable dispose d'un droit à déduction intégral en matière de TVA.
+
+Ce principe est à tempérer, car les subventions exceptionnelles de l'État et les subventions d'équipement ne sont pas prises en compte pour le calcul du rapport d'assujettissement de la taxe sur les salaires (BOI-TPS-TS-20-30, § 160).
+
+L'administration fiscale donne une liste de subventions considérées comme exceptionnelles. Parmi elles, les aides et indemnités destinées à permettre à leurs bénéficiaires de faire face aux conséquences économiques de la pandémie de coronavirus sont susceptibles de concerner les établissements de santé.
+
+Les aides à l'emploi et à l'embauche susceptibles d'être versées aux établissements de santé pourraient également intéresser ces établissements.

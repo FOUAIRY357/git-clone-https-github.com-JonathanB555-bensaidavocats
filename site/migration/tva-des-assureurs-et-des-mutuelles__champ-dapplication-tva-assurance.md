@@ -1,0 +1,20 @@
+---
+url_origine: https://taxesalaire.com/tva-des-assureurs-et-des-mutuelles/champ-dapplication-tva-assurance/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# TVA des assureurs et des mutuelles : champ d'application
+
+## Opérations d'assurance ou de courtage dans le champ de la TVA
+
+## Quand est-ce qu'une opération d'assurance est dans le champ de la TVA ?
+
+Une opération d'assurance est taxable (et non taxée) à la TVA dès lors qu'une livraison de biens ou une prestation de services est effectuée à titre onéreux par « un assujetti agissant en tant que tel » (art. 256 du CGI). Il convient pour chaque opération de vérifier si ces conditions sont remplies pour déterminer si une opération entre dans le champ de la TVA.
+
+En application de ce principe, la prime d'assurance versée par le client en contrepartie de la couverture offerte constitue une opération située dans le champ d'application de la TVA.
+
+## La refacturation d'une opération d'assurance est-elle dans le champ d'application de la TVA ?
+
+Il importe peu que la prestation soit réalisée par la personne ayant reçu la contrepartie. En pratique, une prestation d'assurance refacturée par la holding à la filiale entre dans le champ d'application de la TVA.
+
+Pour une application concrète : v. arrêt Lagardère SA (CE, CETATEXT000036205230).
