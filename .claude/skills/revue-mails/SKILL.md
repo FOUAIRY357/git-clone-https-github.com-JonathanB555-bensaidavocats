@@ -63,9 +63,35 @@ reste dans la revue.
 
 ## 3. Regrouper en fils
 
-Normaliser l'objet : retirer les prefixes `Re:`, `RE:`, `Re :`, `TR:`, `Fwd:`, `FW:`, `Rép:`,
-passer en minuscules, couper les espaces. Deux messages de meme objet normalise et de meme
-interlocuteur appartiennent au meme fil.
+Regrouper d'abord sur le `conversationId` renvoye par Graph, et non sur l'objet.
+
+A defaut, normaliser l'objet : retirer les prefixes `Re:`, `RE:`, `Re :`, `TR:`, `Fwd:`, `FW:`,
+`Rép:`, passer en minuscules, couper les espaces.
+
+### Le controle qui evite la faute grave
+
+**Ni l'objet ni le `conversationId` ne suffisent.** Un correspondant qui reprend un dossier sous
+un objet neuf ouvre une conversation neuve, avec un `conversationId` different. Le fil d'origine
+parait alors fige alors que l'affaire a avance sans lui.
+
+Cas reel : le 17 aout, Maitre Prigent adresse un projet de memoire sous « RE: Dossier CE : IMETAL
+c. Fisc ». Le 19, il confirme le depot et joint la version horodatee, sous « Dossier IMETAL c./
+Fisc », objet et conversation differents. Un regroupement par fil signale un silence de dix jours
+et fait proposer « pourriez-vous me confirmer le depot ? », deux jours apres que le confrere l'a
+confirme, piece a l'appui. On passe pour quelqu'un qui ne lit pas ses mails.
+
+Donc, **avant de rediger quoi que ce soit, reinterroger chaque correspondant retenu sur l'ensemble
+de ses messages recents** :
+
+```
+sender: "<domaine ou adresse du correspondant>", order: "newest", limit: 5
+```
+
+Cette recherche porte sur tous les dossiers et tous les objets. Elle est peu couteuse : au plus
+quinze appels, un par correspondant retenu. Ancrer ensuite l'analyse, l'anciennete, l'objet de
+reponse et le projet de reponse sur le message **reellement le plus recent** ainsi trouve, pas sur
+celui qui a declenche la detection. Si ce message rend le fil sans objet, retirer le cas du
+rapport.
 
 Recuperer en parallele les envois de Francois sur la meme periode, elargie de 3 jours en amont :
 
