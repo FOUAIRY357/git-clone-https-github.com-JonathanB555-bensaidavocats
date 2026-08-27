@@ -4,47 +4,53 @@
   "civilite": "Chère Madame,",
   "disponibilite": "Je reste à votre disposition pour toute question.",
   "corps": [
-    {"p": "Nous avons dépouillé les pièces et les réponses que vous nous avez adressées."},
-
-    {"titre": "1. Ce que vos pièces établissent"},
-    {"p": "Votre sœur et vous êtes copropriétaires chacune d'un tiers de l'appartement d'Aigle, le dernier tiers revenant à votre mère. Vos parents y résident. Vous y êtes taxées, dans le canton de Vaud."},
-    {"p": "Vous travaillez toutes deux à Genève, votre sœur dans la fonction publique cantonale, vous-même auprès de Crédit Agricole next bank. Vous disposez chacune d'une journée de télétravail par semaine."},
-    {"p": "Vous projetez de louer ensemble un trois pièces à Collonges-sous-Salève et d'y passer cinq nuits par semaine. Vous conserveriez l'appartement d'Aigle pour les week-ends et pour un à quatre jours par mois, votre sœur étant proche aidante de votre père."},
-
-    {"titre": "2. Le point qui commande tout le reste"},
-    {"p": "Cinq nuits par semaine en France, ce n'est pas un pied-à-terre. C'est un foyer."},
-    {"p": "La loi française retient le foyer ou le lieu du séjour principal, à l'article 4 B du code général des impôts. La convention franco-suisse du 9 septembre 1966 tranche ensuite le conflit, par le foyer permanent d'habitation, puis par le centre des intérêts vitaux, puis par le séjour habituel."},
-    {"p": "Vos attaches suisses sont sérieuses. Votre emploi genevois, votre part de l'appartement d'Aigle, votre famille, le rôle de votre sœur auprès de votre père. Elles ne suffisent pas à elles seules. Le rythme que vous décrivez pèse dans l'autre sens, et il ne pèse pas du même poids pour vous deux."},
-    {"p": "La réponse ne se devine pas. Elle se construit sur les faits, et surtout elle se documente avant que l'administration ne vienne la contester."},
-
-    {"titre": "3. Ce que votre projet déclenche"},
-    {"p": "La question de la résidence en commande d'autres, que nous traiterons dans le même mouvement."},
-    {"b": "l'imposition de vos salaires genevois et le sort de la retenue à la source opérée à Genève"},
-    {"b": "votre journée de télétravail, exercée depuis la France, qui produit des effets propres en matière d'impôt comme d'affiliation sociale"},
-    {"b": "vos véhicules immatriculés dans le canton de Vaud, conduits en France par une personne qui y résiderait, sujet que vous soulevez et qui est réel"},
-    {"b": "la taxe d'habitation sur le logement français et la qualification de ce logement"},
-    {"b": "l'appartement d'Aigle, ses revenus et sa valeur, dans une imposition française éventuelle"},
-    {"b": "votre affiliation à l'assurance maladie"},
-    {"b": "vos obligations déclaratives françaises, vos comptes bancaires suisses compris"},
-    {"b": "la réponse à tenir en cas de contrôle, à la douane comme sur courrier de l'administration"},
-
-    {"titre": "4. Une contradiction à lever"},
-    {"p": "Le bail vous domicilie toutes deux 22 rue des Peupliers, 1205 Genève. Vos bulletins de salaire et votre déclaration vaudoise portent l'adresse d'Aigle. Ces deux adresses ne peuvent pas coexister sans explication, et cette explication compte pour la suite. Indiquez-nous celle qui correspond à votre situation réelle."},
-    {"p": "Dites-nous également si le bail a été signé."},
-
-    {"titre": "5. Notre mission"},
-    {"p": "Nous vous proposons l'intervention suivante."},
-    {"b": "l'analyse de la situation de chacune de vous au vu des pièces produites"},
-    {"b": "une consultation écrite qui tranche votre résidence fiscale et traite les points énumérés ci-dessus, vos trois questions comprises"},
-    {"b": "les mesures à prendre et les preuves à constituer dès à présent pour sécuriser la position retenue"},
-    {"b": "un entretien de restitution avec votre sœur et vous"},
-
-    {"titre": "6. Nos honoraires"},
-    {"p": "Notre honoraire est forfaitaire et s'élève à 3 500 € HT pour vous deux. Ce forfait couvre l'intégralité de la mission décrite ci-dessus, sans supplément ni facturation au temps passé."},
-    {"p": "Il est exigible à la commande. Une convention d'honoraires vous sera adressée à votre accord. Toute démarche ultérieure ferait l'objet d'un forfait distinct, arrêté avant tout engagement."},
-
-    {"titre": "7. Délais"},
-    {"p": "Nous remettons la consultation dans les cinq jours ouvrés de votre accord."},
-    {"p": "Compte tenu de l'échéance de la gérance, je peux vous donner une première orientation par téléphone dès demain. Si le bail n'est pas encore signé, attendez cet échange."}
+    {
+      "p": "Vos pièces nous sont bien parvenues, ainsi que vos réponses à nos questions."
+    },
+    {
+      "p": "Votre sœur et vous détenez chacune un tiers de l'appartement d'Aigle, où résident également vos parents, et vous y êtes taxées dans le canton de Vaud. Vous travaillez toutes deux à Genève, avec une journée de télétravail hebdomadaire. Le logement de Collonges-sous-Salève vous accueillerait cinq nuits par semaine, Aigle demeurant votre point de chute des week-ends et de quelques jours par mois."
+    },
+    {
+      "p": "Ce rythme est le cœur de la difficulté. Un logement occupé cinq nuits par semaine constitue un foyer au sens de l'article 4 B du code général des impôts, et la France sera fondée à vous regarder comme domiciliées sur son territoire. La convention franco-suisse du 9 septembre 1966 permet ensuite de faire prévaloir la Suisse, à la condition d'établir que le centre de vos intérêts vitaux y demeure. Vos attaches suisses ne sont pas minces, entre votre emploi genevois, votre part de l'appartement d'Aigle, votre famille et l'assistance que votre sœur apporte à votre père. Elles ne vous dispensent pas de la démonstration, laquelle ne se présentera d'ailleurs pas dans les mêmes termes pour l'une et pour l'autre. Mieux vaut l'établir maintenant, quand les faits peuvent encore être organisés et documentés, que le jour où l'administration vous interrogera."
+    },
+    {
+      "p": "Le reste de votre situation découle de cette question. Nous examinerons ainsi les points suivants."
+    },
+    {
+      "b": "l'imposition de vos salaires genevois et le sort de la retenue opérée à la source"
+    },
+    {
+      "b": "votre journée de télétravail exercée depuis la France, qui appelle un examen distinct en matière d'impôt comme d'affiliation sociale"
+    },
+    {
+      "b": "vos véhicules immatriculés dans le canton de Vaud, dont la conduite en France par un résident français soulève la difficulté douanière que vous pressentez"
+    },
+    {
+      "b": "la taxe d'habitation et la qualification du logement français"
+    },
+    {
+      "b": "le traitement de l'appartement d'Aigle, en revenus comme en fortune"
+    },
+    {
+      "b": "votre couverture maladie"
+    },
+    {
+      "b": "vos obligations déclaratives françaises, vos comptes bancaires suisses compris"
+    },
+    {
+      "b": "la conduite à tenir en cas de contrôle routier ou de demande de renseignements de l'administration"
+    },
+    {
+      "p": "Deux précisions nous manquent avant d'entrer dans le fond. Le bail vous domicilie toutes deux 22 rue des Peupliers à Genève, quand vos bulletins de salaire et votre déclaration vaudoise portent l'adresse d'Aigle. Merci de nous indiquer laquelle reflète votre situation réelle, et de nous dire si ce bail a été signé."
+    },
+    {
+      "p": "Nous vous proposons de reprendre la situation de chacune de vous au vu des pièces produites et de vous remettre une consultation écrite. Elle se prononcera sur votre résidence fiscale et traitera l'ensemble des points ci-dessus, vos trois questions comprises. Elle indiquera les mesures à prendre et les justificatifs à constituer dès à présent. Nous vous en exposerons les conclusions au cours d'un entretien."
+    },
+    {
+      "p": "Nos honoraires seraient forfaitaires et arrêtés à 6 000 € HT pour vous deux, ce forfait couvrant l'intégralité de la mission. Ils sont exigibles à la commande, et une convention d'honoraires vous sera soumise dès votre accord. Toute diligence ultérieure donnerait lieu à un forfait distinct, arrêté avec vous au préalable."
+    },
+    {
+      "p": "Nous remettrions la consultation dans les cinq jours ouvrés de votre accord. L'échéance que vous m'indiquiez étant désormais passée, je peux vous donner dès demain, par téléphone, une première orientation. Il serait préférable que le bail ne soit pas signé avant cet échange."
+    }
   ]
 }

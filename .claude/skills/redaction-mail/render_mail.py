@@ -94,12 +94,16 @@ def _plain(spec):
             lignes += ["", blk["titre"], ""]
             prev_bullet = False
         elif "p" in blk:
+            if prev_bullet:
+                lignes.append("")
             lignes += [blk["p"], ""]
             prev_bullet = False
         elif "b" in blk:
             lignes.append("- " + blk["b"])
             prev_bullet = True
         elif "em" in blk:
+            if prev_bullet:
+                lignes.append("")
             lignes += [blk["em"], ""]
             prev_bullet = False
     if prev_bullet:
