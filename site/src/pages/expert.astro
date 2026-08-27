@@ -1,0 +1,93 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+/*
+ * Page « L'expert » — VERSION SQUELETTE.
+ * La biographie détaillée, la photographie et les références seront fournies
+ * par le cabinet (voir site/README.md, section « Contenus à valider »).
+ */
+---
+
+<BaseLayout
+  titre="François Ouairy, avocat fiscaliste — TVA et taxe sur les salaires"
+  description="François Ouairy, avocat au sein du cabinet BENSAID AVOCATS, accompagne les opérateurs partiellement exonérés : TVA, droit à déduction, taxe sur les salaires, contrôle et contentieux."
+>
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
+    <div class="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
+      <div>
+        <p class="etiquette text-or">L'expert</p>
+        <h1 class="mt-3 font-titres text-3xl font-bold tracking-tight md:text-4xl">
+          François Ouairy
+        </h1>
+        <p class="mt-2 font-texte text-lg text-texte-2">
+          Avocat fiscaliste — BENSAID AVOCATS
+        </p>
+
+        <div class="prose-doctrine mt-8">
+          <p>
+            François Ouairy conseille et défend les opérateurs dont tout ou partie de l'activité
+            échappe à la TVA : holdings et groupes, banques et établissements financiers,
+            assureurs et mutuelles, acteurs de l'immobilier, de la santé, de l'enseignement et du
+            secteur non lucratif.
+          </p>
+          <p>
+            Son intervention couvre l'ensemble du cycle : qualification des flux, structuration du
+            droit à déduction et des coefficients, sectorisation, rapport d'assujettissement à la
+            taxe sur les salaires, sécurisation par rescrit, assistance à contrôle fiscal et
+            contentieux devant les juridictions administratives.
+          </p>
+          <blockquote>
+            Biographie détaillée, parcours et références en cours de rédaction — cette section sera
+            complétée avec le cabinet.
+          </blockquote>
+        </div>
+
+        <h2 class="mt-12 border-t border-bordure pt-8 font-titres text-xl font-semibold">
+          Pourquoi ce site ?
+        </h2>
+        <p class="prose-doctrine mt-4 text-base leading-7">
+          taxesalaire.com rassemble une doctrine opérationnelle sur la TVA des opérateurs
+          partiellement exonérés et la taxe sur les salaires. Les scanners interactifs suivent le
+          raisonnement qu'un avocat fiscaliste applique à un dossier : ils vous situent, la
+          consultation fait le reste.
+        </p>
+      </div>
+
+      <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
+        <div
+          class="flex aspect-[4/5] items-center justify-center rounded border border-bordure bg-fond-2"
+          role="img"
+          aria-label="Portrait de François Ouairy (photographie à venir)"
+        >
+          <div class="text-center text-texte-3">
+            <span class="ms text-6xl" aria-hidden="true">person</span>
+            <p class="mt-2 text-xs">Photographie à venir</p>
+          </div>
+        </div>
+
+        <div class="rounded border border-bordure bg-carte p-6 shadow-ambiante">
+          <p class="etiquette text-or">Contacter le cabinet</p>
+          <p class="mt-3 text-sm leading-6 text-texte-2">
+            Décrivez votre situation en quelques lignes : opérations concernées, secteur, enjeu.
+            Une réponse vous est apportée rapidement.
+          </p>
+          <a
+            href="mailto:francois.ouairy@bensaid-avocats.fr"
+            class="mt-5 flex items-center justify-center gap-2 rounded bg-marine px-5 py-3 font-texte text-sm font-semibold text-white transition-colors hover:bg-marine-2"
+          >
+            <span class="ms text-lg" aria-hidden="true">mail</span>
+            Écrire à François Ouairy
+          </a>
+          <a
+            href="https://www.bensaid-avocats.fr"
+            rel="noopener"
+            class="mt-3 flex items-center justify-center gap-2 rounded border border-bordure px-5 py-3 font-texte text-sm font-semibold text-texte-2 transition-colors hover:border-marine hover:text-encre"
+          >
+            <span class="ms text-lg" aria-hidden="true">domain</span>
+            Le cabinet BENSAID AVOCATS
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

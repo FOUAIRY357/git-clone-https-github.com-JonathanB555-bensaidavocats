@@ -1,0 +1,94 @@
+---
+const chemin = Astro.url.pathname;
+const estActif = (prefixe: string) => chemin.startsWith(prefixe);
+
+const liens = [
+  { href: '/secteurs/', libelle: 'Secteurs' },
+  { href: '/actualites/', libelle: 'Actualités' },
+  { href: '/expert/', libelle: "L'expert" },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-bordure bg-fond/95 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 md:px-10">
+    <a href="/" class="flex items-center gap-3" aria-label="Taxe sur les Salaires & TVA — accueil">
+      <span class="font-titres text-lg font-900 leading-none tracking-tight text-encre">
+        <span class="block text-[0.95rem] font-bold uppercase tracking-wide">Taxe sur les Salaires</span>
+        <span class="block text-[0.8rem] font-semibold text-or">&amp; TVA</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Navigation principale">
+      {
+        liens.map((lien) => (
+          <a
+            href={lien.href}
+            class:list={[
+              'font-texte text-sm font-medium transition-colors hover:text-encre',
+              estActif(lien.href) ? 'text-encre underline decoration-or decoration-2 underline-offset-8' : 'text-texte-2',
+            ]}
+          >
+            {lien.libelle}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="hidden items-center gap-3 lg:flex">
+      <a
+        href="/scan-taxe-salaires/"
+        class="rounded border border-marine px-4 py-2 font-texte text-sm font-semibold text-marine transition-colors hover:bg-marine hover:text-white"
+      >
+        Scan Taxe sur les salaires
+      </a>
+      <a
+        href="/scan-tva/"
+        class="rounded bg-marine px-4 py-2 font-texte text-sm font-semibold text-white shadow-ambiante transition-colors hover:bg-marine-2"
+      >
+        Scan TVA
+      </a>
+    </div>
+
+    <button
+      id="bouton-menu"
+      type="button"
+      class="rounded border border-bordure p-2 text-encre lg:hidden"
+      aria-expanded="false"
+      aria-controls="menu-mobile"
+      aria-label="Ouvrir le menu"
+    >
+      <span class="ms text-2xl" aria-hidden="true">menu</span>
+    </button>
+  </div>
+
+  <div id="menu-mobile" class="hidden border-t border-bordure bg-fond px-5 py-4 lg:hidden">
+    <nav class="flex flex-col gap-3" aria-label="Navigation mobile">
+      {
+        liens.map((lien) => (
+          <a href={lien.href} class="py-1 font-texte text-base font-medium text-encre">
+            {lien.libelle}
+          </a>
+        ))
+      }
+      <a href="/scan-tva/" class="mt-2 rounded bg-marine px-4 py-3 text-center font-texte text-sm font-semibold text-white">
+        Scan TVA
+      </a>
+      <a
+        href="/scan-taxe-salaires/"
+        class="rounded border border-marine px-4 py-3 text-center font-texte text-sm font-semibold text-marine"
+      >
+        Scan Taxe sur les salaires
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const bouton = document.getElementById('bouton-menu');
+  const menu = document.getElementById('menu-mobile');
+  bouton?.addEventListener('click', () => {
+    const ouvert = menu?.classList.toggle('hidden') === false;
+    bouton.setAttribute('aria-expanded', String(ouvert));
+    bouton.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+</script>

@@ -1,0 +1,184 @@
+@import 'tailwindcss';
+
+/*
+ * Design system « Taxe sur les Salaires & TVA »
+ * Dérivé du DESIGN.md Stitch (projet lex_fiscalis) :
+ * fond blanc cassé chaud, marine profond, or mat, bordures fines.
+ */
+@theme {
+  /* Surfaces */
+  --color-fond: #faf9f5;
+  --color-fond-2: #f4f4f0;
+  --color-fond-3: #efeeea;
+  --color-carte: #ffffff;
+
+  /* Textes */
+  --color-encre: #1b1c1a;
+  --color-texte: #333333;
+  --color-texte-2: #44474e;
+  --color-texte-3: #74777f;
+
+  /* Couleurs de marque */
+  --color-marine: #001b3a;
+  --color-marine-2: #0b2c55;
+  --color-or: #8a6a1f;
+  --color-or-fonce: #6f5415;
+  --color-or-pale: #fed488;
+  --color-lien: #2456a6;
+
+  /* États */
+  --color-alerte: #e22929;
+  --color-alerte-fond: #ffdad6;
+  --color-positif: #1d6b3c;
+  --color-positif-fond: #e2f0e6;
+  --color-attention-fond: #fdf3dd;
+
+  /* Structure */
+  --color-bordure: #e5e1d8;
+  --color-bordure-2: #c4c6cf;
+
+  /* Typographie */
+  --font-titres: 'Montserrat', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-texte: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+
+  /* Ombres */
+  --shadow-ambiante: 0px 4px 20px rgba(0, 27, 58, 0.05);
+  --shadow-ambiante-2: 0px 8px 32px rgba(0, 27, 58, 0.09);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-fond);
+  color: var(--color-texte);
+  font-family: var(--font-texte);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-titres);
+  color: var(--color-encre);
+}
+
+/* Pictogrammes Material Symbols */
+.ms {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+}
+
+/* Étiquette petites capitales (métadonnées, chips) */
+.etiquette {
+  font-family: var(--font-texte);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Animation d'entrée des écrans du scan */
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.apparition {
+  animation: apparition 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.apparition-lente {
+  animation: apparition 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apparition,
+  .apparition-lente {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Contenu rédactionnel (pages doctrine, actualités) */
+.prose-doctrine {
+  max-width: 46rem;
+}
+.prose-doctrine h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-bordure);
+}
+.prose-doctrine h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+.prose-doctrine p {
+  font-size: 1rem;
+  line-height: 1.65rem;
+  margin-bottom: 1rem;
+}
+.prose-doctrine ul {
+  margin: 1rem 0 1.25rem;
+  padding-left: 0;
+  list-style: none;
+}
+.prose-doctrine ul > li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6rem;
+}
+.prose-doctrine ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 0.875rem;
+  height: 1px;
+  background-color: var(--color-or);
+}
+.prose-doctrine a {
+  color: var(--color-lien);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-doctrine strong {
+  color: var(--color-encre);
+  font-weight: 600;
+}
+.prose-doctrine blockquote {
+  border-left: 2px solid var(--color-or);
+  background-color: var(--color-fond-2);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  font-size: 0.9375rem;
+  color: var(--color-texte-2);
+}

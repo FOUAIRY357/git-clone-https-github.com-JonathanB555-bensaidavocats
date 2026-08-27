@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+/*
+ * VERSION SQUELETTE — les mentions définitives (éditeur, directeur de la
+ * publication, hébergeur, données personnelles) seront complétées par le
+ * cabinet avant mise en ligne.
+ */
+---
+
+<BaseLayout
+  titre="Mentions légales"
+  description="Mentions légales du site taxesalaire.com, édité par le cabinet BENSAID AVOCATS."
+>
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
+    <h1 class="font-titres text-3xl font-bold tracking-tight">Mentions légales</h1>
+    <div class="prose-doctrine mt-8">
+      <h2>Éditeur du site</h2>
+      <p>
+        Le site taxesalaire.com est édité par le cabinet BENSAID AVOCATS.
+        <em>(Coordonnées complètes, forme sociale et directeur de la publication à compléter.)</em>
+      </p>
+      <h2>Hébergement</h2>
+      <p><em>(Hébergeur à préciser lors de la mise en production.)</em></p>
+      <h2>Nature des informations diffusées</h2>
+      <p>
+        Les contenus du site, y compris les résultats des scanners interactifs, sont fournis à
+        titre d'information générale. Ils ne constituent en aucun cas une consultation juridique
+        ou fiscale et ne sauraient engager la responsabilité de l'éditeur. L'application des
+        règles décrites dépend des circonstances propres à chaque situation : rapprochez-vous d'un
+        avocat avant toute décision.
+      </p>
+      <h2>Données personnelles</h2>
+      <p>
+        Les scanners fonctionnent intégralement dans votre navigateur : les réponses fournies ne
+        sont ni transmises ni conservées par l'éditeur.
+        <em>(Politique complète à établir avec le cabinet.)</em>
+      </p>
+    </div>
+  </div>
+</BaseLayout>

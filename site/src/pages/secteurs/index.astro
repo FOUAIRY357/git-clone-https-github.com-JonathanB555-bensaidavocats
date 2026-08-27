@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const secteurs = (await getCollection('secteurs', ({ data }) => data.statut === 'publie')).sort(
+  (a, b) => a.data.ordre - b.data.ordre
+);
+const notions = (await getCollection('doctrine', ({ data }) => data.statut === 'publie')).sort(
+  (a, b) => a.data.ordre - b.data.ordre
+);
+---
+
+<BaseLayout
+  titre="Doctrine par secteur — TVA et taxe sur les salaires de votre activité"
+  description="Holdings, banques, assurance, immobilier, organismes sans but lucratif… Retrouvez la TVA et la taxe sur les salaires de votre secteur, expliquées par un avocat fiscaliste."
+>
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
+    <header class="max-w-3xl">
+      <p class="etiquette text-or">Doctrine par secteur</p>
+      <h1 class="mt-3 font-titres text-3xl font-bold tracking-tight md:text-4xl">
+        La TVA et la taxe sur les salaires de votre activité
+      </h1>
+      <p class="mt-4 text-base leading-7 text-texte-2">
+        Les règles de TVA ne se lisent jamais dans l'absolu : elles s'appliquent à un secteur, à
+        ses flux et à ses contrats. Chaque page ci-dessous reprend, pour une activité donnée, le
+        champ d'application, les exonérations, le droit à déduction et la taxe sur les salaires.
+      </p>
+    </header>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        secteurs.map((secteur) => (
+          <a
+            href={`/${secteur.id}/`}
+            class="group rounded border border-bordure bg-carte p-6 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+          >
+            <span class="ms text-3xl text-marine" aria-hidden="true">
+              {secteur.data.pictogramme}
+            </span>
+            <h2 class="mt-3 font-titres text-lg font-semibold group-hover:text-marine">
+              {secteur.data.titreCourt}
+            </h2>
+            <p class="mt-2 text-sm leading-6 text-texte-2">{secteur.data.accroche}</p>
+          </a>
+        ))
+      }
+    </div>
+
+    <section class="mt-16 border-t border-bordure pt-12">
+      <p class="etiquette text-or">Notions transversales</p>
+      <h2 class="mt-3 font-titres text-2xl font-semibold">Les fondamentaux, quel que soit le secteur</h2>
+      <div class="mt-8 grid gap-5 sm:grid-cols-2">
+        {
+          notions.map((notion) => (
+            <a
+              href={`/doctrine/${notion.id}/`}
+              class="group flex items-start gap-4 rounded border border-bordure bg-fond-2 p-5 transition-colors hover:border-marine"
+            >
+              <span class="ms text-2xl text-or" aria-hidden="true">
+                {notion.data.pictogramme}
+              </span>
+              <span>
+                <h3 class="font-titres text-base font-semibold group-hover:text-marine">
+                  {notion.data.titreCourt}
+                </h3>
+                <p class="mt-1 text-sm leading-6 text-texte-2">{notion.data.description}</p>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

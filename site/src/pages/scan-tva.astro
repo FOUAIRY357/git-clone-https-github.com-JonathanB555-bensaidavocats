@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ScanEngine from '@/components/scan/ScanEngine';
+import { arbreTva } from '@/data/scan/tva';
+import { verifierArbre } from '@/data/scan/types';
+
+const erreurs = verifierArbre(arbreTva);
+if (erreurs.length > 0) {
+  throw new Error(`Arbre TVA incohérent :\n${erreurs.join('\n')}`);
+}
+---
+
+<BaseLayout
+  titre="Scan TVA — déterminez la taxabilité de vos opérations"
+  description="Scanner interactif : qualifiez une opération au regard de la TVA (champ d'application, exonérations, options, assimilations) et mesurez son incidence sur votre droit à déduction."
+>
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
+    <header class="mb-10 max-w-3xl">
+      <p class="etiquette text-or">Scanner interactif</p>
+      <h1 class="mt-3 font-titres text-3xl font-bold tracking-tight md:text-4xl">{arbreTva.titre}</h1>
+      <p class="mt-4 text-base leading-7 text-texte-2">{arbreTva.sousTitre}</p>
+    </header>
+    <ScanEngine client:load arbre={arbreTva} />
+  </div>
+</BaseLayout>

@@ -1,0 +1,236 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const secteurs = (await getCollection('secteurs', ({ data }) => data.statut === 'publie')).sort(
+  (a, b) => a.data.ordre - b.data.ordre
+);
+const actualites = (await getCollection('actualites', ({ data }) => data.statut === 'publie'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const formateurDate = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' });
+
+const etapes = [
+  {
+    icone: 'quiz',
+    titre: 'Répondez à quelques questions',
+    texte:
+      "Le scanner déroule la logique du Code général des impôts : champ d'application, exonérations, options, droit à déduction.",
+  },
+  {
+    icone: 'menu_book',
+    titre: 'Chaque question renvoie à la doctrine',
+    texte:
+      "Un doute ? Chaque étape est adossée à sa base légale et à nos pages d'explication. Répondez « je ne sais pas » et approfondissez.",
+  },
+  {
+    icone: 'workspace_premium',
+    titre: 'Obtenez une qualification motivée',
+    texte:
+      "Le scan conclut sur la qualification de l'opération, ses conséquences sur vos droits à déduction et les points à sécuriser avec un expert.",
+  },
+];
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'Taxe sur les Salaires & TVA',
+      url: 'https://taxesalaire.com/',
+      inLanguage: 'fr-FR',
+      description:
+        "Site de référence sur la TVA des opérateurs partiellement exonérés et la taxe sur les salaires, édité par le cabinet BENSAID AVOCATS.",
+    },
+    {
+      '@type': 'LegalService',
+      name: 'BENSAID AVOCATS',
+      url: 'https://www.bensaid-avocats.fr',
+      areaServed: 'FR',
+      knowsAbout: ['TVA', 'Taxe sur les salaires', 'Droit fiscal'],
+    },
+  ],
+});
+---
+
+<BaseLayout
+  titre="Taxe sur les Salaires & TVA — scanners interactifs et doctrine par secteur"
+  description="Déterminez la taxabilité de vos opérations, vos droits à déduction de TVA et votre exposition à la taxe sur les salaires. Scanners interactifs et doctrine sectorielle, par le cabinet BENSAID AVOCATS."
+  titreBrut
+>
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
+
+  <!-- Héros -->
+  <section class="border-b border-bordure bg-fond">
+    <div class="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-24">
+      <div class="max-w-3xl">
+        <p class="etiquette apparition text-or">TVA · Taxe sur les salaires · Droit à déduction</p>
+        <h1 class="apparition mt-4 font-titres text-4xl font-bold leading-tight tracking-tight md:text-5xl md:leading-[1.15]">
+          Déterminez vos droits à déduction, question par question.
+        </h1>
+        <p class="apparition-lente mt-6 max-w-2xl text-lg leading-8 text-texte-2">
+          Nos scanners interactifs qualifient vos opérations au regard de la TVA — dans le champ,
+          exonérées, taxées ou assimilées — puis mesurent votre exposition à la taxe sur les
+          salaires. Chaque étape s'appuie sur la doctrine et renvoie vers un avocat fiscaliste
+          quand la question l'exige.
+        </p>
+        <div class="apparition-lente mt-9 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/scan-tva/"
+            class="flex items-center justify-center gap-2 rounded bg-marine px-6 py-3.5 font-texte text-base font-semibold text-white shadow-ambiante transition-all hover:-translate-y-0.5 hover:bg-marine-2 hover:shadow-ambiante-2"
+          >
+            <span class="ms text-xl" aria-hidden="true">radar</span>
+            Lancer le Scan TVA
+          </a>
+          <a
+            href="/scan-taxe-salaires/"
+            class="flex items-center justify-center gap-2 rounded border border-marine px-6 py-3.5 font-texte text-base font-semibold text-marine transition-colors hover:bg-marine hover:text-white"
+          >
+            <span class="ms text-xl" aria-hidden="true">badge</span>
+            Scan Taxe sur les salaires
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-texte-3">Gratuit, sans inscription. Environ cinq minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comment ça marche -->
+  <section class="border-b border-bordure bg-fond-2">
+    <div class="mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
+      <p class="etiquette text-or">Comment fonctionne le scan</p>
+      <h2 class="mt-3 max-w-xl font-titres text-2xl font-semibold md:text-3xl">
+        Un raisonnement d'avocat fiscaliste, pas un questionnaire générique.
+      </h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {
+          etapes.map((etape, index) => (
+            <article class="rounded border border-bordure bg-carte p-6 shadow-ambiante">
+              <div class="flex items-center justify-between">
+                <span class="ms text-3xl text-or" aria-hidden="true">
+                  {etape.icone}
+                </span>
+                <span class="font-titres text-sm font-bold text-texte-3">0{index + 1}</span>
+              </div>
+              <h3 class="mt-4 font-titres text-lg font-semibold">{etape.titre}</h3>
+              <p class="mt-2 text-sm leading-6 text-texte-2">{etape.texte}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Secteurs -->
+  <section class="border-b border-bordure">
+    <div class="mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="etiquette text-or">Doctrine par secteur</p>
+          <h2 class="mt-3 font-titres text-2xl font-semibold md:text-3xl">
+            La TVA et la taxe sur les salaires de votre activité
+          </h2>
+        </div>
+        <a href="/secteurs/" class="text-sm font-semibold text-lien underline underline-offset-4">
+          Tous les secteurs
+        </a>
+      </div>
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          secteurs.map((secteur) => (
+            <a
+              href={`/${secteur.id}/`}
+              class="group rounded border border-bordure bg-carte p-6 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+            >
+              <span class="ms text-3xl text-marine" aria-hidden="true">
+                {secteur.data.pictogramme}
+              </span>
+              <h3 class="mt-3 font-titres text-lg font-semibold group-hover:text-marine">
+                {secteur.data.titreCourt}
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-texte-2">{secteur.data.accroche}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Actualités -->
+  <section class="border-b border-bordure bg-fond-2">
+    <div class="mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="etiquette text-or">Fil d'actualité</p>
+          <h2 class="mt-3 font-titres text-2xl font-semibold md:text-3xl">Dernières analyses</h2>
+        </div>
+        <a href="/actualites/" class="text-sm font-semibold text-lien underline underline-offset-4">
+          Toute l'actualité
+        </a>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-3">
+        {
+          actualites.map((article) => (
+            <a
+              href={`/actualites/${article.id}/`}
+              class="group rounded border border-bordure bg-carte p-6 transition-all hover:-translate-y-0.5 hover:shadow-ambiante-2"
+            >
+              <time datetime={article.data.date.toISOString()} class="etiquette text-texte-3">
+                {formateurDate.format(article.data.date)}
+              </time>
+              <h3 class="mt-3 font-titres text-base font-semibold leading-snug group-hover:text-marine">
+                {article.data.titre}
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-texte-2">{article.data.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- L'expert -->
+  <section class="bg-marine text-white">
+    <div class="mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
+      <div class="grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <p class="etiquette text-or-pale">L'expert derrière le site</p>
+          <h2 class="mt-3 font-titres text-2xl font-semibold text-white md:text-3xl">
+            François Ouairy, avocat fiscaliste
+          </h2>
+          <p class="mt-4 max-w-xl text-base leading-7 text-white/80">
+            Ce site est édité par le cabinet BENSAID AVOCATS. François Ouairy y accompagne les
+            opérateurs partiellement exonérés — holdings, banques, assureurs, acteurs de
+            l'immobilier, de la santé et du non-lucratif — sur la TVA, le droit à déduction et la
+            taxe sur les salaires.
+          </p>
+          <a
+            href="/expert/"
+            class="mt-7 inline-flex items-center gap-2 rounded bg-white px-6 py-3 font-texte text-sm font-semibold text-marine transition-colors hover:bg-or-pale"
+          >
+            Rencontrer l'expert
+            <span class="ms text-lg" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+        <div class="rounded border border-white/15 bg-white/5 p-6">
+          <p class="etiquette text-or-pale">Quand consulter ?</p>
+          <ul class="mt-4 space-y-3 text-sm leading-6 text-white/85">
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-px w-3.5 shrink-0 bg-or-pale" aria-hidden="true"></span>
+              Un scan conclut à une qualification incertaine ou défavorable.
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-px w-3.5 shrink-0 bg-or-pale" aria-hidden="true"></span>
+              Votre prorata ou votre rapport d'assujettissement mérite un audit.
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-px w-3.5 shrink-0 bg-or-pale" aria-hidden="true"></span>
+              Vous faites l'objet d'un contrôle ou d'une proposition de rectification.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
