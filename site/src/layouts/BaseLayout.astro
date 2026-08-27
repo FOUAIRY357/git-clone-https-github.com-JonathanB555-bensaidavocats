@@ -39,10 +39,19 @@ const urlCanonique = new URL(Astro.url.pathname, Astro.site);
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
-      rel="stylesheet"
-    />
+    <script is:inline>
+      // Révèle les pictogrammes une fois la police d'icônes chargée.
+      if (document.fonts && document.fonts.load) {
+        document.fonts
+          .load('24px "Material Symbols Outlined"', 'radar')
+          .then(function () {
+            document.documentElement.classList.add('icones-chargees');
+          })
+          .catch(function () {});
+      } else {
+        document.documentElement.classList.add('icones-chargees');
+      }
+    </script>
     <slot name="tete" />
   </head>
   <body class="min-h-screen flex flex-col">
