@@ -21,6 +21,33 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
   const sansDroit = resultats.filter(({ resultat }) => resultat.carto?.deduction === 'non').length;
   const aAnalyser = resultats.filter(({ resultat }) => resultat.carto?.deduction === 'a-analyser').length;
 
+  // Estimations chiffrées, si un montant de recettes est renseigné pour chaque opération.
+  const montantsComplets = operations.length > 0 && operations.every((op) => (op.montant ?? 0) > 0);
+  let estimation: { coefTaxation: number | null; rapportTs: number | null; horsEstimation: number } | null =
+    null;
+  if (montantsComplets) {
+    let ouvrant = 0;
+    let exonere = 0;
+    let horsChamp = 0;
+    let horsEstimation = 0;
+    for (const { op, resultat: res } of resultats) {
+      const montant = op.montant ?? 0;
+      if (res.carto?.deduction === 'oui') ouvrant += montant;
+      else if (res.id === 'hors-champ') horsChamp += montant;
+      else if (res.carto?.deduction === 'a-analyser') horsEstimation += montant;
+      else exonere += montant;
+    }
+    const champ = ouvrant + exonere;
+    const total = champ + horsChamp;
+    estimation = {
+      coefTaxation: champ > 0 ? ouvrant / champ : null,
+      rapportTs: total > 0 ? (exonere + horsChamp) / total : null,
+      horsEstimation,
+    };
+  }
+  const pourcent = (valeur: number) =>
+    new Intl.NumberFormat('fr-FR', { style: 'percent', maximumFractionDigits: 1 }).format(valeur);
+
   const syntheses: string[] = [];
   if (sansDroit === 0 && aAnalyser === 0 && avecDroit > 0) {
     syntheses.push(
@@ -98,6 +125,84 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Estimation des coefficients */}
+        <div className="mt-8">
+          <h3 className="font-titres text-sm font-semibold uppercase tracking-wide text-or">
+            Votre droit à déduction, en chiffres
+          </h3>
+          {estimation ? (
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {estimation.coefTaxation !== null && (
+                <div className="rounded border border-bordure bg-fond-2 p-5">
+                  <p className="text-sm font-semibold text-encre">
+                    Coefficient de taxation forfaitaire estimé
+                  </p>
+                  <p className="mt-2 font-titres text-3xl font-bold text-marine">
+                    {pourcent(estimation.coefTaxation)}
+                  </p>
+                  <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-fond-3">
+                    <div
+                      className="h-full rounded-full bg-marine transition-all duration-700"
+                      style={{ width: `${Math.round(estimation.coefTaxation * 100)}%` }}
+                    />
+                  </div>
+                  <p className="mt-3 text-xs leading-5 text-texte-2">
+                    Part de vos recettes situées dans le champ de la TVA qui ouvrent droit à
+                    déduction : c'est, en première approche, la fraction de TVA récupérable sur vos
+                    dépenses mixtes.
+                  </p>
+                </div>
+              )}
+              {estimation.rapportTs !== null && (
+                <div className="rounded border border-bordure bg-fond-2 p-5">
+                  <p className="text-sm font-semibold text-encre">
+                    Rapport d'assujettissement à la taxe sur les salaires estimé
+                  </p>
+                  <p className="mt-2 font-titres text-3xl font-bold text-or-fonce">
+                    {pourcent(estimation.rapportTs)}
+                  </p>
+                  <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-fond-3">
+                    <div
+                      className="h-full rounded-full bg-or transition-all duration-700"
+                      style={{ width: `${Math.round(estimation.rapportTs * 100)}%` }}
+                    />
+                  </div>
+                  <p className="mt-3 text-xs leading-5 text-texte-2">
+                    Part de vos recettes n'ayant pas ouvert droit à déduction : c'est la fraction
+                    de vos rémunérations en principe soumise à la taxe sur les salaires.
+                  </p>
+                </div>
+              )}
+              <div className="md:col-span-2">
+                <ul className="space-y-1.5 text-xs leading-5 text-texte-3">
+                  <li>
+                    Estimation indicative, fondée sur les seules opérations scannées et leurs
+                    recettes annuelles déclarées. Le coefficient d'assujettissement s'apprécie
+                    dépense par dépense, et l'année de référence de la taxe sur les salaires est
+                    l'année précédant le versement des rémunérations.
+                  </li>
+                  {estimation.horsEstimation > 0 && (
+                    <li>
+                      Les opérations situées hors de France ont été écartées du calcul : leur sort
+                      dépend du régime qui leur serait appliqué en France.
+                    </li>
+                  )}
+                  <li>
+                    Sectorisation, produits accessoires et régularisations peuvent modifier
+                    sensiblement ces ratios : faites-les valider avant toute déclaration.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <p className="mt-3 rounded border border-dashed border-bordure-2 bg-fond-2 p-4 text-sm leading-6 text-texte-2">
+              Renseignez les recettes annuelles de chaque opération (au moment de l'ajouter au
+              dossier) pour obtenir une estimation de votre coefficient de taxation et de votre
+              rapport d'assujettissement à la taxe sur les salaires.
+            </p>
+          )}
         </div>
 
         {/* Synthèse */}

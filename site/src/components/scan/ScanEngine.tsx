@@ -44,6 +44,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     id: arbre.entree,
   });
   const [libelleOperation, setLibelleOperation] = useState('');
+  const [montantOperation, setMontantOperation] = useState('');
 
   useEffect(() => {
     if (!dossier || typeof window === 'undefined') return;
@@ -102,16 +103,19 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   /** Mode dossier : enregistre l'opération qualifiée puis enchaîne. */
   function validerOperation(destination: 'scan' | 'rapport') {
     if (!resultat) return;
+    const montant = Number.parseFloat(montantOperation.replace(/[\s €]/g, '').replace(',', '.'));
     setOperations([
       ...operations,
       {
         libelle: libelleOperation.trim() || libelleParDefaut,
+        ...(Number.isFinite(montant) && montant > 0 ? { montant } : {}),
         resultatId: resultat.id,
         reponses,
       },
     ]);
     setReponses([]);
     setLibelleOperation('');
+    setMontantOperation('');
     setCourant({ type: 'question', id: arbre.entree });
     setVue(destination);
   }
@@ -325,15 +329,30 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                   <p className="mt-1 text-sm text-texte-2">
                     Donnez-lui un nom parlant : il apparaîtra sur la carte et dans le rapport.
                   </p>
-                  <input
-                    id="nom-operation"
-                    type="text"
-                    value={libelleOperation}
-                    onChange={(evenement) => setLibelleOperation(evenement.target.value)}
-                    placeholder={`ex. Loyers de l'immeuble de bureaux (${libelleParDefaut})`}
-                    maxLength={60}
-                    className="mt-3 w-full rounded border border-bordure bg-fond px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine"
-                  />
+                  <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_220px]">
+                    <input
+                      id="nom-operation"
+                      type="text"
+                      value={libelleOperation}
+                      onChange={(evenement) => setLibelleOperation(evenement.target.value)}
+                      placeholder={`ex. Loyers de l'immeuble de bureaux (${libelleParDefaut})`}
+                      maxLength={60}
+                      className="w-full rounded border border-bordure bg-fond px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine"
+                    />
+                    <input
+                      type="text"
+                      inputMode="decimal"
+                      value={montantOperation}
+                      onChange={(evenement) => setMontantOperation(evenement.target.value)}
+                      placeholder="Recettes annuelles en € (facultatif)"
+                      aria-label="Recettes annuelles en euros (facultatif)"
+                      className="w-full rounded border border-bordure bg-fond px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine"
+                    />
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-texte-3">
+                    Le montant reste dans votre navigateur ; s'il est renseigné pour toutes les
+                    opérations, le rapport estime vos coefficients.
+                  </p>
                   <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                     <button
                       type="button"

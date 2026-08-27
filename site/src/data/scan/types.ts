@@ -61,6 +61,8 @@ export interface CartoResultat {
 /** Une opération scannée de bout en bout, telle que conservée dans le dossier. */
 export interface OperationScannee {
   libelle: string;
+  /** Montant annuel de recettes (euros), facultatif — sert aux estimations du rapport. */
+  montant?: number;
   resultatId: string;
   reponses: { questionId: string; libelle: string }[];
 }
