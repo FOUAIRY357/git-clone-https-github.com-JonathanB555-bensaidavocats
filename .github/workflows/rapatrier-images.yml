@@ -1,0 +1,36 @@
+name: Rapatrier les images générées
+# Contournement : l'environnement Claude Code n'a pas accès au domaine
+# d'hébergement temporaire des images générées ; ce workflow les télécharge
+# depuis un runner GitHub et les committe sur la branche.
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  rapatrier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Télécharger les images
+        run: |
+          set -euo pipefail
+          mkdir -p site/public/images
+          base='https://mcp.bensaid-mcp.com/files/images/nano-banana'
+          curl -fsSL -o site/public/images/accueil-hero.jpg  "$base/315cfc20a8b529b23fe47bdcadc93861/nano-banana-1787936297112.jpeg"
+          curl -fsSL -o site/public/images/scan-tva.jpg      "$base/0537d4e6d71c3b51d5c3c6fce6990784/nano-banana-1787936387662.jpeg"
+          curl -fsSL -o site/public/images/scan-ts.jpg       "$base/8ae3567247467432ae8c6db263270409/nano-banana-1787936399512.jpeg"
+          curl -fsSL -o site/public/images/holdings.jpg      "$base/5d54825d7d4aed4643393e04efa2371b/nano-banana-1787936411580.jpeg"
+          curl -fsSL -o site/public/images/finance.jpg       "$base/749197ca486eb240f8e323d8f0a8d061/nano-banana-1787936432262.jpeg"
+          curl -fsSL -o site/public/images/assurance.jpg     "$base/a9f90473b0627d634b5e6a1e3618ba7d/nano-banana-1787936443954.jpeg"
+          curl -fsSL -o site/public/images/immobilier.jpg    "$base/ad31d750370cffdcb0c84657d10eeae1/nano-banana-1787936456179.jpeg"
+          curl -fsSL -o site/public/images/sante.jpg         "$base/92884db574b0f9968e3eb8c9a4001c0c/nano-banana-1787936477465.jpeg"
+          curl -fsSL -o site/public/images/contentieux.jpg   "$base/e57f03c720a874805b6de14232a6dd99/nano-banana-1787936489873.jpeg"
+          ls -la site/public/images/
+      - name: Committer les images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/public/images
+          git commit -m "Images générées : rapatriement automatique"
+          git push
