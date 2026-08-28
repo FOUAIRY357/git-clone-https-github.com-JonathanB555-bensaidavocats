@@ -2,9 +2,14 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const secteurs = (await getCollection('secteurs', ({ data }) => data.statut === 'publie')).sort(
-  (a, b) => a.data.ordre - b.data.ordre
-);
+const secteurs = (
+  await getCollection(
+    'secteurs',
+    ({ id, data }) => data.statut === 'publie' && data.rubrique === 'secteur' && !id.includes('/')
+  )
+)
+  .sort((a, b) => a.data.ordre - b.data.ordre)
+  .slice(0, 6);
 const actualites = (await getCollection('actualites', ({ data }) => data.statut === 'publie'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);

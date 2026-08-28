@@ -2,9 +2,13 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const secteurs = (await getCollection('secteurs', ({ data }) => data.statut === 'publie')).sort(
-  (a, b) => a.data.ordre - b.data.ordre
-);
+const entrees = await getCollection('secteurs', ({ data }) => data.statut === 'publie');
+const secteurs = entrees
+  .filter((e) => e.data.rubrique === 'secteur' && !e.id.includes('/'))
+  .sort((a, b) => a.data.ordre - b.data.ordre);
+const articles = entrees
+  .filter((e) => e.data.rubrique === 'article')
+  .sort((a, b) => a.data.ordre - b.data.ordre);
 const notions = (await getCollection('doctrine', ({ data }) => data.statut === 'publie')).sort(
   (a, b) => a.data.ordre - b.data.ordre
 );
@@ -45,6 +49,30 @@ const notions = (await getCollection('doctrine', ({ data }) => data.statut === '
         ))
       }
     </div>
+
+    <section class="mt-16 border-t border-bordure pt-12">
+      <p class="etiquette text-or">Études et articles</p>
+      <h2 class="mt-3 font-titres text-2xl font-semibold">Questions particulières</h2>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          articles.map((article) => (
+            <a
+              href={`/${article.id}/`}
+              class="group flex items-start gap-3 rounded border border-bordure bg-carte p-4 transition-colors hover:border-marine"
+            >
+              <span class="ms text-xl text-or" aria-hidden="true">
+                {article.data.pictogramme}
+              </span>
+              <span>
+                <h3 class="font-titres text-sm font-semibold leading-snug group-hover:text-marine">
+                  {article.data.titreCourt}
+                </h3>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
 
     <section class="mt-16 border-t border-bordure pt-12">
       <p class="etiquette text-or">Notions transversales</p>
