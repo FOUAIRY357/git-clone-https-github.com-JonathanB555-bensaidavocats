@@ -14,14 +14,18 @@ if (erreurs.length > 0) {
   titre="Scan Taxe sur les salaires — êtes-vous redevable ?"
   description="Scanner interactif : déterminez si vos rémunérations sont soumises à la taxe sur les salaires, sur quelle assiette, et comment sécuriser votre rapport d'assujettissement."
 >
-  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
-    <header class="mb-10 max-w-3xl">
-      <p class="etiquette text-or">Scanner interactif</p>
-      <h1 class="mt-3 font-titres text-3xl font-bold tracking-tight md:text-4xl">
+  <section class="relative overflow-hidden bg-nuit text-white">
+    <div class="grille-nuit absolute inset-0" aria-hidden="true"></div>
+    <span class="mot-fantome -right-4 -bottom-6 text-[6rem] md:text-[10rem]" aria-hidden="true">Salaires</span>
+    <header class="relative mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
+      <p class="etiquette text-or-vif">Scanner interactif</p>
+      <h1 class="texte-affiche mt-4 max-w-3xl text-4xl text-white md:text-6xl">
         {arbreTaxeSalaires.titre}
       </h1>
-      <p class="mt-4 text-base leading-7 text-texte-2">{arbreTaxeSalaires.sousTitre}</p>
+      <p class="mt-5 max-w-2xl text-base leading-7 text-white/70">{arbreTaxeSalaires.sousTitre}</p>
     </header>
+  </section>
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-14">
     <ScanEngine client:load arbre={arbreTaxeSalaires} />
   </div>
 </BaseLayout>

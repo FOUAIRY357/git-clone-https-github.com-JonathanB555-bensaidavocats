@@ -19,6 +19,8 @@
   --color-texte-3: #74777f;
 
   /* Couleurs de marque */
+  --color-nuit: #050d1a;
+  --color-or-vif: #d8ab4a;
   --color-marine: #001b3a;
   --color-marine-2: #0b2c55;
   --color-or: #8a6a1f;
@@ -38,12 +40,77 @@
   --color-bordure-2: #c4c6cf;
 
   /* Typographie */
+  --font-affiche: 'Anton', 'Arial Narrow', sans-serif;
   --font-titres: 'Montserrat', 'Avenir Next', 'Segoe UI', sans-serif;
   --font-texte: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
 
   /* Ombres */
   --shadow-ambiante: 0px 4px 20px rgba(0, 27, 58, 0.05);
   --shadow-ambiante-2: 0px 8px 32px rgba(0, 27, 58, 0.09);
+}
+
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/anton-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/montserrat-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/montserrat-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/montserrat-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/montserrat-900.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/jakarta-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/jakarta-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/jakarta-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/jakarta-700.woff2') format('woff2');
 }
 
 /* Police d'icônes auto-hébergée : sous-ensemble Material Symbols Outlined
@@ -100,6 +167,55 @@ html.icones-chargees .ms {
   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
+}
+
+/* Typographie affiche (héros, bandeaux) */
+.texte-affiche {
+  font-family: var(--font-affiche);
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+/* Mot fantôme en contour, décor des sections sombres */
+.mot-fantome {
+  font-family: var(--font-affiche);
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(216, 171, 74, 0.16);
+  position: absolute;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Grille discrète des fonds nuit */
+.grille-nuit {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* Bandeau défilant */
+@keyframes defiler {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.defilement {
+  display: flex;
+  width: max-content;
+  animation: defiler 32s linear infinite;
+}
+.defilement > * {
+  flex-shrink: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .defilement {
+    animation: none;
+  }
 }
 
 /* Étiquette petites capitales (métadonnées, chips) */

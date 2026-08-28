@@ -66,40 +66,93 @@ const donneesStructurees = JSON.stringify({
 >
   <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
 
-  <!-- Héros -->
-  <section class="border-b border-bordure bg-fond">
-    <div class="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-24">
+  <!-- Héros nuit -->
+  <section class="relative overflow-hidden bg-nuit text-white">
+    <div class="grille-nuit absolute inset-0" aria-hidden="true"></div>
+    <div
+      class="absolute inset-0"
+      style="background: radial-gradient(1100px 600px at 78% 18%, rgba(0,27,58,0.9), transparent 60%), radial-gradient(700px 460px at 12% 92%, rgba(216,171,74,0.12), transparent 60%);"
+      aria-hidden="true"
+    >
+    </div>
+    <span class="mot-fantome -right-8 bottom-2 text-[9rem] md:text-[15rem]" aria-hidden="true">TVA</span>
+
+    <!-- réseau animé, rappel de la cartographie -->
+    <svg viewBox="0 0 420 420" class="absolute -right-10 top-1/2 hidden w-[430px] -translate-y-1/2 opacity-80 lg:block" aria-hidden="true">
+      <g stroke="#d8ab4a" stroke-opacity="0.28" stroke-width="1">
+        <line x1="210" y1="210" x2="90" y2="90" pathLength="1" stroke-dasharray="1" class="carto-lien" />
+        <line x1="210" y1="210" x2="330" y2="70" pathLength="1" stroke-dasharray="1" class="carto-lien" style="animation-delay:120ms" />
+        <line x1="210" y1="210" x2="360" y2="230" pathLength="1" stroke-dasharray="0.03 0.025" class="carto-lien-pointille" style="animation-delay:240ms" />
+        <line x1="210" y1="210" x2="300" y2="350" pathLength="1" stroke-dasharray="1" class="carto-lien" style="animation-delay:360ms" />
+        <line x1="210" y1="210" x2="80" y2="320" pathLength="1" stroke-dasharray="0.03 0.025" class="carto-lien-pointille" style="animation-delay:480ms" />
+      </g>
+      <circle cx="210" cy="210" r="26" fill="#d8ab4a" class="carto-noeud" />
+      <circle cx="210" cy="210" r="36" fill="none" stroke="#d8ab4a" stroke-opacity="0.35" class="carto-pulse" />
+      <g fill="#0b2c55" stroke="#d8ab4a" stroke-opacity="0.5">
+        <circle cx="90" cy="90" r="15" class="carto-noeud" style="animation-delay:150ms" />
+        <circle cx="330" cy="70" r="12" class="carto-noeud" style="animation-delay:280ms" />
+        <circle cx="360" cy="230" r="14" class="carto-noeud" style="animation-delay:400ms" />
+        <circle cx="300" cy="350" r="11" class="carto-noeud" style="animation-delay:520ms" />
+        <circle cx="80" cy="320" r="13" class="carto-noeud" style="animation-delay:640ms" />
+      </g>
+    </svg>
+
+    <div class="relative mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
       <div class="max-w-3xl">
-        <p class="etiquette apparition text-or">TVA · Taxe sur les salaires · Droit à déduction</p>
-        <h1 class="apparition mt-4 font-titres text-4xl font-bold leading-tight tracking-tight md:text-5xl md:leading-[1.15]">
-          Déterminez vos droits à déduction, question par question.
+        <p class="etiquette apparition text-or-vif">TVA · Taxe sur les salaires · Droit à déduction</p>
+        <h1 class="texte-affiche apparition mt-5 text-5xl text-white md:text-7xl">
+          Scannez vos opérations.<br />
+          <span class="text-or-vif">Récupérez votre TVA.</span>
         </h1>
-        <p class="apparition-lente mt-6 max-w-2xl text-lg leading-8 text-texte-2">
-          Nos scanners interactifs qualifient vos opérations au regard de la TVA — dans le champ,
-          exonérées, taxées ou assimilées — puis mesurent votre exposition à la taxe sur les
-          salaires. Chaque étape s'appuie sur la doctrine et renvoie vers un avocat fiscaliste
-          quand la question l'exige.
+        <p class="apparition-lente mt-7 max-w-xl text-lg leading-8 text-white/70">
+          Le scanner déroule le raisonnement d'un avocat fiscaliste : champ d'application,
+          exonérations, options, droit à déduction. Votre cartographie se construit en direct,
+          le rapport tombe à la fin.
         </p>
-        <div class="apparition-lente mt-9 flex flex-col gap-3 sm:flex-row">
+        <div class="apparition-lente mt-10 flex flex-col gap-3 sm:flex-row">
           <a
             href="/scan-tva/"
-            class="flex items-center justify-center gap-2 rounded bg-marine px-6 py-3.5 font-texte text-base font-semibold text-white shadow-ambiante transition-all hover:-translate-y-0.5 hover:bg-marine-2 hover:shadow-ambiante-2"
+            class="flex items-center justify-center gap-2 rounded bg-or-vif px-7 py-4 font-texte text-base font-bold text-nuit transition-all hover:-translate-y-0.5 hover:bg-or-pale"
           >
             <span class="ms text-xl" aria-hidden="true">radar</span>
             Lancer le Scan TVA
           </a>
           <a
             href="/scan-taxe-salaires/"
-            class="flex items-center justify-center gap-2 rounded border border-marine px-6 py-3.5 font-texte text-base font-semibold text-marine transition-colors hover:bg-marine hover:text-white"
+            class="flex items-center justify-center gap-2 rounded border border-white/40 px-7 py-4 font-texte text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
           >
             <span class="ms text-xl" aria-hidden="true">badge</span>
             Scan Taxe sur les salaires
           </a>
         </div>
-        <p class="mt-4 text-sm text-texte-3">Gratuit, sans inscription. Environ cinq minutes.</p>
+        <p class="mt-5 text-sm text-white/50">Gratuit, sans inscription. Vos réponses restent dans votre navigateur.</p>
       </div>
     </div>
   </section>
+
+  <!-- Bandeau défilant -->
+  <div class="overflow-hidden border-y border-nuit/10 bg-or-vif py-3 text-nuit" aria-hidden="true">
+    <div class="defilement">
+      {
+        [0, 1].map(() => (
+          <div class="flex items-center gap-10 pr-10">
+            {[
+              '16,2 milliards d’euros de taxe sur les salaires collectés en 2022',
+              'Deux scanners interactifs',
+              'Holdings · Banque · Assurance · Immobilier · Santé · OSBL',
+              'Une doctrine opérationnelle, adossée au CGI et au BOFiP',
+              'Par le cabinet BENSAID AVOCATS',
+            ].map((element) => (
+              <span class="flex items-center gap-10 whitespace-nowrap font-titres text-sm font-bold uppercase tracking-wide">
+                {element}
+                <span class="text-nuit/40">◆</span>
+              </span>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
 
   <!-- Comment ça marche -->
   <section class="border-b border-bordure bg-fond-2">
@@ -196,8 +249,9 @@ const donneesStructurees = JSON.stringify({
   </section>
 
   <!-- L'expert -->
-  <section class="bg-marine text-white">
-    <div class="mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
+  <section class="relative overflow-hidden bg-nuit text-white">
+    <span class="mot-fantome -left-6 -top-4 text-[7rem] md:text-[11rem]" aria-hidden="true">Expert</span>
+    <div class="relative mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
       <div class="grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">
         <div>
           <p class="etiquette text-or-pale">L'expert derrière le site</p>
