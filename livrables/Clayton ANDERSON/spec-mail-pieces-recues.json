@@ -1,7 +1,7 @@
 {
   "destinataire": "claytonrobertanderson@gmail.com",
   "copie": "contact@bensaid-avocats.fr",
-  "objet": "Vos pièces, deux urgences et les éléments qui nous manquent",
+  "objet": "Vos pièces, nos observations et notre proposition d'honoraires",
   "civilite": "Cher Monsieur,",
   "disponibilite": "Je reste à votre disposition.",
   "corps": [
@@ -57,10 +57,25 @@
       "b": "La date de votre mariage, votre régime matrimonial, et le pays de résidence fiscale de votre épouse."
     },
     {
-      "titre": "5. La suite"
+      "titre": "5. Notre proposition d'honoraires"
     },
     {
-      "p": "Notre devis vous parviendra par voie séparée. Il couvre la reconstitution de vos cinq millésimes, leur régularisation et la négociation des pénalités. Aucun honoraire n'est engagé avant votre accord."
+      "p": "Nous vous proposons une mission en trois temps, chacun réglé à son ouverture. La décision de poursuivre vous appartient à l'issue de chacun d'eux."
+    },
+    {
+      "b": "Premier temps, l'audit et la stratégie. Reconstitution année par année, qualification de vos revenus de BWH Development, chiffrage de votre exposition en hypothèse haute et basse, choix du canal de régularisation et calendrier. Nous vous remettons une note chiffrée et nous la commentons avec vous. 5 500 € HT."
+    },
+    {
+      "b": "Deuxième temps, la régularisation des cinq millésimes 2020 à 2024. Établissement et dépôt des déclarations, avec pour chaque année le détail de vos comptes et de vos revenus de source américaine. S'y ajoutent la lettre circonstanciée établissant le caractère spontané de la démarche et la demande de remise des amendes et majorations. 9 750 € HT."
+    },
+    {
+      "b": "Troisième temps, le suivi et la négociation. Réponses aux demandes de l'administration jusqu'à la mise en recouvrement, et négociation de la remise. 3 750 € HT."
+    },
+    {
+      "p": "Soit 19 000 € HT pour l'ensemble, la TVA étant due en sus selon le régime applicable au jour de la facturation. Aucun honoraire n'est engagé avant votre accord écrit. Une lettre de mission vous sera adressée dès celui-ci."
+    },
+    {
+      "p": "Deux sujets restent en dehors de cette mission. La situation de BWH Development au regard de son établissement en France en est un, qui concerne la société davantage que vous, et sur lequel nous reviendrons séparément. Votre déclaration de 2026 en est un autre, que votre mariage, la naissance de votre enfant et la cession de vos titres rendent plus délicate que les précédentes."
     }
   ]
 }
