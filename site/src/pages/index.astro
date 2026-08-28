@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { imagesSecteurs } from '@/data/images';
 
 const secteurs = (
   await getCollection(
@@ -68,34 +69,22 @@ const donneesStructurees = JSON.stringify({
 
   <!-- Héros nuit -->
   <section class="relative overflow-hidden bg-nuit text-white">
-    <div class="grille-nuit absolute inset-0" aria-hidden="true"></div>
+    <img
+      src="/images/accueil-hero.jpg"
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover object-right opacity-70"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
     <div
       class="absolute inset-0"
-      style="background: radial-gradient(1100px 600px at 78% 18%, rgba(0,27,58,0.9), transparent 60%), radial-gradient(700px 460px at 12% 92%, rgba(216,171,74,0.12), transparent 60%);"
+      style="background: linear-gradient(90deg, rgba(5,13,26,0.96) 0%, rgba(5,13,26,0.82) 42%, rgba(5,13,26,0.25) 75%, rgba(5,13,26,0.55) 100%), linear-gradient(0deg, rgba(5,13,26,0.85) 0%, transparent 30%);"
       aria-hidden="true"
     >
     </div>
+    <div class="grille-nuit absolute inset-0 opacity-60" aria-hidden="true"></div>
     <span class="mot-fantome -right-8 bottom-2 text-[9rem] md:text-[15rem]" aria-hidden="true">TVA</span>
 
-    <!-- réseau animé, rappel de la cartographie -->
-    <svg viewBox="0 0 420 420" class="absolute -right-10 top-1/2 hidden w-[430px] -translate-y-1/2 opacity-80 lg:block" aria-hidden="true">
-      <g stroke="#d8ab4a" stroke-opacity="0.28" stroke-width="1">
-        <line x1="210" y1="210" x2="90" y2="90" pathLength="1" stroke-dasharray="1" class="carto-lien" />
-        <line x1="210" y1="210" x2="330" y2="70" pathLength="1" stroke-dasharray="1" class="carto-lien" style="animation-delay:120ms" />
-        <line x1="210" y1="210" x2="360" y2="230" pathLength="1" stroke-dasharray="0.03 0.025" class="carto-lien-pointille" style="animation-delay:240ms" />
-        <line x1="210" y1="210" x2="300" y2="350" pathLength="1" stroke-dasharray="1" class="carto-lien" style="animation-delay:360ms" />
-        <line x1="210" y1="210" x2="80" y2="320" pathLength="1" stroke-dasharray="0.03 0.025" class="carto-lien-pointille" style="animation-delay:480ms" />
-      </g>
-      <circle cx="210" cy="210" r="26" fill="#d8ab4a" class="carto-noeud" />
-      <circle cx="210" cy="210" r="36" fill="none" stroke="#d8ab4a" stroke-opacity="0.35" class="carto-pulse" />
-      <g fill="#0b2c55" stroke="#d8ab4a" stroke-opacity="0.5">
-        <circle cx="90" cy="90" r="15" class="carto-noeud" style="animation-delay:150ms" />
-        <circle cx="330" cy="70" r="12" class="carto-noeud" style="animation-delay:280ms" />
-        <circle cx="360" cy="230" r="14" class="carto-noeud" style="animation-delay:400ms" />
-        <circle cx="300" cy="350" r="11" class="carto-noeud" style="animation-delay:520ms" />
-        <circle cx="80" cy="320" r="13" class="carto-noeud" style="animation-delay:640ms" />
-      </g>
-    </svg>
 
     <div class="relative mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
       <div class="max-w-3xl">
@@ -199,15 +188,33 @@ const donneesStructurees = JSON.stringify({
           secteurs.map((secteur) => (
             <a
               href={`/${secteur.id}/`}
-              class="group rounded border border-bordure bg-carte p-6 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+              class="group overflow-hidden rounded border border-bordure bg-carte transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
             >
-              <span class="ms text-3xl text-marine" aria-hidden="true">
-                {secteur.data.pictogramme}
-              </span>
-              <h3 class="mt-3 font-titres text-lg font-semibold group-hover:text-marine">
-                {secteur.data.titreCourt}
-              </h3>
-              <p class="mt-2 text-sm leading-6 text-texte-2">{secteur.data.accroche}</p>
+              {imagesSecteurs[secteur.id] && (
+                <div class="relative aspect-[16/9] overflow-hidden bg-nuit">
+                  <img
+                    src={imagesSecteurs[secteur.id]}
+                    alt=""
+                    loading="lazy"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-nuit/70 via-transparent to-transparent"></div>
+                  <span class="ms absolute bottom-3 left-4 text-2xl text-or-pale" aria-hidden="true">
+                    {secteur.data.pictogramme}
+                  </span>
+                </div>
+              )}
+              <div class="p-6">
+                {!imagesSecteurs[secteur.id] && (
+                  <span class="ms text-3xl text-marine" aria-hidden="true">
+                    {secteur.data.pictogramme}
+                  </span>
+                )}
+                <h3 class="mt-1 font-titres text-lg font-semibold group-hover:text-marine">
+                  {secteur.data.titreCourt}
+                </h3>
+                <p class="mt-2 text-sm leading-6 text-texte-2">{secteur.data.accroche}</p>
+              </div>
             </a>
           ))
         }

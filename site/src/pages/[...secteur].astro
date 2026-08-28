@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BandeauScan from '@/components/BandeauScan.astro';
+import { imagesSecteurs } from '@/data/images';
 
 export async function getStaticPaths() {
   const secteurs = await getCollection('secteurs', ({ data }) => data.statut === 'publie');
@@ -22,9 +23,22 @@ const sousPages = toutes
 const parent = entree.id.includes('/')
   ? toutes.find((e) => e.id === entree.id.split('/').slice(0, -1).join('/'))
   : undefined;
+const imageBanniere = entree.id.includes('/') ? undefined : imagesSecteurs[entree.id];
 ---
 
 <BaseLayout titre={entree.data.titre} description={entree.data.description}>
+  {
+    imageBanniere && (
+      <section class="relative overflow-hidden bg-nuit text-white">
+        <img src={imageBanniere} alt="" class="absolute inset-0 h-full w-full object-cover opacity-50" aria-hidden="true" />
+        <div class="absolute inset-0 bg-gradient-to-r from-nuit via-nuit/80 to-nuit/30" aria-hidden="true" />
+        <div class="relative mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
+          <p class="etiquette text-or-vif">Doctrine sectorielle</p>
+          <h1 class="texte-affiche mt-4 max-w-3xl text-4xl text-white md:text-6xl">{entree.data.titre}</h1>
+        </div>
+      </section>
+    )
+  }
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
     <nav aria-label="Fil d'Ariane" class="mb-8 text-sm text-texte-3">
       <a href="/secteurs/" class="hover:text-encre">Secteurs</a>
@@ -40,10 +54,16 @@ const parent = entree.id.includes('/')
       <span class="text-texte-2">{entree.data.titreCourt}</span>
     </nav>
     <header class="max-w-3xl">
-      <p class="etiquette text-or">Doctrine sectorielle</p>
-      <h1 class="mt-3 font-titres text-3xl font-bold tracking-tight md:text-4xl">
-        {entree.data.titre}
-      </h1>
+      {
+        !imageBanniere && (
+          <>
+            <p class="etiquette text-or">Doctrine sectorielle</p>
+            <h1 class="mt-3 font-titres text-3xl font-bold tracking-tight md:text-4xl">
+              {entree.data.titre}
+            </h1>
+          </>
+        )
+      }
       <p class="mt-4 text-lg leading-8 text-texte-2">{entree.data.accroche}</p>
     </header>
     <article class="prose-doctrine mt-10">
