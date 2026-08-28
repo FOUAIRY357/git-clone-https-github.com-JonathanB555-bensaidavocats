@@ -68,7 +68,8 @@ const donneesStructurees = JSON.stringify({
   <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
 
   <!-- Héros nuit -->
-  <section class="relative overflow-hidden bg-nuit text-white">
+  <section class="projecteur relative overflow-hidden bg-nuit text-white">
+    <div class="parallaxe absolute inset-0" aria-hidden="true">
     <img
       src="/images/accueil-hero.jpg"
       alt=""
@@ -76,6 +77,18 @@ const donneesStructurees = JSON.stringify({
       fetchpriority="high"
       aria-hidden="true"
     />
+    <video
+      class="video-hero absolute inset-0 hidden h-full w-full object-cover object-right opacity-70 md:block"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/images/accueil-hero.jpg"
+      aria-hidden="true"
+    >
+      <source src="/videos/accueil-hero.mp4" type="video/mp4" />
+    </video>
+    </div>
     <div
       class="absolute inset-0"
       style="background: linear-gradient(90deg, rgba(5,13,26,0.96) 0%, rgba(5,13,26,0.82) 42%, rgba(5,13,26,0.25) 75%, rgba(5,13,26,0.55) 100%), linear-gradient(0deg, rgba(5,13,26,0.85) 0%, transparent 30%);"
@@ -143,6 +156,28 @@ const donneesStructurees = JSON.stringify({
     </div>
   </div>
 
+  <!-- Chiffres clés -->
+  <section class="border-b border-bordure bg-fond">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 py-12 md:grid-cols-4 md:px-10 md:py-14">
+      {
+        [
+          { valeur: 16.2, decimales: 1, suffixe: 'Md€', libelle: 'de taxe sur les salaires collectés en 2022' },
+          { valeur: 90, decimales: 0, suffixe: '%', libelle: 'le seuil d’assujettissement à surveiller chaque année' },
+          { valeur: 43, decimales: 0, suffixe: 'pages', libelle: 'de doctrine sectorielle et transversale' },
+          { valeur: 3, decimales: 0, suffixe: 'coefficients', libelle: 'décident de chaque euro de TVA récupéré' },
+        ].map((chiffre, indice) => (
+          <div class="reveler" style={`transition-delay: ${indice * 90}ms`}>
+            <p class="texte-affiche text-4xl text-marine md:text-5xl">
+              <span data-compteur={chiffre.valeur} data-decimales={chiffre.decimales}>0</span>
+              <span class="text-or"> {chiffre.suffixe}</span>
+            </p>
+            <p class="mt-2 text-sm leading-5 text-texte-2">{chiffre.libelle}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
   <!-- Comment ça marche -->
   <section class="border-b border-bordure bg-fond-2">
     <div class="mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
@@ -197,6 +232,7 @@ const donneesStructurees = JSON.stringify({
                     src={imagesSecteurs[secteur.id]}
                     alt=""
                     loading="lazy"
+                    transition:name={'img-' + secteur.id}
                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-nuit/70 via-transparent to-transparent"></div>
@@ -258,7 +294,7 @@ const donneesStructurees = JSON.stringify({
   </section>
 
   <!-- L'expert -->
-  <section class="relative overflow-hidden bg-nuit text-white">
+  <section class="projecteur relative overflow-hidden bg-nuit text-white">
     <span class="mot-fantome -left-6 -top-4 text-[7rem] md:text-[11rem]" aria-hidden="true">Expert</span>
     <div class="relative mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
       <div class="grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">

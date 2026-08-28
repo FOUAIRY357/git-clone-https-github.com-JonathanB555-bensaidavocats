@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { ArbreScan, OperationScannee, TeinteCarto } from '@/data/scan/types';
 
 const COULEURS: Record<TeinteCarto, string> = {
@@ -24,6 +25,9 @@ interface Props {
   operationEnCours?: string;
   /** Version réduite (barre latérale) : masque légende et libellés longs. */
   compacte?: boolean;
+  /** Rapport : survol avec fiche de l'opération, clic vers le détail. */
+  interactive?: boolean;
+  onChoisir?: (index: number) => void;
 }
 
 /** Position des nœuds : répartis autour de l'entité selon l'angle d'or. */
@@ -35,7 +39,8 @@ function position(index: number, total: number) {
   };
 }
 
-export default function CartographieScan({ arbre, operations, operationEnCours, compacte }: Props) {
+export default function CartographieScan({ arbre, operations, operationEnCours, compacte, interactive, onChoisir }: Props) {
+  const [survol, setSurvol] = useState<number | null>(null);
   const total = operations.length + (operationEnCours ? 1 : 0);
   const k = compacte ? 1.7 : 1;
   const legende = new Map<string, TeinteCarto>();
@@ -46,11 +51,12 @@ export default function CartographieScan({ arbre, operations, operationEnCours, 
 
   return (
     <figure aria-label="Cartographie des opérations du dossier" className="m-0">
+      <div className="relative mx-auto w-full" style={compacte ? undefined : { maxWidth: 680 }}>
       <svg
         viewBox="0 0 600 440"
         role="img"
         className="w-full"
-        style={{ maxHeight: compacte ? 240 : 460 }}
+        style={{ maxHeight: compacte ? 240 : undefined }}
       >
         {/* grille discrète */}
         <defs>
@@ -113,7 +119,14 @@ export default function CartographieScan({ arbre, operations, operationEnCours, 
           const fond = COULEURS[carto?.teinte ?? 'gris'];
           const encre = ENCRE_PASTILLE[carto?.teinte ?? 'gris'];
           return (
-            <g key={`n-${i}`} className="carto-noeud" style={{ animationDelay: `${120 + i * 90}ms` }}>
+            <g
+              key={`n-${i}`}
+              className="carto-noeud"
+              style={{ animationDelay: `${120 + i * 90}ms`, cursor: interactive ? 'pointer' : undefined }}
+              onMouseEnter={interactive ? () => setSurvol(i) : undefined}
+              onMouseLeave={interactive ? () => setSurvol(null) : undefined}
+              onClick={interactive ? () => onChoisir?.(i) : undefined}
+            >
               <rect x={x - 24 * k} y={y - 24 * k} width={48 * k} height={48 * k} rx={10 * k} fill={fond} />
               <text x={x} y={y + 8 * k} textAnchor="middle" className="ms" fontSize={24 * k} fill={encre}>
                 receipt_long
@@ -159,6 +172,39 @@ export default function CartographieScan({ arbre, operations, operationEnCours, 
             );
           })()}
       </svg>
+
+      {interactive &&
+        survol !== null &&
+        (() => {
+          const op = operations[survol];
+          if (!op) return null;
+          const resultat = arbre.resultats[op.resultatId];
+          const carto = resultat?.carto;
+          const { x, y } = position(survol, total);
+          const libelleDeduction =
+            carto?.deduction === 'oui'
+              ? 'Ouvre droit à déduction'
+              : carto?.deduction === 'non'
+                ? "N'ouvre pas droit à déduction"
+                : 'Droit à déduction à analyser';
+          return (
+            <div
+              className="pointer-events-none absolute z-10 w-56 -translate-x-1/2 rounded border border-bordure bg-carte p-3 text-left shadow-ambiante-2"
+              style={{ left: `${(x / 600) * 100}%`, top: `calc(${(y / 440) * 100}% + 2.6rem)` }}
+            >
+              <p className="font-titres text-sm font-semibold text-encre">{op.libelle}</p>
+              <p className="mt-0.5 text-xs text-texte-2">{resultat?.qualification}</p>
+              {op.montant ? (
+                <p className="mt-0.5 text-xs text-texte-3">{op.montant.toLocaleString('fr-FR')} € de recettes / an</p>
+              ) : null}
+              <p className="mt-1 text-xs font-semibold" style={{ color: carto?.deduction === 'oui' ? '#1d6b3c' : '#8a6a1f' }}>
+                {libelleDeduction}
+              </p>
+              <p className="mt-1 text-[10px] uppercase tracking-wide text-texte-3">Cliquer pour le détail</p>
+            </div>
+          );
+        })()}
+      </div>
 
       {!compacte && legende.size > 0 && (
         <figcaption className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">

@@ -30,7 +30,7 @@ const imageBanniere = entree.id.includes('/') ? undefined : imagesSecteurs[entre
   {
     imageBanniere && (
       <section class="relative overflow-hidden bg-nuit text-white">
-        <img src={imageBanniere} alt="" class="kenburns absolute inset-0 h-full w-full object-cover opacity-50" aria-hidden="true" />
+        <img src={imageBanniere} alt="" transition:name={'img-' + entree.id} class="kenburns absolute inset-0 h-full w-full object-cover opacity-50" aria-hidden="true" />
         <div class="absolute inset-0 bg-gradient-to-r from-nuit via-nuit/80 to-nuit/30" aria-hidden="true" />
         <div class="relative mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
           <p class="etiquette text-or-vif">Doctrine sectorielle</p>

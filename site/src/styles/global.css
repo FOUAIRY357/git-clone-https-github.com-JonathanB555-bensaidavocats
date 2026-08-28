@@ -198,6 +198,34 @@ html.icones-chargees .ms {
   background-size: 52px 52px;
 }
 
+/* Mode immersif du scan : la page devient l'écran de jeu */
+.mode-immersif body {
+  background-color: var(--color-nuit);
+}
+.mode-immersif body > header,
+.mode-immersif body > footer {
+  display: none;
+}
+
+/* Halo doré qui suit la souris sur les sections nuit */
+.projecteur {
+  --sx: 50%;
+  --sy: 40%;
+}
+.projecteur::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(620px circle at var(--sx) var(--sy), rgba(216, 171, 74, 0.09), transparent 65%);
+  transition: opacity 0.3s;
+}
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .projecteur::after {
+    display: none;
+  }
+}
+
 /* Révélation au défilement (IntersectionObserver dans BaseLayout) */
 .reveler {
   opacity: 0;

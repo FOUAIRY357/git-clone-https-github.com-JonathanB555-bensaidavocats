@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '@/styles/global.css';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
@@ -45,6 +46,7 @@ const urlCanonique = new URL(Astro.url.pathname, Astro.site);
         document.documentElement.classList.add('icones-chargees');
       }
     </script>
+    <ClientRouter />
     <slot name="tete" />
   </head>
   <body class="min-h-screen flex flex-col">
@@ -54,26 +56,99 @@ const urlCanonique = new URL(Astro.url.pathname, Astro.site);
     </main>
     <Footer />
     <script is:inline>
-      // Révèle les éléments .reveler à leur entrée dans la fenêtre.
-      (function () {
-        var elements = document.querySelectorAll('.reveler');
-        if (!('IntersectionObserver' in window)) {
+      // Initialisations rejouées à chaque navigation (View Transitions).
+      document.addEventListener('astro:page-load', function () {
+        var mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // 1. Révélation au défilement
+        var elements = document.querySelectorAll('.reveler:not(.visible)');
+        if (!('IntersectionObserver' in window) || mouvementReduit) {
           elements.forEach(function (el) { el.classList.add('visible'); });
-          return;
+        } else {
+          var observateur = new IntersectionObserver(
+            function (entrees) {
+              entrees.forEach(function (entree) {
+                if (entree.isIntersecting) {
+                  entree.target.classList.add('visible');
+                  observateur.unobserve(entree.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+          );
+          elements.forEach(function (el) { observateur.observe(el); });
         }
-        var observateur = new IntersectionObserver(
-          function (entrees) {
+
+        // 2. Compteurs animés
+        var formater = function (valeur, decimales) {
+          return valeur.toLocaleString('fr-FR', { minimumFractionDigits: decimales, maximumFractionDigits: decimales });
+        };
+        var animerCompteur = function (el) {
+          var cible = parseFloat(el.dataset.compteur);
+          var decimales = parseInt(el.dataset.decimales || '0', 10);
+          if (mouvementReduit) { el.textContent = formater(cible, decimales); return; }
+          var debut = null;
+          var pas = function (t) {
+            if (debut === null) debut = t;
+            var avancement = Math.min((t - debut) / 1400, 1);
+            var facteur = 1 - Math.pow(1 - avancement, 3);
+            el.textContent = formater(cible * facteur, decimales);
+            if (avancement < 1) requestAnimationFrame(pas);
+          };
+          requestAnimationFrame(pas);
+        };
+        var compteurs = document.querySelectorAll('[data-compteur]:not([data-anime])');
+        if ('IntersectionObserver' in window && !mouvementReduit) {
+          var obsCompteurs = new IntersectionObserver(function (entrees) {
             entrees.forEach(function (entree) {
               if (entree.isIntersecting) {
-                entree.target.classList.add('visible');
-                observateur.unobserve(entree.target);
+                entree.target.dataset.anime = '1';
+                animerCompteur(entree.target);
+                obsCompteurs.unobserve(entree.target);
               }
             });
-          },
-          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-        );
-        elements.forEach(function (el) { observateur.observe(el); });
-      })();
+          }, { threshold: 0.5 });
+          compteurs.forEach(function (el) { obsCompteurs.observe(el); });
+        } else {
+          compteurs.forEach(function (el) { el.dataset.anime = '1'; animerCompteur(el); });
+        }
+
+        // 3. Halo doré sous la souris
+        document.querySelectorAll('.projecteur').forEach(function (section) {
+          section.addEventListener('mousemove', function (e) {
+            var boite = section.getBoundingClientRect();
+            section.style.setProperty('--sx', (e.clientX - boite.left) + 'px');
+            section.style.setProperty('--sy', (e.clientY - boite.top) + 'px');
+          });
+        });
+
+        // 4. Parallaxe du héros
+        var parallaxe = document.querySelector('.parallaxe');
+        if (parallaxe && !mouvementReduit) {
+          var actif = false;
+          window.addEventListener('scroll', function () {
+            if (actif) return;
+            actif = true;
+            requestAnimationFrame(function () {
+              if (window.scrollY < window.innerHeight * 1.2) {
+                parallaxe.style.transform = 'translate3d(0,' + window.scrollY * 0.22 + 'px,0)';
+              }
+              actif = false;
+            });
+          }, { passive: true });
+        }
+
+        // 5. Menu mobile
+        var bouton = document.getElementById('bouton-menu');
+        var menu = document.getElementById('menu-mobile');
+        if (bouton && menu && !bouton.dataset.branche) {
+          bouton.dataset.branche = '1';
+          bouton.addEventListener('click', function () {
+            var ouvert = menu.classList.toggle('hidden') === false;
+            bouton.setAttribute('aria-expanded', String(ouvert));
+          });
+        }
+      });
     </script>
   </body>
 </html>

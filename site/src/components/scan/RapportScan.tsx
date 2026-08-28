@@ -96,7 +96,17 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
         </div>
 
         <div className="mt-6">
-          <CartographieScan arbre={arbre} operations={operations} />
+          <CartographieScan
+            arbre={arbre}
+            operations={operations}
+            interactive
+            onChoisir={(indice) =>
+              document.getElementById(`op-detail-${indice}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }
+          />
+          <p className="no-print mt-2 text-center text-xs text-texte-3">
+            Survolez une opération pour sa fiche, cliquez pour rejoindre son détail.
+          </p>
         </div>
 
         {/* Tableau récapitulatif */}
@@ -229,7 +239,7 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
           </h3>
           <div className="mt-4 space-y-5">
             {resultats.map(({ op, resultat }, i) => (
-              <article key={i} className="rounded border border-bordure bg-fond-2 p-5">
+              <article key={i} id={`op-detail-${i}`} className="rounded border border-bordure bg-fond-2 p-5">
                 <p className="font-titres text-base font-semibold text-encre">
                   {op.libelle} — {resultat.qualification}
                 </p>

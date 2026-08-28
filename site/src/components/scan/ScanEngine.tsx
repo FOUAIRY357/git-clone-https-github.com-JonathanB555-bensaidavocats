@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type MouseEvent as EvenementSouris } from 'react';
 import type { ArbreScan, OperationScannee, QuestionScan, ResultatScan, TonResultat } from '@/data/scan/types';
 import CartographieScan from './CartographieScan';
 import RapportScan from './RapportScan';
@@ -45,6 +45,15 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   });
   const [libelleOperation, setLibelleOperation] = useState('');
   const [montantOperation, setMontantOperation] = useState('');
+  const [immersif, setImmersif] = useState(false);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    document.documentElement.classList.toggle('mode-immersif', immersif);
+    return () => document.documentElement.classList.remove('mode-immersif');
+  }, [immersif]);
+
+  const teinteSecondaire = immersif ? 'text-white/60' : 'text-texte-2';
 
   useEffect(() => {
     if (!dossier || typeof window === 'undefined') return;
@@ -68,8 +77,38 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
 
   const libelleParDefaut = `Opération ${operations.length + 1}`;
 
-  function repondre(libelle: string, versQuestion?: string, versResultat?: string) {
+  /** Petit point doré qui vole de la réponse cliquée vers la mini-carte. */
+  function voyagerNoeud(evenement: EvenementSouris<HTMLButtonElement>) {
+    if (typeof document === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const cible = document.getElementById('carte-mini');
+    if (!cible || !('animate' in Element.prototype)) return;
+    const arrivee = cible.getBoundingClientRect();
+    if (arrivee.width === 0) return;
+    const point = document.createElement('span');
+    point.style.cssText = `position:fixed;left:${evenement.clientX - 6}px;top:${evenement.clientY - 6}px;width:12px;height:12px;border-radius:9999px;background:#d8ab4a;box-shadow:0 0 14px 4px rgba(216,171,74,.55);z-index:60;pointer-events:none;`;
+    document.body.appendChild(point);
+    const dx = arrivee.left + arrivee.width / 2 - evenement.clientX;
+    const dy = arrivee.top + arrivee.height / 2 - evenement.clientY;
+    point
+      .animate(
+        [
+          { transform: 'translate(0,0) scale(1)', opacity: 1 },
+          { transform: `translate(${dx}px,${dy}px) scale(0.45)`, opacity: 0.15 },
+        ],
+        { duration: 650, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+      )
+      .addEventListener('finish', () => point.remove());
+  }
+
+  function repondre(
+    evenement: EvenementSouris<HTMLButtonElement>,
+    libelle: string,
+    versQuestion?: string,
+    versResultat?: string
+  ) {
     if (!question) return;
+    voyagerNoeud(evenement);
     setReponses([...reponses, { questionId: question.id, libelle }]);
     if (versResultat) {
       setCourant({ type: 'resultat', id: versResultat });
@@ -149,11 +188,28 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
             <p className="etiquette text-or">
               {courant.type === 'resultat' ? 'Scan terminé' : `Scan en cours — ${progression} %`}
             </p>
-            <p className="text-sm text-texte-2">
-              {courant.type === 'resultat'
-                ? `${reponses.length} réponse${reponses.length > 1 ? 's' : ''}`
-                : `Étape ${etape} sur ~${arbre.profondeurEstimee}`}
-            </p>
+            <div className="flex items-center gap-4">
+              <p className={`text-sm ${teinteSecondaire}`}>
+                {courant.type === 'resultat'
+                  ? `${reponses.length} réponse${reponses.length > 1 ? 's' : ''}`
+                  : `Étape ${etape} sur ~${arbre.profondeurEstimee}`}
+              </p>
+              <button
+                type="button"
+                onClick={() => setImmersif(!immersif)}
+                className={`flex items-center gap-1.5 rounded border px-2.5 py-1.5 text-xs font-semibold transition-colors ${
+                  immersif
+                    ? 'border-or-vif text-or-pale hover:bg-white/10'
+                    : 'border-bordure text-texte-2 hover:border-marine hover:text-encre'
+                }`}
+                title={immersif ? "Quitter le mode immersif" : 'Passer en mode immersif'}
+              >
+                <span className="ms text-base" aria-hidden="true">
+                  {immersif ? 'fullscreen_exit' : 'fullscreen'}
+                </span>
+                {immersif ? 'Quitter' : 'Immersif'}
+              </button>
+            </div>
           </div>
           <div
             className="h-1.5 w-full overflow-hidden rounded-full bg-fond-3"
@@ -204,7 +260,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 <button
                   key={option.libelle}
                   type="button"
-                  onClick={() => repondre(option.libelle, option.versQuestion, option.versResultat)}
+                  onClick={(evenement) => repondre(evenement, option.libelle, option.versQuestion, option.versResultat)}
                   className="group rounded border border-bordure bg-carte p-5 text-left transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
                 >
                   <span className="flex items-start justify-between gap-3">
@@ -266,14 +322,16 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 type="button"
                 onClick={retour}
                 disabled={reponses.length === 0}
-                className="flex items-center gap-2 text-sm font-semibold text-texte-2 transition-colors enabled:hover:text-encre disabled:opacity-40"
+                className={`flex items-center gap-2 text-sm font-semibold transition-colors disabled:opacity-40 ${
+                  immersif ? 'text-white/60 enabled:hover:text-white' : 'text-texte-2 enabled:hover:text-encre'
+                }`}
               >
                 <span className="ms text-lg" aria-hidden="true">
                   arrow_back
                 </span>
                 Retour
               </button>
-              <a href={question.doctrine.url} className="flex items-center gap-2 text-sm text-lien underline underline-offset-4">
+              <a href={question.doctrine.url} className={`flex items-center gap-2 text-sm underline underline-offset-4 ${immersif ? 'text-or-pale' : 'text-lien'}`}>
                 <span className="ms text-lg" aria-hidden="true">
                   menu_book
                 </span>
@@ -403,7 +461,9 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
             <button
               type="button"
               onClick={relancerScan}
-              className="mt-6 flex items-center gap-2 text-sm font-semibold text-texte-2 transition-colors hover:text-encre"
+              className={`mt-6 flex items-center gap-2 text-sm font-semibold transition-colors ${
+                immersif ? 'text-white/60 hover:text-white' : 'text-texte-2 hover:text-encre'
+              }`}
             >
               <span className="ms text-lg" aria-hidden="true">
                 restart_alt
@@ -433,7 +493,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 </button>
               )}
             </div>
-            <div className="pt-2">
+            <div className="pt-2" id="carte-mini">
               <CartographieScan
                 arbre={arbre}
                 operations={operations}

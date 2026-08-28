@@ -85,13 +85,3 @@ const liens = [
     </nav>
   </div>
 </header>
-
-<script>
-  const bouton = document.getElementById('bouton-menu');
-  const menu = document.getElementById('menu-mobile');
-  bouton?.addEventListener('click', () => {
-    const ouvert = menu?.classList.toggle('hidden') === false;
-    bouton.setAttribute('aria-expanded', String(ouvert));
-    bouton.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
-  });
-</script>
