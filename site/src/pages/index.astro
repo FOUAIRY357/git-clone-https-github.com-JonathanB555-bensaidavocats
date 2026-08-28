@@ -72,7 +72,7 @@ const donneesStructurees = JSON.stringify({
     <img
       src="/images/accueil-hero.jpg"
       alt=""
-      class="absolute inset-0 h-full w-full object-cover object-right opacity-70"
+      class="kenburns absolute inset-0 h-full w-full object-cover object-right opacity-70"
       fetchpriority="high"
       aria-hidden="true"
     />
@@ -153,7 +153,7 @@ const donneesStructurees = JSON.stringify({
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         {
           etapes.map((etape, index) => (
-            <article class="rounded border border-bordure bg-carte p-6 shadow-ambiante">
+            <article class="reveler rounded border border-bordure bg-carte p-6 shadow-ambiante" style={`transition-delay: ${index * 90}ms`}>
               <div class="flex items-center justify-between">
                 <span class="ms text-3xl text-or" aria-hidden="true">
                   {etape.icone}
@@ -185,10 +185,11 @@ const donneesStructurees = JSON.stringify({
       </div>
       <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {
-          secteurs.map((secteur) => (
+          secteurs.map((secteur, indice) => (
             <a
               href={`/${secteur.id}/`}
-              class="group overflow-hidden rounded border border-bordure bg-carte transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+              class="reveler group overflow-hidden rounded border border-bordure bg-carte transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+              style={`transition-delay: ${(indice % 3) * 90}ms`}
             >
               {imagesSecteurs[secteur.id] && (
                 <div class="relative aspect-[16/9] overflow-hidden bg-nuit">
@@ -236,10 +237,11 @@ const donneesStructurees = JSON.stringify({
       </div>
       <div class="mt-10 grid gap-5 md:grid-cols-3">
         {
-          actualites.map((article) => (
+          actualites.map((article, indice) => (
             <a
               href={`/actualites/${article.id}/`}
-              class="group rounded border border-bordure bg-carte p-6 transition-all hover:-translate-y-0.5 hover:shadow-ambiante-2"
+              class="reveler group rounded border border-bordure bg-carte p-6 transition-all hover:-translate-y-0.5 hover:shadow-ambiante-2"
+              style={`transition-delay: ${indice * 90}ms`}
             >
               <time datetime={article.data.date.toISOString()} class="etiquette text-texte-3">
                 {formateurDate.format(article.data.date)}

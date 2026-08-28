@@ -30,7 +30,7 @@ const imageBanniere = entree.id.includes('/') ? undefined : imagesSecteurs[entre
   {
     imageBanniere && (
       <section class="relative overflow-hidden bg-nuit text-white">
-        <img src={imageBanniere} alt="" class="absolute inset-0 h-full w-full object-cover opacity-50" aria-hidden="true" />
+        <img src={imageBanniere} alt="" class="kenburns absolute inset-0 h-full w-full object-cover opacity-50" aria-hidden="true" />
         <div class="absolute inset-0 bg-gradient-to-r from-nuit via-nuit/80 to-nuit/30" aria-hidden="true" />
         <div class="relative mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-20">
           <p class="etiquette text-or-vif">Doctrine sectorielle</p>
@@ -74,10 +74,11 @@ const imageBanniere = entree.id.includes('/') ? undefined : imagesSecteurs[entre
         <section class="mt-12 border-t border-bordure pt-8">
           <p class="etiquette text-or">Dans cette rubrique</p>
           <div class="mt-5 grid gap-4 sm:grid-cols-2">
-            {sousPages.map((page) => (
+            {sousPages.map((page, indice) => (
               <a
                 href={`/${page.id}/`}
-                class="group rounded border border-bordure bg-carte p-5 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+                class="reveler group rounded border border-bordure bg-carte p-5 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+                style={`transition-delay: ${(indice % 2) * 90}ms`}
               >
                 <h2 class="font-titres text-base font-semibold group-hover:text-marine">
                   {page.data.titreCourt}
