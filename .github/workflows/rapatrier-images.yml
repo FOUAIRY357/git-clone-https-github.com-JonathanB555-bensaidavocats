@@ -1,6 +1,6 @@
 name: Rapatrier les images générées
 # Contournement : l'environnement Claude Code n'a pas accès au domaine
-# d'hébergement temporaire des images générées ; ce workflow les télécharge
+# d'hébergement temporaire des médias générés ; ce workflow les télécharge
 # depuis un runner GitHub et les committe sur la branche ciblée par le dispatch.
 on: workflow_dispatch
 
@@ -12,25 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Télécharger les images
+      - name: Télécharger et compresser la vidéo du héros
         run: |
           set -euo pipefail
-          mkdir -p site/public/images
-          base='https://mcp.bensaid-mcp.com/files/images/nano-banana'
-          curl -fsSL -o site/public/images/accueil-hero.jpg  "$base/6842113c498436ae638b2c775bdc9afd/nano-banana-1787937185743.jpeg"
-          curl -fsSL -o site/public/images/scan-tva.jpg      "$base/c91fe4c0112eb89c0453a081a24e27ba/nano-banana-1787937203561.jpeg"
-          curl -fsSL -o site/public/images/scan-ts.jpg       "$base/9315ee2d247d8d4e5effc20b3e8e47cb/nano-banana-1787937220612.jpeg"
-          curl -fsSL -o site/public/images/holdings.jpg      "$base/b47e2d83d7f156b6e1ca93e003e17c31/nano-banana-1787937248128.jpeg"
-          curl -fsSL -o site/public/images/finance.jpg       "$base/a9bdeb242236ad943700c1877f17c197/nano-banana-1787937268105.jpeg"
-          curl -fsSL -o site/public/images/assurance.jpg     "$base/23f021d98dc4faa9e862a25628010731/nano-banana-1787937287618.jpeg"
-          curl -fsSL -o site/public/images/immobilier.jpg    "$base/1c7f921597ea88311ce50c9da35511ee/nano-banana-1787937313162.jpeg"
-          curl -fsSL -o site/public/images/sante.jpg         "$base/5fea76568b8c674f30e4116a19633add/nano-banana-1787937332432.jpeg"
-          curl -fsSL -o site/public/images/contentieux.jpg   "$base/f6864bdd8a7aefc413738300fa65d245/nano-banana-1787937350163.jpeg"
-          ls -la site/public/images/
-      - name: Committer les images
+          mkdir -p site/public/videos
+          curl -fsSL -o /tmp/hero-brut.mp4 'https://mcp.bensaid-mcp.com/files/videos/veo/8d12e159a34eaaabd0b64e2d7636d18d/veo-1787938081893.mp4'
+          ffmpeg -y -i /tmp/hero-brut.mp4 -an -vf scale=1280:-2 -c:v libx264 -crf 28 -preset slow -movflags +faststart site/public/videos/accueil-hero.mp4
+          ls -la site/public/videos/
+      - name: Committer
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/public/images
-          git commit -m "Images générées : rapatriement automatique"
+          git add site/public/videos
+          git commit -m "Vidéo du héros : rapatriement automatique"
           git push
