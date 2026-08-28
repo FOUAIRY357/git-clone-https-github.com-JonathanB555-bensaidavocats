@@ -1,7 +1,8 @@
 name: Rapatrier les images générées
 # Contournement : l'environnement Claude Code n'a pas accès au domaine
-# d'hébergement temporaire des médias générés ; ce workflow les télécharge
-# depuis un runner GitHub et les committe sur la branche ciblée par le dispatch.
+# d'hébergement temporaire des médias générés, et Cloudflare y refuse les
+# clients non-navigateur sur les vidéos. Ce workflow télécharge donc via un
+# vrai Chrome (Playwright) puis committe sur la branche ciblée par le dispatch.
 on: workflow_dispatch
 
 permissions:
@@ -12,15 +13,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Télécharger et compresser la vidéo du héros
+      - name: Télécharger la vidéo via Chrome
+        run: |
+          set -euo pipefail
+          npm init -y >/dev/null
+          npm install --no-audit --no-fund playwright-core >/dev/null
+          cat > telecharger.mjs <<'FIN'
+          import { chromium } from 'playwright-core';
+          import { writeFileSync } from 'node:fs';
+          const url = 'https://mcp.bensaid-mcp.com/files/videos/veo/105d7e5774a35422360f9b76850b4eed/veo-1787938670218.mp4';
+          const navigateur = await chromium.launch({ channel: 'chrome', headless: true });
+          const page = await navigateur.newPage();
+          await page.goto('https://mcp.bensaid-mcp.com/', { waitUntil: 'domcontentloaded', timeout: 30000 }).catch(() => {});
+          await page.waitForTimeout(5000); // laisse un éventuel challenge Cloudflare se résoudre
+          const b64 = await page.evaluate(async (cible) => {
+            const reponse = await fetch(cible, { credentials: 'include' });
+            if (!reponse.ok) throw new Error('HTTP ' + reponse.status);
+            const tampon = new Uint8Array(await reponse.arrayBuffer());
+            let s = '';
+            for (let i = 0; i < tampon.length; i += 0x8000) {
+              s += String.fromCharCode.apply(null, tampon.subarray(i, i + 0x8000));
+            }
+            return btoa(s);
+          }, url);
+          writeFileSync('/tmp/hero-brut.mp4', Buffer.from(b64, 'base64'));
+          console.log('téléchargé :', b64.length, 'caractères base64');
+          await navigateur.close();
+          FIN
+          node telecharger.mjs
+          ls -la /tmp/hero-brut.mp4
+      - name: Compresser et committer
         run: |
           set -euo pipefail
           mkdir -p site/public/videos
-          curl -fsSL -o /tmp/hero-brut.mp4 'https://mcp.bensaid-mcp.com/files/videos/veo/8d12e159a34eaaabd0b64e2d7636d18d/veo-1787938081893.mp4'
           ffmpeg -y -i /tmp/hero-brut.mp4 -an -vf scale=1280:-2 -c:v libx264 -crf 28 -preset slow -movflags +faststart site/public/videos/accueil-hero.mp4
-          ls -la site/public/videos/
-      - name: Committer
-        run: |
+          rm -f package.json package-lock.json telecharger.mjs
+          rm -rf node_modules
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/public/videos
