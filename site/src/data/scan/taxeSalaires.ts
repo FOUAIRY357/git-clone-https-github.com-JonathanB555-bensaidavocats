@@ -23,6 +23,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     employeur: {
       id: 'employeur',
       intitule: 'Employeur en France',
+      image: '/images/scan-ts.jpg',
       titre: 'Êtes-vous un employeur établi ou domicilié en France ?',
       aide: "La taxe sur les salaires est due par les employeurs établis ou domiciliés en France qui versent des rémunérations, lorsqu'ils ne sont pas soumis à la TVA sur la totalité de leur chiffre d'affaires.",
       references: [{ libelle: 'CGI, art. 231, 1' }],
@@ -48,6 +49,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     'seuil-90': {
       id: 'seuil-90',
       intitule: 'Seuil de 90 %',
+      image: '/images/scan-ts.jpg',
       titre:
         "L'année civile précédant le versement des rémunérations, étiez-vous soumis à la TVA sur au moins 90 % de votre chiffre d'affaires ?",
       aide: "Les employeurs assujettis à la TVA sur 90 % au moins de leur chiffre d'affaires au titre de l'année civile précédant celle du paiement des rémunérations ne sont pas redevables de la taxe sur les salaires.",
@@ -74,6 +76,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     rapport: {
       id: 'rapport',
       intitule: "Rapport d'assujettissement",
+      image: '/images/finance.jpg',
       titre: "Connaissez-vous votre rapport d'assujettissement à la taxe sur les salaires ?",
       aide: "L'assiette de la taxe est obtenue en multipliant le total des rémunérations par le rapport existant, l'année précédant celle du paiement, entre les recettes n'ayant pas ouvert droit à déduction de la TVA et le total des recettes.",
       references: [{ libelle: 'CGI, art. 231, 1' }],

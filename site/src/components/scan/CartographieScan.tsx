@@ -28,6 +28,8 @@ interface Props {
   /** Rapport : survol avec fiche de l'opération, clic vers le détail. */
   interactive?: boolean;
   onChoisir?: (index: number) => void;
+  /** Rendu sur fond nuit (barre latérale du scan). */
+  sombre?: boolean;
 }
 
 /** Position des nœuds : répartis autour de l'entité selon l'angle d'or. */
@@ -39,7 +41,10 @@ function position(index: number, total: number) {
   };
 }
 
-export default function CartographieScan({ arbre, operations, operationEnCours, compacte, interactive, onChoisir }: Props) {
+export default function CartographieScan({ arbre, operations, operationEnCours, compacte, interactive, onChoisir, sombre }: Props) {
+  const encreLibelle = sombre ? '#f4f0e6' : '#1b1c1a';
+  const encreSous = sombre ? '#8f9aae' : '#74777f';
+  const encreLien = sombre ? 'rgba(216,171,74,0.45)' : '#cfc9ba';
   const [survol, setSurvol] = useState<number | null>(null);
   const total = operations.length + (operationEnCours ? 1 : 0);
   const k = compacte ? 1.7 : 1;
@@ -78,7 +83,7 @@ export default function CartographieScan({ arbre, operations, operationEnCours, 
               y1="220"
               x2={x}
               y2={y}
-              stroke="#cfc9ba"
+              stroke={encreLien}
               strokeWidth="1.4"
               strokeDasharray={pointille ? '0.025 0.02' : '1'}
               pathLength={1}
@@ -107,7 +112,7 @@ export default function CartographieScan({ arbre, operations, operationEnCours, 
           <text x="300" y={220 + 9 * k} textAnchor="middle" className="ms" fontSize={26 * k} fill="#fed488">
             domain
           </text>
-          <text x="300" y={220 + 58 * k} textAnchor="middle" fontSize={12 * k} fontWeight="600" fill="#1b1c1a" fontFamily="Montserrat, sans-serif">
+          <text x="300" y={220 + 58 * k} textAnchor="middle" fontSize={12 * k} fontWeight="600" fill={encreLibelle} fontFamily="Montserrat, sans-serif">
             Votre entité
           </text>
         </g>
@@ -131,10 +136,10 @@ export default function CartographieScan({ arbre, operations, operationEnCours, 
               <text x={x} y={y + 8 * k} textAnchor="middle" className="ms" fontSize={24 * k} fill={encre}>
                 receipt_long
               </text>
-              <text x={x} y={y + 42 * k} textAnchor="middle" fontSize={11.5 * k} fontWeight="600" fill="#1b1c1a" fontFamily="Montserrat, sans-serif">
+              <text x={x} y={y + 42 * k} textAnchor="middle" fontSize={11.5 * k} fontWeight="600" fill={encreLibelle} fontFamily="Montserrat, sans-serif">
                 {op.libelle.length > 22 ? op.libelle.slice(0, 21) + '…' : op.libelle}
               </text>
-              <text x={x} y={y + 56 * k} textAnchor="middle" fontSize={10 * k} fill="#74777f" fontFamily="'Plus Jakarta Sans', sans-serif">
+              <text x={x} y={y + 56 * k} textAnchor="middle" fontSize={10 * k} fill={encreSous} fontFamily="'Plus Jakarta Sans', sans-serif">
                 {carto?.libelle ?? 'À qualifier'}
               </text>
             </g>
@@ -165,7 +170,7 @@ export default function CartographieScan({ arbre, operations, operationEnCours, 
                 <text x={x} y={y + 42 * k} textAnchor="middle" fontSize={11.5 * k} fontWeight="600" fill="#8a6a1f" fontFamily="Montserrat, sans-serif">
                   {operationEnCours.length > 22 ? operationEnCours.slice(0, 21) + '…' : operationEnCours}
                 </text>
-                <text x={x} y={y + 56 * k} textAnchor="middle" fontSize={10 * k} fill="#74777f" fontFamily="'Plus Jakarta Sans', sans-serif">
+                <text x={x} y={y + 56 * k} textAnchor="middle" fontSize={10 * k} fill={encreSous} fontFamily="'Plus Jakarta Sans', sans-serif">
                   Scan en cours
                 </text>
               </g>

@@ -37,6 +37,8 @@ export interface QuestionScan {
   /** Intitulé court affiché dans le dossier en cours. */
   intitule: string;
   titre: string;
+  /** Image d'ambiance affichée en bannière de la question. */
+  image?: string;
   /** Encadré « Pourquoi cette question ? ». */
   aide: string;
   references: ReferenceLegale[];

@@ -27,7 +27,9 @@ if (erreurs.length > 0) {
       <p class="mt-5 max-w-2xl text-base leading-7 text-white/70">{arbreTaxeSalaires.sousTitre}</p>
     </header>
   </section>
-  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-14">
-    <ScanEngine client:load arbre={arbreTaxeSalaires} />
+  <div class="grille-nuit bg-nuit">
+    <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-14">
+      <ScanEngine client:load arbre={arbreTaxeSalaires} />
+    </div>
   </div>
 </BaseLayout>
