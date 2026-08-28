@@ -16,7 +16,11 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p site/public/videos
-          curl -fsSL -o /tmp/hero-brut.mp4 'https://mcp.bensaid-mcp.com/files/videos/veo/8d12e159a34eaaabd0b64e2d7636d18d/veo-1787938081893.mp4'
+          curl -fSL --retry 4 --retry-delay 3 \
+            -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36' \
+            -H 'Accept: video/mp4,video/*;q=0.9,*/*;q=0.8' \
+            -o /tmp/hero-brut.mp4 \
+            'https://mcp.bensaid-mcp.com/files/videos/veo/c8bcc55bc97b21f6b5804bff6c9b8a08/veo-1787938313994.mp4'
           ffmpeg -y -i /tmp/hero-brut.mp4 -an -vf scale=1280:-2 -c:v libx264 -crf 28 -preset slow -movflags +faststart site/public/videos/accueil-hero.mp4
           ls -la site/public/videos/
       - name: Committer
