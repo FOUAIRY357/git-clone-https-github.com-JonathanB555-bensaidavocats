@@ -1,0 +1,16 @@
+---
+url_origine: https://taxesalaire.com/no-shows-tva/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# No shows et enjeux TVA
+
+Il existe le phénomène des absences non annulées, plus communément appelées « no shows ». Ce phénomène pose des questions complexes en matière de TVA. Le 9 octobre 2024, le Conseil d'État a rendu deux décisions importantes (CE n° 472257 et CE n° 489947), qui éclairent le régime de TVA applicable aux montants perçus en cas de « no show ».
+
+## Assujettissement à la TVA des montants prélevés
+
+Dans ces affaires, des hôtels avaient débité des sommes correspondant à des nuitées réservées, mais non consommées, sans annulation préalable. Le Conseil d'État a confirmé que ces montants doivent être assujettis à la TVA. L'argument central repose sur la notion de prestation de service individualisable. Même si le client ne bénéficie pas de la chambre, l'hôtelier a rempli son obligation en la mettant à disposition. La somme perçue constitue ainsi la contrepartie d'une prestation taxable, conformément aux articles 256 et 266 du Code général des impôts.
+
+## Conséquences pratiques pour les hôteliers
+
+Les hôteliers doivent porter une attention particulière à la rédaction de leurs conditions générales de vente. Bien qualifier les sommes prélevées en cas de non-présentation est crucial pour éviter des redressements fiscaux TVA. Une approche proactive en matière de conformité fiscale permet de gérer efficacement le risque lié aux « no shows ».

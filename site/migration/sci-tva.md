@@ -1,0 +1,52 @@
+---
+url_origine: https://taxesalaire.com/sci-tva/
+extraction: Grok via MCP, 2026-08-27 — à vérifier contre l'export WordPress avant publication
+---
+
+# SCI et TVA
+
+## SCI et TVA : la facturation des loyers
+
+## Quelles sont les SCI redevables de la TVA ?
+
+### La TVA des SCI louant des locaux professionnels
+
+En principe, les SCI qui mettent en location des locaux professionnels nus, c'est-à-dire sans aucun aménagement spécifique, ne sont pas redevables de la TVA. En effet, le Code général des impôts prévoit une exonération.
+
+Toutefois, il existe des exceptions qui rendent ces locations imposables à la TVA et la SCI redevable de la TVA. Tel est le cas des parkings (sauf application de la règle de l'accessoire) et des locations réputées commerciales.
+
+Si la SCI loue des locaux professionnels aménagés, elle devient redevable de la TVA. Selon l'administration, ces locaux sont notamment les salles de spectacles avec des sièges, les terrains de sport ou locaux équipés de matériels médicaux.
+
+### La TVA des SCI louant des locaux à usage d'habitation
+
+Les SCI qui mettent en location des locaux à usage d'habitation, meublés ou non, ne sont pas redevables de la TVA. Elles bénéficient en effet d'une exonération.
+
+L'exonération prévue par l'article 261 D, 2° du CGI s'applique aussi en cas de sous-location. [Réserve : le régime para-hôtelier fait exception.]
+
+### La possibilité pour la SCI d'opter pour la TVA
+
+Selon l'article 260, 2° du CGI, il existe deux catégories de SCI qui peuvent opter.
+
+Premièrement, cela concerne les SCI qui louent des espaces non aménagés à des entreprises assujetties à la TVA. Deuxièmement, il s'agit des SCI louant à des entités non assujetties à la TVA, à condition que cette option soit explicitement mentionnée dans le bail.
+
+L'article 260, 2° du CGI rappelle également que cette option n'est pas possible pour les locations de locaux nus à usage d'habitation.
+
+## SCI : la récupération de la TVA
+
+## La déduction de la TVA pour les SCI
+
+Lorsque la SCI a l'intention de réaliser une activité soumise à TVA, elle va pouvoir déduire la TVA supportée sur l'immeuble, les travaux ou encore les frais d'acquisition.
+
+En principe, la TVA payée sur les coûts liés à une opération taxable (la TVA « d'amont ») peut être imputée de celle due sur la vente ou la prestation de service (la TVA « d'aval »). Pour une SCI, la prestation de services sera la location immobilière, sur laquelle elle peut être amenée à facturer de la TVA.
+
+Dans le domaine immobilier, cette logique s'applique souvent sous forme de crédits de TVA durant la phase d'investissement. En effet, cette phase implique que la TVA payée sur les achats est supérieure à celle collectée sur les ventes.
+
+## Le calcul des droits à déduction TVA d'une SCI
+
+La règle de détermination de la TVA déductible d'une SCI est la suivante : les achats destinés à être affectés à une activité taxée ouvrent droit à la déduction de la TVA supportée.
+
+Plus précisément, la TVA grevant chaque dépense de la SCI est déductible à hauteur d'un « coefficient de déduction », correspondant au produit de trois coefficients :
+
+1. Le coefficient d'assujettissement, qui traduit l'affectation des dépenses à la réalisation des opérations dans le champ de la TVA immobilière (taxables et exonérées).
+2. Le coefficient de taxation, qui mesure l'affectation des dépenses à la réalisation d'opérations effectivement taxées (le « prorata »). Cette proportion dépendra de la nature des locations exercées par la SCI et des éventuelles options à la TVA. Notons que chaque option exercée constituera un secteur d'activité distinct.
+3. Le coefficient d'admission, qui est en principe de 1, sauf lorsqu'une exclusion du droit à déduction est spécifiquement prévue par la loi.

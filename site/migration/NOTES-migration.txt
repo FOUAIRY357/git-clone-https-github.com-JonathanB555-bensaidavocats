@@ -1,4 +1,4 @@
 404 relevé : /la-tva-des-etablissements-financiers/champ-application-tva-financiere/ (lien cassé sur le site actuel)
-Restent à extraire (5 pages) : /257-bis-cgi/ ; /article-257-ter-du-cgi/ ; /sci-tva/ ; /no-shows-tva/ ; /travaux-immobiliers-tva/ — plus la page d'accueil si utile.
+Extraction TERMINÉE : les 43 pages de fond sont dans ce dossier.
 Méthode : outil MCP grok_search, prompt « Ouvre <URL> et restitue intégralement son contenu textuel en Markdown, sans résumer ».
 Vérifier tous les contenus extraits contre l'export WordPress avant publication (restitution par moteur : risque de légère paraphrase). Les points douteux sont balisés [NOTE MIGRATION : ...].
