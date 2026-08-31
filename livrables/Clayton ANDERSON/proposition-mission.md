@@ -39,3 +39,23 @@ Le lot 1 remplace et absorbe le rendez-vous de cadrage stratégique à 2 400 €
   le nombre de comptes ouverts au titre de chaque année.
 - Le régime de sanction du compte de crypto-actifs suit un texte distinct de l'article 1736 et
   n'a pas été vérifié. Il n'entre pas dans cette estimation.
+
+
+---
+
+# Honoraires révisés au 31 août 2026
+
+Après lecture des échanges du client avec le SIP Paris 19e. Le client a déposé lui-même, le
+4 mai 2026, deux 2047 et dix 3916 au titre de 2023 et 2024. Ce travail ne sera pas refait, d'où
+un geste sur les honoraires, ramenés de 15 000 € à **13 500 € HT**.
+
+| Temps | Objet | Honoraire HT |
+|-------|-------|--------------|
+| 1 | Intervention immédiate dans la demande n° 1233188128 avant expiration du délai, réponse à la demande de correction du 26 mai, sécurisation de l'antériorité du 18 avril. | 2 500 € |
+| 2 | Audit et chiffrage, dont les gains d'acquisition des RSU sur cinq millésimes, en hypothèse haute et basse. | 4 000 € |
+| 3 | Régularisation. Déclarations 2020 à 2022, correction des 2047 de 2023 à 2025, demande de remise des amendes et majorations. | 5 000 € |
+| 4 | Négociation et suivi jusqu'à la mise en recouvrement. | 2 000 € |
+| | **Total** | **13 500 €** |
+
+Chaque temps est réglé à son ouverture. Le premier temps est présenté comme urgent, le délai
+annoncé par l'administration le 6 août expirant vers le 6 septembre 2026.
