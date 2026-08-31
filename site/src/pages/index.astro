@@ -158,12 +158,15 @@ const donneesStructurees = JSON.stringify({
 
   <!-- Chiffres clés -->
   <section class="border-b border-bordure bg-fond">
-    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 py-12 md:grid-cols-4 md:px-10 md:py-14">
+    <div class="mx-auto max-w-7xl px-5 pt-12 md:px-10 md:pt-14">
+      <p class="etiquette reveler text-or">Les chiffres clés</p>
+    </div>
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 py-10 md:grid-cols-4 md:px-10 md:pb-14">
       {
         [
+          { valeur: 207.8, decimales: 1, suffixe: 'Md€', libelle: 'de TVA collectée en France en 2024 : la première recette fiscale (INSEE)' },
           { valeur: 16.2, decimales: 1, suffixe: 'Md€', libelle: 'de taxe sur les salaires collectés en 2022' },
           { valeur: 90, decimales: 0, suffixe: '%', libelle: 'le seuil d’assujettissement à surveiller chaque année' },
-          { valeur: 43, decimales: 0, suffixe: 'pages', libelle: 'de doctrine sectorielle et transversale' },
           { valeur: 3, decimales: 0, suffixe: 'coefficients', libelle: 'décident de chaque euro de TVA récupéré' },
         ].map((chiffre, indice) => (
           <div class="reveler" style={`transition-delay: ${indice * 90}ms`}>

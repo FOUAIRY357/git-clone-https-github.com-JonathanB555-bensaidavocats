@@ -37,6 +37,16 @@ const liens = [
     </nav>
 
     <div class="hidden items-center gap-3 lg:flex">
+      <button
+        type="button"
+        data-ouvrir-recherche
+        class="flex items-center gap-2 rounded border border-white/25 px-3 py-2 font-texte text-sm text-white/70 transition-colors hover:border-white/60 hover:text-white"
+        aria-label="Recherche rapide"
+      >
+        <span class="ms text-lg" aria-hidden="true">search</span>
+        Rechercher
+        <kbd class="rounded border border-white/20 bg-white/10 px-1.5 py-0.5 text-[10px] font-bold text-white/50">⌘K</kbd>
+      </button>
       <a
         href="/scan-taxe-salaires/"
         class="rounded border border-white/40 px-4 py-2 font-texte text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
@@ -52,16 +62,26 @@ const liens = [
       </a>
     </div>
 
-    <button
-      id="bouton-menu"
-      type="button"
-      class="rounded border border-white/25 p-2 text-white lg:hidden"
-      aria-expanded="false"
-      aria-controls="menu-mobile"
-      aria-label="Ouvrir le menu"
-    >
-      <span class="ms text-2xl" aria-hidden="true">menu</span>
-    </button>
+    <div class="flex items-center gap-2 lg:hidden">
+      <button
+        type="button"
+        data-ouvrir-recherche
+        class="rounded border border-white/25 p-2 text-white"
+        aria-label="Recherche rapide"
+      >
+        <span class="ms text-2xl" aria-hidden="true">search</span>
+      </button>
+      <button
+        id="bouton-menu"
+        type="button"
+        class="rounded border border-white/25 p-2 text-white"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+        aria-label="Ouvrir le menu"
+      >
+        <span class="ms text-2xl" aria-hidden="true">menu</span>
+      </button>
+    </div>
   </div>
 
   <div id="menu-mobile" class="hidden border-t border-white/10 bg-nuit px-5 py-4 lg:hidden">

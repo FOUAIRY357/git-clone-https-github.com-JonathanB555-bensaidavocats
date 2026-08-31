@@ -24,6 +24,23 @@ const parent = entree.id.includes('/')
   ? toutes.find((e) => e.id === entree.id.split('/').slice(0, -1).join('/'))
   : undefined;
 const imageBanniere = entree.id.includes('/') ? undefined : imagesSecteurs[entree.id];
+
+// Navigation guidée : page précédente / suivante au sein du même ensemble
+// (sous-pages d'une même rubrique, ou pages de même niveau et de même rubrique).
+const freres = (
+  parent
+    ? toutes.filter((e) => e.id.startsWith(parent.id + '/') && !e.id.slice(parent.id.length + 1).includes('/'))
+    : toutes.filter((e) => !e.id.includes('/') && e.data.rubrique === entree.data.rubrique)
+).sort((a, b) => a.data.ordre - b.data.ordre || a.data.titreCourt.localeCompare(b.data.titreCourt, 'fr'));
+const position = freres.findIndex((e) => e.id === entree.id);
+const precedente = position > 0 ? freres[position - 1] : undefined;
+const suivante = position >= 0 && position < freres.length - 1 ? freres[position + 1] : undefined;
+const libelleEnsemble = parent
+  ? parent.data.titreCourt
+  : entree.data.rubrique === 'article'
+    ? 'Guides TVA'
+    : 'Secteurs';
+const urlEnsemble = parent ? `/${parent.id}/` : '/secteurs/';
 ---
 
 <BaseLayout titre={entree.data.titre} description={entree.data.description}>
@@ -88,6 +105,47 @@ const imageBanniere = entree.id.includes('/') ? undefined : imagesSecteurs[entre
             ))}
           </div>
         </section>
+      )
+    }
+    {
+      (precedente || suivante) && (
+        <nav class="mt-12 grid gap-4 border-t border-bordure pt-8 sm:grid-cols-2" aria-label="Continuer la lecture">
+          {precedente ? (
+            <a
+              href={`/${precedente.id}/`}
+              class="group rounded border border-bordure bg-carte p-5 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+            >
+              <p class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-texte-3">
+                <span class="ms text-base" aria-hidden="true">arrow_back</span>
+                Précédent · {libelleEnsemble}
+              </p>
+              <p class="mt-2 font-titres text-base font-semibold group-hover:text-marine">{precedente.data.titreCourt}</p>
+            </a>
+          ) : (
+            <a
+              href={urlEnsemble}
+              class="group rounded border border-dashed border-bordure p-5 transition-colors hover:border-marine"
+            >
+              <p class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-texte-3">
+                <span class="ms text-base" aria-hidden="true">arrow_back</span>
+                Revenir à l'ensemble
+              </p>
+              <p class="mt-2 font-titres text-base font-semibold group-hover:text-marine">{libelleEnsemble}</p>
+            </a>
+          )}
+          {suivante && (
+            <a
+              href={`/${suivante.id}/`}
+              class="group rounded border border-bordure bg-carte p-5 text-right transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+            >
+              <p class="flex items-center justify-end gap-1.5 text-xs font-semibold uppercase tracking-wide text-texte-3">
+                Suivant · {libelleEnsemble}
+                <span class="ms text-base" aria-hidden="true">arrow_forward</span>
+              </p>
+              <p class="mt-2 font-titres text-base font-semibold group-hover:text-marine">{suivante.data.titreCourt}</p>
+            </a>
+          )}
+        </nav>
       )
     }
     <BandeauScan />
