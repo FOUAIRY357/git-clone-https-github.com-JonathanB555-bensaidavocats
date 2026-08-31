@@ -119,3 +119,69 @@ Le FBAR 2025 n'est pas déposé. L'échéance du 15 avril 2026 est reportée aut
 **15 octobre 2026**. Il reste donc environ sept semaines pour signer le 114a et faire télétransmettre
 la déclaration par H&R Block. Nous ne conseillons pas sur le droit américain, mais l'échéance doit
 être signalée au client.
+
+---
+
+# Corrections apportées par la réponse du client du 29 août 2026
+
+## Deux hypothèses de l'analyse ci-dessus sont fausses
+
+**1. Il a déposé une déclaration chaque année.** Les dossiers Dropbox vides ne signifiaient pas
+l'absence de dépôt. Le client indique avoir déclaré tous les ans depuis son arrivée, sur papier
+les premières années puis en ligne à compter de 2022, et avoir versé les avis d'imposition et les
+accusés de réception au dossier. Conséquence juridique importante : les millésimes 2020 à 2024
+relèvent de l'**insuffisance de déclaration**, non du défaut de dépôt. La majoration de
+l'article 1728 du CGI est écartée. Restent l'amende de l'article 1736, IV, 2 et le délai de
+reprise de dix ans, inchangés.
+
+**2. Le salaire américain non déclaré n'est pas le chef de redressement principal.** Le client
+précise son parcours. Il travaillait chez BHW aux États-Unis avant son installation, a conservé
+ses parts, puis **a travaillé chez Datadog à son arrivée en France**. BHW s'est ensuite
+immatriculée comme société étrangère et il a repris son poste chez elle en contrat français au
+21 mars 2022. Les W-2 BHW de 2021 et 2022 ne portent que des montants réduits, correspondant à
+des interventions à temps partiel. À vérifier sur pièces, mais l'exposition est bien moindre
+qu'estimée.
+
+## Un chef de redressement nouveau, créé par sa réponse
+
+Le client indique que **l'acquisition définitive de ses RSU Datadog est postérieure à son
+installation en France**. Le gain d'acquisition est alors imposable en France, comme un salaire,
+au titre de chaque année d'acquisition définitive, soit de 2021 à 2025. Aucune de ses
+déclarations ne fait apparaître un tel gain. C'est vraisemblablement le poste le plus lourd du
+dossier, et il faut le chiffrer sur les relevés ETrade.
+
+## Le risque d'établissement stable s'atténue
+Avis de situation Insee de BHW versé au dossier, « société étrangère non immatriculée au RCS »,
+et le client indique **aucun client français**. La qualification d'établissement stable reste à
+examiner, mais l'absence de clientèle française limite fortement le bénéfice attribuable à la
+France.
+
+## Le FBAR 2025 aurait bien été déposé
+Le client indique disposer d'une page de signature séparée et d'un mail de confirmation de
+H&R Block. Pièces à obtenir. L'urgence du 15 octobre 2026 tombe si le dépôt est confirmé.
+
+## Sa lecture de la réponse de la DGFiP est erronée
+Le client déduit des messages de l'administration qu'il ne serait possible de corriger que les
+millésimes 2024 à 2026, et donc que la régularisation se limiterait à deux années. Il demande un
+ajustement du devis en conséquence.
+
+Cette lecture confond le **service de correction en ligne**, qui n'est ouvert que sur les derniers
+millésimes et qui est un simple outil, avec l'**étendue de l'obligation** et avec le **droit de
+reprise de l'administration**. Les millésimes antérieurs se régularisent par déclarations
+rectificatives adressées au service gestionnaire, hors télécorrection. Le manquement à l'article
+1649 A du CGI maintient un droit de reprise de dix ans (article L. 169 du LPF), de sorte que
+2020 à 2024 restent ouverts. Retenir sa lecture laisserait cinq millésimes exposés.
+
+S'y ajoute une confusion entre l'année des revenus et l'année de dépôt. Les revenus de 2026 ne
+seront déclarés qu'en 2027.
+
+## Situation de famille
+Mariage le 26 juin 2026, sans contrat, donc communauté réduite aux acquêts. Épouse résidente
+fiscale française. L'appartement acquis en 2022 reste un bien propre. Imposition commune à
+compter de 2026.
+
+## Pièces ajoutées par le client, absentes du Drive au 30 août
+Le dossier Drive `CLAYTON/` a été copié le 28 août, avant les ajouts du 29. Manquent donc le
+dossier **Communication DGFiP**, le fichier **Relevés/Soldes EUR.csv** (soldes convertis en
+euros, trois dernières années seulement, rien avant 2022) et l'**avis de situation Insee** de BHW.
+Nouvelle copie du Dropbox à faire avant de rédiger la réponse.
