@@ -4,9 +4,11 @@ description: >
   Prépare la saisie d'un dossier dans Sellsy (fiche client, devis, factures) sous forme d'un
   bloc copier-coller par champ, pour un remplissage sans rien retaper.
   Calcule la TVA et les totaux TTC à partir des montants HT de la mission, et signale les champs
-  manquants au lieu de les inventer. Déclencher quand l'utilisateur veut « la fiche Sellsy »,
-  « remplir Sellsy », « créer le client dans Sellsy », « le devis Sellsy », « la facture Sellsy »,
-  ou tape "/fiche-sellsy <nom du client>". S'utilise en aval de [[lettre-mission]], dont elle
+  manquants au lieu de les inventer. Déclencher dès que l'utilisateur veut « la fiche Sellsy »,
+  « remplir Sellsy », « créer le client dans Sellsy », « créer le tiers », « la fiche tiers »,
+  « la fiche client », « saisir le client », « le devis Sellsy », « la facture Sellsy », ou tape
+  "/fiche-sellsy <nom du client>". Vaut pour un client particulier comme pour une société, et
+  quelle que soit la formulation dès lors que Sellsy ou une fiche de saisie client est en jeu. S'utilise en aval de [[lettre-mission]], dont elle
   reprend le forfait et l'échéancier.
 ---
 
@@ -71,9 +73,15 @@ Code postal, Ville, Pays, Langue de facturation, Devise, Régime de TVA, Conditi
 Origine du contact, Avocat en charge, Étiquettes, Note interne.
 
 ### Client société
-Type de client, Raison sociale, Forme juridique, Capital, SIREN ou SIRET, RCS, Numéro de TVA
-intracommunautaire, Représentant légal et sa qualité, puis les mêmes champs de contact, d'adresse
-et de facturation que ci-dessus.
+Type de client, Raison sociale, Forme juridique, Capital, Numéro d'immatriculation, Registre,
+Numéro de TVA intracommunautaire, Représentant légal et sa qualité, Contact principal avec son
+email, Autres contacts, Cabinet comptable de la société, puis les mêmes champs d'adresse et de
+facturation que ci-dessus.
+
+Pour une société étrangère, donner la forme juridique locale suivie de son équivalent français
+entre parenthèses, et le numéro d'immatriculation suivi du nom local du registre et du pays.
+Exemple, « SIA (équivalent de la SARL, droit letton) » et « 40203159453, Reģistrācijas numurs,
+Lettonie ».
 
 ### Devis
 Objet, Référence, Date, Date de validité, puis pour chaque ligne Désignation, Quantité, Unité,
@@ -92,6 +100,16 @@ Déterminer le régime au jour de la facturation :
 - **outre-mer** : taux spécifiques, à vérifier au cas par cas.
 Cas limite à signaler systématiquement : un client qui s'expatrie en cours de mission, la
 facturation avant et après le départ ne relevant pas du même régime.
+
+## Numéro de TVA intracommunautaire
+**Ne jamais reconstituer un numéro de TVA intracommunautaire à partir du numéro
+d'immatriculation.** La concordance entre les deux n'est pas garantie, et un numéro erroné fait
+tomber l'autoliquidation, la TVA française redevenant alors due par le cabinet.
+
+Le numéro se vérifie sur VIES, le service de la Commission européenne, qui atteste également que
+le preneur est bien assujetti. Tant que cette vérification n'est pas faite, le champ ne reçoit
+pas de bloc et figure dans « À compléter », avec la mention du numéro présumé. La même réserve
+vaut pour le régime de TVA retenu, qui dépend de cet assujettissement.
 
 ## Échéancier
 Reprendre celui de la convention d'honoraires, sans le réinventer. Trois cas courants :
