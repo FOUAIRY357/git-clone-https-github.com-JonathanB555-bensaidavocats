@@ -170,7 +170,7 @@ Conformément aux articles L.612-1 et suivants du code de la consommation, le cl
 Fait à Paris, le <date>, en 2 exemplaires originaux.
 
 
-Le client                                   L'Avocat
+Le client
 (lu et approuvé)
 ```
 
@@ -243,7 +243,7 @@ In accordance with articles L.612-1 et seq. of the French Consumer Code, a Clien
 Done in Paris, on <date>, in 2 original counterparts.
 
 
-The Client                                  The Lawyer
+The Client
 (read and approved)
 ```
 

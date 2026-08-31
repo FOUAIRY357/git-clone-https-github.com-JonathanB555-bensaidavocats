@@ -45,6 +45,16 @@ un collage deja mis en forme.
 - Si le prenom est connu et la relation etablie, « Cher Antoine, » est admis.
 - Virgule apres la salutation, pas de point. En cas de doute sur la civilite, poser la question.
 
+### Premier mail a un prospect entrant
+Si le mail est la **premiere reponse a un prospect ou un apporteur entrant**, charger AUSSI
+[[premier-contact]] et suivre ses briques (remerciement, hook, livrable, suite). Ce skill-ci
+donne le style, [[premier-contact]] donne la posture commerciale et ses interdits, notamment
+l'absence de chiffrage premature et l'absence d'annonce d'acceptation du dossier.
+
+### Remerciement d'ouverture
+Un mail qui repond a un message recu s'ouvre sur une ligne de remerciement seule, apres l'appel
+(« Je vous remercie pour ce message. »). cf [[charte-cabinet]].
+
 ### Cloture
 - Une phrase de disponibilite (« Je reste a votre disposition pour toute question. »), puis
   **« Salutations devouees, »** et rien d'autre.
@@ -54,11 +64,15 @@ un collage deja mis en forme.
 ### Style
 - Langage d'avocat : precis, sobre, sans familiarite. On affirme, on ne delaye pas.
 - Phrases courtes, une idee par phrase. Paragraphes courts et aeres.
+- **Pas d'antithese en miroir** (« Ce n'est pas X. C'est Y. », « Nous ne faisons jamais X. Nous
+  faisons Y. ») : on enonce directement ce qui est. Regle detaillee dans [[charte-cabinet]], le
+  renderer avertit.
 - Pas de formule commerciale (« n'hesitez pas a », « au plaisir de », « je me permets de »).
 - **Deux-points rares** : preferer deux phrases. Le renderer avertit s'il y en a trop.
 - **Listes en tirets « - »** (jamais de puce ronde) ; numerotation admise pour une sequence ordonnee.
 - **Titres de section en gras**, courts, numerotes (1., 2., ...) si plusieurs sujets. Jamais en
   majuscules seules, jamais soulignes.
+- **Lexique** : on ecrit « un devis forfaitaire », jamais « un devis a honoraire forfaitaire ».
 - **Honoraires en HT uniquement** (pas de TTC, sauf demande expresse de Francois).
 
 ### Typographie

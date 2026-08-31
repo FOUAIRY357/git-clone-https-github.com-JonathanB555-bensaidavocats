@@ -1,0 +1,29 @@
+{
+  "destinataire": "claytonrobertanderson@gmail.com",
+  "copie": "contact@bensaid-avocats.fr",
+  "objet": "Votre échange en cours avec le SIP Paris 19e et nos honoraires révisés",
+  "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition.",
+  "corps": [
+    {"p": "Je vous remercie pour ces précisions."},
+
+    {"titre": "1. Les deux années"},
+    {"p": "La réponse du 21 avril décrit le service de correction en ligne, non l'étendue de votre obligation. L'absence de déclaration de vos comptes étrangers porte le délai de reprise de l'administration de trois à dix ans, en application de l'article L. 169 du livre des procédures fiscales. Vos années 2020, 2021 et 2022 restent donc ouvertes, et se régularisent par déclarations rectificatives adressées au service, en dehors de cet outil."},
+    {"p": "Cette réponse nous servira en défense, l'administration ayant pris position par écrit sur une question qui mentionnait expressément 2020 à 2024, ce que protège l'article L. 80 B du même livre. Elle ne vous dispense pas de déclarer."},
+
+    {"titre": "2. Votre échange en cours"},
+    {"p": "Votre démarche du 18 avril est votre meilleur atout. Elle est écrite et antérieure à toute demande de l'administration. Trois risques la menacent."},
+    {"b": "Le service attend votre réponse depuis le 26 mai. Le délai qu'il vous a accordé le 6 août expire dans quelques jours."},
+    {"b": "Les gains d'acquisition de vos RSU sont imposables en France, comme un salaire, au titre de chaque année d'acquisition définitive. Ils n'apparaissent nulle part, ni dans vos déclarations, ni dans les formulaires déposés en mai."},
+    {"b": "Votre message du 26 mai qualifie vos distributions de revenus déjà imposés aux États-Unis. Le service vous a écrit l'inverse le même jour, et cette qualification reste à votre dossier."},
+    {"p": "Tant que vous répondez, vous restez dans la régularisation spontanée, celle où les pénalités se négocient. Si l'administration reprend l'initiative, cette marge disparaît. Aucun nouveau message ne devrait donc partir sans que nous l'ayons établi avec vous."},
+
+    {"titre": "3. Nos honoraires"},
+    {"p": "Vous avez déposé vous-même les formulaires de 2023 et 2024. Nous en tenons compte et ramenons nos honoraires à 13 500 € HT, en quatre temps réglés à leur ouverture."},
+    {"b": "Intervention immédiate dans votre demande n° 1233188128, réponse au service et sécurisation de l'antériorité du 18 avril. 2 500 € HT."},
+    {"b": "Audit et chiffrage, dont vos RSU sur cinq millésimes. 4 000 € HT."},
+    {"b": "Régularisation de 2020 à 2022 et correction des 2047. 5 000 € HT."},
+    {"b": "Négociation des pénalités et suivi jusqu'au recouvrement. 2 000 € HT."},
+    {"p": "TVA en sus. Aucun honoraire n'est engagé avant votre accord écrit. Compte tenu du délai, pourriez-vous nous confirmer votre accord sur le premier temps ?"}
+  ]
+}
