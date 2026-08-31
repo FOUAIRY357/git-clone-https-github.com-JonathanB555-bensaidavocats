@@ -87,6 +87,30 @@ const urlImage = new URL(image, Astro.site);
           majBarre();
         }
 
+        // 0c. Sommaire « Sur cette page » : surlignage de la section lue
+        var sommaire = document.querySelector('[data-sommaire]:not([data-branche])');
+        if (sommaire && 'IntersectionObserver' in window) {
+          sommaire.dataset.branche = '1';
+          var liensSommaire = Array.prototype.slice.call(sommaire.querySelectorAll('a[href^="#"]'));
+          var ciblesSommaire = [];
+          liensSommaire.forEach(function (lien) {
+            var cible = document.getElementById(decodeURIComponent(lien.getAttribute('href').slice(1)));
+            if (cible) ciblesSommaire.push({ cible: cible, lien: lien });
+          });
+          var obsSommaire = new IntersectionObserver(
+            function (entrees) {
+              entrees.forEach(function (entree) {
+                if (!entree.isIntersecting) return;
+                liensSommaire.forEach(function (l) { l.classList.remove('actif'); });
+                var paire = ciblesSommaire.find(function (x) { return x.cible === entree.target; });
+                if (paire) paire.lien.classList.add('actif');
+              });
+            },
+            { rootMargin: '-15% 0px -75% 0px' }
+          );
+          ciblesSommaire.forEach(function (x) { obsSommaire.observe(x.cible); });
+        }
+
         // 1. Révélation au défilement
         var elements = document.querySelectorAll('.reveler:not(.visible)');
         if (!('IntersectionObserver' in window) || mouvementReduit) {

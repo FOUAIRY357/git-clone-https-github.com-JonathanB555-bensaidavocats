@@ -738,3 +738,113 @@ html.icones-chargees .ms {
 .prose-doctrine a.carte-renvoi:hover .renvoi-fleche {
   transform: translateX(4px);
 }
+
+/* Transitions entre pages (View Transitions) */
+@keyframes vt-entree {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes vt-sortie {
+  to {
+    opacity: 0;
+  }
+}
+@media not (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root) {
+    animation: vt-sortie 0.18s ease both;
+  }
+  ::view-transition-new(root) {
+    animation: vt-entree 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* Listes numérotées de la doctrine : numéros cerclés or */
+.prose-doctrine ol {
+  list-style: none;
+  counter-reset: etapes;
+  margin: 1.1rem 0;
+  padding: 0;
+}
+.prose-doctrine ol > li {
+  counter-increment: etapes;
+  position: relative;
+  padding-left: 2.5rem;
+  margin: 0.7rem 0;
+}
+.prose-doctrine ol > li::before {
+  content: counter(etapes);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--color-or);
+  border-radius: 9999px;
+  background: var(--color-attention-fond);
+  color: var(--color-or-fonce);
+  font-family: var(--font-titres);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Encadré « À noter » (blockquotes de la doctrine) */
+.prose-doctrine blockquote::before {
+  content: 'À noter';
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-texte);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-or);
+}
+
+/* Sommaire latéral collant « Sur cette page » */
+.sommaire {
+  position: sticky;
+  top: 5.5rem;
+}
+.sommaire a {
+  display: block;
+  padding: 0.4rem 0 0.4rem 0.9rem;
+  border-left: 2px solid var(--color-bordure);
+  color: var(--color-texte-3);
+  font-size: 0.84rem;
+  line-height: 1.35;
+  transition: color 0.2s ease, border-color 0.2s ease, padding-left 0.2s ease;
+}
+.sommaire a:hover {
+  color: var(--color-encre);
+}
+.sommaire a.actif {
+  border-color: var(--color-or-vif);
+  color: var(--color-encre);
+  font-weight: 600;
+  padding-left: 1.05rem;
+}
+
+/* Initiale en filigrane des tuiles du lexique */
+.lettre-filigrane {
+  position: absolute;
+  right: -0.3rem;
+  bottom: -1.4rem;
+  font-family: var(--font-affiche);
+  font-size: 5.6rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(138, 106, 31, 0.16);
+  pointer-events: none;
+  user-select: none;
+  transition: -webkit-text-stroke-color 0.3s ease, transform 0.3s ease;
+}
+.group:hover .lettre-filigrane {
+  -webkit-text-stroke-color: rgba(138, 106, 31, 0.34);
+  transform: translateY(-4px);
+}

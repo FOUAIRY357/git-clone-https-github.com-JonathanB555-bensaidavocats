@@ -2,9 +2,26 @@
 const annee = new Date().getFullYear();
 ---
 
-<footer class="border-t border-white/10 bg-nuit text-white">
-  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10">
-    <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+<footer class="relative overflow-hidden border-t border-white/10 bg-nuit text-white">
+  <div class="grille-nuit absolute inset-0 opacity-40" aria-hidden="true"></div>
+  <span class="mot-fantome -right-6 -top-2 text-[7rem] md:text-[11rem]" aria-hidden="true">TVA</span>
+  <div class="relative mx-auto max-w-7xl px-5 py-12 md:px-10">
+    <div class="flex flex-col items-start justify-between gap-5 border-b border-white/10 pb-9 md:flex-row md:items-center">
+      <div>
+        <p class="etiquette text-or-vif">Un doute sur une opération ?</p>
+        <p class="mt-2 max-w-lg font-titres text-xl font-semibold leading-snug">
+          Deux minutes suffisent pour la qualifier et mesurer votre droit à déduction.
+        </p>
+      </div>
+      <a
+        href="/scan-tva/"
+        class="flex shrink-0 items-center gap-2 rounded bg-or-vif px-6 py-3.5 font-texte text-sm font-bold text-nuit transition-all hover:-translate-y-0.5 hover:bg-or-pale hover:shadow-[0_0_28px_rgba(216,171,74,0.4)]"
+      >
+        <span class="ms text-lg" aria-hidden="true">radar</span>
+        Lancer le Scan TVA
+      </a>
+    </div>
+    <div class="mt-10 grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
       <div>
         <p class="texte-affiche text-xl text-white">
           Taxe<span class="text-or-vif">salaire</span>
@@ -16,7 +33,7 @@ const annee = new Date().getFullYear();
       </div>
       <nav aria-label="Plan du site">
         <p class="etiquette mb-3 text-or-vif">Explorer</p>
-        <ul class="space-y-2 text-sm">
+        <ul class="space-y-2.5 text-sm">
           <li><a href="/scan-tva/" class="text-white/60 hover:text-white">Scan TVA</a></li>
           <li><a href="/scan-taxe-salaires/" class="text-white/60 hover:text-white">Scan Taxe sur les salaires</a></li>
           <li><a href="/secteurs/" class="text-white/60 hover:text-white">Doctrine par secteur</a></li>

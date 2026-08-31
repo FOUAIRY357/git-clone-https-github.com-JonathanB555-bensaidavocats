@@ -30,11 +30,12 @@ const definitions = (await getCollection('definitions', ({ data }) => data.statu
         definitions.map((definition, indice) => (
           <a
             href={`/definition/${definition.id}/`}
-            class="reveler group rounded border border-bordure bg-carte p-5 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+            class="reveler group relative overflow-hidden rounded border border-bordure bg-carte p-5 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
             style={`transition-delay: ${(indice % 3) * 80}ms`}
           >
-            <h2 class="font-titres text-lg font-semibold group-hover:text-marine">{definition.data.terme}</h2>
-            <p class="mt-1.5 text-sm leading-6 text-texte-2">{definition.data.description}</p>
+            <span class="lettre-filigrane" aria-hidden="true">{definition.data.terme.charAt(0)}</span>
+            <h2 class="relative font-titres text-lg font-semibold group-hover:text-marine">{definition.data.terme}</h2>
+            <p class="relative mt-1.5 text-sm leading-6 text-texte-2">{definition.data.description}</p>
           </a>
         ))
       }

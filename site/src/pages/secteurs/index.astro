@@ -37,34 +37,36 @@ const notions = (await getCollection('doctrine', ({ data }) => data.statut === '
         secteurs.map((secteur, indice) => (
           <a
             href={`/${secteur.id}/`}
-            class="reveler group overflow-hidden rounded border border-bordure bg-carte transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+            class="reveler group relative h-72 overflow-hidden rounded-lg border border-bordure bg-nuit transition-all hover:-translate-y-1 hover:shadow-[0_16px_44px_rgba(0,27,58,0.35)]"
             style={`transition-delay: ${(indice % 3) * 90}ms`}
           >
-            {imagesSecteurs[secteur.id] && (
-              <div class="relative aspect-[16/9] overflow-hidden bg-nuit">
-                <img
-                  src={imagesSecteurs[secteur.id]}
-                  alt=""
-                  loading="lazy"
-                  transition:name={'img-' + secteur.id}
-                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-nuit/70 via-transparent to-transparent"></div>
-                <span class="ms absolute bottom-3 left-4 text-2xl text-or-pale" aria-hidden="true">
-                  {secteur.data.pictogramme}
-                </span>
-              </div>
+            {imagesSecteurs[secteur.id] ? (
+              <img
+                src={imagesSecteurs[secteur.id]}
+                alt=""
+                loading="lazy"
+                transition:name={'img-' + secteur.id}
+                class="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-110"
+              />
+            ) : (
+              <div class="grille-nuit absolute inset-0" aria-hidden="true" />
             )}
-            <div class="p-6">
-              {!imagesSecteurs[secteur.id] && (
-                <span class="ms text-3xl text-marine" aria-hidden="true">
-                  {secteur.data.pictogramme}
-                </span>
-              )}
-              <h2 class="mt-1 font-titres text-lg font-semibold group-hover:text-marine">
+            <div class="absolute inset-0 bg-gradient-to-t from-nuit via-nuit/45 to-nuit/10" aria-hidden="true" />
+            <span class="absolute left-5 top-4 font-titres text-xs font-bold tracking-[0.3em] text-white/50 transition-colors group-hover:text-or-pale" aria-hidden="true">
+              {String(indice + 1).padStart(2, '0')}
+            </span>
+            <span
+              class="ms absolute right-4 top-4 -translate-x-1 text-2xl text-or-pale opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+              aria-hidden="true"
+            >
+              arrow_forward
+            </span>
+            <div class="absolute inset-x-0 bottom-0 p-5">
+              <span class="ms text-2xl text-or-pale" aria-hidden="true">{secteur.data.pictogramme}</span>
+              <h2 class="texte-affiche mt-2 text-2xl text-white transition-colors group-hover:text-or-pale">
                 {secteur.data.titreCourt}
               </h2>
-              <p class="mt-2 text-sm leading-6 text-texte-2">{secteur.data.accroche}</p>
+              <p class="mt-1.5 line-clamp-2 text-xs leading-5 text-white/65">{secteur.data.accroche}</p>
             </div>
           </a>
         ))
@@ -79,15 +81,16 @@ const notions = (await getCollection('doctrine', ({ data }) => data.statut === '
           articles.map((article) => (
             <a
               href={`/${article.id}/`}
-              class="reveler group flex items-start gap-3 rounded border border-bordure bg-carte p-4 transition-colors hover:border-marine"
+              class="reveler group flex items-center gap-3 rounded border border-bordure bg-carte p-4 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante"
             >
-              <span class="ms text-xl text-or" aria-hidden="true">
+              <span class="ms text-xl text-or transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
                 {article.data.pictogramme}
               </span>
-              <span>
-                <h3 class="font-titres text-sm font-semibold leading-snug group-hover:text-marine">
-                  {article.data.titreCourt}
-                </h3>
+              <h3 class="font-titres text-sm font-semibold leading-snug group-hover:text-marine">
+                {article.data.titreCourt}
+              </h3>
+              <span class="ms ml-auto -translate-x-1 text-lg text-or opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" aria-hidden="true">
+                arrow_forward
               </span>
             </a>
           ))

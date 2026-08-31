@@ -13,8 +13,18 @@ export async function getStaticPaths() {
 }
 
 const { entree } = Astro.props;
-const { Content } = await render(entree);
+const { Content, headings } = await render(entree);
 const minutesLecture = Math.max(1, Math.round((entree.body ?? '').split(/\s+/).length / 220));
+const sommaire = headings.filter((h) => h.depth === 2);
+
+// Articles du CGI cités dans la page : chips de la barre d'identité.
+const refsCgi = [
+  ...new Set(
+    ((entree.body ?? '').match(/art\. ?\d{2,4}(?: (?:bis|ter|quater|quinquies|sexies|septies|octies|nonies))?(?: [A-Z])?\b/g) ?? []).map(
+      (ref) => ref.replace(/^art\. ?/, '').trim()
+    )
+  ),
+].slice(0, 4);
 
 // Sous-pages directes de cette rubrique et rubrique parente éventuelle.
 const toutes = await getCollection('secteurs', ({ data }) => data.statut === 'publie');
@@ -112,14 +122,31 @@ const donneesStructurees = JSON.stringify({
         )
       }
       <p class="mt-4 text-lg leading-8 text-texte-2">{entree.data.accroche}</p>
-      <p class="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-texte-3">
+      <p class="mt-4 flex flex-wrap items-center gap-x-2 gap-y-2 text-xs font-semibold uppercase tracking-wide text-texte-3">
         <span class="ms text-base text-or" aria-hidden="true">menu_book</span>
         Lecture : {minutesLecture} min · Par François Ouairy, avocat fiscaliste
+        {refsCgi.map((ref) => (
+          <span class="rounded border border-bordure bg-fond-2 px-2 py-0.5 tracking-normal text-texte-2">CGI, art. {ref}</span>
+        ))}
       </p>
     </header>
-    <article class="prose-doctrine mt-10">
-      <Content />
-    </article>
+    <div class:list={['mt-10', sommaire.length >= 3 && 'lg:grid lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12']}>
+      <article class="prose-doctrine">
+        <Content />
+      </article>
+      {
+        sommaire.length >= 3 && (
+          <aside class="hidden lg:block">
+            <nav class="sommaire" data-sommaire aria-label="Sur cette page">
+              <p class="etiquette mb-3 text-or">Sur cette page</p>
+              {sommaire.map((section) => (
+                <a href={`#${section.slug}`}>{section.text}</a>
+              ))}
+            </nav>
+          </aside>
+        )
+      }
+    </div>
     {
       sousPages.length > 0 && (
         <section class="mt-12 border-t border-bordure pt-8">
@@ -128,10 +155,19 @@ const donneesStructurees = JSON.stringify({
             {sousPages.map((page, indice) => (
               <a
                 href={`/${page.id}/`}
-                class="reveler group rounded border border-bordure bg-carte p-5 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+                class="reveler group relative overflow-hidden rounded border border-bordure bg-carte p-5 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
                 style={`transition-delay: ${(indice % 2) * 90}ms`}
               >
-                <h2 class="font-titres text-base font-semibold group-hover:text-marine">
+                <span class="font-titres text-xs font-bold tracking-[0.25em] text-bordure-2 transition-colors group-hover:text-or" aria-hidden="true">
+                  {String(indice + 1).padStart(2, '0')}
+                </span>
+                <span
+                  class="ms absolute right-4 top-4 -translate-x-1 text-xl text-or opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                  aria-hidden="true"
+                >
+                  arrow_forward
+                </span>
+                <h2 class="mt-1 font-titres text-base font-semibold group-hover:text-marine">
                   {page.data.titreCourt}
                 </h2>
                 <p class="mt-1.5 text-sm leading-6 text-texte-2">{page.data.description}</p>
