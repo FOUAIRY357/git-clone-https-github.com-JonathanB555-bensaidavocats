@@ -1,0 +1,16 @@
+{
+  "destinataire": "claytonrobertanderson@gmail.com",
+  "copie": "contact@bensaid-avocats.fr",
+  "objet": "Votre facture et les pièces à réclamer dès maintenant",
+  "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition.",
+  "corps": [
+    {"p": "Je vous remercie pour la convention signée. Vous trouverez ci-joint la facture du premier temps. Notre message au service des impôts est prêt et partira dès son règlement, le délai qui vous a été accordé expirant dans les prochains jours."},
+    {"p": "Quatre pièces nous manquent encore, et deux d'entre elles mettent plusieurs semaines à venir. Pourriez-vous les réclamer dès à présent ?"},
+    {"b": "Les soldes annuels de 2020, 2021 et 2022, pour chacun de vos comptes, à demander à USAA, Vanguard, ETrade et Wise. Ces montants déterminent l'amende encourue et la durée pendant laquelle l'administration peut vous redresser."},
+    {"b": "Vos documents Datadog. Contrat de travail et bulletins de paie de 2020 à mars 2022, et vos relevés de plan d'actionnariat, à demander à ETrade et au service des ressources humaines. Les dates d'attribution et d'acquisition définitive de vos RSU conditionnent une part importante du chiffrage."},
+    {"b": "Le taux de change que vous avez retenu pour convertir en euros les montants de 28 433 €, 45 520 € et 57 410 € portés sur vos formulaires 2047, et la date à laquelle vous l'avez appliqué."},
+    {"b": "Votre FBAR de 2025 tel que déposé, et le message de confirmation de H&R Block."},
+    {"p": "Merci également de nous communiquer un numéro de téléphone."}
+  ]
+}
