@@ -116,5 +116,133 @@ const donneesStructurees = JSON.stringify({
         </div>
       </aside>
     </div>
+
+    <!-- Formulaire de contact -->
+    <section id="contact" class="mt-16 scroll-mt-20 border-t border-bordure pt-12">
+      <div class="max-w-3xl">
+        <p class="etiquette text-or">Décrivez votre situation</p>
+        <h2 class="mt-3 font-titres text-2xl font-bold tracking-tight md:text-3xl">
+          Posez votre question à un avocat fiscaliste
+        </h2>
+        <p class="mt-3 text-base leading-7 text-texte-2">
+          Opérations concernées, secteur, enjeu : trois lignes suffisent pour une première
+          orientation. Votre message arrive directement au cabinet, en toute confidentialité.
+        </p>
+      </div>
+      <form id="formulaire-contact" class="mt-8 max-w-3xl" novalidate>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="contact-nom" class="block text-sm font-semibold text-encre">Votre nom *</label>
+            <input id="contact-nom" name="nom" type="text" required maxlength="120" autocomplete="name"
+              class="mt-1.5 w-full rounded border border-bordure bg-carte px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine" />
+          </div>
+          <div>
+            <label for="contact-email" class="block text-sm font-semibold text-encre">Votre e-mail *</label>
+            <input id="contact-email" name="email" type="email" required maxlength="160" autocomplete="email"
+              class="mt-1.5 w-full rounded border border-bordure bg-carte px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine" />
+          </div>
+          <div>
+            <label for="contact-societe" class="block text-sm font-semibold text-encre">Société</label>
+            <input id="contact-societe" name="societe" type="text" maxlength="160" autocomplete="organization"
+              class="mt-1.5 w-full rounded border border-bordure bg-carte px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine" />
+          </div>
+          <div>
+            <label for="contact-telephone" class="block text-sm font-semibold text-encre">Téléphone</label>
+            <input id="contact-telephone" name="telephone" type="tel" maxlength="40" autocomplete="tel"
+              class="mt-1.5 w-full rounded border border-bordure bg-carte px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="contact-secteur" class="block text-sm font-semibold text-encre">Votre secteur</label>
+            <select id="contact-secteur" name="secteur"
+              class="mt-1.5 w-full rounded border border-bordure bg-carte px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine">
+              <option value="">Choisir…</option>
+              <option>Holding / groupe</option>
+              <option>Banque / finance</option>
+              <option>Assurance / mutuelle</option>
+              <option>Immobilier</option>
+              <option>Santé</option>
+              <option>Association / OSBL</option>
+              <option>Secteur public</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="contact-message" class="block text-sm font-semibold text-encre">Votre question *</label>
+            <textarea id="contact-message" name="message" required rows="5" maxlength="4000"
+              placeholder="ex. Notre holding facture des management fees à ses filiales et perçoit des dividendes ; nous nous interrogeons sur notre prorata et notre taxe sur les salaires."
+              class="mt-1.5 w-full rounded border border-bordure bg-carte px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine"></textarea>
+          </div>
+        </div>
+        <p class="visuellement-cache" aria-hidden="true">
+          <label>Ne pas remplir : <input type="text" name="site_web" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <input type="hidden" name="depuis" value="" />
+        <label class="mt-4 flex items-start gap-2.5 text-sm leading-6 text-texte-2">
+          <input type="checkbox" name="consentement" required class="mt-1 h-4 w-4 accent-[#8a6a1f]" />
+          <span>
+            J'accepte que ces informations soient utilisées pour traiter ma demande, dans les
+            conditions décrites aux <a href="/mentions-legales/" class="underline underline-offset-2">mentions légales</a>. *
+          </span>
+        </label>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <button type="submit"
+            class="flex items-center gap-2 rounded bg-or-vif px-7 py-3.5 font-texte text-sm font-bold text-nuit transition-all hover:-translate-y-0.5 hover:bg-or-pale hover:shadow-[0_0_24px_rgba(216,171,74,0.35)] disabled:opacity-50">
+            <span class="ms text-lg" aria-hidden="true">mail</span>
+            Envoyer ma question
+          </button>
+          <p id="contact-etat" class="text-sm font-semibold" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
   </div>
+
+  <style>
+    .visuellement-cache {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const formulaire = document.getElementById('formulaire-contact') as HTMLFormElement | null;
+      if (!formulaire || formulaire.dataset.branche) return;
+      formulaire.dataset.branche = '1';
+      (formulaire.elements.namedItem('depuis') as HTMLInputElement).value = String(Date.now());
+      const etat = document.getElementById('contact-etat')!;
+      const bouton = formulaire.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+      formulaire.addEventListener('submit', async (evenement) => {
+        evenement.preventDefault();
+        if (!formulaire.reportValidity()) return;
+        bouton.disabled = true;
+        etat.textContent = 'Envoi en cours…';
+        etat.className = 'text-sm font-semibold text-texte-2';
+        try {
+          const requete = await fetch('/api/contact', { method: 'POST', body: new FormData(formulaire) });
+          const retour = await requete.json().catch(() => ({ ok: false }));
+          if (retour.ok) {
+            formulaire.reset();
+            (formulaire.elements.namedItem('depuis') as HTMLInputElement).value = String(Date.now());
+            etat.textContent = 'Votre question est bien arrivée au cabinet. Réponse rapide assurée.';
+            etat.className = 'text-sm font-semibold text-positif';
+          } else {
+            throw new Error(retour.erreur || 'envoi');
+          }
+        } catch {
+          const nom = (formulaire.elements.namedItem('nom') as HTMLInputElement).value;
+          const message = (formulaire.elements.namedItem('message') as HTMLTextAreaElement).value;
+          const courriel = `mailto:francois.ouairy@bensaid-avocats.fr?subject=${encodeURIComponent('Question TVA / taxe sur les salaires — ' + nom)}&body=${encodeURIComponent(message)}`;
+          etat.innerHTML = `L'envoi n'a pas abouti. <a class="underline underline-offset-2" href="${courriel}">Envoyez votre question directement par e-mail</a>.`;
+          etat.className = 'text-sm font-semibold text-alerte';
+        } finally {
+          bouton.disabled = false;
+        }
+      });
+    });
+  </script>
 </BaseLayout>
