@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ScanEngine from '@/components/scan/ScanEngine';
 import SectionProrata from '@/components/scan/SectionProrata.astro';
+import ParticulesOr from '@/components/scan/ParticulesOr.astro';
 import { arbreTva } from '@/data/scan/tva';
 import { verifierArbre } from '@/data/scan/types';
 
@@ -26,8 +27,9 @@ if (erreurs.length > 0) {
       <p class="mt-5 max-w-2xl text-base leading-7 text-white/70">{arbreTva.sousTitre}</p>
     </header>
   </section>
-  <div class="grille-nuit bg-nuit">
-    <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-14">
+  <div class="grille-nuit relative bg-nuit">
+    <ParticulesOr />
+    <div class="relative mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-14">
       <ScanEngine client:load arbre={arbreTva} dossier />
     </div>
     <SectionProrata accent="tva" />

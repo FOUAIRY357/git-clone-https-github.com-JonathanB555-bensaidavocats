@@ -19,6 +19,7 @@ export const arbreTva: ArbreScan = {
     "Version de travail : l'arbre de décision est en cours de validation par le cabinet.",
   entree: 'assujetti',
   profondeurEstimee: 8,
+  phases: ['Champ', 'Exonération', 'Option', 'Verdict'],
   demandeCaTotal: true,
   triage: {
     titre: 'Savez-vous déjà si cette opération est taxable ?',
@@ -37,6 +38,7 @@ export const arbreTva: ArbreScan = {
   questions: {
     assujetti: {
       id: 'assujetti',
+      phase: 0,
       intitule: 'Qualité d’assujetti',
       titre: "Qui réalise l'opération ?",
       image: '/images/scan-tva.jpg',
@@ -78,6 +80,7 @@ export const arbreTva: ArbreScan = {
     },
     'public-concurrence': {
       id: 'public-concurrence',
+      phase: 0,
       intitule: 'Personne publique',
       titre: "Dans quel cadre la personne publique agit-elle ?",
       image: '/images/scan-tva.jpg',
@@ -107,6 +110,7 @@ export const arbreTva: ArbreScan = {
     },
     'holding-role': {
       id: 'holding-role',
+      phase: 0,
       intitule: 'Rôle de la holding',
       titre: 'Quel est le rôle de la holding dans cette opération ?',
       image: '/images/holdings.jpg',
@@ -142,6 +146,7 @@ export const arbreTva: ArbreScan = {
     },
     nature: {
       id: 'nature',
+      phase: 0,
       intitule: "Nature de l'opération",
       titre: "De quelle nature est l'opération ?",
       image: '/images/scan-tva.jpg',
@@ -177,6 +182,7 @@ export const arbreTva: ArbreScan = {
     },
     onereux: {
       id: 'onereux',
+      phase: 0,
       intitule: 'Opération à titre onéreux',
       titre: "L'opération comporte-t-elle une contrepartie directe ?",
       image: '/images/scan-tva.jpg',
@@ -206,6 +212,7 @@ export const arbreTva: ArbreScan = {
     },
     habituel: {
       id: 'habituel',
+      phase: 0,
       intitule: 'Caractère habituel',
       titre: "L'opération s'inscrit-elle dans une activité exercée à titre habituel et indépendant ?",
       image: '/images/scan-tva.jpg',
@@ -235,6 +242,7 @@ export const arbreTva: ArbreScan = {
     },
     territorialite: {
       id: 'territorialite',
+      phase: 0,
       intitule: 'Territorialité',
       titre: "L'opération est-elle située en France ?",
       image: '/images/scan-tva.jpg',
@@ -264,6 +272,7 @@ export const arbreTva: ArbreScan = {
     },
     exoneration: {
       id: 'exoneration',
+      phase: 1,
       intitule: 'Exonération',
       titre: "L'opération relève-t-elle d'une exonération ?",
       image: '/images/scan-tva.jpg',
@@ -293,6 +302,7 @@ export const arbreTva: ArbreScan = {
     },
     option: {
       id: 'option',
+      phase: 2,
       intitule: 'Option pour la taxation',
       titre: 'Une option pour la taxation a-t-elle été exercée ?',
       image: '/images/scan-tva.jpg',
@@ -316,6 +326,7 @@ export const arbreTva: ArbreScan = {
     },
     assimilee: {
       id: 'assimilee',
+      phase: 2,
       intitule: 'Assimilation aux opérations taxées',
       titre: "L'opération exonérée ouvre-t-elle néanmoins droit à déduction ?",
       image: '/images/scan-tva.jpg',
@@ -341,6 +352,7 @@ export const arbreTva: ArbreScan = {
     /* ---------------- Sous-parcours immobilier ---------------- */
     'immo-type': {
       id: 'immo-type',
+      phase: 0,
       intitule: 'Opération immobilière',
       titre: "De quel type d'opération immobilière s'agit-il ?",
       image: '/images/immobilier.jpg',
@@ -376,6 +388,7 @@ export const arbreTva: ArbreScan = {
     },
     'immo-vendeur': {
       id: 'immo-vendeur',
+      phase: 0,
       intitule: 'Qui vend ?',
       titre: 'Qui vend, et à quel titre ?',
       image: '/images/immobilier.jpg',
@@ -411,6 +424,7 @@ export const arbreTva: ArbreScan = {
     },
     'immo-particulier': {
       id: 'immo-particulier',
+      phase: 0,
       intitule: 'Démarches actives ?',
       titre: 'Le particulier a-t-il entrepris des démarches actives de commercialisation ?',
       image: '/images/immobilier.jpg',
@@ -434,6 +448,7 @@ export const arbreTva: ArbreScan = {
     },
     'immo-bailleur-cession': {
       id: 'immo-bailleur-cession',
+      phase: 0,
       intitule: 'Cession par un bailleur',
       titre: 'Quelle est la situation locative de l’immeuble cédé ?',
       image: '/images/immobilier.jpg',
@@ -463,6 +478,7 @@ export const arbreTva: ArbreScan = {
     },
     'immo-vente': {
       id: 'immo-vente',
+      phase: 0,
       intitule: 'Vente immobilière',
       titre: 'Que vendez-vous ?',
       image: '/images/immobilier.jpg',
@@ -498,6 +514,7 @@ export const arbreTva: ArbreScan = {
     },
     'immo-option-vente': {
       id: 'immo-option-vente',
+      phase: 2,
       intitule: 'Option sur la vente',
       titre: 'Le vendeur opte-t-il pour la taxation de la vente ?',
       image: '/images/immobilier.jpg',
@@ -521,6 +538,7 @@ export const arbreTva: ArbreScan = {
     },
     'immo-location': {
       id: 'immo-location',
+      phase: 0,
       intitule: 'Location immobilière',
       titre: 'Quelle est la nature de la location ?',
       image: '/images/immobilier.jpg',
@@ -556,6 +574,7 @@ export const arbreTva: ArbreScan = {
     },
     'immo-parahotel': {
       id: 'immo-parahotel',
+      phase: 1,
       intitule: 'Para-hôtellerie',
       titre: 'Votre location meublée remplit-elle les critères de la para-hôtellerie ?',
       image: '/images/immobilier.jpg',
@@ -591,6 +610,7 @@ export const arbreTva: ArbreScan = {
     },
     'immo-option-bail': {
       id: 'immo-option-bail',
+      phase: 2,
       intitule: 'Option sur les loyers',
       titre: "Une lettre d'option à la TVA couvre-t-elle ces locaux ?",
       image: '/images/immobilier.jpg',
@@ -616,6 +636,7 @@ export const arbreTva: ArbreScan = {
     /* ---------------- Sous-parcours financier et assurance ---------------- */
     'fin-type': {
       id: 'fin-type',
+      phase: 0,
       intitule: 'Opération financière',
       titre: "Quelle opération financière ou d'assurance ?",
       image: '/images/finance.jpg',
@@ -645,6 +666,7 @@ export const arbreTva: ArbreScan = {
     },
     'fin-option': {
       id: 'fin-option',
+      phase: 2,
       intitule: 'Option 260 B',
       titre: "Une option pour la taxation (art. 260 B) est-elle exercée ?",
       image: '/images/finance.jpg',
@@ -668,6 +690,7 @@ export const arbreTva: ArbreScan = {
     },
     'fin-preneur': {
       id: 'fin-preneur',
+      phase: 2,
       intitule: 'Preneur hors UE ?',
       titre: "Le preneur est-il établi hors de l'Union européenne ?",
       image: '/images/finance.jpg',
@@ -693,6 +716,7 @@ export const arbreTva: ArbreScan = {
     /* ---------------- Sous-parcours santé ---------------- */
     'sante-but': {
       id: 'sante-but',
+      phase: 0,
       intitule: 'Finalité de l’acte',
       titre: "L'acte poursuit-il une finalité thérapeutique ?",
       image: '/images/sante.jpg',

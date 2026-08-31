@@ -36,6 +36,8 @@ export interface QuestionScan {
   id: string;
   /** Intitulé court affiché dans le dossier en cours. */
   intitule: string;
+  /** Indice de la phase (barre d'étapes nommées de l'arbre). */
+  phase?: number;
   titre: string;
   /** Image d'ambiance affichée en bannière de la question. */
   image?: string;
@@ -124,6 +126,8 @@ export interface ArbreScan {
   entree: string;
   /** Profondeur indicative pour la barre de progression. */
   profondeurEstimee: number;
+  /** Étapes nommées de la barre de progression (la dernière est le verdict). */
+  phases?: string[];
   questions: Record<string, QuestionScan>;
   resultats: Record<string, ResultatScan>;
 }

@@ -49,4 +49,19 @@ const actualites = defineCollection({
   }),
 });
 
-export const collections = { secteurs, doctrine, actualites };
+/**
+ * Lexique : pages de définition courtes (/definition/<slug>/), pensées pour le
+ * SEO/GEO — un terme, une définition citable, des renvois vers la doctrine.
+ */
+const definitions = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/definitions' }),
+  schema: z.object({
+    titre: z.string(),
+    terme: z.string(),
+    description: z.string(),
+    ordre: z.number().default(99),
+    statut: z.enum(['publie', 'brouillon']).default('publie'),
+  }),
+});
+
+export const collections = { secteurs, doctrine, actualites, definitions };

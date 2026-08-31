@@ -1,7 +1,39 @@
-import { useEffect, useMemo, useState, type MouseEvent as EvenementSouris } from 'react';
+import { useEffect, useMemo, useRef, useState, type MouseEvent as EvenementSouris, type ReactNode } from 'react';
 import type { ArbreScan, OperationScannee, QuestionScan, ResultatScan, TonResultat } from '@/data/scan/types';
 import CartographieScan from './CartographieScan';
 import RapportScan from './RapportScan';
+import TexteLexique from './TexteLexique';
+
+/** Phrases du compagnon de jeu, selon l'avancement. */
+const PREFIXES_GUIDE = ['Commençons.', 'Bien.', 'On avance.', 'Précisons.', 'On y est presque.', 'Dernière ligne droite.'];
+
+/** Accordéon « détails à la demande » — replié par défaut, remonté à chaque question via key. */
+function Accordeon({ titre, children }: { titre: string; children: ReactNode }) {
+  const [ouvert, setOuvert] = useState(false);
+  return (
+    <div className="mt-4 rounded border border-white/10 bg-white/5">
+      <button
+        type="button"
+        onClick={() => setOuvert(!ouvert)}
+        aria-expanded={ouvert}
+        className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left"
+      >
+        <span className="flex items-center gap-2 text-sm font-semibold text-or-pale">
+          <span className="ms text-lg" aria-hidden="true">info</span>
+          {titre}
+        </span>
+        <span className={`ms accordeon-chevron text-lg text-white/50 ${ouvert ? 'ouvert' : ''}`} aria-hidden="true">
+          expand_more
+        </span>
+      </button>
+      <div className={`accordeon-contenu ${ouvert ? 'ouvert' : ''}`}>
+        <div>
+          <div className="px-4 pb-4">{children}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 interface ReponseDonnee {
   questionId: string;
@@ -47,22 +79,10 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   const vueEntree: 'triage' | 'briefing' | 'scan' =
     dossier && arbre.triage ? 'triage' : arbre.univers?.length ? 'briefing' : 'scan';
   const [vue, setVue] = useState<'triage' | 'briefing' | 'scan' | 'rapport'>(vueEntree);
-  const [caTotal, setCaTotal] = useState<string>(() => {
-    if (typeof window === 'undefined') return '';
-    try {
-      return window.localStorage.getItem(`scan-${arbre.id}-ca-v1`) ?? '';
-    } catch {
-      return '';
-    }
-  });
-
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(`scan-${arbre.id}-ca-v1`, caTotal);
-    } catch {
-      /* stockage indisponible */
-    }
-  }, [caTotal, arbre.id]);
+  const [tiroirAide, setTiroirAide] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
+  const autoImmersifFait = useRef(false);
+  const minuteurToast = useRef<ReturnType<typeof setTimeout>>();
   const [reponses, setReponses] = useState<ReponseDonnee[]>([]);
   const [courant, setCourant] = useState<{ type: 'question' | 'resultat'; id: string }>({
     type: 'question',
@@ -106,6 +126,11 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     function auClavier(e: KeyboardEvent) {
       const cible = e.target as HTMLElement | null;
       if (cible && (cible.tagName === 'INPUT' || cible.tagName === 'TEXTAREA')) return;
+      if (e.key === 'Escape' && tiroirAide) {
+        setTiroirAide(false);
+        return;
+      }
+      if (tiroirAide) return;
       if (vue !== 'scan' || !question) return;
       if (e.key === 'Backspace') {
         e.preventDefault();
@@ -159,6 +184,12 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   ) {
     if (!question) return;
     voyagerNoeud(evenement);
+    setTiroirAide(false);
+    // Dès la première réponse, le jeu passe en plein écran (le bouton Immersif permet d'en sortir).
+    if (!autoImmersifFait.current && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      autoImmersifFait.current = true;
+      setImmersif(true);
+    }
     setReponses([...reponses, { questionId: question.id, libelle }]);
     if (versResultat) {
       setCourant({ type: 'resultat', id: versResultat });
@@ -217,6 +248,14 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   /** Mode dossier : enregistre l'opération qualifiée puis enchaîne. */
   function validerOperation(destination: 'scan' | 'rapport') {
     if (!resultat) return;
+    const total = operations.length + 1;
+    setToast(
+      total === 1
+        ? 'Opération enregistrée — votre dossier est sauvegardé dans ce navigateur'
+        : `Opération enregistrée · ${total} au dossier`
+    );
+    clearTimeout(minuteurToast.current);
+    minuteurToast.current = setTimeout(() => setToast(null), 2600);
     const montant = Number.parseFloat(montantOperation.replace(/[\s €]/g, '').replace(',', '.'));
     setOperations([
       ...operations,
@@ -239,28 +278,31 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     relancerScan();
   }
 
-  const caTotalValide = (() => {
-    const n = Number.parseFloat(caTotal.replace(/[\s €]/g, '').replace(',', '.'));
-    return Number.isFinite(n) && n > 0 ? n : undefined;
-  })();
-
   if (dossier && vue === 'rapport') {
     return (
       <RapportScan
         arbre={arbre}
         operations={operations}
-        caTotal={caTotalValide}
         onAjouterOperation={relancerScan}
         onNouveauDossier={nouveauDossier}
       />
     );
   }
 
+  const toastJsx = toast ? (
+    <p className="toast-sauvegarde fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-lg border border-or-vif/50 bg-[#0a1526] px-4 py-3 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(0,0,0,0.5)]">
+      <span className="etincelle text-or-pale" aria-hidden="true">✦</span>
+      {toast}
+      <span className="ms text-lg text-[#7fd39a]" aria-hidden="true">check_circle</span>
+    </p>
+  ) : null;
+
   /* Écran de triage : trancher soi-même, ou dérouler le raisonnement. */
   if (dossier && arbre.triage && vue === 'triage') {
     const triage = arbre.triage;
     return (
       <section className="apparition" aria-live="polite">
+        {toastJsx}
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="etiquette text-or-vif">
@@ -290,98 +332,114 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
           )}
         </div>
 
-        {arbre.demandeCaTotal && (
-          <div className="apparition mt-6 flex flex-wrap items-center gap-4 rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur" style={{ animationDelay: '80ms' }}>
-            <div className="min-w-0 flex-1">
-              <label htmlFor="ca-total" className="font-titres text-sm font-semibold text-white">
-                Votre chiffre d'affaires annuel total (toutes recettes)
-              </label>
-              <p className="mt-0.5 text-xs leading-5 text-white/50">
-                Il sert de dénominateur : le rapport mesurera la part de vos recettes réellement qualifiée.
-              </p>
-            </div>
-            <input
-              id="ca-total"
-              type="text"
-              inputMode="decimal"
-              value={caTotal}
-              onChange={(evenement) => setCaTotal(evenement.target.value)}
-              placeholder="ex. 4 000 000 €"
-              className="w-44 rounded border border-white/20 bg-white/5 px-3 py-2.5 text-right text-sm text-white placeholder-white/30 outline-none transition-colors focus:border-or-vif"
-            />
-          </div>
-        )}
-
-        <div className="mt-6 rounded border border-white/10 bg-white/5 p-4">
-          <p className="flex items-center gap-2 text-sm font-semibold text-or-pale">
-            <span className="ms text-lg" aria-hidden="true">info</span>
-            Comment répondre ?
-          </p>
-          <p className="mt-1.5 text-sm leading-6 text-white/75">{triage.aide}</p>
+        {/* Les 3 temps du jeu */}
+        <div className="mt-5 flex flex-wrap items-center gap-2">
+          {['Qualifiez vos opérations', 'Obtenez votre prorata', 'Recevez votre rapport en €'].map((temps, i) => (
+            <span
+              key={temps}
+              className="apparition flex items-center gap-2 rounded-full border border-white/15 bg-white/5 py-1.5 pl-2 pr-3.5 text-xs font-semibold text-white/75"
+              style={{ animationDelay: `${150 + i * 220}ms` }}
+            >
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-or-vif font-titres text-[10px] font-bold text-nuit">
+                {i + 1}
+              </span>
+              {temps}
+            </span>
+          ))}
+          <span className="apparition text-xs text-white/40" style={{ animationDelay: '810ms' }}>
+            ≈ 2 min par opération
+          </span>
         </div>
 
-        <div className="mt-6 grid gap-3 md:grid-cols-2">
+        <div className="mt-7 grid gap-3 md:grid-cols-3">
           <button
             type="button"
             onClick={() => setVue('briefing')}
-            className="group apparition relative overflow-hidden rounded-lg border-2 border-or-vif/70 bg-or-vif/10 p-6 text-left transition-all hover:-translate-y-0.5 hover:bg-or-vif/20 hover:shadow-[0_0_32px_rgba(216,171,74,0.3)] md:col-span-2"
+            className="group apparition relative overflow-hidden rounded-lg border-2 border-or-vif/70 bg-or-vif/10 p-6 text-left transition-all hover:-translate-y-1 hover:bg-or-vif/20 hover:shadow-[0_0_36px_rgba(216,171,74,0.35)] md:col-span-3"
+            style={{ animationDelay: '80ms' }}
           >
-            <span className="flex items-start justify-between gap-3">
-              <span className="font-titres text-lg font-bold text-or-pale">
-                Je ne sais pas — déroulons le raisonnement
+            <span className="flex items-center justify-between gap-3">
+              <span>
+                <span className="font-titres text-lg font-bold text-or-pale">Je ne sais pas — guidez-moi</span>
+                <span className="mt-1 block text-sm leading-5 text-white/65">
+                  Le raisonnement complet d'un fiscaliste, une question simple à la fois.
+                </span>
               </span>
-              <span className="ms rounded bg-or-vif/20 p-1.5 text-2xl text-or-pale" aria-hidden="true">radar</span>
-            </span>
-            <span className="mt-1.5 block max-w-2xl text-sm leading-6 text-white/70">
-              Le canevas complet d'un fiscaliste, question par question : champ d'application, exonérations,
-              options, assimilations. C'est la voie recommandée au moindre doute.
+              <span className="ms rounded bg-or-vif/20 p-2 text-3xl text-or-pale transition-transform group-hover:translate-x-1" aria-hidden="true">
+                arrow_forward
+              </span>
             </span>
           </button>
           <button
             type="button"
             onClick={() => trancher({ type: 'resultat', id: triage.versTaxee }, 'Opération taxable (réponse directe)')}
-            style={{ animationDelay: '90ms' }}
-            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10"
+            style={{ animationDelay: '200ms' }}
+            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-center backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10"
           >
-            <span className="flex items-start justify-between gap-3">
-              <span className="font-titres text-base font-semibold text-white">Oui, elle est taxable</span>
-              <span className="ms rounded bg-white/10 p-1.5 text-xl text-white/60 group-hover:text-or-pale" aria-hidden="true">check_circle</span>
-            </span>
-            <span className="mt-1.5 block text-sm leading-5 text-white/60">
-              TVA collectée, droit à déduction : il ne reste qu'à nommer et chiffrer l'opération.
-            </span>
+            <span className="ms block text-3xl text-[#7fd39a]" aria-hidden="true">check_circle</span>
+            <span className="mt-2 block font-titres text-base font-semibold text-white">Elle est taxable</span>
+            <span className="mt-1 block text-xs leading-4 text-white/50">Il ne reste qu'à la chiffrer</span>
           </button>
           <button
             type="button"
             onClick={() => trancher({ type: 'question', id: triage.versExoneree }, 'Opération exonérée (réponse directe)')}
-            style={{ animationDelay: '150ms' }}
-            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10"
+            style={{ animationDelay: '270ms' }}
+            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-center backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10"
           >
-            <span className="flex items-start justify-between gap-3">
-              <span className="font-titres text-base font-semibold text-white">Elle est exonérée</span>
-              <span className="ms rounded bg-white/10 p-1.5 text-xl text-white/60 group-hover:text-or-pale" aria-hidden="true">shield</span>
-            </span>
-            <span className="mt-1.5 block text-sm leading-5 text-white/60">
-              Deux vérifications restent décisives : une option a-t-elle été exercée, et l'exonération
-              ouvre-t-elle malgré tout droit à déduction ?
-            </span>
+            <span className="ms block text-3xl text-white/70" aria-hidden="true">shield</span>
+            <span className="mt-2 block font-titres text-base font-semibold text-white">Elle est exonérée</span>
+            <span className="mt-1 block text-xs leading-4 text-white/50">On vérifie option et déduction</span>
           </button>
           <button
             type="button"
             onClick={() => trancher({ type: 'resultat', id: triage.versHorsChamp }, 'Opération hors champ (réponse directe)')}
-            style={{ animationDelay: '210ms' }}
-            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10 md:col-span-2"
+            style={{ animationDelay: '340ms' }}
+            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-center backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10"
           >
-            <span className="flex items-start justify-between gap-3">
-              <span className="font-titres text-base font-semibold text-white">Elle est hors du champ de la TVA</span>
-              <span className="ms rounded bg-white/10 p-1.5 text-xl text-white/60 group-hover:text-or-pale" aria-hidden="true">block</span>
-            </span>
-            <span className="mt-1.5 block text-sm leading-5 text-white/60">
-              Dividendes, subventions sans contrepartie, indemnités : pas de TVA, pas de déduction — mais un
-              impact direct sur la taxe sur les salaires.
-            </span>
+            <span className="ms block text-3xl text-white/70" aria-hidden="true">block</span>
+            <span className="mt-2 block font-titres text-base font-semibold text-white">Elle est hors champ</span>
+            <span className="mt-1 block text-xs leading-4 text-white/50">Dividendes, subventions…</span>
           </button>
         </div>
+
+        {/* Entrées directes par univers */}
+        {arbre.univers && arbre.univers.length > 1 && (
+          <div className="apparition mt-5 flex flex-wrap items-center gap-2" style={{ animationDelay: '420ms' }}>
+            <span className="text-xs text-white/45">Ou entrez directement :</span>
+            {arbre.univers.map((u) => (
+              <button
+                key={u.titre}
+                type="button"
+                onClick={() => demarrer(u.entree)}
+                className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold text-white/65 transition-colors hover:border-or-vif hover:text-or-pale"
+              >
+                {u.titre}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <Accordeon titre="Comment répondre ?">
+          <p className="text-sm leading-6 text-white/75">
+            <TexteLexique texte={triage.aide} />
+          </p>
+        </Accordeon>
+
+        {operations.length >= 2 && (
+          <div className="apparition mt-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-or-vif/40 bg-or-vif/10 p-4">
+            <p className="text-sm leading-6 text-white/85">
+              <strong className="text-or-pale">{operations.length} opérations qualifiées</strong> — un avocat peut
+              fiabiliser le dossier et chiffrer les options.
+            </p>
+            <a
+              href="/expert/"
+              className="rounded bg-or-vif px-4 py-2 font-texte text-sm font-bold text-nuit transition-all hover:-translate-y-0.5 hover:bg-or-pale"
+            >
+              Être rappelé par l'expert
+            </a>
+          </div>
+        )}
+
         {arbre.avertissement && (
           <p className="mt-6 text-xs leading-5 text-white/35">{arbre.avertissement}</p>
         )}
@@ -495,24 +553,56 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
               {immersif ? 'Quitter' : 'Immersif'}
             </button>
           </div>
-          <div className="flex gap-1.5" role="progressbar" aria-label="Progression du scan">
-            {segments.map((rempli, i) => (
-              <span
-                key={i}
-                className={`h-1.5 flex-1 rounded-full transition-colors duration-500 ${
-                  rempli ? 'bg-or-vif shadow-[0_0_8px_rgba(216,171,74,0.55)]' : 'bg-white/15'
-                }`}
-              />
-            ))}
-          </div>
+          {arbre.phases ? (
+            <ol className="flex flex-wrap gap-2" aria-label="Étapes du scan">
+              {arbre.phases.map((nom, i) => {
+                const phaseCourante =
+                  courant.type === 'resultat' ? arbre.phases!.length - 1 : (question?.phase ?? 0);
+                const statut = i < phaseCourante ? 'faite' : i === phaseCourante ? 'active' : 'a-venir';
+                return (
+                  <li
+                    key={nom}
+                    className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide transition-all duration-500 ${
+                      statut === 'active'
+                        ? 'etape-active border-or-vif bg-or-vif/15 text-or-pale'
+                        : statut === 'faite'
+                          ? 'border-positif/40 bg-positif/10 text-[#7fd39a]'
+                          : 'border-white/12 text-white/35'
+                    }`}
+                  >
+                    {statut === 'faite' && (
+                      <span className="ms text-sm" aria-hidden="true">check_circle</span>
+                    )}
+                    {nom}
+                  </li>
+                );
+              })}
+            </ol>
+          ) : (
+            <div className="flex gap-1.5" role="progressbar" aria-label="Progression du scan">
+              {segments.map((rempli, i) => (
+                <span
+                  key={i}
+                  className={`h-1.5 flex-1 rounded-full transition-colors duration-500 ${
+                    rempli ? 'bg-or-vif shadow-[0_0_8px_rgba(216,171,74,0.55)]' : 'bg-white/15'
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {question && (
-          <section key={question.id} className="apparition" aria-live="polite">
+          <section key={question.id} className="entree-laterale" aria-live="polite">
+            {/* Phrase du compagnon de jeu */}
+            <p className="mb-3 font-texte text-sm italic text-or-pale/90">
+              {PREFIXES_GUIDE[Math.min(etape - 1, PREFIXES_GUIDE.length - 1)]}{' '}
+              <span className="not-italic text-white/55">{question.intitule}.</span>
+            </p>
             {/* Carte question, façon écran de jeu */}
             <div className="overflow-hidden rounded-lg border border-white/10 bg-[#0a1526] shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
               {question.image && (
-                <div className="relative h-40 md:h-48">
+                <div className="relative h-36 md:h-44">
                   <img src={question.image} alt="" className="kenburns h-full w-full object-cover" aria-hidden="true" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a1526] via-[#0a1526]/40 to-transparent" aria-hidden="true"></div>
                   <span className="etiquette absolute left-6 top-5 rounded bg-nuit/70 px-2.5 py-1 text-or-pale backdrop-blur">
@@ -524,24 +614,20 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 <h2 className="texte-affiche text-2xl leading-tight text-white md:text-4xl">
                   {question.titre}
                 </h2>
-                <div className="mt-5 rounded border border-white/10 bg-white/5 p-4">
-                  <p className="flex items-center gap-2 text-sm font-semibold text-or-pale">
-                    <span className="ms text-lg" aria-hidden="true">
-                      info
-                    </span>
-                    Pourquoi cette question ?
+                <Accordeon key={question.id} titre="Pourquoi cette question ?">
+                  <p className="text-sm leading-6 text-white/75">
+                    <TexteLexique texte={question.aide} />
                   </p>
-                  <p className="mt-1.5 text-sm leading-6 text-white/75">{question.aide}</p>
-                </div>
-                {question.references.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {question.references.map((ref) => (
-                      <span key={ref.libelle} className="etiquette rounded bg-white/10 px-2 py-1 text-or-pale">
-                        {ref.libelle}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                  {question.references.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {question.references.map((ref) => (
+                        <span key={ref.libelle} className="etiquette rounded bg-white/10 px-2 py-1 text-or-pale">
+                          {ref.libelle}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </Accordeon>
               </div>
             </div>
 
@@ -580,10 +666,11 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 </button>
               ))}
 
-              <a
-                href={question.doctrine.url}
+              <button
+                type="button"
+                onClick={() => setTiroirAide(true)}
                 style={{ animationDelay: `${120 + question.options.length * 60}ms` }}
-                className="group apparition rounded-lg border border-dashed border-white/25 bg-transparent p-5 transition-colors hover:border-white/60"
+                className="group apparition rounded-lg border border-dashed border-white/25 bg-transparent p-5 text-left transition-colors hover:border-white/60"
               >
                 <span className="flex items-start justify-between gap-3">
                   <span className="font-titres text-base font-semibold text-white/70 group-hover:text-white">
@@ -594,9 +681,9 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                   </span>
                 </span>
                 <span className="mt-1.5 block text-sm leading-5 text-white/50">
-                  Consultez notre page dédiée : {question.doctrine.libelle.replace('Doctrine : ', '')}.
+                  Ouvrir le panneau « pour trancher » : l'explication, les textes, la doctrine.
                 </span>
-              </a>
+              </button>
 
               <a
                 href="/expert/"
@@ -641,7 +728,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
         )}
 
         {resultat && (
-          <section key={resultat.id} className="apparition" aria-live="polite">
+          <section key={resultat.id} className="entree-laterale" aria-live="polite">
             <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#0a1526] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-8">
               <div
                 className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full opacity-25 blur-3xl"
@@ -649,7 +736,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 aria-hidden="true"
               />
               <div className="relative flex flex-wrap items-center gap-2">
-                <span className={`etiquette inline-flex items-center gap-1.5 rounded px-2.5 py-1 ${stylesTon[resultat.ton].badge}`}>
+                <span className={`tampon onde etiquette inline-flex items-center gap-1.5 rounded px-2.5 py-1 ${stylesTon[resultat.ton].badge}`}>
                   <span className="ms text-base" aria-hidden="true">
                     {stylesTon[resultat.ton].icone}
                   </span>
@@ -669,7 +756,9 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
               <h2 className="texte-affiche relative mt-4 text-3xl leading-tight text-white md:text-5xl">
                 {resultat.qualification}
               </h2>
-              <p className="relative mt-4 max-w-2xl text-base leading-7 text-white/75">{resultat.resume}</p>
+              <p className="relative mt-4 max-w-2xl text-base leading-7 text-white/75">
+                <TexteLexique texte={resultat.resume} />
+              </p>
 
               <h3 className="etiquette relative mt-7 text-or-vif">Ce que cela implique</h3>
               <ul className="relative mt-3 space-y-2.5">
@@ -822,7 +911,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 </button>
               )}
             </div>
-            <div className="pt-2" id="carte-mini">
+            <div className="carte-scintille pt-2" id="carte-mini">
               <CartographieScan arbre={arbre} operations={operations} operationEnCours={operationEnCours} compacte sombre />
             </div>
             <p className="border-t border-white/10 pt-3 text-xs leading-5 text-white/45">
@@ -871,6 +960,74 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
           </p>
         )}
       </aside>
+
+      {/* Panneau latéral « Pour trancher » (Je ne sais pas) */}
+      {tiroirAide && question && (
+        <div
+          className="fixed inset-0 z-50 bg-nuit/60 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Pour trancher"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) setTiroirAide(false);
+          }}
+        >
+          <div className="tiroir absolute inset-y-0 right-0 flex w-full max-w-md flex-col overflow-y-auto border-l border-white/15 bg-[#0a1526] p-6 shadow-[-30px_0_80px_rgba(0,0,0,0.6)]">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="etiquette text-or-vif">Pour trancher</p>
+                <h3 className="texte-affiche mt-2 text-2xl text-white">{question.intitule}</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setTiroirAide(false)}
+                className="rounded border border-white/20 px-2 py-1 text-xs font-bold text-white/50 transition-colors hover:border-white/50 hover:text-white"
+                aria-label="Fermer le panneau"
+              >
+                ESC
+              </button>
+            </div>
+            <p className="mt-5 text-sm leading-7 text-white/80">
+              <TexteLexique texte={question.aide} />
+            </p>
+            {question.references.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {question.references.map((ref) => (
+                  <span key={ref.libelle} className="etiquette rounded bg-white/10 px-2 py-1 text-or-pale">
+                    {ref.libelle}
+                  </span>
+                ))}
+              </div>
+            )}
+            <div className="mt-auto space-y-3 pt-8">
+              <a
+                href={question.doctrine.url}
+                className="flex items-center justify-center gap-2 rounded border border-white/30 px-5 py-3 font-texte text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+              >
+                <span className="ms text-lg" aria-hidden="true">menu_book</span>
+                {question.doctrine.libelle.replace('Doctrine : ', 'Lire : ')}
+              </a>
+              <a
+                href="/expert/"
+                className="flex items-center justify-center gap-2 rounded bg-or-vif px-5 py-3 font-texte text-sm font-bold text-nuit transition-all hover:bg-or-pale"
+              >
+                <span className="ms text-lg" aria-hidden="true">support_agent</span>
+                Poser la question à l'expert
+              </a>
+              <button
+                type="button"
+                onClick={() => setTiroirAide(false)}
+                className="w-full text-center text-sm text-white/50 underline underline-offset-4 hover:text-white"
+              >
+                Revenir au scan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Toast de sauvegarde */}
+      {toastJsx}
     </div>
   );
 }

@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BandeauScan from '@/components/BandeauScan.astro';
+
+const definitions = (await getCollection('definitions', ({ data }) => data.statut === 'publie')).sort(
+  (a, b) => a.data.ordre - b.data.ordre || a.data.terme.localeCompare(b.data.terme, 'fr')
+);
+---
+
+<BaseLayout
+  titre="Lexique TVA et taxe sur les salaires : les définitions essentielles"
+  description="Assujetti, redevable, prorata, coefficients, hors champ, terrain à bâtir, immeuble neuf… : les définitions claires et sourcées des notions clés de la TVA et de la taxe sur les salaires."
+>
+  <section class="relative overflow-hidden bg-nuit text-white">
+    <div class="grille-nuit absolute inset-0 opacity-50" aria-hidden="true"></div>
+    <span class="mot-fantome -right-4 -bottom-6 text-[6rem] md:text-[9rem]" aria-hidden="true">Lexique</span>
+    <div class="relative mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
+      <p class="etiquette text-or-vif">Lexique</p>
+      <h1 class="texte-affiche mt-4 max-w-3xl text-4xl text-white md:text-6xl">Les mots de la TVA, définis simplement</h1>
+      <p class="mt-5 max-w-2xl text-base leading-7 text-white/70">
+        Chaque terme des scanners renvoie ici : une définition citable, les textes, et le renvoi
+        vers la page de doctrine qui approfondit.
+      </p>
+    </div>
+  </section>
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        definitions.map((definition, indice) => (
+          <a
+            href={`/definition/${definition.id}/`}
+            class="reveler group rounded border border-bordure bg-carte p-5 transition-all hover:-translate-y-0.5 hover:border-marine hover:shadow-ambiante-2"
+            style={`transition-delay: ${(indice % 3) * 80}ms`}
+          >
+            <h2 class="font-titres text-lg font-semibold group-hover:text-marine">{definition.data.terme}</h2>
+            <p class="mt-1.5 text-sm leading-6 text-texte-2">{definition.data.description}</p>
+          </a>
+        ))
+      }
+    </div>
+    <BandeauScan />
+  </div>
+</BaseLayout>

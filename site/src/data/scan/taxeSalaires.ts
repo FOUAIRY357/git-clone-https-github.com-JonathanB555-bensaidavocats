@@ -19,6 +19,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     "Version de travail : l'arbre de décision est en cours de validation par le cabinet.",
   entree: 'employeur',
   profondeurEstimee: 5,
+  phases: ['Redevable', 'Rapport', 'Sectorisation', 'Verdict'],
   univers: [
     { titre: 'Diagnostic général', detail: 'Redevable ou non, rapport d’assujettissement, sectorisation', image: '/images/scan-ts.jpg', entree: 'employeur' },
     { titre: 'Holdings & dirigeants', detail: 'Holding pure ou mixte, rémunération des mandataires sociaux', image: '/images/holdings.jpg', entree: 'ts-holding-activite' },
@@ -30,6 +31,7 @@ export const arbreTaxeSalaires: ArbreScan = {
   questions: {
     employeur: {
       id: 'employeur',
+      phase: 0,
       intitule: 'Employeur en France',
       image: '/images/scan-ts.jpg',
       titre: 'Êtes-vous un employeur établi ou domicilié en France ?',
@@ -53,6 +55,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     },
     exemption: {
       id: 'exemption',
+      phase: 0,
       intitule: 'Catégories exemptées',
       image: '/images/scan-ts.jpg',
       titre: "Relevez-vous d'une catégorie d'employeurs exemptée ?",
@@ -82,6 +85,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     },
     'seuil-90': {
       id: 'seuil-90',
+      phase: 0,
       intitule: 'Seuil de 90 %',
       image: '/images/scan-ts.jpg',
       titre: "L'année précédant le versement, étiez-vous soumis à la TVA sur au moins 90 % de votre chiffre d'affaires ?",
@@ -105,6 +109,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     },
     'rapport-connu': {
       id: 'rapport-connu',
+      phase: 1,
       intitule: "Rapport d'assujettissement",
       image: '/images/finance.jpg',
       titre: "Votre rapport d'assujettissement est-il déterminé et fiabilisé ?",
@@ -128,6 +133,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     },
     sectorisation: {
       id: 'sectorisation',
+      phase: 2,
       intitule: 'Sectorisation',
       image: '/images/scan-ts.jpg',
       titre: 'Vos activités sont-elles organisées en secteurs distincts ?',
@@ -159,6 +165,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     /* ---------------- Sous-parcours holdings et dirigeants ---------------- */
     'ts-holding-activite': {
       id: 'ts-holding-activite',
+      phase: 0,
       intitule: 'Profil de la holding',
       image: '/images/holdings.jpg',
       titre: 'Quel est le profil de votre holding ?',
@@ -182,6 +189,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     },
     'ts-holding-dirigeant': {
       id: 'ts-holding-dirigeant',
+      phase: 1,
       intitule: 'Rémunération du dirigeant',
       image: '/images/holdings.jpg',
       titre: 'La rémunération de dirigeants est-elle en jeu ?',
@@ -207,6 +215,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     /* ---------------- Sous-parcours secteur financier ---------------- */
     'ts-fin-profil': {
       id: 'ts-fin-profil',
+      phase: 0,
       intitule: 'Profil financier',
       image: '/images/finance.jpg',
       titre: 'Quel est votre profil ?',
@@ -230,6 +239,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     },
     'ts-fin-produits': {
       id: 'ts-fin-produits',
+      phase: 1,
       intitule: 'Produits atypiques',
       image: '/images/finance.jpg',
       titre: 'Vos produits atypiques sont-ils correctement classés ?',
@@ -255,6 +265,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     /* ---------------- Sous-parcours groupe TVA ---------------- */
     'ts-groupe': {
       id: 'ts-groupe',
+      phase: 0,
       intitule: 'Groupe TVA',
       image: '/images/scan-ts.jpg',
       titre: "Êtes-vous membre d'un assujetti unique (groupe TVA) ?",
@@ -286,6 +297,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     /* ---------------- Sous-parcours associations et OSBL ---------------- */
     'ts-osbl': {
       id: 'ts-osbl',
+      phase: 0,
       intitule: 'Organisme sans but lucratif',
       image: '/images/scan-ts.jpg',
       titre: "Votre organisme figure-t-il sur la liste de l'article 1679 A ?",
@@ -311,6 +323,7 @@ export const arbreTaxeSalaires: ArbreScan = {
     /* ---------------- Sous-parcours santé ---------------- */
     'ts-sante': {
       id: 'ts-sante',
+      phase: 0,
       intitule: 'Établissement de santé',
       image: '/images/sante.jpg',
       titre: "Quel type d'établissement êtes-vous ?",

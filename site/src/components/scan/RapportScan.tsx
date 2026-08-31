@@ -5,8 +5,6 @@ import CartographieScan from './CartographieScan';
 interface Props {
   arbre: ArbreScan;
   operations: OperationScannee[];
-  /** Chiffre d'affaires annuel total déclaré à l'entrée du dossier. */
-  caTotal?: number;
   onAjouterOperation: () => void;
   onNouveauDossier: () => void;
 }
@@ -17,9 +15,53 @@ const LIBELLE_DEDUCTION = {
   'a-analyser': 'À analyser (hors France)',
 } as const;
 
-export default function RapportScan({ arbre, operations, caTotal, onAjouterOperation, onNouveauDossier }: Props) {
+const formaterEuros = (valeur: number) =>
+  new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(valeur);
+
+/** Montant en euros qui « roule » jusqu'à sa valeur, comme les compteurs de l'accueil. */
+function CompteurEuros({ valeur, className }: { valeur: number; className?: string }) {
+  const [affiche, setAffiche] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setAffiche(valeur);
+      return;
+    }
+    let raf = 0;
+    const debut = performance.now();
+    const pas = (t: number) => {
+      const avancement = Math.min((t - debut) / 900, 1);
+      setAffiche(valeur * (1 - Math.pow(1 - avancement, 3)));
+      if (avancement < 1) raf = requestAnimationFrame(pas);
+    };
+    raf = requestAnimationFrame(pas);
+    return () => cancelAnimationFrame(raf);
+  }, [valeur]);
+  return <span className={className}>{formaterEuros(affiche)}</span>;
+}
+
+export default function RapportScan({ arbre, operations, onAjouterOperation, onNouveauDossier }: Props) {
   const date = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(new Date());
   const sommeQualifiee = operations.reduce((somme, op) => somme + (op.montant ?? 0), 0);
+
+  // Chiffre d'affaires annuel total, demandé ici pour mesurer la couverture du dossier.
+  const [caSaisie, setCaSaisie] = useState('');
+  useEffect(() => {
+    try {
+      const memo = window.localStorage.getItem(`scan-${arbre.id}-ca-v1`);
+      if (memo) setCaSaisie(memo);
+    } catch {
+      /* stockage indisponible */
+    }
+  }, [arbre.id]);
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(`scan-${arbre.id}-ca-v1`, caSaisie);
+    } catch {
+      /* stockage indisponible */
+    }
+  }, [caSaisie, arbre.id]);
+  const caAnalyse = Number.parseFloat(caSaisie.replace(/[\s €]/g, '').replace(',', '.'));
+  const caTotal = Number.isFinite(caAnalyse) && caAnalyse > 0 ? caAnalyse : undefined;
   const couverture =
     caTotal && caTotal > 0 && sommeQualifiee > 0 ? Math.min(sommeQualifiee / caTotal, 1) : null;
   const resultats = operations.map((op) => ({ op, resultat: arbre.resultats[op.resultatId]! }));
@@ -166,23 +208,40 @@ export default function RapportScan({ arbre, operations, caTotal, onAjouterOpera
           <span className="text-sm leading-5 text-texte-2">{enjeu.texte}</span>
         </div>
 
-        {couverture !== null && (
+        {arbre.demandeCaTotal && sommeQualifiee > 0 && (
           <div className="mt-4 rounded border border-bordure bg-fond-2 p-4">
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <p className="text-sm font-semibold text-encre">
-                Couverture du dossier : {pourcent(couverture)} de votre chiffre d'affaires qualifié
-              </p>
-              <p className="text-xs text-texte-2">
-                {euros(sommeQualifiee)} qualifiés sur {euros(caTotal!)} déclarés
-              </p>
-            </div>
-            <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-fond-3">
-              <div
-                className="h-full rounded-full bg-marine transition-all duration-700"
-                style={{ width: `${Math.round(couverture * 100)}%` }}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-encre">
+                  {couverture !== null
+                    ? `Couverture du dossier : ${pourcent(couverture)} de votre chiffre d'affaires qualifié`
+                    : 'Quel est votre chiffre d’affaires annuel total (toutes recettes) ?'}
+                </p>
+                <p className="mt-0.5 text-xs text-texte-2">
+                  {couverture !== null
+                    ? `${euros(sommeQualifiee)} qualifiés sur ${euros(caTotal!)} déclarés`
+                    : 'Il permet de mesurer la part de vos recettes couverte par ce dossier.'}
+                </p>
+              </div>
+              <input
+                type="text"
+                inputMode="decimal"
+                value={caSaisie}
+                onChange={(evenement) => setCaSaisie(evenement.target.value)}
+                placeholder="CA total, ex. 4 000 000"
+                aria-label="Chiffre d'affaires annuel total en euros"
+                className="no-print w-44 rounded border border-bordure bg-fond px-3 py-2 text-right text-sm text-encre outline-none transition-colors focus:border-marine"
               />
             </div>
-            {couverture < 0.95 && (
+            {couverture !== null && (
+              <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-fond-3">
+                <div
+                  className="h-full rounded-full bg-marine transition-all duration-700"
+                  style={{ width: `${Math.round(couverture * 100)}%` }}
+                />
+              </div>
+            )}
+            {couverture !== null && couverture < 0.95 && (
               <p className="no-print mt-2 text-xs leading-5 text-texte-2">
                 Il reste environ <strong>{euros(Math.max(caTotal! - sommeQualifiee, 0))}</strong> de recettes à
                 qualifier : les coefficients ci-dessous ne portent que sur la part scannée — continuez le scan
@@ -300,11 +359,11 @@ export default function RapportScan({ arbre, operations, caTotal, onAjouterOpera
                 {tvaAmontValide !== null && estimation.coefTaxation !== null && (
                   <div className="mt-4 grid gap-4 sm:grid-cols-2">
                     <div>
-                      <p className="texte-affiche text-3xl text-positif">{euros(tvaAmontValide * estimation.coefTaxation)}</p>
+                      <CompteurEuros valeur={tvaAmontValide * estimation.coefTaxation} className="texte-affiche text-3xl text-positif" />
                       <p className="mt-1 text-xs leading-5 text-texte-2">de TVA récupérable par an, en première approche</p>
                     </div>
                     <div>
-                      <p className="texte-affiche text-3xl text-alerte">{euros(tvaAmontValide * (1 - estimation.coefTaxation))}</p>
+                      <CompteurEuros valeur={tvaAmontValide * (1 - estimation.coefTaxation)} className="texte-affiche text-3xl text-alerte" />
                       <p className="mt-1 text-xs leading-5 text-texte-2">de TVA non récupérée par an : c'est le coût de vos exonérations</p>
                     </div>
                   </div>

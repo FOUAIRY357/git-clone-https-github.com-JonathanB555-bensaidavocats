@@ -8,7 +8,7 @@ interface PageIndexee {
 }
 
 /** Ordre d'affichage des groupes dans la palette. */
-const ORDRE_CATEGORIES = ['Outils', 'Secteurs', 'Guides TVA', 'Notions clés', 'Actualités', 'Rubriques', 'Contact'];
+const ORDRE_CATEGORIES = ['Outils', 'Secteurs', 'Guides TVA', 'Notions clés', 'Définitions', 'Actualités', 'Rubriques', 'Contact'];
 
 /** Suggestions affichées avant toute saisie. */
 const URLS_SUGGEREES = ['/scan-tva/', '/scan-taxe-salaires/', '/holdings-tva/', '/champ-application-taxe-sur-les-salaires/', '/doctrine/droit-a-deduction/', '/expert/'];

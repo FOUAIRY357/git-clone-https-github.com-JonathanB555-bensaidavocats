@@ -1,0 +1,72 @@
+---
+/**
+ * Fond vivant des pages de scan : particules dorées qui dérivent lentement.
+ * Désactivé si l'utilisateur préfère réduire les animations.
+ */
+---
+
+<canvas class="particules-or pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('canvas.particules-or:not([data-vivant])').forEach(function (canvas) {
+      canvas.dataset.vivant = '1';
+      var contexte = canvas.getContext('2d');
+      var particules = [];
+      var largeur = 0;
+      var hauteur = 0;
+
+      function dimensionner() {
+        var boite = canvas.parentElement.getBoundingClientRect();
+        largeur = canvas.width = Math.floor(boite.width);
+        hauteur = canvas.height = Math.floor(boite.height);
+      }
+      dimensionner();
+      window.addEventListener('resize', dimensionner, { passive: true });
+
+      var nombre = Math.min(46, Math.floor(largeur / 34));
+      for (var i = 0; i < nombre; i++) {
+        particules.push({
+          x: Math.random() * largeur,
+          y: Math.random() * hauteur,
+          rayon: 0.6 + Math.random() * 1.7,
+          vitesse: 0.06 + Math.random() * 0.16,
+          derive: (Math.random() - 0.5) * 0.08,
+          alpha: 0.08 + Math.random() * 0.3,
+          phase: Math.random() * Math.PI * 2,
+        });
+      }
+
+      var visible = true;
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entrees) {
+          visible = entrees[0].isIntersecting;
+        }).observe(canvas);
+      }
+
+      function dessiner(t) {
+        if (!canvas.isConnected) return;
+        if (visible && !document.hidden) {
+          contexte.clearRect(0, 0, largeur, hauteur);
+          for (var j = 0; j < particules.length; j++) {
+            var p = particules[j];
+            p.y -= p.vitesse;
+            p.x += p.derive + Math.sin(t / 4200 + p.phase) * 0.05;
+            if (p.y < -4) {
+              p.y = hauteur + 4;
+              p.x = Math.random() * largeur;
+            }
+            contexte.beginPath();
+            contexte.arc(p.x, p.y, p.rayon, 0, Math.PI * 2);
+            contexte.fillStyle =
+              'rgba(216, 171, 74, ' + (p.alpha * (0.75 + 0.25 * Math.sin(t / 1600 + p.phase))).toFixed(3) + ')';
+            contexte.fill();
+          }
+        }
+        requestAnimationFrame(dessiner);
+      }
+      requestAnimationFrame(dessiner);
+    });
+  });
+</script>
