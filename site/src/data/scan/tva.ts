@@ -19,6 +19,13 @@ export const arbreTva: ArbreScan = {
     "Version de travail : l'arbre de décision est en cours de validation par le cabinet.",
   entree: 'assujetti',
   profondeurEstimee: 6,
+  univers: [
+    { titre: 'Opération générale', detail: "Le parcours complet, du champ d'application au droit à déduction", image: '/images/scan-tva.jpg', entree: 'assujetti' },
+    { titre: 'Holdings', detail: 'Dividendes, management fees, intérêts : pure ou animatrice ?', image: '/images/holdings.jpg', entree: 'holding-role' },
+    { titre: 'Immobilier', detail: 'Ventes, locations, travaux, options et 257 bis', image: '/images/immobilier.jpg', entree: 'immo-type' },
+    { titre: 'Banque & assurance', detail: 'Exonérations 261 C, option 260 B, preneurs hors UE', image: '/images/finance.jpg', entree: 'fin-type' },
+    { titre: 'Santé', detail: 'Soins, établissements, actes sans finalité thérapeutique', image: '/images/sante.jpg', entree: 'sante-but' },
+  ],
   questions: {
     assujetti: {
       id: 'assujetti',

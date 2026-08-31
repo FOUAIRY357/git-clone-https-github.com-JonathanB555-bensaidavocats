@@ -84,10 +84,20 @@ export interface ResultatScan {
   etapeSuivante?: { libelle: string; url: string };
 }
 
+export interface UniversScan {
+  titre: string;
+  detail: string;
+  image: string;
+  /** Identifiant de la première question du sous-parcours. */
+  entree: string;
+}
+
 export interface ArbreScan {
   id: string;
   titre: string;
   sousTitre: string;
+  /** Écran de briefing : univers proposés à l'entrée du scan. */
+  univers?: UniversScan[];
   /** Mention affichée tant que l'arbre n'est pas validé par le cabinet. */
   avertissement?: string;
   /** Identifiant de la première question. */

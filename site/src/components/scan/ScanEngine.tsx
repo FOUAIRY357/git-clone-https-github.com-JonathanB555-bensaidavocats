@@ -37,7 +37,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   const [operations, setOperations] = useState<OperationScannee[]>(() =>
     dossier ? chargerDossier(cleStockage) : []
   );
-  const [vue, setVue] = useState<'briefing' | 'scan' | 'rapport'>(dossier ? 'briefing' : 'scan');
+  const [vue, setVue] = useState<'briefing' | 'scan' | 'rapport'>(arbre.univers?.length ? 'briefing' : 'scan');
   const [reponses, setReponses] = useState<ReponseDonnee[]>([]);
   const [courant, setCourant] = useState<{ type: 'question' | 'resultat'; id: string }>({
     type: 'question',
@@ -161,7 +161,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     setReponses([]);
     setLibelleOperation('');
     setCourant({ type: 'question', id: arbre.entree });
-    setVue(dossier ? 'briefing' : 'scan');
+    setVue(arbre.univers?.length ? 'briefing' : 'scan');
   }
 
   /** Démarre une partie sur l'univers choisi. */
@@ -211,14 +211,8 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   const operationEnCours = dossier ? libelleOperation.trim() || libelleParDefaut : undefined;
 
 
-  if (dossier && vue === 'briefing') {
-    const univers = [
-      { titre: 'Opération générale', detail: 'Le parcours complet, du champ d’application au droit à déduction', image: '/images/scan-tva.jpg', entree: arbre.entree },
-      { titre: 'Holdings', detail: 'Dividendes, management fees, intérêts : pure ou animatrice ?', image: '/images/holdings.jpg', entree: 'holding-role' },
-      { titre: 'Immobilier', detail: 'Ventes, locations, travaux, options et 257 bis', image: '/images/immobilier.jpg', entree: 'immo-type' },
-      { titre: 'Banque & assurance', detail: 'Exonérations 261 C, option 260 B, preneurs hors UE', image: '/images/finance.jpg', entree: 'fin-type' },
-      { titre: 'Santé', detail: 'Soins, établissements, actes sans finalité thérapeutique', image: '/images/sante.jpg', entree: 'sante-but' },
-    ].filter((u) => u.entree === arbre.entree || arbre.questions[u.entree]);
+  if (arbre.univers?.length && vue === 'briefing') {
+    const univers = arbre.univers.filter((u) => u.entree === arbre.entree || arbre.questions[u.entree]);
     return (
       <section className="apparition" aria-live="polite">
         <div className="flex flex-wrap items-end justify-between gap-4">
@@ -230,7 +224,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
               plusieurs opérations dans le même dossier : la cartographie se construit au fil des scans.
             </p>
           </div>
-          {operations.length > 0 && (
+          {dossier && operations.length > 0 && (
             <div className="flex flex-col gap-2 sm:flex-row">
               <button
                 type="button"
