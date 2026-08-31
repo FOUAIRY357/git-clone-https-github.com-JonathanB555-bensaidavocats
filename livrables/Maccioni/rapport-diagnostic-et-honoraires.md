@@ -65,7 +65,8 @@ signés séparément), **entrée à 4 500 € HT** sur le seul lot de consultati
 | 25/08/2026 12h00 | **Visio de premier contact (15 min)** - Jonathan Bensaid, François Ouairy, la cliente. Notes Gemini au dossier |
 | 25/08/2026 15h09 | Envoi par François de la liste des pièces nécessaires au devis |
 | 25/08/2026 16h02 | **Réponse de la cliente avec les pièces** (15 pièces jointes) |
-| **En attente** | **Le devis définitif et plafonné promis en séance** |
+| 25/08/2026 17h50 | **Proposition d'intervention envoyée** : consultation unique couvrant les trois volets, **7 500 € HT forfaitaires et plafonnés**, moitié à la signature et moitié à la remise, délai de 4 semaines, lettre de mission dès accord |
+| **En attente** | **Sa réponse. Aucune depuis l'envoi de la proposition.** |
 
 > La cliente a livré son dossier **en moins d'une heure**. Elle attend le devis, et elle
 > décidera vite : c'est le tempo à tenir.
@@ -89,9 +90,11 @@ signés séparément), **entrée à 4 500 € HT** sur le seul lot de consultati
    plusieurs mois. **À lancer avant la signature de la mission, pas après.**
 2. **Certificat de salaire suisse du conjoint** : annoncé dans le corps du message, **non
    identifié parmi les pièces jointes**. Sans ses revenus, le volet mariage n'est pas chiffrable.
-3. **Conditions générales de l'assurance-vie et des PER** : elle ne les trouve pas sur ses
-   espaces en ligne. À réclamer directement aux assureurs - elles conditionnent la
-   qualification américaine des contrats.
+3. **Conditions générales de l'assurance-vie et des PER** : abandonnées. Les relevés transmis
+   suffisent à qualifier les supports, et elle en a été informée le 25/08. Ne pas les
+   redemander.
+   Restent en revanche à obtenir, réclamés le 25/08 : les **livrets A et LDD**, absents du
+   récapitulatif.
 4. **Troisième support de PER** (elle en annonce 3, deux sont documentés) et **relevé du PEE**.
 5. **Soldes de trésorerie au 31 décembre** de 2023, 2024 et 2025 (elle a écrit « ?? cash ») -
    indispensables pour le FBAR, qui se calcule sur le **solde maximal** de chaque compte.
@@ -410,9 +413,29 @@ successoral minimal (deux enfants, immobilier détenu à 50 %).
 
 ---
 
-## 7. Ce que nous proposons de facturer
+## 7. Honoraires
 
-### Grille
+### Ce qui est déjà proposé à la cliente (mail du 25/08, 17h50)
+
+**Consultation unique, 7 500 € HT, forfaitaire et plafonnée**, réglée moitié à la signature et
+moitié à la remise, délai de 4 semaines à compter des derniers éléments, lettre de mission dès
+accord. Périmètre annoncé : exposition américaine chiffrée sur six ans enveloppe par enveloppe,
+voie de régularisation avec calendrier et coût complet, forme et régime fiscal de l'agence avec
+le schéma de sortie des revenus, coût du mariage dans les trois pays et régime matrimonial,
+schéma cible des placements et des locations à trois ans, le tout dans un écrit unique suivi
+d'une restitution en visioconférence d'une heure trente.
+
+⚠️ **Deux points à surveiller sur cette offre.** Le périmètre annoncé est large pour 7 500 € HT,
+et le plafonnement est absolu (« aucun dépassement, quel que soit le temps consacré ») : il faut
+donc que la **mise en conformité américaine elle-même** (dépôts, Form 14653, pilotage du
+préparateur américain) reste explicitement **hors périmètre** dans la lettre de mission, la
+consultation ne portant que sur la **stratégie** de régularisation. Le schéma des placements doit
+de même rester un schéma cible, non une recommandation de produits.
+
+### Grille interne de référence
+
+Ventilation utile pour savoir ce que le forfait absorbe, pour cadrer les avenants et pour
+chiffrer la phase suivante. Elle n'a pas été communiquée à la cliente.
 
 | Lot | Objet | Forfait HT |
 |---|---|---|
@@ -514,11 +537,11 @@ mentionner comme perspective, ne pas le chiffrer dans ce devis.
 
 | # | Action | Qui | Quand |
 |---|---|---|---|
-| 1 | Mail de devis : les quatre lots, 11 500 € HT en périmètre complet, entrée possible à 4 500 € HT, frais tiers annoncés, plafonnement rappelé | François | **immédiat** |
-| 2 | Dans le même mail : **lancer la demande de numéro de sécurité sociale américain** (SS-5, consulat), et réclamer le certificat de salaire du conjoint, les conditions générales des contrats, le troisième support de PER, les soldes de trésorerie au 31/12 et le détail crypto | François | immédiat |
+| 1 | **Relancer** sur la proposition du 25/08 (7 500 € HT), sans réponse depuis deux jours | François | **immédiat** |
+| 2 | Dans la relance : **lancer la demande de numéro de sécurité sociale américain** (SS-5, consulat), et rappeler le certificat de salaire du conjoint, les livrets A et LDD, le troisième support de PER, les soldes de trésorerie au 31/12 et le détail crypto | François | immédiat |
 | 3 | **Lui dire de ne pas immatriculer SOLUTION FINDER** avant notre arbitrage - capital, exercice, forme. Argument : le coût d'une correction après coup dépasse celui du lot 3 | François | immédiat |
 | 4 | Lettre de mission dès accord : ventilation personnelle / société, périmètre américain, absence de garantie de secret aux États-Unis, position sur le conjoint, réserve sur l'ouverture de la procédure | Cabinet | à l'accord |
-| 5 | Facture Sellsy du lot 1 avant démarrage | Cabinet | à l'accord |
+| 5 | Facture Sellsy du premier versement (3 750 € HT) à la signature | Cabinet | à l'accord |
 | 6 | Saisir le bureau de Genève sur le statut de quasi-résident et sa perte par mariage | François | au lancement du lot 1 |
 | 7 | Identifier le préparateur américain et l'engager sous notre mission | Cabinet | au lancement du lot 2 |
 
