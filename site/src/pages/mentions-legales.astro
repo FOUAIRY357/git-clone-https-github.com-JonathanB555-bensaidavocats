@@ -2,9 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 /*
- * VERSION SQUELETTE, les mentions définitives (éditeur, directeur de la
- * publication, hébergeur, données personnelles) seront complétées par le
- * cabinet avant mise en ligne.
+ * Mentions légales. Données société vérifiées au RCS (Pappers, 31/08/2026).
+ * Directeur de la publication : gérant de la SELARL, à confirmer par le cabinet.
  */
 
 const donneesStructurees = JSON.stringify({
@@ -26,24 +25,59 @@ const donneesStructurees = JSON.stringify({
     <div class="prose-doctrine mt-8">
       <h2>Éditeur du site</h2>
       <p>
-        Le site taxesalaire.com est édité par le cabinet BENSAID AVOCATS.
-        <em>(Coordonnées complètes, forme sociale et directeur de la publication à compléter.)</em>
+        Le site taxesalaire.com est édité par <strong>BENSAID AVOCATS</strong>, société
+        d'exercice libéral à responsabilité limitée (SELARL) au capital de 150 000 €,
+        immatriculée au registre du commerce et des sociétés de Paris sous le numéro
+        832 190 862, dont le siège social est situé 49 rue de Courcelles, 75008 Paris.
       </p>
+      <p>
+        Numéro de TVA intracommunautaire : FR 81 832 190 862.<br />
+        Contact : <a href="mailto:francois.ouairy@bensaid-avocats.fr">francois.ouairy@bensaid-avocats.fr</a>.
+      </p>
+      <p>
+        BENSAID AVOCATS est un cabinet d'avocats inscrit au barreau de Paris, profession
+        réglementée régie notamment par la loi n° 71-1130 du 31 décembre 1971 et le décret
+        n° 91-1197 du 27 novembre 1991, et soumise au Règlement intérieur national de la
+        profession d'avocat.
+      </p>
+      <h2>Directeur de la publication</h2>
+      <p>Jonathan Bensaid, gérant.</p>
       <h2>Hébergement</h2>
-      <p><em>(Hébergeur à préciser lors de la mise en production.)</em></p>
+      <p>
+        Le site est hébergé par Cloudflare, Inc., 101 Townsend Street, San Francisco,
+        CA 94107, États-Unis (www.cloudflare.com), via le service Cloudflare Pages.
+      </p>
       <h2>Nature des informations diffusées</h2>
       <p>
-        Les contenus du site, y compris les résultats des scanners interactifs, sont fournis à
-        titre d'information générale. Ils ne constituent en aucun cas une consultation juridique
-        ou fiscale et ne sauraient engager la responsabilité de l'éditeur. L'application des
-        règles décrites dépend des circonstances propres à chaque situation : rapprochez-vous d'un
-        avocat avant toute décision.
+        Les contenus du site, y compris les résultats des scanners interactifs et des
+        calculateurs, sont fournis à titre d'information générale. Ils ne constituent en
+        aucun cas une consultation juridique ou fiscale et ne sauraient engager la
+        responsabilité de l'éditeur. L'application des règles décrites dépend des
+        circonstances propres à chaque situation : rapprochez-vous d'un avocat avant toute
+        décision.
       </p>
       <h2>Données personnelles</h2>
       <p>
-        Les scanners fonctionnent intégralement dans votre navigateur : les réponses fournies ne
-        sont ni transmises ni conservées par l'éditeur.
-        <em>(Politique complète à établir avec le cabinet.)</em>
+        Le site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience
+        tierce. Les scanners et calculateurs fonctionnent intégralement dans votre
+        navigateur : les réponses et montants saisis y restent stockés localement
+        (localStorage) et ne sont ni transmis ni conservés par l'éditeur.
+      </p>
+      <p>
+        Si vous contactez le cabinet par courrier électronique, les données transmises
+        (identité, coordonnées, contenu du message) sont utilisées aux seules fins de
+        traiter votre demande, sur le fondement de l'intérêt légitime de l'éditeur à y
+        répondre. Conformément au règlement (UE) 2016/679 (RGPD) et à la loi Informatique
+        et libertés, vous disposez de droits d'accès, de rectification, d'effacement,
+        d'opposition et de limitation, à exercer à l'adresse de contact ci-dessus. Vous
+        pouvez introduire une réclamation auprès de la CNIL (www.cnil.fr).
+      </p>
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble des contenus du site (textes, arbres de décision, calculateurs,
+        éléments graphiques) est protégé par le droit d'auteur. Toute reproduction ou
+        représentation, intégrale ou partielle, sans autorisation écrite de l'éditeur est
+        interdite, à l'exception des courtes citations avec mention de la source.
       </p>
     </div>
   </div>
