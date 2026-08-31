@@ -1,0 +1,14 @@
+{
+  "destinataire": "claytonrobertanderson@gmail.com",
+  "copie": "contact@bensaid-avocats.fr",
+  "objet": "Votre accord et nos modalités d'intervention auprès du SIP",
+  "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition.",
+  "corps": [
+    {"p": "Je vous remercie pour votre accord. Le premier temps est ouvert. Vous recevrez la lettre de mission dans la journée, accompagnée d'un pouvoir à nous retourner signé."},
+    {"p": "Sur votre question, la messagerie sécurisée est attachée à votre espace personnel, auquel un avocat n'a pas accès. Nous procédons donc en deux mouvements."},
+    {"b": "Pour votre demande n° 1233188128, qui se referme dans quelques jours, nous rédigeons le message et vous le déposez tel quel. Vous n'aurez qu'à le copier."},
+    {"b": "Pour la suite du dossier, le pouvoir signé nous permet de correspondre directement avec le SIP Paris 19e, par écrit adressé au service, sans passer par votre espace."},
+    {"p": "D'ici là, il est préférable que rien ne parte de votre côté. Notre projet de message vous parviendra sous quarante-huit heures."}
+  ]
+}
