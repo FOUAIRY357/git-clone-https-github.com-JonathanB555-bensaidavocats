@@ -6,12 +6,21 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
  * publication, hébergeur, données personnelles) seront complétées par le
  * cabinet avant mise en ligne.
  */
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Mentions légales',
+  inLanguage: 'fr-FR',
+  url: new URL('/mentions-legales/', Astro.site).toString(),
+});
 ---
 
 <BaseLayout
   titre="Mentions légales"
-  description="Mentions légales du site taxesalaire.com, édité par le cabinet BENSAID AVOCATS."
+  description="Mentions légales du site taxesalaire.com : éditeur BENSAID AVOCATS, directeur de la publication, hébergement Cloudflare et données personnelles."
 >
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
     <h1 class="font-titres text-3xl font-bold tracking-tight">Mentions légales</h1>
     <div class="prose-doctrine mt-8">

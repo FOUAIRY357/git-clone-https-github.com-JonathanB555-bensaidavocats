@@ -6,12 +6,21 @@ const articles = (await getCollection('actualites', ({ data }) => data.statut ==
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 const formateurDate = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' });
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Actualités TVA et taxe sur les salaires',
+  inLanguage: 'fr-FR',
+  url: new URL('/actualites/', Astro.site).toString(),
+});
 ---
 
 <BaseLayout
   titre="Actualités TVA et taxe sur les salaires"
-  description="Jurisprudence, doctrine administrative, textes : l'actualité de la TVA des opérateurs partiellement exonérés et de la taxe sur les salaires, analysée par un avocat fiscaliste."
+  description="Jurisprudence, doctrine administrative, textes : l'actualité de la TVA des opérateurs exonérés et de la taxe sur les salaires, analysée par un avocat."
 >
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
     <header class="max-w-3xl">
       <p class="etiquette text-or">Fil d'actualité</p>

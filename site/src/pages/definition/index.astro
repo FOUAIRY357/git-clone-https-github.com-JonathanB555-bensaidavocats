@@ -6,12 +6,27 @@ import BandeauScan from '@/components/BandeauScan.astro';
 const definitions = (await getCollection('definitions', ({ data }) => data.statut === 'publie')).sort(
   (a, b) => a.data.ordre - b.data.ordre || a.data.terme.localeCompare(b.data.terme, 'fr')
 );
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: 'Lexique TVA et taxe sur les salaires',
+  inLanguage: 'fr-FR',
+  url: new URL('/definition/', Astro.site).toString(),
+  hasDefinedTerm: definitions.map((d) => ({
+    '@type': 'DefinedTerm',
+    name: d.data.terme,
+    description: d.data.description,
+    url: new URL(`/definition/${d.id}/`, Astro.site).toString(),
+  })),
+});
 ---
 
 <BaseLayout
   titre="Lexique TVA et taxe sur les salaires : les définitions essentielles"
-  description="Assujetti, redevable, prorata, coefficients, hors champ, terrain à bâtir, immeuble neuf… : les définitions claires et sourcées des notions clés de la TVA et de la taxe sur les salaires."
+  description="Assujetti, redevable, prorata, hors champ, terrain à bâtir, immeuble neuf : les définitions claires et sourcées de la TVA et de la taxe sur les salaires."
 >
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
   <section class="relative overflow-hidden bg-nuit text-white">
     <div class="grille-nuit absolute inset-0 opacity-50" aria-hidden="true"></div>
     <span class="mot-fantome -right-4 -bottom-6 text-[6rem] md:text-[9rem]" aria-hidden="true">Lexique</span>

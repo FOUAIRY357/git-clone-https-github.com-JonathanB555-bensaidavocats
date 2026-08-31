@@ -13,12 +13,26 @@ const articles = entrees
 const notions = (await getCollection('doctrine', ({ data }) => data.statut === 'publie')).sort(
   (a, b) => a.data.ordre - b.data.ordre
 );
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Doctrine par secteur : TVA et taxe sur les salaires',
+  inLanguage: 'fr-FR',
+  url: new URL('/secteurs/', Astro.site).toString(),
+  hasPart: secteurs.map((s) => ({
+    '@type': 'Article',
+    headline: s.data.titre,
+    url: new URL(`/${s.id}/`, Astro.site).toString(),
+  })),
+});
 ---
 
 <BaseLayout
   titre="Doctrine par secteur, TVA et taxe sur les salaires de votre activité"
-  description="Holdings, banques, assurance, immobilier, organismes sans but lucratif… Retrouvez la TVA et la taxe sur les salaires de votre secteur, expliquées par un avocat fiscaliste."
+  description="Holdings, banques, assurance, immobilier, OSBL : la TVA et la taxe sur les salaires de votre secteur, expliquées par un avocat fiscaliste."
 >
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
     <header class="max-w-3xl">
       <p class="etiquette text-or">Doctrine par secteur</p>

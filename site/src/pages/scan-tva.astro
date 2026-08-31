@@ -10,12 +10,27 @@ const erreurs = verifierArbre(arbreTva);
 if (erreurs.length > 0) {
   throw new Error(`Arbre TVA incohérent :\n${erreurs.join('\n')}`);
 }
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Scan TVA',
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  inLanguage: 'fr-FR',
+  url: new URL('/scan-tva/', Astro.site).toString(),
+  description:
+    "Scanner interactif gratuit : qualifiez vos opérations au regard de la TVA (champ, exonérations, options) et calculez vos coefficients de déduction.",
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  publisher: { '@type': 'Organization', name: 'BENSAID AVOCATS', url: 'https://www.bensaid-avocats.fr' },
+});
 ---
 
 <BaseLayout
   titre="Scan TVA, déterminez la taxabilité de vos opérations"
-  description="Scanner interactif : qualifiez une opération au regard de la TVA (champ d'application, exonérations, options, assimilations) et mesurez son incidence sur votre droit à déduction."
+  description="Scanner interactif : qualifiez vos opérations au regard de la TVA (champ, exonérations, options) et mesurez l'effet sur votre droit à déduction."
 >
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
   <section class="projecteur relative overflow-hidden bg-nuit text-white">
     <img src="/images/scan-tva.jpg" alt="" class="kenburns absolute inset-0 h-full w-full object-cover opacity-45" aria-hidden="true" />
     <div class="absolute inset-0 bg-gradient-to-r from-nuit via-nuit/85 to-nuit/40" aria-hidden="true"></div>

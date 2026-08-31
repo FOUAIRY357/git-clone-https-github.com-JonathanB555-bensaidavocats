@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BandeauScan from '@/components/BandeauScan.astro';
+import { noeudFaq } from '@/data/seo';
 
 export async function getStaticPaths() {
   const definitions = await getCollection('definitions', ({ data }) => data.statut === 'publie');
@@ -18,9 +19,20 @@ const toutes = (await getCollection('definitions', ({ data }) => data.statut ===
 );
 const autres = toutes.filter((d) => d.id !== entree.id);
 
+const noeudFaqPage = noeudFaq(entree.body ?? '');
 const donneesStructurees = JSON.stringify({
   '@context': 'https://schema.org',
   '@graph': [
+    {
+      '@type': 'WebPage',
+      name: entree.data.titre,
+      inLanguage: 'fr-FR',
+      url: new URL(`/definition/${entree.id}/`, Astro.site).toString(),
+      ...(entree.data.datePublication ? { datePublished: entree.data.datePublication.toISOString().slice(0, 10) } : {}),
+      ...(entree.data.dateMaj ? { dateModified: entree.data.dateMaj.toISOString().slice(0, 10) } : {}),
+      author: { '@type': 'Person', name: 'François Ouairy', jobTitle: 'Avocat fiscaliste' },
+    },
+    ...(noeudFaqPage ? [noeudFaqPage] : []),
     {
       '@type': 'DefinedTerm',
       name: entree.data.terme,

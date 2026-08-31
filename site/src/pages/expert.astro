@@ -5,12 +5,30 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
  * Page « L'expert ». Biographie fournie par François Ouairy (31/08/2026).
  * La photographie sera fournie par le cabinet.
  */
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'François Ouairy',
+  jobTitle: 'Avocat fiscaliste',
+  url: new URL('/expert/', Astro.site).toString(),
+  worksFor: { '@type': 'LegalService', name: 'BENSAID AVOCATS', url: 'https://www.bensaid-avocats.fr' },
+  knowsAbout: [
+    'TVA',
+    'Taxe sur les salaires',
+    'Fiscalité internationale',
+    'Établissement stable',
+    'Contrôle fiscal et contentieux',
+  ],
+  sameAs: ['https://www.bensaid-avocats.fr'],
+  email: 'mailto:francois.ouairy@bensaid-avocats.fr',
+});
 ---
 
 <BaseLayout
-  titre="François Ouairy, avocat fiscaliste, TVA et taxe sur les salaires"
-  description="François Ouairy, avocat au sein du cabinet BENSAID AVOCATS, accompagne les opérateurs partiellement exonérés : TVA, droit à déduction, taxe sur les salaires, contrôle et contentieux."
+  titre="François Ouairy, avocat fiscaliste : TVA et taxe sur les salaires"
+  description="François Ouairy, avocat au cabinet BENSAID AVOCATS : TVA, droit à déduction, taxe sur les salaires, contrôle fiscal et contentieux des opérateurs exonérés."
 >
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
     <div class="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
       <div>

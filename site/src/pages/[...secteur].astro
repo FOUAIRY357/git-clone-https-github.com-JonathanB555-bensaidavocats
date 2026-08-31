@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BandeauScan from '@/components/BandeauScan.astro';
 import { imagesSecteurs } from '@/data/images';
+import { noeudFaq } from '@/data/seo';
 
 export async function getStaticPaths() {
   const secteurs = await getCollection('secteurs', ({ data }) => data.statut === 'publie');
@@ -53,6 +54,7 @@ const libelleEnsemble = parent
     : 'Secteurs';
 const urlEnsemble = parent ? `/${parent.id}/` : '/secteurs/';
 
+const noeudFaqPage = noeudFaq(entree.body ?? '');
 const donneesStructurees = JSON.stringify({
   '@context': 'https://schema.org',
   '@graph': [
@@ -62,9 +64,14 @@ const donneesStructurees = JSON.stringify({
       description: entree.data.description,
       inLanguage: 'fr-FR',
       mainEntityOfPage: new URL(`/${entree.id}/`, Astro.site).toString(),
+      ...(entree.data.datePublication ? { datePublished: entree.data.datePublication.toISOString().slice(0, 10) } : {}),
+      ...(entree.data.dateMaj || entree.data.datePublication
+        ? { dateModified: (entree.data.dateMaj ?? entree.data.datePublication)!.toISOString().slice(0, 10) }
+        : {}),
       author: { '@type': 'Person', name: 'François Ouairy', jobTitle: 'Avocat fiscaliste', url: new URL('/expert/', Astro.site).toString() },
       publisher: { '@type': 'Organization', name: 'BENSAID AVOCATS', url: 'https://www.bensaid-avocats.fr' },
     },
+    ...(noeudFaqPage ? [noeudFaqPage] : []),
     {
       '@type': 'BreadcrumbList',
       itemListElement: [

@@ -14,9 +14,23 @@ export async function getStaticPaths() {
 const { entree } = Astro.props;
 const { Content } = await render(entree);
 const formateurDate = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' });
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: entree.data.titre,
+  description: entree.data.description,
+  inLanguage: 'fr-FR',
+  mainEntityOfPage: new URL(`/actualites/${entree.id}/`, Astro.site).toString(),
+  datePublished: entree.data.date.toISOString().slice(0, 10),
+  dateModified: entree.data.date.toISOString().slice(0, 10),
+  author: { '@type': 'Person', name: 'François Ouairy', jobTitle: 'Avocat fiscaliste', url: new URL('/expert/', Astro.site).toString() },
+  publisher: { '@type': 'Organization', name: 'BENSAID AVOCATS', url: 'https://www.bensaid-avocats.fr' },
+});
 ---
 
 <BaseLayout titre={entree.data.titre} description={entree.data.description}>
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
     <nav aria-label="Fil d'Ariane" class="mb-8 text-sm text-texte-3">
       <a href="/actualites/" class="hover:text-encre">Actualités</a>

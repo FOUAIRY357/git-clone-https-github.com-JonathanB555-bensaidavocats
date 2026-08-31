@@ -17,6 +17,8 @@ const secteurs = defineCollection({
     pictogramme: z.string().default('category'),
     ordre: z.number().default(99),
     statut: z.enum(['publie', 'brouillon']).default('publie'),
+    datePublication: z.coerce.date().optional(),
+    dateMaj: z.coerce.date().optional(),
   }),
 });
 
@@ -34,6 +36,8 @@ const doctrine = defineCollection({
     pictogramme: z.string().default('menu_book'),
     ordre: z.number().default(99),
     statut: z.enum(['publie', 'brouillon']).default('publie'),
+    datePublication: z.coerce.date().optional(),
+    dateMaj: z.coerce.date().optional(),
   }),
 });
 
@@ -61,6 +65,8 @@ const definitions = defineCollection({
     description: z.string(),
     ordre: z.number().default(99),
     statut: z.enum(['publie', 'brouillon']).default('publie'),
+    datePublication: z.coerce.date().optional(),
+    dateMaj: z.coerce.date().optional(),
   }),
 });
 
