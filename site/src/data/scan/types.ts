@@ -92,10 +92,30 @@ export interface UniversScan {
   entree: string;
 }
 
+/**
+ * Écran de triage affiché avant l'arbre (mode dossier) : l'utilisateur qui
+ * connaît déjà le régime va droit au but ; au moindre doute, il bascule
+ * dans le raisonnement complet (choix d'univers puis questions).
+ */
+export interface TriageScan {
+  titre: string;
+  aide: string;
+  /** Résultat direct si l'utilisateur répond « taxée ». */
+  versTaxee: string;
+  /** Question de vérification si l'utilisateur répond « exonérée » (option, assimilation). */
+  versExoneree: string;
+  /** Résultat direct si l'utilisateur répond « hors champ ». */
+  versHorsChamp: string;
+}
+
 export interface ArbreScan {
   id: string;
   titre: string;
   sousTitre: string;
+  /** Écran de triage « savez-vous déjà ? » avant l'arbre (mode dossier). */
+  triage?: TriageScan;
+  /** Demander le chiffre d'affaires annuel total dès l'entrée (mode dossier). */
+  demandeCaTotal?: boolean;
   /** Écran de briefing : univers proposés à l'entrée du scan. */
   univers?: UniversScan[];
   /** Mention affichée tant que l'arbre n'est pas validé par le cabinet. */
@@ -113,6 +133,11 @@ export function verifierArbre(arbre: ArbreScan): string[] {
   const erreurs: string[] = [];
   if (!arbre.questions[arbre.entree]) {
     erreurs.push(`Entrée introuvable : ${arbre.entree}`);
+  }
+  if (arbre.triage) {
+    if (!arbre.resultats[arbre.triage.versTaxee]) erreurs.push(`Triage → résultat inconnu : ${arbre.triage.versTaxee}`);
+    if (!arbre.questions[arbre.triage.versExoneree]) erreurs.push(`Triage → question inconnue : ${arbre.triage.versExoneree}`);
+    if (!arbre.resultats[arbre.triage.versHorsChamp]) erreurs.push(`Triage → résultat inconnu : ${arbre.triage.versHorsChamp}`);
   }
   for (const question of Object.values(arbre.questions)) {
     for (const option of question.options) {

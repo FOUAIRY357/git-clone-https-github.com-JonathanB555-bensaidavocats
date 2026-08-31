@@ -44,7 +44,25 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   const [operations, setOperations] = useState<OperationScannee[]>(() =>
     dossier ? chargerDossier(cleStockage) : []
   );
-  const [vue, setVue] = useState<'briefing' | 'scan' | 'rapport'>(arbre.univers?.length ? 'briefing' : 'scan');
+  const vueEntree: 'triage' | 'briefing' | 'scan' =
+    dossier && arbre.triage ? 'triage' : arbre.univers?.length ? 'briefing' : 'scan';
+  const [vue, setVue] = useState<'triage' | 'briefing' | 'scan' | 'rapport'>(vueEntree);
+  const [caTotal, setCaTotal] = useState<string>(() => {
+    if (typeof window === 'undefined') return '';
+    try {
+      return window.localStorage.getItem(`scan-${arbre.id}-ca-v1`) ?? '';
+    } catch {
+      return '';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(`scan-${arbre.id}-ca-v1`, caTotal);
+    } catch {
+      /* stockage indisponible */
+    }
+  }, [caTotal, arbre.id]);
   const [reponses, setReponses] = useState<ReponseDonnee[]>([]);
   const [courant, setCourant] = useState<{ type: 'question' | 'resultat'; id: string }>({
     type: 'question',
@@ -154,6 +172,11 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     const precedentes = reponses.slice(0, -1);
     const derniere = reponses[reponses.length - 1]!;
     setReponses(precedentes);
+    if (derniere.questionId === 'triage') {
+      setCourant({ type: 'question', id: arbre.entree });
+      setVue('triage');
+      return;
+    }
     setCourant({ type: 'question', id: derniere.questionId });
   }
 
@@ -161,6 +184,11 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     const cible = reponses[index];
     if (!cible) return;
     setReponses(reponses.slice(0, index));
+    if (cible.questionId === 'triage') {
+      setCourant({ type: 'question', id: arbre.entree });
+      setVue('triage');
+      return;
+    }
     setCourant({ type: 'question', id: cible.questionId });
   }
 
@@ -168,7 +196,14 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     setReponses([]);
     setLibelleOperation('');
     setCourant({ type: 'question', id: arbre.entree });
-    setVue(arbre.univers?.length ? 'briefing' : 'scan');
+    setVue(vueEntree);
+  }
+
+  /** Triage : l'utilisateur tranche lui-même, ou bascule dans l'arbre. */
+  function trancher(destination: { type: 'question' | 'resultat'; id: string }, libelle: string) {
+    setReponses([{ questionId: 'triage', libelle }]);
+    setCourant(destination);
+    setVue('scan');
   }
 
   /** Démarre une partie sur l'univers choisi. */
@@ -196,7 +231,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     setLibelleOperation('');
     setMontantOperation('');
     setCourant({ type: 'question', id: arbre.entree });
-    setVue(destination === 'scan' ? 'briefing' : destination);
+    setVue(destination === 'scan' ? vueEntree : destination);
   }
 
   function nouveauDossier() {
@@ -204,14 +239,153 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     relancerScan();
   }
 
+  const caTotalValide = (() => {
+    const n = Number.parseFloat(caTotal.replace(/[\s €]/g, '').replace(',', '.'));
+    return Number.isFinite(n) && n > 0 ? n : undefined;
+  })();
+
   if (dossier && vue === 'rapport') {
     return (
       <RapportScan
         arbre={arbre}
         operations={operations}
+        caTotal={caTotalValide}
         onAjouterOperation={relancerScan}
         onNouveauDossier={nouveauDossier}
       />
+    );
+  }
+
+  /* Écran de triage : trancher soi-même, ou dérouler le raisonnement. */
+  if (dossier && arbre.triage && vue === 'triage') {
+    const triage = arbre.triage;
+    return (
+      <section className="apparition" aria-live="polite">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="etiquette text-or-vif">
+              {operations.length > 0 ? `Opération ${operations.length + 1}` : 'Votre dossier'}
+            </p>
+            <h2 className="texte-affiche mt-2 text-3xl text-white md:text-5xl">{triage.titre}</h2>
+          </div>
+          {operations.length > 0 && (
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setVue('rapport')}
+                className="flex items-center gap-2 rounded bg-or-vif px-5 py-3 font-texte text-sm font-bold text-nuit transition-all hover:-translate-y-0.5 hover:bg-or-pale"
+              >
+                <span className="ms text-lg" aria-hidden="true">print</span>
+                Voir mon rapport ({operations.length})
+              </button>
+              <button
+                type="button"
+                onClick={nouveauDossier}
+                className="flex items-center gap-2 rounded border border-white/25 px-5 py-3 font-texte text-sm font-semibold text-white/70 transition-colors hover:border-white/60 hover:text-white"
+              >
+                <span className="ms text-lg" aria-hidden="true">restart_alt</span>
+                Nouveau dossier
+              </button>
+            </div>
+          )}
+        </div>
+
+        {arbre.demandeCaTotal && (
+          <div className="apparition mt-6 flex flex-wrap items-center gap-4 rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur" style={{ animationDelay: '80ms' }}>
+            <div className="min-w-0 flex-1">
+              <label htmlFor="ca-total" className="font-titres text-sm font-semibold text-white">
+                Votre chiffre d'affaires annuel total (toutes recettes)
+              </label>
+              <p className="mt-0.5 text-xs leading-5 text-white/50">
+                Il sert de dénominateur : le rapport mesurera la part de vos recettes réellement qualifiée.
+              </p>
+            </div>
+            <input
+              id="ca-total"
+              type="text"
+              inputMode="decimal"
+              value={caTotal}
+              onChange={(evenement) => setCaTotal(evenement.target.value)}
+              placeholder="ex. 4 000 000 €"
+              className="w-44 rounded border border-white/20 bg-white/5 px-3 py-2.5 text-right text-sm text-white placeholder-white/30 outline-none transition-colors focus:border-or-vif"
+            />
+          </div>
+        )}
+
+        <div className="mt-6 rounded border border-white/10 bg-white/5 p-4">
+          <p className="flex items-center gap-2 text-sm font-semibold text-or-pale">
+            <span className="ms text-lg" aria-hidden="true">info</span>
+            Comment répondre ?
+          </p>
+          <p className="mt-1.5 text-sm leading-6 text-white/75">{triage.aide}</p>
+        </div>
+
+        <div className="mt-6 grid gap-3 md:grid-cols-2">
+          <button
+            type="button"
+            onClick={() => setVue('briefing')}
+            className="group apparition relative overflow-hidden rounded-lg border-2 border-or-vif/70 bg-or-vif/10 p-6 text-left transition-all hover:-translate-y-0.5 hover:bg-or-vif/20 hover:shadow-[0_0_32px_rgba(216,171,74,0.3)] md:col-span-2"
+          >
+            <span className="flex items-start justify-between gap-3">
+              <span className="font-titres text-lg font-bold text-or-pale">
+                Je ne sais pas — déroulons le raisonnement
+              </span>
+              <span className="ms rounded bg-or-vif/20 p-1.5 text-2xl text-or-pale" aria-hidden="true">radar</span>
+            </span>
+            <span className="mt-1.5 block max-w-2xl text-sm leading-6 text-white/70">
+              Le canevas complet d'un fiscaliste, question par question : champ d'application, exonérations,
+              options, assimilations. C'est la voie recommandée au moindre doute.
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => trancher({ type: 'resultat', id: triage.versTaxee }, 'Opération taxable (réponse directe)')}
+            style={{ animationDelay: '90ms' }}
+            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10"
+          >
+            <span className="flex items-start justify-between gap-3">
+              <span className="font-titres text-base font-semibold text-white">Oui, elle est taxable</span>
+              <span className="ms rounded bg-white/10 p-1.5 text-xl text-white/60 group-hover:text-or-pale" aria-hidden="true">check_circle</span>
+            </span>
+            <span className="mt-1.5 block text-sm leading-5 text-white/60">
+              TVA collectée, droit à déduction : il ne reste qu'à nommer et chiffrer l'opération.
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => trancher({ type: 'question', id: triage.versExoneree }, 'Opération exonérée (réponse directe)')}
+            style={{ animationDelay: '150ms' }}
+            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10"
+          >
+            <span className="flex items-start justify-between gap-3">
+              <span className="font-titres text-base font-semibold text-white">Elle est exonérée</span>
+              <span className="ms rounded bg-white/10 p-1.5 text-xl text-white/60 group-hover:text-or-pale" aria-hidden="true">shield</span>
+            </span>
+            <span className="mt-1.5 block text-sm leading-5 text-white/60">
+              Deux vérifications restent décisives : une option a-t-elle été exercée, et l'exonération
+              ouvre-t-elle malgré tout droit à déduction ?
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => trancher({ type: 'resultat', id: triage.versHorsChamp }, 'Opération hors champ (réponse directe)')}
+            style={{ animationDelay: '210ms' }}
+            className="group apparition rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10 md:col-span-2"
+          >
+            <span className="flex items-start justify-between gap-3">
+              <span className="font-titres text-base font-semibold text-white">Elle est hors du champ de la TVA</span>
+              <span className="ms rounded bg-white/10 p-1.5 text-xl text-white/60 group-hover:text-or-pale" aria-hidden="true">block</span>
+            </span>
+            <span className="mt-1.5 block text-sm leading-5 text-white/60">
+              Dividendes, subventions sans contrepartie, indemnités : pas de TVA, pas de déduction — mais un
+              impact direct sur la taxe sur les salaires.
+            </span>
+          </button>
+        </div>
+        {arbre.avertissement && (
+          <p className="mt-6 text-xs leading-5 text-white/35">{arbre.avertissement}</p>
+        )}
+      </section>
     );
   }
 
@@ -224,6 +398,16 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
       <section className="apparition" aria-live="polite">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
+            {dossier && arbre.triage && (
+              <button
+                type="button"
+                onClick={() => setVue('triage')}
+                className="mb-3 flex items-center gap-2 text-sm font-semibold text-white/60 transition-colors hover:text-white"
+              >
+                <span className="ms text-lg" aria-hidden="true">arrow_back</span>
+                Retour au triage
+              </button>
+            )}
             <p className="etiquette text-or-vif">Briefing</p>
             <h2 className="texte-affiche mt-2 text-3xl text-white md:text-5xl">Choisissez votre univers</h2>
             <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">
@@ -667,7 +851,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 return (
                   <li key={`${reponse.questionId}-${index}`}>
                     <button type="button" onClick={() => revenirA(index)} className="group w-full py-3 text-left" title="Modifier cette réponse">
-                      <span className="block text-xs text-white/40">{questionSource?.intitule ?? reponse.questionId}</span>
+                      <span className="block text-xs text-white/40">{questionSource?.intitule ?? 'Triage'}</span>
                       <span className="mt-0.5 flex items-center justify-between gap-2 text-sm font-semibold text-white">
                         {reponse.libelle}
                         <span className="ms text-base text-white/40 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true">

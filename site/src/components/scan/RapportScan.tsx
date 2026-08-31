@@ -5,6 +5,8 @@ import CartographieScan from './CartographieScan';
 interface Props {
   arbre: ArbreScan;
   operations: OperationScannee[];
+  /** Chiffre d'affaires annuel total déclaré à l'entrée du dossier. */
+  caTotal?: number;
   onAjouterOperation: () => void;
   onNouveauDossier: () => void;
 }
@@ -15,8 +17,11 @@ const LIBELLE_DEDUCTION = {
   'a-analyser': 'À analyser (hors France)',
 } as const;
 
-export default function RapportScan({ arbre, operations, onAjouterOperation, onNouveauDossier }: Props) {
+export default function RapportScan({ arbre, operations, caTotal, onAjouterOperation, onNouveauDossier }: Props) {
   const date = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(new Date());
+  const sommeQualifiee = operations.reduce((somme, op) => somme + (op.montant ?? 0), 0);
+  const couverture =
+    caTotal && caTotal > 0 && sommeQualifiee > 0 ? Math.min(sommeQualifiee / caTotal, 1) : null;
   const resultats = operations.map((op) => ({ op, resultat: arbre.resultats[op.resultatId]! }));
   const avecDroit = resultats.filter(({ resultat }) => resultat.carto?.deduction === 'oui').length;
   const sansDroit = resultats.filter(({ resultat }) => resultat.carto?.deduction === 'non').length;
@@ -160,6 +165,32 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
           </span>
           <span className="text-sm leading-5 text-texte-2">{enjeu.texte}</span>
         </div>
+
+        {couverture !== null && (
+          <div className="mt-4 rounded border border-bordure bg-fond-2 p-4">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold text-encre">
+                Couverture du dossier : {pourcent(couverture)} de votre chiffre d'affaires qualifié
+              </p>
+              <p className="text-xs text-texte-2">
+                {euros(sommeQualifiee)} qualifiés sur {euros(caTotal!)} déclarés
+              </p>
+            </div>
+            <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-fond-3">
+              <div
+                className="h-full rounded-full bg-marine transition-all duration-700"
+                style={{ width: `${Math.round(couverture * 100)}%` }}
+              />
+            </div>
+            {couverture < 0.95 && (
+              <p className="no-print mt-2 text-xs leading-5 text-texte-2">
+                Il reste environ <strong>{euros(Math.max(caTotal! - sommeQualifiee, 0))}</strong> de recettes à
+                qualifier : les coefficients ci-dessous ne portent que sur la part scannée — continuez le scan
+                pour fiabiliser le diagnostic.
+              </p>
+            )}
+          </div>
+        )}
 
         <div className="mt-6">
           <CartographieScan
