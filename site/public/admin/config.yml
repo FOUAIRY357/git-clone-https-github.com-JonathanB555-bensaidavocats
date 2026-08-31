@@ -1,0 +1,66 @@
+# Configuration Decap CMS — interface de publication de taxesalaire.com
+# Prérequis (une seule fois) : voir site/DEPLOIEMENT.md, étape « Activer l'admin ».
+backend:
+  name: github
+  repo: FOUAIRY357/git-clone-https-github.com-JonathanB555-bensaidavocats
+  branch: claude/taxesalaire-redesign-wqwxfm
+  # base_url: https://VOTRE-WORKER-OAUTH.workers.dev   # à renseigner à l'étape « Activer l'admin »
+
+locale: fr
+site_url: https://taxesalaire.com
+media_folder: site/public/images
+public_folder: /images
+
+collections:
+  - name: actualites
+    label: Actualités
+    label_singular: actualité
+    folder: site/src/content/actualites
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: '{{slug}}'
+    sortable_fields: [date, titre]
+    fields:
+      - { name: titre, label: Titre, widget: string }
+      - { name: description, label: 'Description (140-160 caractères, pour Google)', widget: text }
+      - { name: date, label: Date, widget: datetime, format: 'YYYY-MM-DD', time_format: false }
+      - { name: themes, label: Thèmes, widget: list, default: ['TVA'] }
+      - { name: statut, label: Statut, widget: select, options: [publie, brouillon], default: publie }
+      - { name: body, label: Article, widget: markdown }
+
+  - name: secteurs
+    label: Pages secteurs et articles
+    label_singular: page
+    folder: site/src/content/secteurs
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: titre, label: Titre long (SEO), widget: string }
+      - { name: titreCourt, label: Titre court (cartes et menus), widget: string }
+      - { name: description, label: 'Description (140-160 caractères)', widget: text }
+      - { name: accroche, label: Accroche (sous le titre), widget: text, required: false }
+      - { name: rubrique, label: Rubrique, widget: select, options: [secteur, article], default: article }
+      - { name: pictogramme, label: Pictogramme (nom Material Symbols), widget: string, default: menu_book }
+      - { name: ordre, label: 'Ordre d''affichage', widget: number, default: 99 }
+      - { name: statut, label: Statut, widget: select, options: [publie, brouillon], default: publie }
+      - { name: body, label: Contenu, widget: markdown }
+
+  - name: doctrine
+    label: Doctrine transversale
+    label_singular: notion
+    folder: site/src/content/doctrine
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: titre, label: Titre long (SEO), widget: string }
+      - { name: titreCourt, label: Titre court, widget: string }
+      - { name: description, label: 'Description (140-160 caractères)', widget: text }
+      - { name: pictogramme, label: Pictogramme (nom Material Symbols), widget: string, default: menu_book }
+      - { name: ordre, label: 'Ordre d''affichage', widget: number, default: 99 }
+      - { name: statut, label: Statut, widget: select, options: [publie, brouillon], default: publie }
+      - { name: body, label: Contenu, widget: markdown }
