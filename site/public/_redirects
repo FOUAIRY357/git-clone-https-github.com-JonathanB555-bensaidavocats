@@ -1,0 +1,38 @@
+# Redirections 301 — bascule taxesalaire.com (ancien WordPress -> nouveau site)
+
+# Variante de slug historique repérée dans les liens internes de l'ancien site
+/tva-immobiliere/tva-immobiliere-deduction/ /tva-immobiliere/deduction-tva-immobiliere/ 301
+/tva-immobiliere/tva-immobiliere-deduction /tva-immobiliere/deduction-tva-immobiliere/ 301
+
+# Archives WordPress
+/category/tva-immobiliere/ /tva-immobiliere/ 301
+/category/tva-immobiliere /tva-immobiliere/ 301
+/category/tva/ /secteurs/ 301
+/category/tva /secteurs/ 301
+/category/non-classe/ /actualites/ 301
+/category/non-classe /actualites/ 301
+/author/ouairy75008/ /expert/ 301
+/author/ouairy75008 /expert/ 301
+/politique-confidentialite/ /mentions-legales/ 301
+/politique-confidentialite /mentions-legales/ 301
+
+# Permaliens datés des anciens articles (/AAAA/MM/JJ/slug/)
+/2023/:mois/:jour/:slug/ /:slug/ 301
+/2023/:mois/:jour/:slug /:slug/ 301
+/2024/:mois/:jour/:slug/ /:slug/ 301
+/2024/:mois/:jour/:slug /:slug/ 301
+/2025/:mois/:jour/:slug/ /:slug/ 301
+/2025/:mois/:jour/:slug /:slug/ 301
+/2026/:mois/:jour/:slug/ /:slug/ 301
+/2026/:mois/:jour/:slug /:slug/ 301
+
+# Flux et sitemaps WordPress
+/feed/ /actualites/ 301
+/feed /actualites/ 301
+/sitemap.xml /sitemap-index.xml 301
+/sitemap_index.xml /sitemap-index.xml 301
+/wp-sitemap.xml /sitemap-index.xml 301
+/post-sitemap.xml /sitemap-index.xml 301
+/page-sitemap.xml /sitemap-index.xml 301
+/category-sitemap.xml /sitemap-index.xml 301
+/author-sitemap.xml /sitemap-index.xml 301
