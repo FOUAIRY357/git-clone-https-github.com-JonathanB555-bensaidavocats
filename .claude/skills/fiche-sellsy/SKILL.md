@@ -19,27 +19,49 @@ Style et typographie : cf [[charte-cabinet]]. Accents obligatoires, aucun tiret 
 
 ## Format de sortie, non négociable
 
-Une suite de **blocs de code**, chacun précédé de son intitulé en gras. Un bloc par rubrique, et
-**un bloc dédié pour chaque champ de texte long** (les désignations de lignes, l'objet, les
-mentions), puisque ce sont ceux que l'on colle intégralement.
+**Un bloc de code par champ Sellsy, contenant la seule valeur à coller.** Le nom du champ est en
+gras au-dessus du bloc, il n'entre jamais dans le bloc. Un clic sur le bloc doit suffire à
+remplir le champ, sans rien retirer ni retaper.
 
-Ordre imposé :
+Donc ceci :
 
-1. **FICHE CLIENT**, un bloc, une ligne par champ au format `Champ : valeur`.
-2. **DEVIS, EN-TÊTE**, un bloc.
-3. **DEVIS, LIGNE 1**, **LIGNE 2**, etc. Un bloc par ligne. La désignation seule d'abord, puis
-   les chiffres sur une ligne.
-4. **DEVIS, MENTIONS**, un bloc, si la convention d'honoraires comporte une clause à reporter.
-5. **DEVIS, TOTAUX**, un bloc, pour contrôle de la saisie.
-6. **FACTURE À ÉMETTRE**, en-tête, ligne et totaux, sur le même découpage.
-7. **FACTURES SUIVANTES**, un tableau hors bloc, avec le fait déclencheur de chacune.
+**Civilité**
+```
+Monsieur
+```
+**Prénom**
+```
+Clayton
+```
 
-Après les blocs, hors de tout bloc, deux rubriques en clair :
+Et jamais ceci, qui obligerait à retaper la valeur :
+
+```
+Civilité : Monsieur
+Prénom : Clayton
+```
+
+Regrouper les champs dans un même bloc est proscrit, même pour des valeurs courtes.
+
+Ordre imposé, chaque rubrique introduite par un titre :
+
+1. **Fiche client**, un bloc par champ.
+2. **Devis, en-tête**, un bloc par champ.
+3. **Devis, ligne 1**, puis ligne 2 et suivantes. Pour chaque ligne, un bloc pour la désignation
+   et un bloc pour le prix unitaire HT. Les valeurs identiques sur toutes les lignes (quantité,
+   unité, taux de TVA) se rappellent une seule fois en clair, hors bloc.
+4. **Devis, mentions**, un bloc par mention à reporter.
+5. **Facture à émettre**, même découpage.
+6. **Totaux**, en clair et hors bloc. Sellsy les calcule, ils ne servent qu'au contrôle.
+7. **Factures suivantes**, tableau en clair, avec le fait déclencheur de chacune.
+
+Un champ dont la valeur est inconnue **ne reçoit pas de bloc vide** : il figure dans la rubrique
+« À compléter », en clair, après les blocs. Aucun crochet, aucun `<champ>`, aucune mention
+« à compléter » à l'intérieur d'un bloc.
+
+Après les blocs, hors de tout bloc :
 - **À compléter**, la liste des champs que les pièces du dossier ne donnent pas.
 - **Hypothèses retenues**, notamment le régime de TVA et l'échéancier.
-
-**Jamais de crochet, de `<champ>` ni de « à compléter » à l'intérieur d'un bloc.** Un champ
-inconnu se laisse vide dans le bloc et se signale dans la rubrique « À compléter ».
 
 ## Champs Sellsy à couvrir
 
