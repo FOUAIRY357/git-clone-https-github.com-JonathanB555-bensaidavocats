@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import type { ArbreScan, OperationScannee } from '@/data/scan/types';
 import CartographieScan from './CartographieScan';
 
@@ -21,32 +22,76 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
   const sansDroit = resultats.filter(({ resultat }) => resultat.carto?.deduction === 'non').length;
   const aAnalyser = resultats.filter(({ resultat }) => resultat.carto?.deduction === 'a-analyser').length;
 
+  // Questions dont un « Non » à l'option rend l'opération candidate à une option de taxation.
+  const QUESTIONS_OPTION = ['option', 'fin-option', 'immo-option-bail', 'immo-option-vente'];
+  const estOptable = (op: OperationScannee) =>
+    arbre.resultats[op.resultatId]?.carto?.deduction === 'non' &&
+    op.reponses.some((r) => QUESTIONS_OPTION.includes(r.questionId) && r.libelle.toLowerCase().startsWith('non'));
+  const optables = operations.filter(estOptable);
+
   // Estimations chiffrées, si un montant de recettes est renseigné pour chaque opération.
   const montantsComplets = operations.length > 0 && operations.every((op) => (op.montant ?? 0) > 0);
-  let estimation: { coefTaxation: number | null; rapportTs: number | null; horsEstimation: number } | null =
-    null;
+  let estimation:
+    | { coefTaxation: number | null; coefSimule: number | null; rapportTs: number | null; horsEstimation: number }
+    | null = null;
   if (montantsComplets) {
     let ouvrant = 0;
     let exonere = 0;
     let horsChamp = 0;
     let horsEstimation = 0;
+    let exonereOptable = 0;
     for (const { op, resultat: res } of resultats) {
       const montant = op.montant ?? 0;
       if (res.carto?.deduction === 'oui') ouvrant += montant;
       else if (res.id === 'hors-champ') horsChamp += montant;
       else if (res.carto?.deduction === 'a-analyser') horsEstimation += montant;
-      else exonere += montant;
+      else {
+        exonere += montant;
+        if (estOptable(op)) exonereOptable += montant;
+      }
     }
     const champ = ouvrant + exonere;
     const total = champ + horsChamp;
     estimation = {
       coefTaxation: champ > 0 ? ouvrant / champ : null,
+      coefSimule: champ > 0 && exonereOptable > 0 ? (ouvrant + exonereOptable) / champ : null,
       rapportTs: total > 0 ? (exonere + horsChamp) / total : null,
       horsEstimation,
     };
   }
   const pourcent = (valeur: number) =>
     new Intl.NumberFormat('fr-FR', { style: 'percent', maximumFractionDigits: 1 }).format(valeur);
+  const euros = (valeur: number) =>
+    new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(valeur);
+
+  // TVA d'amont annuelle déclarée par le visiteur (reste dans son navigateur).
+  const [depensesSaisie, setDepensesSaisie] = useState('');
+  useEffect(() => {
+    try {
+      const memo = window.localStorage.getItem('scan-tva-depenses');
+      if (memo) setDepensesSaisie(memo);
+    } catch {
+      /* stockage indisponible */
+    }
+  }, []);
+  useEffect(() => {
+    try {
+      window.localStorage.setItem('scan-tva-depenses', depensesSaisie);
+    } catch {
+      /* stockage indisponible */
+    }
+  }, [depensesSaisie]);
+  const tvaAmont = Number.parseFloat(depensesSaisie.replace(/[\s €]/g, '').replace(',', '.'));
+  const tvaAmontValide = Number.isFinite(tvaAmont) && tvaAmont > 0 ? tvaAmont : null;
+
+  // Niveau d'enjeu global du dossier.
+  const ratioSansDroit = resultats.length > 0 ? sansDroit / resultats.length : 0;
+  const enjeu =
+    ratioSansDroit === 0 && aAnalyser === 0
+      ? { libelle: 'Faible', teinte: '#4cc27e', texte: 'Vos opérations qualifiées ouvrent droit à déduction : le dossier est sain, sous réserve des coefficients d’assujettissement et d’admission.' }
+      : ratioSansDroit < 0.5
+        ? { libelle: 'Modéré', teinte: '#d8ab4a', texte: 'Une partie de vos recettes ferme le droit à déduction : prorata et taxe sur les salaires méritent un examen.' }
+        : { libelle: 'Élevé', teinte: '#e2695f', texte: 'La majorité de vos recettes n’ouvre pas droit à déduction : enjeu fort de prorata, d’options et de taxe sur les salaires.' };
 
   const syntheses: string[] = [];
   if (sansDroit === 0 && aAnalyser === 0 && avecDroit > 0) {
@@ -93,6 +138,27 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
             <span className="ms text-lg" aria-hidden="true">print</span>
             Imprimer / PDF
           </button>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-4 rounded border border-bordure bg-fond-2 p-4">
+          <span className="etiquette" style={{ color: enjeu.teinte }}>
+            Niveau d'enjeu : {enjeu.libelle}
+          </span>
+          <span className="flex gap-1" aria-hidden="true">
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className="h-2 w-8 rounded-full"
+                style={{
+                  backgroundColor:
+                    i <= (enjeu.libelle === 'Faible' ? 0 : enjeu.libelle === 'Modéré' ? 1 : 2)
+                      ? enjeu.teinte
+                      : '#e5e1d8',
+                }}
+              />
+            ))}
+          </span>
+          <span className="text-sm leading-5 text-texte-2">{enjeu.texte}</span>
         </div>
 
         <div className="mt-6">
@@ -185,6 +251,50 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
                   </p>
                 </div>
               )}
+              <div className="rounded border border-bordure bg-fond-2 p-5 md:col-span-2">
+                <p className="text-sm font-semibold text-encre">Traduire en euros</p>
+                <p className="mt-1 text-sm leading-6 text-texte-2">
+                  Indiquez la TVA supportée sur vos dépenses annuelles (achats, charges, investissements) :
+                  le rapport estime ce que votre prorata vous fait récupérer, et perdre.
+                </p>
+                <input
+                  type="text"
+                  inputMode="decimal"
+                  value={depensesSaisie}
+                  onChange={(evenement) => setDepensesSaisie(evenement.target.value)}
+                  placeholder="ex. 250 000"
+                  aria-label="TVA supportée sur les dépenses annuelles, en euros"
+                  className="no-print mt-3 w-full max-w-xs rounded border border-bordure bg-fond px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine"
+                />
+                {tvaAmontValide !== null && estimation.coefTaxation !== null && (
+                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <p className="texte-affiche text-3xl text-positif">{euros(tvaAmontValide * estimation.coefTaxation)}</p>
+                      <p className="mt-1 text-xs leading-5 text-texte-2">de TVA récupérable par an, en première approche</p>
+                    </div>
+                    <div>
+                      <p className="texte-affiche text-3xl text-alerte">{euros(tvaAmontValide * (1 - estimation.coefTaxation))}</p>
+                      <p className="mt-1 text-xs leading-5 text-texte-2">de TVA non récupérée par an : c'est le coût de vos exonérations</p>
+                    </div>
+                  </div>
+                )}
+                {estimation.coefSimule !== null && estimation.coefTaxation !== null && estimation.coefSimule > estimation.coefTaxation && (
+                  <div className="mt-5 rounded border border-or/40 bg-attention-fond p-4">
+                    <p className="etiquette text-or-fonce">Et si vous optiez ?</p>
+                    <p className="mt-2 text-sm leading-6 text-texte">
+                      {optables.length} de vos opérations exonérées {optables.length > 1 ? 'semblent éligibles' : 'semble éligible'} à
+                      une option pour la taxation (art. 260 ou 260 B). En l'exerçant, votre coefficient de taxation
+                      passerait d'environ {pourcent(estimation.coefTaxation)} à {pourcent(estimation.coefSimule)}
+                      {tvaAmontValide !== null && (
+                        <>
+                          , soit <strong>{euros(tvaAmontValide * (estimation.coefSimule - estimation.coefTaxation))} de TVA récupérée en plus chaque année</strong>
+                        </>
+                      )}
+                      . L'option a des contreparties (TVA facturée aux preneurs, formalisme) : c'est un arbitrage à mener avec un avocat.
+                    </p>
+                  </div>
+                )}
+              </div>
               <div className="md:col-span-2">
                 <ul className="space-y-1.5 text-xs leading-5 text-texte-3">
                   <li>

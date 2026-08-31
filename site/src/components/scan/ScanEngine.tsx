@@ -37,7 +37,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   const [operations, setOperations] = useState<OperationScannee[]>(() =>
     dossier ? chargerDossier(cleStockage) : []
   );
-  const [vue, setVue] = useState<'scan' | 'rapport'>('scan');
+  const [vue, setVue] = useState<'briefing' | 'scan' | 'rapport'>(dossier ? 'briefing' : 'scan');
   const [reponses, setReponses] = useState<ReponseDonnee[]>([]);
   const [courant, setCourant] = useState<{ type: 'question' | 'resultat'; id: string }>({
     type: 'question',
@@ -75,6 +75,32 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   }, [courant, reponses.length, arbre.profondeurEstimee]);
 
   const libelleParDefaut = `Opération ${operations.length + 1}`;
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    function auClavier(e: KeyboardEvent) {
+      const cible = e.target as HTMLElement | null;
+      if (cible && (cible.tagName === 'INPUT' || cible.tagName === 'TEXTAREA')) return;
+      if (vue !== 'scan' || !question) return;
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        retour();
+        return;
+      }
+      const n = Number.parseInt(e.key, 10);
+      if (!Number.isInteger(n) || n < 1 || n > question.options.length) return;
+      const option = question.options[n - 1]!;
+      const bouton = document.querySelector(`[data-indice="${n}"]`);
+      const rect = bouton?.getBoundingClientRect();
+      const faux = {
+        clientX: rect ? rect.left + rect.width / 2 : window.innerWidth / 2,
+        clientY: rect ? rect.top + rect.height / 2 : window.innerHeight / 2,
+      } as EvenementSouris<HTMLButtonElement>;
+      repondre(faux, option.libelle, option.versQuestion, option.versResultat);
+    }
+    document.addEventListener('keydown', auClavier);
+    return () => document.removeEventListener('keydown', auClavier);
+  });
 
   /** Petit point doré qui vole de la réponse cliquée vers la mini-carte. */
   function voyagerNoeud(evenement: EvenementSouris<HTMLButtonElement>) {
@@ -135,6 +161,14 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     setReponses([]);
     setLibelleOperation('');
     setCourant({ type: 'question', id: arbre.entree });
+    setVue(dossier ? 'briefing' : 'scan');
+  }
+
+  /** Démarre une partie sur l'univers choisi. */
+  function demarrer(entreeId: string) {
+    setReponses([]);
+    setLibelleOperation('');
+    setCourant({ type: 'question', id: entreeId });
     setVue('scan');
   }
 
@@ -155,7 +189,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     setLibelleOperation('');
     setMontantOperation('');
     setCourant({ type: 'question', id: arbre.entree });
-    setVue(destination);
+    setVue(destination === 'scan' ? 'briefing' : destination);
   }
 
   function nouveauDossier() {
@@ -175,6 +209,71 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
   }
 
   const operationEnCours = dossier ? libelleOperation.trim() || libelleParDefaut : undefined;
+
+
+  if (dossier && vue === 'briefing') {
+    const univers = [
+      { titre: 'Opération générale', detail: 'Le parcours complet, du champ d’application au droit à déduction', image: '/images/scan-tva.jpg', entree: arbre.entree },
+      { titre: 'Holdings', detail: 'Dividendes, management fees, intérêts : pure ou animatrice ?', image: '/images/holdings.jpg', entree: 'holding-role' },
+      { titre: 'Immobilier', detail: 'Ventes, locations, travaux, options et 257 bis', image: '/images/immobilier.jpg', entree: 'immo-type' },
+      { titre: 'Banque & assurance', detail: 'Exonérations 261 C, option 260 B, preneurs hors UE', image: '/images/finance.jpg', entree: 'fin-type' },
+      { titre: 'Santé', detail: 'Soins, établissements, actes sans finalité thérapeutique', image: '/images/sante.jpg', entree: 'sante-but' },
+    ].filter((u) => u.entree === arbre.entree || arbre.questions[u.entree]);
+    return (
+      <section className="apparition" aria-live="polite">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="etiquette text-or-vif">Briefing</p>
+            <h2 className="texte-affiche mt-2 text-3xl text-white md:text-5xl">Choisissez votre univers</h2>
+            <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">
+              Chaque univers ouvre le sous-parcours adapté à vos opérations. Vous pourrez enchaîner
+              plusieurs opérations dans le même dossier : la cartographie se construit au fil des scans.
+            </p>
+          </div>
+          {operations.length > 0 && (
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setVue('rapport')}
+                className="flex items-center gap-2 rounded bg-or-vif px-5 py-3 font-texte text-sm font-bold text-nuit transition-all hover:-translate-y-0.5 hover:bg-or-pale"
+              >
+                <span className="ms text-lg" aria-hidden="true">print</span>
+                Reprendre mon dossier ({operations.length})
+              </button>
+              <button
+                type="button"
+                onClick={nouveauDossier}
+                className="flex items-center gap-2 rounded border border-white/25 px-5 py-3 font-texte text-sm font-semibold text-white/70 transition-colors hover:border-white/60 hover:text-white"
+              >
+                <span className="ms text-lg" aria-hidden="true">restart_alt</span>
+                Nouveau dossier
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {univers.map((u) => (
+            <button
+              key={u.titre}
+              type="button"
+              onClick={() => demarrer(u.entree)}
+              className="group relative h-52 overflow-hidden rounded-lg border border-white/12 text-left transition-all hover:-translate-y-1 hover:border-or-vif hover:shadow-[0_0_32px_rgba(216,171,74,0.25)]"
+            >
+              <img src={u.image} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" aria-hidden="true" />
+              <span className="absolute inset-0 bg-gradient-to-t from-nuit via-nuit/45 to-transparent" aria-hidden="true"></span>
+              <span className="absolute inset-x-0 bottom-0 p-5">
+                <span className="texte-affiche block text-2xl text-white group-hover:text-or-pale">{u.titre}</span>
+                <span className="mt-1 block text-xs leading-5 text-white/65">{u.detail}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+        {arbre.avertissement && (
+          <p className="mt-6 text-xs leading-5 text-white/35">{arbre.avertissement}</p>
+        )}
+      </section>
+    );
+  }
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
@@ -253,15 +352,21 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
 
             {/* Choix de réponse, façon dialogue de jeu */}
             <div className="mt-6 grid gap-3 md:grid-cols-2">
-              {question.options.map((option) => (
+              {question.options.map((option, indice) => (
                 <button
                   key={option.libelle}
                   type="button"
+                  data-indice={indice + 1}
                   onClick={(evenement) => repondre(evenement, option.libelle, option.versQuestion, option.versResultat)}
                   className="group rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10 hover:shadow-[0_0_24px_rgba(216,171,74,0.18)]"
                 >
                   <span className="flex items-start justify-between gap-3">
-                    <span className="font-titres text-base font-semibold text-white">{option.libelle}</span>
+                    <span className="font-titres text-base font-semibold text-white">
+                      <kbd className="mr-2 hidden rounded border border-white/20 bg-white/10 px-1.5 py-0.5 font-texte text-[10px] font-bold text-white/50 md:inline-block">
+                        {indice + 1}
+                      </kbd>
+                      {option.libelle}
+                    </span>
                     {option.icone && (
                       <span
                         className="ms rounded bg-white/10 p-1.5 text-xl text-white/60 transition-colors group-hover:bg-or-vif/20 group-hover:text-or-pale"
