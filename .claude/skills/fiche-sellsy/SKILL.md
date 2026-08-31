@@ -1,8 +1,8 @@
 ---
 name: fiche-sellsy
 description: >
-  Prépare la saisie d'un dossier dans Sellsy (fiche client, devis, factures) sous forme de blocs
-  copier-coller rubrique par rubrique, pour un remplissage champ par champ sans rien retaper.
+  Prépare la saisie d'un dossier dans Sellsy (fiche client, devis, factures) sous forme d'un
+  bloc copier-coller par champ, pour un remplissage sans rien retaper.
   Calcule la TVA et les totaux TTC à partir des montants HT de la mission, et signale les champs
   manquants au lieu de les inventer. Déclencher quand l'utilisateur veut « la fiche Sellsy »,
   « remplir Sellsy », « créer le client dans Sellsy », « le devis Sellsy », « la facture Sellsy »,
@@ -10,7 +10,7 @@ description: >
   reprend le forfait et l'échéancier.
 ---
 
-# Fiche Sellsy - saisie rubrique par rubrique
+# Fiche Sellsy - saisie champ par champ
 
 Sellsy se remplit **champ par champ**. La fiche doit donc se coller **rubrique par rubrique**,
 sans jamais obliger à retaper une valeur ni à supprimer un marqueur.
