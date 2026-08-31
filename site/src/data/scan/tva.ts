@@ -18,7 +18,7 @@ export const arbreTva: ArbreScan = {
   avertissement:
     "Version de travail : l'arbre de décision est en cours de validation par le cabinet.",
   entree: 'assujetti',
-  profondeurEstimee: 6,
+  profondeurEstimee: 7,
   univers: [
     { titre: 'Opération générale', detail: "Le parcours complet, du champ d'application au droit à déduction", image: '/images/scan-tva.jpg', entree: 'assujetti' },
     { titre: 'Holdings', detail: 'Dividendes, management fees, intérêts : pure ou animatrice ?', image: '/images/holdings.jpg', entree: 'holding-role' },
@@ -32,8 +32,8 @@ export const arbreTva: ArbreScan = {
       intitule: 'Qualité d’assujetti',
       titre: "Qui réalise l'opération ?",
       image: '/images/scan-tva.jpg',
-      aide: "La TVA ne s'applique qu'aux opérations réalisées par un assujetti agissant en tant que tel : une personne qui exerce de manière indépendante une activité économique, quels qu'en soient le statut, la forme ou le but (CGI, art. 256 A). Un particulier qui gère son patrimoine privé n'agit pas en tant qu'assujetti ; il en va de même, en principe, d'une personne publique dans le cadre de ses prérogatives de puissance publique (art. 256 B). Les holdings suivent un raisonnement propre : tout dépend de leur immixtion dans la gestion des filiales.",
-      references: [{ libelle: 'CGI, art. 256 A' }, { libelle: 'CGI, art. 256 B' }],
+      aide: "La TVA ne s'applique qu'aux opérations réalisées par un assujetti agissant en tant que tel : une personne qui exerce de manière indépendante une activité économique, quels qu'en soient le statut, la forme ou le but (CGI, art. 256 A). Un particulier qui gère son patrimoine privé n'agit pas en tant qu'assujetti ; les personnes publiques obéissent au régime propre de l'article 256 B ; les petites entreprises sous les plafonds de la franchise en base (art. 293 B) sont assujetties mais dispensées de facturer la taxe. Les holdings suivent un raisonnement à part : tout dépend de leur immixtion dans la gestion des filiales.",
+      references: [{ libelle: 'CGI, art. 256 A' }, { libelle: 'CGI, art. 256 B' }, { libelle: 'CGI, art. 293 B' }],
       doctrine: { libelle: "Doctrine : l'assujettissement à la TVA", url: '/assujettissement-tva/' },
       options: [
         {
@@ -49,16 +49,51 @@ export const arbreTva: ArbreScan = {
           versQuestion: 'holding-role',
         },
         {
+          libelle: 'Une entreprise en franchise en base',
+          detail: "Chiffre d'affaires sous les plafonds de l'article 293 B : pas de TVA facturée, pas de TVA déduite",
+          icone: 'storefront',
+          versResultat: 'franchise-base',
+        },
+        {
           libelle: 'Un particulier, dans un cadre patrimonial',
           detail: 'Gestion du patrimoine privé, sans démarches actives de commercialisation',
           icone: 'person_off',
           versResultat: 'hors-champ',
         },
         {
-          libelle: 'Une personne publique dans ses prérogatives',
-          detail: "Service administratif, social, éducatif ou culturel d'une collectivité ou d'un établissement public",
+          libelle: 'Une personne publique',
+          detail: "Collectivité, établissement public, régie : le régime dépend de l'activité et de la concurrence",
           icone: 'domain',
-          versResultat: 'hors-champ',
+          versQuestion: 'public-concurrence',
+        },
+      ],
+    },
+    'public-concurrence': {
+      id: 'public-concurrence',
+      intitule: 'Personne publique',
+      titre: "Dans quel cadre la personne publique agit-elle ?",
+      image: '/images/scan-tva.jpg',
+      aide: "Les personnes morales de droit public ne sont pas assujetties pour l'activité de leurs services administratifs, sociaux, éducatifs, culturels et sportifs, lorsque leur non-assujettissement n'entraîne pas de distorsions dans les conditions de la concurrence (CGI, art. 256 B). Deux limites : si des opérateurs privés offrent le même service dans des conditions comparables, l'activité redevient taxable ; et certaines activités sont taxées de plein droit par la loi (distribution d'eau, de gaz et d'électricité, transports, télécommunications, organisation de foires et d'expositions…). L'hébergement de personnes âgées par un EHPAD public a ainsi été jugé hors champ, faute de distorsion (CE, 7 avril 2023, n° 463241).",
+      references: [{ libelle: 'CGI, art. 256 B' }],
+      doctrine: { libelle: 'Doctrine : la TVA des personnes publiques', url: '/tva-personnes-publiques/' },
+      options: [
+        {
+          libelle: 'Service public sans concurrence privée',
+          detail: "Activité administrative, sociale, éducative, culturelle ou sportive, sans équivalent privé comparable",
+          icone: 'account_balance',
+          versResultat: 'hors-champ-public',
+        },
+        {
+          libelle: 'Activité en concurrence avec le privé',
+          detail: 'Des opérateurs privés offrent le même service dans des conditions comparables : retour au droit commun',
+          icone: 'storefront',
+          versQuestion: 'nature',
+        },
+        {
+          libelle: 'Activité taxée de plein droit par la loi',
+          detail: "Eau, énergie, transports, télécommunications, foires et expositions… : la liste de l'article 256 B",
+          icone: 'bolt',
+          versQuestion: 'nature',
         },
       ],
     },
@@ -160,8 +195,8 @@ export const arbreTva: ArbreScan = {
       intitule: 'Territorialité',
       titre: "L'opération est-elle située en France ?",
       image: '/images/scan-tva.jpg',
-      aide: "Le lieu d'imposition dépend de la nature de l'opération et de la qualité du preneur. Entre assujettis (B2B), une prestation de services est en principe imposable au lieu d'établissement du preneur (art. 259) ; envers un non-assujetti (B2C), au lieu du prestataire — avec de nombreuses dérogations (immeubles, transports, services électroniques…). Pour les biens, comptent la localisation et le transport (art. 258). Une opération située hors de France n'y est pas imposable, mais peut y préserver le droit à déduction (art. 271, V, d).",
-      references: [{ libelle: 'CGI, art. 258 à 259 D' }],
+      aide: "Le lieu d'imposition dépend de la nature de l'opération et de la qualité du preneur. Entre assujettis (B2B), une prestation de services est en principe imposable au lieu d'établissement du preneur (art. 259) ; envers un non-assujetti (B2C), au lieu du prestataire — avec de nombreuses dérogations (immeubles, transports, services électroniques…). Pour les biens, comptent la localisation et le transport (art. 258). Cas particulier en plein essor : les ventes à distance de biens à des particuliers d'autres États membres sont taxées dans le pays du client dès que ces ventes transfrontalières dépassent 10 000 € par an, via le guichet unique OSS. Une opération située hors de France n'y est pas imposable, mais peut y préserver le droit à déduction (art. 271, V, d).",
+      references: [{ libelle: 'CGI, art. 258 à 259 D' }, { libelle: 'CGI, art. 259 D' }],
       doctrine: { libelle: 'Doctrine : la territorialité de la TVA', url: '/doctrine/territorialite-tva/' },
       options: [
         {
@@ -175,6 +210,12 @@ export const arbreTva: ArbreScan = {
           detail: 'Preneur assujetti établi à l’étranger, bien situé ou livré hors de France…',
           icone: 'public',
           versResultat: 'hors-territoire',
+        },
+        {
+          libelle: "Vente à distance à des particuliers de l'UE",
+          detail: 'E-commerce transfrontalier B2C au-delà de 10 000 € par an : taxation à destination, guichet OSS',
+          icone: 'local_shipping',
+          versResultat: 'vad-oss',
         },
       ],
     },
@@ -330,8 +371,8 @@ export const arbreTva: ArbreScan = {
       intitule: 'Option sur la vente',
       titre: 'Le vendeur opte-t-il pour la taxation de la vente ?',
       image: '/images/immobilier.jpg',
-      aide: "La vente exonérée d'un immeuble ancien ou d'un terrain non à bâtir peut être volontairement soumise à la TVA sur option du cédant, généralement formalisée dans l'acte notarié. L'option préserve les droits à déduction du vendeur et évite des régularisations de la TVA antérieurement déduite (reversement calculé sur les vingtièmes restant à courir, art. 207 de l'annexe II). À défaut d'option expresse, l'exonération s'applique.",
-      references: [{ libelle: 'CGI, art. 260, 5° bis' }, { libelle: 'CGI, ann. II, art. 207' }],
+      aide: "La vente exonérée d'un immeuble ancien ou d'un terrain non à bâtir peut être volontairement soumise à la TVA sur option du cédant, généralement formalisée dans l'acte notarié. L'option préserve les droits à déduction du vendeur et évite des régularisations de la TVA antérieurement déduite (reversement calculé sur les vingtièmes restant à courir, art. 207 de l'annexe II). Précision d'assiette : lorsque l'acquisition du bien n'avait pas ouvert droit à déduction, la taxation peut s'opérer sur la seule marge du revendeur (art. 268) — le régime de prédilection des marchands de biens et des lotisseurs. À défaut d'option expresse, l'exonération s'applique.",
+      references: [{ libelle: 'CGI, art. 260, 5° bis' }, { libelle: 'CGI, art. 268' }, { libelle: 'CGI, ann. II, art. 207' }],
       doctrine: { libelle: 'Doctrine : la déduction de la TVA immobilière', url: '/tva-immobiliere/deduction-tva-immobiliere/' },
       options: [
         {
@@ -376,10 +417,45 @@ export const arbreTva: ArbreScan = {
           versResultat: 'exoneree',
         },
         {
-          libelle: 'Meublé avec services para-hôteliers',
-          detail: 'Petit-déjeuner, ménage régulier, linge, réception : la location devient taxable',
-          icone: 'verified',
+          libelle: 'Meublé de courte durée ou para-hôtellerie',
+          detail: 'Locations meublées touristiques ou avec services : le régime dépend des prestations offertes',
+          icone: 'night_shelter',
+          versQuestion: 'immo-parahotel',
+        },
+      ],
+    },
+    'immo-parahotel': {
+      id: 'immo-parahotel',
+      intitule: 'Para-hôtellerie',
+      titre: 'Votre location meublée remplit-elle les critères de la para-hôtellerie ?',
+      image: '/images/immobilier.jpg',
+      aide: "Depuis la réforme issue de la loi de finances pour 2024, sont taxées les locations meublées de séjours de trente nuitées au plus lorsque l'offre inclut au moins trois des quatre prestations para-hôtelières — petit-déjeuner, nettoyage régulier des locaux, fourniture du linge de maison, réception même non personnalisée de la clientèle (CGI, art. 261 D, 4°, b). Les locations meublées à usage résidentiel assorties de trois de ces quatre services sont également taxées, quelle que soit la durée. Enfin, la location du local meublé à l'exploitant d'un établissement d'hébergement taxé est elle-même taxable. La taxation ouvre la récupération de la TVA sur l'acquisition et les travaux — un enjeu décisif pour les investisseurs.",
+      references: [{ libelle: 'CGI, art. 261 D, 4°' }],
+      doctrine: { libelle: 'Doctrine : para-hôtellerie et TVA', url: '/para-hotellerie-tva/' },
+      options: [
+        {
+          libelle: 'Séjours ≤ 30 nuitées avec au moins 3 services sur 4',
+          detail: 'Petit-déjeuner, ménage régulier, linge, réception : la location courte durée est taxée',
+          icone: 'check_circle',
           versResultat: 'taxee',
+        },
+        {
+          libelle: 'Résidentiel avec au moins 3 services sur 4',
+          detail: 'Résidences services (étudiants, seniors…) : taxation quelle que soit la durée du séjour',
+          icone: 'apartment',
+          versResultat: 'taxee',
+        },
+        {
+          libelle: "Location meublée à l'exploitant d'un hébergement taxé",
+          detail: "Bail à l'exploitant d'un hôtel, d'une résidence de tourisme ou para-hôtelière : taxable",
+          icone: 'domain',
+          versResultat: 'taxee',
+        },
+        {
+          libelle: 'Moins de 3 services sur 4',
+          detail: "Location meublée simple : exonérée sans option, la TVA d'amont n'est pas récupérable",
+          icone: 'do_not_disturb_on',
+          versResultat: 'exoneree',
         },
       ],
     },
@@ -548,6 +624,52 @@ export const arbreTva: ArbreScan = {
       references: [{ libelle: 'CGI, art. 256 A' }],
       doctrine: { libelle: 'Doctrine : la récupération de la TVA des holdings', url: '/holdings-tva/recuperation-tva-holdings/' },
       etapeSuivante: { libelle: 'Mesurer la taxe sur les salaires de la holding', url: '/scan-taxe-salaires/' },
+    },
+    'franchise-base': {
+      id: 'franchise-base',
+      qualification: 'Franchise en base : TVA neutralisée',
+      ton: 'mixte',
+      carto: { libelle: 'Franchise en base', teinte: 'gris', deduction: 'non' },
+      resume:
+        "Sous les plafonds de l'article 293 B — 85 000 € pour les livraisons de biens, 37 500 € pour les prestations de services —, l'entreprise ne facture pas la TVA et ne la déduit pas : elle est assujettie, mais dispensée du paiement.",
+      consequences: [
+        'Factures sans TVA, avec la mention « TVA non applicable, art. 293 B du CGI » ; aucune déduction de la TVA sur les achats et investissements.',
+        "Avantage méconnu : les rémunérations versées par les employeurs sous ces plafonds sont exonérées de taxe sur les salaires (art. 231, 1).",
+        "La franchise se quitte sur option pour le paiement de la TVA — pertinente quand la clientèle est assujettie ou que les investissements sont lourds — et se perd en cas de dépassement des seuils : surveillez-les, la réforme des plafonds reste en débat au Parlement.",
+      ],
+      references: [{ libelle: 'CGI, art. 293 B' }, { libelle: 'CGI, art. 231, 1' }],
+      doctrine: { libelle: 'Doctrine : la franchise en base de TVA', url: '/franchise-en-base-tva/' },
+    },
+    'hors-champ-public': {
+      id: 'hors-champ-public',
+      qualification: 'Personne publique hors du champ de la TVA',
+      ton: 'attention',
+      carto: { libelle: 'Hors champ', teinte: 'gris', deduction: 'non' },
+      resume:
+        "L'activité est exercée en tant qu'autorité publique sans distorsion de concurrence : elle échappe à la TVA (art. 256 B) — et la TVA grevant les dépenses correspondantes n'est pas déductible.",
+      consequences: [
+        "Aucune TVA collectée, aucune déduction : la TVA d'amont est une charge définitive pour le budget de l'organisme.",
+        "Le périmètre se réexamine activité par activité : une mise en concurrence effective ou une activité de la liste légale (eau, énergie, transports…) fait rebasculer dans le champ.",
+        "Côté taxe sur les salaires : les collectivités territoriales et leurs groupements en sont exemptés par l'article 231, mais les autres organismes publics — hôpitaux en tête — y sont largement exposés.",
+      ],
+      references: [{ libelle: 'CGI, art. 256 B' }, { libelle: 'CGI, art. 231, 1' }],
+      doctrine: { libelle: 'Doctrine : la TVA des personnes publiques', url: '/tva-personnes-publiques/' },
+      etapeSuivante: { libelle: 'Mesurer la taxe sur les salaires', url: '/scan-taxe-salaires/' },
+    },
+    'vad-oss': {
+      id: 'vad-oss',
+      qualification: "Vente à distance taxée dans le pays du client",
+      ton: 'mixte',
+      carto: { libelle: 'Taxée à destination', teinte: 'vert', deduction: 'oui' },
+      resume:
+        "Au-delà de 10 000 € annuels de ventes transfrontalières B2C dans l'Union, vos ventes à distance sont taxées dans l'État membre du consommateur, au taux local — le guichet unique OSS permet de tout déclarer depuis la France.",
+      consequences: [
+        "TVA due au taux du pays de destination sur chaque vente ; l'inscription au guichet OSS évite de s'immatriculer dans chaque État membre.",
+        'Le droit à déduction en France est préservé : ces ventes sont traitées comme des opérations taxées pour votre prorata (art. 271, V, d).',
+        'Sous le seuil global de 10 000 € par an, la TVA française reste applicable — une option pour la taxation à destination demeure possible.',
+      ],
+      references: [{ libelle: 'CGI, art. 258 A et 259 D' }, { libelle: 'CGI, art. 271, V, d' }],
+      doctrine: { libelle: 'Doctrine : la TVA du e-commerce', url: '/tva-e-commerce/' },
     },
     'hors-territoire': {
       id: 'hors-territoire',

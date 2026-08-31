@@ -14,11 +14,18 @@ interface Props {
   dossier?: boolean;
 }
 
-const stylesTon: Record<TonResultat, { badge: string; icone: string }> = {
-  positif: { badge: 'bg-positif/20 text-[#7fd39a] border border-positif/40', icone: 'check_circle' },
-  negatif: { badge: 'bg-alerte/15 text-[#ff9d94] border border-alerte/40', icone: 'cancel' },
-  mixte: { badge: 'bg-white/10 text-white/80 border border-white/20', icone: 'altitude' },
-  attention: { badge: 'bg-or-vif/15 text-or-pale border border-or-vif/40', icone: 'error' },
+const stylesTon: Record<TonResultat, { badge: string; icone: string; halo: string }> = {
+  positif: { badge: 'bg-positif/20 text-[#7fd39a] border border-positif/40', icone: 'check_circle', halo: '#3f9d63' },
+  negatif: { badge: 'bg-alerte/15 text-[#ff9d94] border border-alerte/40', icone: 'cancel', halo: '#c0392b' },
+  mixte: { badge: 'bg-white/10 text-white/80 border border-white/20', icone: 'altitude', halo: '#7d92b5' },
+  attention: { badge: 'bg-or-vif/15 text-or-pale border border-or-vif/40', icone: 'error', halo: '#d8ab4a' },
+};
+
+/** Verdict « droit à déduction » affiché en tête de l'écran de résultat. */
+const verdictDeduction: Record<'oui' | 'non' | 'a-analyser', { texte: string; classe: string; icone: string }> = {
+  oui: { texte: 'Droit à déduction préservé', classe: 'bg-positif/15 text-[#7fd39a] border border-positif/40', icone: 'trending_up' },
+  non: { texte: 'Droit à déduction fermé', classe: 'bg-alerte/10 text-[#ff9d94] border border-alerte/40', icone: 'trending_down' },
+  'a-analyser': { texte: 'Droit à déduction : à analyser', classe: 'bg-or-vif/10 text-or-pale border border-or-vif/40', icone: 'query_stats' },
 };
 
 function chargerDossier(cle: string): OperationScannee[] {
@@ -246,15 +253,25 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
           )}
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {univers.map((u) => (
+          {univers.map((u, indice) => (
             <button
               key={u.titre}
               type="button"
               onClick={() => demarrer(u.entree)}
-              className="group relative h-52 overflow-hidden rounded-lg border border-white/12 text-left transition-all hover:-translate-y-1 hover:border-or-vif hover:shadow-[0_0_32px_rgba(216,171,74,0.25)]"
+              style={{ animationDelay: `${indice * 80}ms` }}
+              className="group apparition relative h-52 overflow-hidden rounded-lg border border-white/12 text-left transition-all hover:-translate-y-1 hover:border-or-vif hover:shadow-[0_0_32px_rgba(216,171,74,0.25)]"
             >
               <img src={u.image} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" aria-hidden="true" />
               <span className="absolute inset-0 bg-gradient-to-t from-nuit via-nuit/45 to-transparent" aria-hidden="true"></span>
+              <span className="absolute left-5 top-4 font-titres text-xs font-bold tracking-[0.3em] text-white/45 transition-colors group-hover:text-or-pale" aria-hidden="true">
+                {String(indice + 1).padStart(2, '0')}
+              </span>
+              <span
+                className="ms absolute right-4 top-4 -translate-x-1 text-2xl text-or-pale opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                aria-hidden="true"
+              >
+                arrow_forward
+              </span>
               <span className="absolute inset-x-0 bottom-0 p-5">
                 <span className="texte-affiche block text-2xl text-white group-hover:text-or-pale">{u.titre}</span>
                 <span className="mt-1 block text-xs leading-5 text-white/65">{u.detail}</span>
@@ -352,8 +369,13 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                   type="button"
                   data-indice={indice + 1}
                   onClick={(evenement) => repondre(evenement, option.libelle, option.versQuestion, option.versResultat)}
-                  className="group rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10 hover:shadow-[0_0_24px_rgba(216,171,74,0.18)]"
+                  style={{ animationDelay: `${120 + indice * 60}ms` }}
+                  className="group apparition relative overflow-hidden rounded-lg border border-white/12 bg-white/5 p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-or-vif hover:bg-white/10 hover:shadow-[0_0_24px_rgba(216,171,74,0.18)]"
                 >
+                  <span
+                    className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-or-pale to-or-vif opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden="true"
+                  />
                   <span className="flex items-start justify-between gap-3">
                     <span className="font-titres text-base font-semibold text-white">
                       <kbd className="mr-2 hidden rounded border border-white/20 bg-white/10 px-1.5 py-0.5 font-texte text-[10px] font-bold text-white/50 md:inline-block">
@@ -376,7 +398,8 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
 
               <a
                 href={question.doctrine.url}
-                className="group rounded-lg border border-dashed border-white/25 bg-transparent p-5 transition-colors hover:border-white/60"
+                style={{ animationDelay: `${120 + question.options.length * 60}ms` }}
+                className="group apparition rounded-lg border border-dashed border-white/25 bg-transparent p-5 transition-colors hover:border-white/60"
               >
                 <span className="flex items-start justify-between gap-3">
                   <span className="font-titres text-base font-semibold text-white/70 group-hover:text-white">
@@ -393,7 +416,8 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
 
               <a
                 href="/expert/"
-                className="group rounded-lg border border-dashed border-or-vif/60 bg-or-vif/5 p-5 transition-colors hover:bg-or-vif/15"
+                style={{ animationDelay: `${180 + question.options.length * 60}ms` }}
+                className="group apparition rounded-lg border border-dashed border-or-vif/60 bg-or-vif/5 p-5 transition-colors hover:bg-or-vif/15"
               >
                 <span className="flex items-start justify-between gap-3">
                   <span className="font-titres text-base font-semibold text-or-pale">Consulter un expert</span>
@@ -434,22 +458,43 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
 
         {resultat && (
           <section key={resultat.id} className="apparition" aria-live="polite">
-            <div className="overflow-hidden rounded-lg border border-white/10 bg-[#0a1526] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-8">
-              <span className={`etiquette inline-flex items-center gap-1.5 rounded px-2.5 py-1 ${stylesTon[resultat.ton].badge}`}>
-                <span className="ms text-base" aria-hidden="true">
-                  {stylesTon[resultat.ton].icone}
+            <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#0a1526] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:p-8">
+              <div
+                className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full opacity-25 blur-3xl"
+                style={{ background: stylesTon[resultat.ton].halo }}
+                aria-hidden="true"
+              />
+              <div className="relative flex flex-wrap items-center gap-2">
+                <span className={`etiquette inline-flex items-center gap-1.5 rounded px-2.5 py-1 ${stylesTon[resultat.ton].badge}`}>
+                  <span className="ms text-base" aria-hidden="true">
+                    {stylesTon[resultat.ton].icone}
+                  </span>
+                  Qualification
                 </span>
-                Qualification
-              </span>
-              <h2 className="texte-affiche mt-4 text-3xl leading-tight text-white md:text-5xl">
+                {resultat.carto && (
+                  <span
+                    className={`etiquette inline-flex items-center gap-1.5 rounded px-2.5 py-1 ${verdictDeduction[resultat.carto.deduction].classe}`}
+                  >
+                    <span className="ms text-base" aria-hidden="true">
+                      {verdictDeduction[resultat.carto.deduction].icone}
+                    </span>
+                    {verdictDeduction[resultat.carto.deduction].texte}
+                  </span>
+                )}
+              </div>
+              <h2 className="texte-affiche relative mt-4 text-3xl leading-tight text-white md:text-5xl">
                 {resultat.qualification}
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-white/75">{resultat.resume}</p>
+              <p className="relative mt-4 max-w-2xl text-base leading-7 text-white/75">{resultat.resume}</p>
 
-              <h3 className="etiquette mt-7 text-or-vif">Ce que cela implique</h3>
-              <ul className="mt-3 space-y-2.5">
-                {resultat.consequences.map((consequence) => (
-                  <li key={consequence} className="flex gap-3 text-sm leading-6 text-white/80">
+              <h3 className="etiquette relative mt-7 text-or-vif">Ce que cela implique</h3>
+              <ul className="relative mt-3 space-y-2.5">
+                {resultat.consequences.map((consequence, indice) => (
+                  <li
+                    key={consequence}
+                    style={{ animationDelay: `${250 + indice * 130}ms` }}
+                    className="apparition flex gap-3 text-sm leading-6 text-white/80"
+                  >
                     <span className="mt-3 h-px w-3.5 shrink-0 bg-or-vif" aria-hidden="true" />
                     {consequence}
                   </li>

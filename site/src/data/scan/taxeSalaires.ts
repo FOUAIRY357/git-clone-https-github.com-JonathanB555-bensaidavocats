@@ -18,13 +18,14 @@ export const arbreTaxeSalaires: ArbreScan = {
   avertissement:
     "Version de travail : l'arbre de décision est en cours de validation par le cabinet.",
   entree: 'employeur',
-  profondeurEstimee: 4,
+  profondeurEstimee: 5,
   univers: [
     { titre: 'Diagnostic général', detail: 'Redevable ou non, rapport d’assujettissement, sectorisation', image: '/images/scan-ts.jpg', entree: 'employeur' },
     { titre: 'Holdings & dirigeants', detail: 'Holding pure ou mixte, rémunération des mandataires sociaux', image: '/images/holdings.jpg', entree: 'ts-holding-activite' },
     { titre: 'Secteur financier', detail: 'Dividendes, titres immobilisés, instruments à terme, succursales', image: '/images/finance.jpg', entree: 'ts-fin-profil' },
     { titre: 'Groupe TVA', detail: "Flux internes détaxés en TVA… mais comptés en taxe sur les salaires", image: '/images/scan-ts.jpg', entree: 'ts-groupe' },
     { titre: 'Santé', detail: 'Hôpitaux, cliniques, EHPAD publics et privés', image: '/images/sante.jpg', entree: 'ts-sante' },
+    { titre: 'Associations & OSBL', detail: "Cotisations et subventions hors TVA, abattement de 24 256 €", image: '/images/scan-ts.jpg', entree: 'ts-osbl' },
   ],
   questions: {
     employeur: {
@@ -55,8 +56,8 @@ export const arbreTaxeSalaires: ArbreScan = {
       intitule: 'Catégories exemptées',
       image: '/images/scan-ts.jpg',
       titre: "Relevez-vous d'une catégorie d'employeurs exemptée ?",
-      aide: "Certaines catégories d'employeurs sont expressément exemptées de taxe sur les salaires par le CGI : les particuliers employeurs de salariés à domicile (art. 231 bis P), les établissements d'enseignement supérieur pour certaines rémunérations, les collectivités publiques visées au dernier alinéa de l'article 231, 1, ou encore les employeurs agricoles (BOI-TPS-TS-10-20). Ces exemptions sont d'interprétation stricte : vérifiez précisément votre situation.",
-      references: [{ libelle: 'CGI, art. 231 et 231 bis P' }],
+      aide: "Certaines catégories d'employeurs sont expressément exemptées de taxe sur les salaires par le CGI : les particuliers employeurs de salariés à domicile (art. 231 bis P), les établissements d'enseignement supérieur pour certaines rémunérations, les collectivités territoriales et leurs groupements visés à l'article 231, 1, ou encore les employeurs agricoles (BOI-TPS-TS-10-20). Cas très fréquent et souvent ignoré : les employeurs dont le chiffre d'affaires de l'année précédente n'excède pas les plafonds de la franchise en base de TVA (art. 293 B) sont exonérés de la taxe, alors même qu'ils ne facturent aucune TVA. Ces exemptions sont d'interprétation stricte : vérifiez précisément votre situation.",
+      references: [{ libelle: 'CGI, art. 231 et 231 bis P' }, { libelle: 'CGI, art. 293 B' }],
       doctrine: { libelle: 'Doctrine : le champ de la taxe sur les salaires', url: '/champ-application-taxe-sur-les-salaires/' },
       options: [
         {
@@ -67,9 +68,15 @@ export const arbreTaxeSalaires: ArbreScan = {
         },
         {
           libelle: 'Oui, une catégorie exemptée',
-          detail: 'Particulier employeur, collectivité publique visée, employeur agricole…',
+          detail: 'Particulier employeur, collectivité territoriale, employeur agricole…',
           icone: 'shield',
           versResultat: 'exempte',
+        },
+        {
+          libelle: 'Chiffre d’affaires sous la franchise en base de TVA',
+          detail: "Plafonds de l'article 293 B non dépassés l'année précédente : taxe sur les salaires non due",
+          icone: 'storefront',
+          versResultat: 'exempte-franchise',
         },
       ],
     },
@@ -276,6 +283,31 @@ export const arbreTaxeSalaires: ArbreScan = {
       ],
     },
 
+    /* ---------------- Sous-parcours associations et OSBL ---------------- */
+    'ts-osbl': {
+      id: 'ts-osbl',
+      intitule: 'Organisme sans but lucratif',
+      image: '/images/scan-ts.jpg',
+      titre: "Votre organisme figure-t-il sur la liste de l'article 1679 A ?",
+      aide: "Les associations et organismes sans but lucratif sont des redevables naturels de la taxe sur les salaires : cotisations, dons et subventions de fonctionnement, placés hors du champ de la TVA, gonflent le rapport d'assujettissement. En contrepartie, la loi réserve un abattement puissant aux organismes limitativement énumérés par l'article 1679 A — associations loi de 1901, fondations reconnues d'utilité publique, fonds de dotation, centres de lutte contre le cancer, syndicats professionnels et leurs unions, certaines mutuelles : la taxe n'est due que pour sa fraction excédant 24 256 € par an (montant 2026, indexé chaque année comme le barème de l'impôt sur le revenu). En pratique, l'abattement efface la taxe des petites structures.",
+      references: [{ libelle: 'CGI, art. 1679 A' }],
+      doctrine: { libelle: 'Doctrine : associations et OSBL', url: '/associations-osbl/' },
+      options: [
+        {
+          libelle: 'Oui, organisme de la liste',
+          detail: 'Association 1901, fondation RUP, fonds de dotation, syndicat, mutuelle éligible…',
+          icone: 'volunteer_activism',
+          versResultat: 'ts-osbl-abattement',
+        },
+        {
+          libelle: 'Non, autre organisme',
+          detail: "Pas d'abattement : le diagnostic de droit commun s'applique",
+          icone: 'domain',
+          versQuestion: 'seuil-90',
+        },
+      ],
+    },
+
     /* ---------------- Sous-parcours santé ---------------- */
     'ts-sante': {
       id: 'ts-sante',
@@ -335,6 +367,35 @@ export const arbreTaxeSalaires: ArbreScan = {
       references: [{ libelle: 'CGI, art. 231 et 231 bis P' }],
       doctrine: { libelle: 'Doctrine : le champ de la taxe sur les salaires', url: '/champ-application-taxe-sur-les-salaires/' },
     },
+    'exempte-franchise': {
+      id: 'exempte-franchise',
+      qualification: 'Exonéré : franchise en base de TVA',
+      ton: 'positif',
+      resume:
+        "Votre chiffre d'affaires de l'année précédente n'excède pas les plafonds de la franchise en base (art. 293 B) : les rémunérations que vous versez sont exonérées de taxe sur les salaires, alors même que vous ne facturez pas de TVA.",
+      consequences: [
+        "L'exonération s'apprécie chaque année au regard du chiffre d'affaires de l'année civile précédente : un dépassement des plafonds la fait tomber.",
+        "En cas de sortie de la franchise, anticipez le double effet : TVA à facturer, mais aussi entrée potentielle dans la taxe sur les salaires si moins de 90 % du chiffre d'affaires est soumis à la TVA.",
+        'Les plafonds de la franchise font l’objet d’une réforme en discussion : surveillez leur évolution.',
+      ],
+      references: [{ libelle: 'CGI, art. 231, 1' }, { libelle: 'CGI, art. 293 B' }],
+      doctrine: { libelle: 'Doctrine : la franchise en base de TVA', url: '/franchise-en-base-tva/' },
+    },
+    'ts-osbl-abattement': {
+      id: 'ts-osbl-abattement',
+      qualification: 'Redevable, avec un abattement de 24 256 €',
+      ton: 'mixte',
+      resume:
+        "Votre organisme relève de l'article 1679 A : la taxe sur les salaires n'est exigible que pour la partie de son montant annuel qui dépasse 24 256 € (montant 2026, indexé). L'abattement efface la taxe des petites structures et allège toutes les autres.",
+      consequences: [
+        "L'abattement s'applique au montant de taxe calculé après barème : en pratique, plusieurs salariés à temps plein peuvent être couverts avant qu'un euro de taxe soit dû.",
+        "Le rapport d'assujettissement reste à construire : cotisations, dons et subventions de fonctionnement, hors du champ de la TVA, entrent au numérateur ; une activité lucrative sectorisée peut en sortir.",
+        "Ne confondez pas cet abattement avec la franchise des impôts commerciaux des activités lucratives accessoires (81 051 € en 2026) : les deux dispositifs se cumulent mais obéissent à des conditions distinctes.",
+      ],
+      references: [{ libelle: 'CGI, art. 1679 A' }, { libelle: 'CGI, art. 231, 1' }],
+      doctrine: { libelle: 'Doctrine : associations et OSBL', url: '/associations-osbl/' },
+      etapeSuivante: { libelle: 'Poursuivre avec le diagnostic général', url: '/scan-taxe-salaires/' },
+    },
     'non-assujetti-90': {
       id: 'non-assujetti-90',
       qualification: 'Non redevable de la taxe sur les salaires',
@@ -356,9 +417,9 @@ export const arbreTaxeSalaires: ArbreScan = {
       resume:
         "Vous êtes redevable de la taxe sur les salaires sur une assiette égale aux rémunérations multipliées par votre rapport d'assujettissement général.",
       consequences: [
-        "Assiette = rémunérations imposables × rapport d'assujettissement de l'année précédente ; la taxe se calcule ensuite selon un barème progressif par salarié, atténué par la franchise et la décote.",
-        "Sans sectorisation, le rapport général s'applique à tous les personnels, y compris ceux affectés aux seules activités taxées.",
-        'La sectorisation et une affectation documentée des équipes constituent le principal levier de réduction : un audit est souvent rentable.',
+        "Assiette = rémunérations imposables × rapport d'assujettissement de l'année précédente. Barème 2026 par salarié : 4,25 % jusqu'à 9 229 € de rémunération annuelle, 8,50 % de 9 229 € à 18 423 €, 13,60 % au-delà (CGI, art. 231, 2 bis).",
+        "Atténuations : taxe non due si son montant annuel n'excède pas 1 200 € ; décote entre 1 200 € et 2 040 € (art. 1679) ; abattement de 24 256 € pour les associations et organismes de l'article 1679 A.",
+        "Sans sectorisation, le rapport général s'applique à tous les personnels, y compris ceux affectés aux seules activités taxées : l'affectation documentée des équipes est le principal levier — un audit est souvent rentable.",
       ],
       references: [{ libelle: 'CGI, art. 231' }, { libelle: 'CGI, art. 1679 et 1679 A' }],
       doctrine: { libelle: 'Doctrine : la sectorisation en taxe sur les salaires', url: '/sectorisation-taxe-sur-les-salaires/' },
