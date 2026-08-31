@@ -7,7 +7,7 @@ import TexteLexique from './TexteLexique';
 /** Phrases du compagnon de jeu, selon l'avancement. */
 const PREFIXES_GUIDE = ['Commençons.', 'Bien.', 'On avance.', 'Précisons.', 'On y est presque.', 'Dernière ligne droite.'];
 
-/** Accordéon « détails à la demande » — replié par défaut, remonté à chaque question via key. */
+/** Accordéon « détails à la demande », replié par défaut, remonté à chaque question via key. */
 function Accordeon({ titre, children }: { titre: string; children: ReactNode }) {
   const [ouvert, setOuvert] = useState(false);
   return (
@@ -126,8 +126,14 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     function auClavier(e: KeyboardEvent) {
       const cible = e.target as HTMLElement | null;
       if (cible && (cible.tagName === 'INPUT' || cible.tagName === 'TEXTAREA')) return;
-      if (e.key === 'Escape' && tiroirAide) {
-        setTiroirAide(false);
+      if (e.key === 'Escape') {
+        if (tiroirAide) {
+          setTiroirAide(false);
+        } else if (immersif) {
+          setImmersif(false);
+        } else if (vue === 'scan' && reponses.length > 0) {
+          retour();
+        }
         return;
       }
       if (tiroirAide) return;
@@ -251,7 +257,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
     const total = operations.length + 1;
     setToast(
       total === 1
-        ? 'Opération enregistrée — votre dossier est sauvegardé dans ce navigateur'
+        ? 'Opération enregistrée, votre dossier est sauvegardé dans ce navigateur'
         : `Opération enregistrée · ${total} au dossier`
     );
     clearTimeout(minuteurToast.current);
@@ -360,7 +366,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
           >
             <span className="flex items-center justify-between gap-3">
               <span>
-                <span className="font-titres text-lg font-bold text-or-pale">Je ne sais pas — guidez-moi</span>
+                <span className="font-titres text-lg font-bold text-or-pale">Je ne sais pas, guidez-moi</span>
                 <span className="mt-1 block text-sm leading-5 text-white/65">
                   Le raisonnement complet d'un fiscaliste, une question simple à la fois.
                 </span>
@@ -428,7 +434,7 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
         {operations.length >= 2 && (
           <div className="apparition mt-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-or-vif/40 bg-or-vif/10 p-4">
             <p className="text-sm leading-6 text-white/85">
-              <strong className="text-or-pale">{operations.length} opérations qualifiées</strong> — un avocat peut
+              <strong className="text-or-pale">{operations.length} opérations qualifiées</strong>, un avocat peut
               fiabiliser le dossier et chiffrer les options.
             </p>
             <a
@@ -533,25 +539,51 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
       <div>
         {/* HUD de progression */}
         <div className="mb-8">
-          <div className="mb-3 flex items-center justify-between gap-4">
-            <p className="etiquette text-or-vif">
-              {courant.type === 'resultat' ? 'Scan terminé' : `Scan en cours · Étape ${etape}`}
-            </p>
-            <button
-              type="button"
-              onClick={() => setImmersif(!immersif)}
-              className={`flex items-center gap-1.5 rounded border px-2.5 py-1.5 text-xs font-semibold transition-colors ${
-                immersif
-                  ? 'border-or-vif text-or-pale hover:bg-white/10'
-                  : 'border-white/25 text-white/70 hover:border-white/60 hover:text-white'
-              }`}
-              title={immersif ? 'Quitter le mode immersif' : 'Passer en mode immersif'}
-            >
-              <span className="ms text-base" aria-hidden="true">
-                {immersif ? 'fullscreen_exit' : 'fullscreen'}
-              </span>
-              {immersif ? 'Quitter' : 'Immersif'}
-            </button>
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-4">
+              <button
+                type="button"
+                onClick={retour}
+                disabled={reponses.length === 0}
+                className="flex items-center gap-1.5 rounded border border-white/25 px-2.5 py-1.5 text-xs font-semibold text-white/70 transition-colors enabled:hover:border-white/60 enabled:hover:text-white disabled:opacity-30"
+                title="Revenir à la question précédente (Échap ou ⌫)"
+              >
+                <span className="ms text-base" aria-hidden="true">arrow_back</span>
+                Retour
+              </button>
+              <p className="etiquette text-or-vif">
+                {courant.type === 'resultat' ? 'Scan terminé' : `Scan en cours · Étape ${etape}`}
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setImmersif(!immersif)}
+                className={`flex items-center gap-1.5 rounded border px-2.5 py-1.5 text-xs font-semibold transition-colors ${
+                  immersif
+                    ? 'border-or-vif text-or-pale hover:bg-white/10'
+                    : 'border-white/25 text-white/70 hover:border-white/60 hover:text-white'
+                }`}
+                title={immersif ? 'Réafficher le menu du site' : 'Passer en plein écran'}
+              >
+                <span className="ms text-base" aria-hidden="true">
+                  {immersif ? 'fullscreen_exit' : 'fullscreen'}
+                </span>
+                {immersif ? 'Menu' : 'Immersif'}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setImmersif(false);
+                  relancerScan();
+                }}
+                className="flex items-center gap-1.5 rounded border border-white/25 px-2.5 py-1.5 text-xs font-semibold text-white/70 transition-colors hover:border-alerte/70 hover:text-[#ff9d94]"
+                title="Abandonner cette opération et revenir à l'accueil du scan"
+              >
+                <span className="ms text-base" aria-hidden="true">cancel</span>
+                Quitter
+              </button>
+            </div>
           </div>
           {arbre.phases ? (
             <ol className="flex flex-wrap gap-2" aria-label="Étapes du scan">

@@ -1,11 +1,11 @@
 import type { ArbreScan } from './types';
 
 /**
- * Arbre de décision du Scan Taxe sur les salaires — VERSION DE TRAVAIL DÉTAILLÉE.
+ * Arbre de décision du Scan Taxe sur les salaires, VERSION DE TRAVAIL DÉTAILLÉE.
  *
  * Tronc commun : employeur en France (art. 231) → exemptions → seuil de 90 % →
  * rapport d'assujettissement → sectorisation. Sous-parcours : holdings et
- * dirigeants, secteur financier, groupe TVA, santé — nourris de la doctrine
+ * dirigeants, secteur financier, groupe TVA, santé, nourris de la doctrine
  * du site (pages migrées).
  *
  * ⚠ Chaque nœud doit être validé par le cabinet avant mise en ligne.
@@ -219,7 +219,7 @@ export const arbreTaxeSalaires: ArbreScan = {
       intitule: 'Profil financier',
       image: '/images/finance.jpg',
       titre: 'Quel est votre profil ?',
-      aide: "Le secteur financier est structurellement exposé : la taxe ne se déduit pas, elle pèse sur des rémunérations élevées, et elle crée une distorsion avec les banques étrangères non assujetties. Les établissements de crédit doivent porter une attention particulière au classement de leurs produits dans le rapport d'assujettissement ; les assureurs, dont le prorata de TVA est traditionnellement faible, sont parmi les plus taxés — et parmi les premiers candidats au groupe TVA.",
+      aide: "Le secteur financier est structurellement exposé : la taxe ne se déduit pas, elle pèse sur des rémunérations élevées, et elle crée une distorsion avec les banques étrangères non assujetties. Les établissements de crédit doivent porter une attention particulière au classement de leurs produits dans le rapport d'assujettissement ; les assureurs, dont le prorata de TVA est traditionnellement faible, sont parmi les plus taxés, et parmi les premiers candidats au groupe TVA.",
       references: [{ libelle: 'CGI, art. 231' }],
       doctrine: { libelle: 'Doctrine : la taxe sur les salaires du secteur financier', url: '/taxe-salaires-etablissements-financiers/' },
       options: [
@@ -301,7 +301,7 @@ export const arbreTaxeSalaires: ArbreScan = {
       intitule: 'Organisme sans but lucratif',
       image: '/images/scan-ts.jpg',
       titre: "Votre organisme figure-t-il sur la liste de l'article 1679 A ?",
-      aide: "Les associations et organismes sans but lucratif sont des redevables naturels de la taxe sur les salaires : cotisations, dons et subventions de fonctionnement, placés hors du champ de la TVA, gonflent le rapport d'assujettissement. En contrepartie, la loi réserve un abattement puissant aux organismes limitativement énumérés par l'article 1679 A — associations loi de 1901, fondations reconnues d'utilité publique, fonds de dotation, centres de lutte contre le cancer, syndicats professionnels et leurs unions, certaines mutuelles : la taxe n'est due que pour sa fraction excédant 24 256 € par an (montant 2026, indexé chaque année comme le barème de l'impôt sur le revenu). En pratique, l'abattement efface la taxe des petites structures.",
+      aide: "Les associations et organismes sans but lucratif sont des redevables naturels de la taxe sur les salaires : cotisations, dons et subventions de fonctionnement, placés hors du champ de la TVA, gonflent le rapport d'assujettissement. En contrepartie, la loi réserve un abattement puissant aux organismes limitativement énumérés par l'article 1679 A, associations loi de 1901, fondations reconnues d'utilité publique, fonds de dotation, centres de lutte contre le cancer, syndicats professionnels et leurs unions, certaines mutuelles : la taxe n'est due que pour sa fraction excédant 24 256 € par an (montant 2026, indexé chaque année comme le barème de l'impôt sur le revenu). En pratique, l'abattement efface la taxe des petites structures.",
       references: [{ libelle: 'CGI, art. 1679 A' }],
       doctrine: { libelle: 'Doctrine : associations et OSBL', url: '/associations-osbl/' },
       options: [
@@ -327,7 +327,7 @@ export const arbreTaxeSalaires: ArbreScan = {
       intitule: 'Établissement de santé',
       image: '/images/sante.jpg',
       titre: "Quel type d'établissement êtes-vous ?",
-      aide: "Le secteur de la santé est l'un des premiers contributeurs de la taxe sur les salaires. Les établissements publics sont hors du champ de la TVA (art. 256 B) et donc largement redevables — y compris les EHPAD publics (CE, 7 avril 2023, n° 463241 ; CAA Toulouse, 25 janvier 2024, n° 22TL20761). Les établissements privés autorisés cumulent exonérations de soins (art. 261, 4, 1° et 1° bis) et activités taxées (chambres particulières hors soins, parapharmacie…) : leur rapport se travaille. Des exonérations ciblées existent, notamment pour le personnel de cantine (BOI-TPS-TS-20-20, § 300) et les contrats aidés (art. 231 bis N).",
+      aide: "Le secteur de la santé est l'un des premiers contributeurs de la taxe sur les salaires. Les établissements publics sont hors du champ de la TVA (art. 256 B) et donc largement redevables, y compris les EHPAD publics (CE, 7 avril 2023, n° 463241 ; CAA Toulouse, 25 janvier 2024, n° 22TL20761). Les établissements privés autorisés cumulent exonérations de soins (art. 261, 4, 1° et 1° bis) et activités taxées (chambres particulières hors soins, parapharmacie…) : leur rapport se travaille. Des exonérations ciblées existent, notamment pour le personnel de cantine (BOI-TPS-TS-20-20, § 300) et les contrats aidés (art. 231 bis N).",
       references: [{ libelle: 'CGI, art. 256 B et 261, 4' }],
       doctrine: { libelle: "Doctrine : le coefficient d'assujettissement de la santé", url: '/taxe-salaires-sante/coefficient-assujettissement-sante/' },
       options: [
@@ -432,7 +432,7 @@ export const arbreTaxeSalaires: ArbreScan = {
       consequences: [
         "Assiette = rémunérations imposables × rapport d'assujettissement de l'année précédente. Barème 2026 par salarié : 4,25 % jusqu'à 9 229 € de rémunération annuelle, 8,50 % de 9 229 € à 18 423 €, 13,60 % au-delà (CGI, art. 231, 2 bis).",
         "Atténuations : taxe non due si son montant annuel n'excède pas 1 200 € ; décote entre 1 200 € et 2 040 € (art. 1679) ; abattement de 24 256 € pour les associations et organismes de l'article 1679 A.",
-        "Sans sectorisation, le rapport général s'applique à tous les personnels, y compris ceux affectés aux seules activités taxées : l'affectation documentée des équipes est le principal levier — un audit est souvent rentable.",
+        "Sans sectorisation, le rapport général s'applique à tous les personnels, y compris ceux affectés aux seules activités taxées : l'affectation documentée des équipes est le principal levier, un audit est souvent rentable.",
       ],
       references: [{ libelle: 'CGI, art. 231' }, { libelle: 'CGI, art. 1679 et 1679 A' }],
       doctrine: { libelle: 'Doctrine : la sectorisation en taxe sur les salaires', url: '/sectorisation-taxe-sur-les-salaires/' },
@@ -454,10 +454,10 @@ export const arbreTaxeSalaires: ArbreScan = {
     },
     'sectorisation-possible': {
       id: 'sectorisation-possible',
-      qualification: 'Redevable — une sectorisation est possible',
+      qualification: 'Redevable, une sectorisation est possible',
       ton: 'attention',
       resume:
-        "Vos activités présentent des cycles, des personnels et des comptabilités séparables : la sectorisation peut cantonner la taxe aux seuls personnels des activités non taxées — y compris rétroactivement.",
+        "Vos activités présentent des cycles, des personnels et des comptabilités séparables : la sectorisation peut cantonner la taxe aux seuls personnels des activités non taxées, y compris rétroactivement.",
       consequences: [
         "La sectorisation peut être invoquée même sans secteurs déclarés, et constituée rétroactivement dans le délai de réclamation (CAA Nantes, 25 juin 2004, Meunier Participations) : un remboursement des années non prescrites est envisageable.",
         'Elle exige de calculer un coefficient par secteur et de documenter l’affectation permanente et exclusive des personnels.',
@@ -562,7 +562,7 @@ export const arbreTaxeSalaires: ArbreScan = {
       qualification: 'Établissement public : taxe largement due',
       ton: 'negatif',
       resume:
-        "Hors du champ de la TVA pour leurs activités de service public (art. 256 B), les établissements publics de santé sont redevables de la taxe sur les salaires — y compris les EHPAD publics.",
+        "Hors du champ de la TVA pour leurs activités de service public (art. 256 B), les établissements publics de santé sont redevables de la taxe sur les salaires, y compris les EHPAD publics.",
       consequences: [
         "L'activité d'hébergement de personnes âgées par un établissement public reste hors du champ de la TVA sans distorsion de concurrence (CE, 7 avril 2023, n° 463241 ; CAA Toulouse, 25 janvier 2024).",
         'Des exonérations ciblées subsistent : personnel de cantine sous conditions (BOI-TPS-TS-20-20, § 300), contrats d’accompagnement et d’avenir (art. 231 bis N).',

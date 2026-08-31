@@ -30,7 +30,7 @@ function analyser(saisie: string): number {
 }
 
 function pourcent(valeur: number | null): string {
-  if (valeur === null) return '—';
+  if (valeur === null) return ', ';
   return (valeur * 100).toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %';
 }
 

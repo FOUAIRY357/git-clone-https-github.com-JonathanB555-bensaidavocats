@@ -17,9 +17,36 @@ const toutes = (await getCollection('definitions', ({ data }) => data.statut ===
   (a, b) => a.data.ordre - b.data.ordre || a.data.terme.localeCompare(b.data.terme, 'fr')
 );
 const autres = toutes.filter((d) => d.id !== entree.id);
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'DefinedTerm',
+      name: entree.data.terme,
+      description: entree.data.description,
+      inDefinedTermSet: {
+        '@type': 'DefinedTermSet',
+        name: 'Lexique TVA et taxe sur les salaires',
+        url: new URL('/definition/', Astro.site).toString(),
+      },
+      url: new URL(`/definition/${entree.id}/`, Astro.site).toString(),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL('/', Astro.site).toString() },
+        { '@type': 'ListItem', position: 2, name: 'Lexique', item: new URL('/definition/', Astro.site).toString() },
+        { '@type': 'ListItem', position: 3, name: entree.data.terme, item: new URL(`/definition/${entree.id}/`, Astro.site).toString() },
+      ],
+    },
+  ],
+});
 ---
 
 <BaseLayout titre={entree.data.titre} description={entree.data.description}>
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
+  <div class="barre-lecture" aria-hidden="true"></div>
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
     <nav aria-label="Fil d'Ariane" class="mb-8 text-sm text-texte-3">
       <a href="/definition/" class="hover:text-encre">Lexique</a>

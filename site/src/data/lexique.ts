@@ -16,7 +16,7 @@ export const lexique: TermeLexique[] = [
   {
     formes: ['assujetti agissant en tant que tel'],
     url: '/definition/assujetti-tva/',
-    definition: "Assujetti dont l'opération se rattache à son activité économique — condition d'entrée dans le champ de la TVA.",
+    definition: "Assujetti dont l'opération se rattache à son activité économique, condition d'entrée dans le champ de la TVA.",
   },
   {
     formes: ['assujettis', 'assujetti', 'assujettie'],
@@ -36,7 +36,7 @@ export const lexique: TermeLexique[] = [
   {
     formes: ['exonérations', 'exonération', 'exonérées', 'exonérée', 'exonérés', 'exonéré'],
     url: '/definition/exoneration-tva/',
-    definition: 'Opération dans le champ de la TVA que la loi dispense de taxation — en principe sans droit à déduction.',
+    definition: 'Opération dans le champ de la TVA que la loi dispense de taxation, en principe sans droit à déduction.',
   },
   {
     formes: ['prorata', 'coefficient de déduction'],
@@ -61,7 +61,7 @@ export const lexique: TermeLexique[] = [
   {
     formes: ['livraisons à soi-même', 'livraison à soi-même', 'LASM'],
     url: '/definition/livraison-a-soi-meme/',
-    definition: "Opération par laquelle l'entreprise se livre un bien ou un service à elle-même — taxée dans certains cas pour rétablir la neutralité.",
+    definition: "Opération par laquelle l'entreprise se livre un bien ou un service à elle-même, taxée dans certains cas pour rétablir la neutralité.",
   },
   {
     formes: ["universalité totale ou partielle de biens", 'universalité de biens', 'universalité'],
@@ -76,7 +76,7 @@ export const lexique: TermeLexique[] = [
   {
     formes: ['immeuble neuf', 'bâtiment neuf', 'immeubles neufs'],
     url: '/definition/immeuble-neuf/',
-    definition: "Bâtiment achevé depuis cinq ans au plus — construction nouvelle ou travaux l'ayant rendu à l'état neuf : sa livraison est taxée de plein droit.",
+    definition: "Bâtiment achevé depuis cinq ans au plus, construction nouvelle ou travaux l'ayant rendu à l'état neuf : sa livraison est taxée de plein droit.",
   },
   {
     formes: ["rapport d'assujettissement"],
@@ -86,7 +86,7 @@ export const lexique: TermeLexique[] = [
   {
     formes: ['sectorisation', 'secteurs distincts'],
     url: '/definition/sectorisation/',
-    definition: "Constitution de secteurs d'activité distincts, chacun avec son propre droit à déduction — et son propre rapport de taxe sur les salaires.",
+    definition: "Constitution de secteurs d'activité distincts, chacun avec son propre droit à déduction, et son propre rapport de taxe sur les salaires.",
   },
   {
     formes: ["autoliquidation"],

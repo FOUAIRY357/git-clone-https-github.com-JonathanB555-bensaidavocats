@@ -174,7 +174,7 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
             </h2>
             <p className="mt-1 text-sm text-texte-2">
               {operations.length} opération{operations.length > 1 ? 's' : ''} qualifiée
-              {operations.length > 1 ? 's' : ''} — établi le {date}
+              {operations.length > 1 ? 's' : ''}, établi le {date}
             </p>
           </div>
           <button
@@ -244,7 +244,7 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
             {couverture !== null && couverture < 0.95 && (
               <p className="no-print mt-2 text-xs leading-5 text-texte-2">
                 Il reste environ <strong>{euros(Math.max(caTotal! - sommeQualifiee, 0))}</strong> de recettes à
-                qualifier : les coefficients ci-dessous ne portent que sur la part scannée — continuez le scan
+                qualifier : les coefficients ci-dessous ne portent que sur la part scannée, continuez le scan
                 pour fiabiliser le diagnostic.
               </p>
             )}
@@ -377,7 +377,7 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
                       passerait d'environ {pourcent(estimation.coefTaxation)} à {pourcent(estimation.coefSimule)}
                       {tvaAmontValide !== null && (
                         <>
-                          , soit <strong>{euros(tvaAmontValide * (estimation.coefSimule - estimation.coefTaxation))} de TVA récupérée en plus chaque année</strong>
+                         , soit <strong>{euros(tvaAmontValide * (estimation.coefSimule - estimation.coefTaxation))} de TVA récupérée en plus chaque année</strong>
                         </>
                       )}
                       . L'option a des contreparties (TVA facturée aux preneurs, formalisme) : c'est un arbitrage à mener avec un avocat.
@@ -441,7 +441,7 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
             {resultats.map(({ op, resultat }, i) => (
               <article key={i} id={`op-detail-${i}`} className="rounded border border-bordure bg-fond-2 p-5">
                 <p className="font-titres text-base font-semibold text-encre">
-                  {op.libelle} — {resultat.qualification}
+                  {op.libelle}, {resultat.qualification}
                 </p>
                 <p className="mt-2 text-sm leading-6 text-texte-2">{resultat.resume}</p>
                 <ul className="mt-3 space-y-1.5">

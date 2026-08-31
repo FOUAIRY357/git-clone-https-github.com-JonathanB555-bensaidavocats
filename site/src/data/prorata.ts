@@ -16,7 +16,7 @@ export type ClassementRecette =
   | 'assimilee'
   /** Exonérée sans droit à déduction. */
   | 'exoneree'
-  /** Hors du champ de la TVA — comptée au rapport taxe sur les salaires. */
+  /** Hors du champ de la TVA, comptée au rapport taxe sur les salaires. */
   | 'hors-champ'
   /** Hors de tout : ni prorata TVA, ni rapport TS (LASM, subventions exceptionnelles). */
   | 'exclue';
@@ -192,13 +192,13 @@ export const presetsProrata: PresetProrata[] = [
       },
       {
         id: 'hors-ue',
-        libelle: 'Produits exonérés — clients établis hors UE',
+        libelle: 'Produits exonérés, clients établis hors UE',
         aide: 'Assimilés à des opérations taxées : droit à déduction préservé (art. 271, V, b).',
         classement: 'assimilee',
       },
       {
         id: 'exoneres-ue',
-        libelle: 'Produits exonérés — clients France et UE',
+        libelle: 'Produits exonérés, clients France et UE',
         aide: 'Intérêts, primes, commissions exonérés sans droit à déduction (art. 261 C).',
         classement: 'exoneree',
       },

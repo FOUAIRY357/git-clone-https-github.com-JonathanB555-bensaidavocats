@@ -516,6 +516,38 @@ html.icones-chargees .ms {
   animation: pulser-etape 1.8s ease-in-out infinite;
 }
 
+/* Barre de progression de lecture (pages de contenu) */
+.barre-lecture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 45;
+  background: linear-gradient(90deg, #b08a46, #d8ab4a, #e8c987);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.08s linear;
+  pointer-events: none;
+}
+
+/* Liens du corps de doctrine : soulignement animé */
+.prose-doctrine a {
+  color: var(--color-marine, #12365c);
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(90deg, #d8ab4a, #b08a46);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 1.5px;
+  transition: background-size 0.25s ease, color 0.2s ease;
+  padding-bottom: 1px;
+}
+.prose-doctrine a:hover {
+  background-size: 100% 34%;
+  color: #0d2643;
+}
+
 /* Termes du lexique : lien pointillé + info-bulle */
 .terme-lexique {
   color: inherit;
@@ -644,11 +676,6 @@ html.icones-chargees .ms {
   width: 0.875rem;
   height: 1px;
   background-color: var(--color-or);
-}
-.prose-doctrine a {
-  color: var(--color-lien);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 .prose-doctrine strong {
   color: var(--color-encre);

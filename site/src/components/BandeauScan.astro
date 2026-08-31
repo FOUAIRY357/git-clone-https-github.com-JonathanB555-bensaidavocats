@@ -2,18 +2,24 @@
 /** Bandeau de renvoi vers les scanners, affiché en bas des pages doctrine. */
 ---
 
-<aside class="mt-14 rounded border border-bordure bg-marine p-6 text-white md:p-8">
-  <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+<aside class="projecteur reveler relative mt-14 overflow-hidden rounded border border-bordure bg-marine p-6 text-white md:p-8">
+  <div class="grille-nuit absolute inset-0 opacity-40" aria-hidden="true"></div>
+  <span class="mot-fantome -right-3 -bottom-4 text-[4.5rem]" aria-hidden="true">Scan</span>
+  <div class="relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
     <div>
-      <p class="etiquette text-or-pale">Passez de la doctrine à votre dossier</p>
+      <p class="etiquette flex items-center gap-2 text-or-pale">
+        <span class="ms text-lg" aria-hidden="true">radar</span>
+        Passez de la doctrine à votre dossier
+      </p>
       <p class="mt-2 max-w-xl font-titres text-xl font-semibold leading-snug">
         Qualifiez vos propres opérations avec nos scanners interactifs.
       </p>
+      <p class="mt-1 text-sm text-white/60">Gratuit, sans inscription. Environ 2 minutes par opération.</p>
     </div>
     <div class="flex shrink-0 flex-col gap-3 sm:flex-row">
       <a
         href="/scan-tva/"
-        class="rounded bg-white px-5 py-3 text-center font-texte text-sm font-semibold text-marine transition-colors hover:bg-or-pale"
+        class="rounded bg-or-vif px-5 py-3 text-center font-texte text-sm font-bold text-nuit transition-all hover:-translate-y-0.5 hover:bg-or-pale hover:shadow-[0_0_24px_rgba(216,171,74,0.4)]"
       >
         Scan TVA
       </a>

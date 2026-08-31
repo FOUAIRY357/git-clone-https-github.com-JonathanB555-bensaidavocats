@@ -14,6 +14,7 @@ export async function getStaticPaths() {
 
 const { entree } = Astro.props;
 const { Content } = await render(entree);
+const minutesLecture = Math.max(1, Math.round((entree.body ?? '').split(/\s+/).length / 220));
 
 // Sous-pages directes de cette rubrique et rubrique parente éventuelle.
 const toutes = await getCollection('secteurs', ({ data }) => data.statut === 'publie');
@@ -41,9 +42,38 @@ const libelleEnsemble = parent
     ? 'Guides TVA'
     : 'Secteurs';
 const urlEnsemble = parent ? `/${parent.id}/` : '/secteurs/';
+
+const donneesStructurees = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: entree.data.titre,
+      description: entree.data.description,
+      inLanguage: 'fr-FR',
+      mainEntityOfPage: new URL(`/${entree.id}/`, Astro.site).toString(),
+      author: { '@type': 'Person', name: 'François Ouairy', jobTitle: 'Avocat fiscaliste', url: new URL('/expert/', Astro.site).toString() },
+      publisher: { '@type': 'Organization', name: 'BENSAID AVOCATS', url: 'https://www.bensaid-avocats.fr' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL('/', Astro.site).toString() },
+        { '@type': 'ListItem', position: 2, name: libelleEnsemble, item: new URL(urlEnsemble, Astro.site).toString() },
+        { '@type': 'ListItem', position: 3, name: entree.data.titreCourt, item: new URL(`/${entree.id}/`, Astro.site).toString() },
+      ],
+    },
+  ],
+});
 ---
 
-<BaseLayout titre={entree.data.titre} description={entree.data.description}>
+<BaseLayout
+  titre={entree.data.titre}
+  description={entree.data.description}
+  image={imageBanniere ?? (parent ? imagesSecteurs[parent.id] : undefined) ?? '/images/accueil-hero.jpg'}
+>
+  <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
+  <div class="barre-lecture" aria-hidden="true"></div>
   {
     imageBanniere && (
       <section class="relative overflow-hidden bg-nuit text-white">
@@ -82,6 +112,10 @@ const urlEnsemble = parent ? `/${parent.id}/` : '/secteurs/';
         )
       }
       <p class="mt-4 text-lg leading-8 text-texte-2">{entree.data.accroche}</p>
+      <p class="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-texte-3">
+        <span class="ms text-base text-or" aria-hidden="true">menu_book</span>
+        Lecture : {minutesLecture} min · Par François Ouairy, avocat fiscaliste
+      </p>
     </header>
     <article class="prose-doctrine mt-10">
       <Content />

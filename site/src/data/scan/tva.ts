@@ -1,12 +1,12 @@
 import type { ArbreScan } from './types';
 
 /**
- * Arbre de décision du Scan TVA — VERSION DE TRAVAIL DÉTAILLÉE.
+ * Arbre de décision du Scan TVA, VERSION DE TRAVAIL DÉTAILLÉE.
  *
  * Tronc commun : qualité d'assujetti → nature de l'opération → titre onéreux →
  * territorialité → exonérations → options → assimilations (art. 271, V).
  * Sous-parcours : holdings, opérations immobilières, opérations financières
- * et d'assurance, santé — nourris de la doctrine du site (pages migrées).
+ * et d'assurance, santé, nourris de la doctrine du site (pages migrées).
  *
  * ⚠ Chaque nœud doit être validé par le cabinet avant mise en ligne.
  */
@@ -23,7 +23,7 @@ export const arbreTva: ArbreScan = {
   demandeCaTotal: true,
   triage: {
     titre: 'Savez-vous déjà si cette opération est taxable ?',
-    aide: "Si le régime de l'opération est certain, allez droit au but : il ne restera que les questions utiles (option exercée, droit à déduction). Au moindre doute, déroulez le raisonnement complet — celui qu'applique un fiscaliste : l'opération est-elle dans le champ (livraison ou prestation, à titre onéreux, par un assujetti agissant en tant que tel, à titre habituel) ? Est-elle exonérée ? Une option ou une assimilation s'applique-t-elle ? Chaque question renvoie à la page qui permet de trancher.",
+    aide: "Si le régime de l'opération est certain, allez droit au but : il ne restera que les questions utiles (option exercée, droit à déduction). Au moindre doute, déroulez le raisonnement complet, celui qu'applique un fiscaliste : l'opération est-elle dans le champ (livraison ou prestation, à titre onéreux, par un assujetti agissant en tant que tel, à titre habituel) ? Est-elle exonérée ? Une option ou une assimilation s'applique-t-elle ? Chaque question renvoie à la page qui permet de trancher.",
     versTaxee: 'taxee',
     versExoneree: 'option',
     versHorsChamp: 'hors-champ',
@@ -114,7 +114,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Rôle de la holding',
       titre: 'Quel est le rôle de la holding dans cette opération ?',
       image: '/images/holdings.jpg',
-      aide: "La simple perception de dividendes, d'intérêts occasionnels ou le produit de cessions de titres dans une gestion patrimoniale sont hors du champ de la TVA (CJUE, Sofitam, C-333/91) : c'est la situation de la holding « pure ». À l'inverse, l'immixtion dans la gestion des filiales — prestations administratives, financières, commerciales ou techniques facturées — constitue une activité économique (CJUE, Floridienne et Berginvest, C-142/99). Les refacturations à l'euro l'euro sont elles-mêmes taxables (CE, Lagardère, 13 décembre 2017). En pratique, la plupart des holdings font les deux : la vraie question devient alors la proportion de chaque catégorie de recettes, qui commande le prorata.",
+      aide: "La simple perception de dividendes, d'intérêts occasionnels ou le produit de cessions de titres dans une gestion patrimoniale sont hors du champ de la TVA (CJUE, Sofitam, C-333/91) : c'est la situation de la holding « pure ». À l'inverse, l'immixtion dans la gestion des filiales (prestations administratives, financières, commerciales ou techniques facturées) constitue une activité économique (CJUE, Floridienne et Berginvest, C-142/99). Les refacturations à l'euro l'euro sont elles-mêmes taxables (CE, Lagardère, 13 décembre 2017). En pratique, la plupart des holdings font les deux : la vraie question devient alors la proportion de chaque catégorie de recettes, qui commande le prorata.",
       references: [{ libelle: 'CGI, art. 256 A' }],
       doctrine: { libelle: 'Doctrine : le champ d’application de la TVA des holdings', url: '/holdings-tva/champ-application-tva-holding/' },
       options: [
@@ -186,7 +186,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Opération à titre onéreux',
       titre: "L'opération comporte-t-elle une contrepartie directe ?",
       image: '/images/scan-tva.jpg',
-      aide: "Seules les opérations effectuées à titre onéreux entrent dans le champ de la TVA : il faut un lien direct entre le service rendu ou le bien livré et la contre-valeur reçue (CGI, art. 256, I). Restent donc hors champ les dividendes, les subventions qui ne rémunèrent aucune prestation et ne complètent pas un prix, ou les indemnités purement réparatrices. Cas particulier : la transmission d'une universalité totale ou partielle de biens entre redevables (fonds de commerce, immeuble loué avec poursuite des baux) est dispensée de TVA par l'article 257 bis — ni taxation, ni exonération.",
+      aide: "Seules les opérations effectuées à titre onéreux entrent dans le champ de la TVA : il faut un lien direct entre le service rendu ou le bien livré et la contre-valeur reçue (CGI, art. 256, I). Restent donc hors champ les dividendes, les subventions qui ne rémunèrent aucune prestation et ne complètent pas un prix, ou les indemnités purement réparatrices. Cas particulier : la transmission d'une universalité totale ou partielle de biens entre redevables (fonds de commerce, immeuble loué avec poursuite des baux) est dispensée de TVA par l'article 257 bis, ni taxation, ni exonération.",
       references: [{ libelle: 'CGI, art. 256, I' }, { libelle: 'CGI, art. 257 bis' }],
       doctrine: { libelle: "Doctrine : le champ d'application de la TVA", url: '/doctrine/champ-application-tva/' },
       options: [
@@ -216,7 +216,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Caractère habituel',
       titre: "L'opération s'inscrit-elle dans une activité exercée à titre habituel et indépendant ?",
       image: '/images/scan-tva.jpg',
-      aide: "L'assujetti est celui qui exerce de façon indépendante une activité économique — une activité comportant l'exploitation d'un bien en vue d'en retirer des recettes présentant un caractère de permanence (directive TVA, art. 9). La France ayant renoncé depuis 1993 à taxer les assujettis occasionnels, l'opérateur doit en principe agir à titre habituel : une opération isolée, réalisée en dehors de toute démarche répétée, reste hors du champ. À l'inverse, l'indépendance exclut les salariés et toute personne liée par un lien de subordination : leurs rémunérations ne relèvent pas de la TVA.",
+      aide: "L'assujetti est celui qui exerce de façon indépendante une activité économique, une activité comportant l'exploitation d'un bien en vue d'en retirer des recettes présentant un caractère de permanence (directive TVA, art. 9). La France ayant renoncé depuis 1993 à taxer les assujettis occasionnels, l'opérateur doit en principe agir à titre habituel : une opération isolée, réalisée en dehors de toute démarche répétée, reste hors du champ. À l'inverse, l'indépendance exclut les salariés et toute personne liée par un lien de subordination : leurs rémunérations ne relèvent pas de la TVA.",
       references: [{ libelle: 'CGI, art. 256 A' }, { libelle: 'Dir. TVA, art. 9 et 12' }],
       doctrine: { libelle: "Doctrine : l'assujettissement à la TVA", url: '/assujettissement-tva/' },
       options: [
@@ -246,7 +246,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Territorialité',
       titre: "L'opération est-elle située en France ?",
       image: '/images/scan-tva.jpg',
-      aide: "Le lieu d'imposition dépend de la nature de l'opération et de la qualité du preneur. Entre assujettis (B2B), une prestation de services est en principe imposable au lieu d'établissement du preneur (art. 259) ; envers un non-assujetti (B2C), au lieu du prestataire — avec de nombreuses dérogations (immeubles, transports, services électroniques…). Pour les biens, comptent la localisation et le transport (art. 258). Cas particulier en plein essor : les ventes à distance de biens à des particuliers d'autres États membres sont taxées dans le pays du client dès que ces ventes transfrontalières dépassent 10 000 € par an, via le guichet unique OSS. Une opération située hors de France n'y est pas imposable, mais peut y préserver le droit à déduction (art. 271, V, d).",
+      aide: "Le lieu d'imposition dépend de la nature de l'opération et de la qualité du preneur. Entre assujettis (B2B), une prestation de services est en principe imposable au lieu d'établissement du preneur (art. 259) ; envers un non-assujetti (B2C), au lieu du prestataire, avec de nombreuses dérogations (immeubles, transports, services électroniques…). Pour les biens, comptent la localisation et le transport (art. 258). Cas particulier en plein essor : les ventes à distance de biens à des particuliers d'autres États membres sont taxées dans le pays du client dès que ces ventes transfrontalières dépassent 10 000 € par an, via le guichet unique OSS. Une opération située hors de France n'y est pas imposable, mais peut y préserver le droit à déduction (art. 271, V, d).",
       references: [{ libelle: 'CGI, art. 258 à 259 D' }, { libelle: 'CGI, art. 259 D' }],
       doctrine: { libelle: 'Doctrine : la territorialité de la TVA', url: '/doctrine/territorialite-tva/' },
       options: [
@@ -276,7 +276,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Exonération',
       titre: "L'opération relève-t-elle d'une exonération ?",
       image: '/images/scan-tva.jpg',
-      aide: "Certaines opérations situées dans le champ de la TVA en sont exonérées par la loi : enseignement, organismes sans but lucratif à gestion désintéressée, locations nues… (art. 261 et suivants). Attention à une distinction décisive : les exportations et les livraisons intracommunautaires sont exonérées (art. 262 et 262 ter) mais assimilées à des opérations taxées pour le droit à déduction — elles ne coûtent rien en TVA d'amont. Les autres exonérations ferment en principe la déduction.",
+      aide: "Certaines opérations situées dans le champ de la TVA en sont exonérées par la loi : enseignement, organismes sans but lucratif à gestion désintéressée, locations nues… (art. 261 et suivants). Attention à une distinction décisive : les exportations et les livraisons intracommunautaires sont exonérées (art. 262 et 262 ter) mais assimilées à des opérations taxées pour le droit à déduction, elles ne coûtent rien en TVA d'amont. Les autres exonérations ferment en principe la déduction.",
       references: [{ libelle: 'CGI, art. 261' }, { libelle: 'CGI, art. 262 et 262 ter' }],
       doctrine: { libelle: 'Doctrine : les exonérations de TVA', url: '/doctrine/exonerations-tva/' },
       options: [
@@ -392,7 +392,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Qui vend ?',
       titre: 'Qui vend, et à quel titre ?',
       image: '/images/immobilier.jpg',
-      aide: "Une vente d'immeuble n'est taxable que si le cédant est un assujetti « agissant en tant que tel » : il faut un lien entre l'immeuble cédé et l'activité économique exercée (CGI, art. 256 et 256 A). Le lien est acquis pour l'immeuble d'exploitation, le promoteur qui cède ce qu'il a construit, le marchand de biens ou le crédit-bailleur à la levée d'option. Il est rompu — et la vente hors champ — lorsque l'assujetti cède un bien conservé dans son patrimoine privé. Le particulier qui gère son patrimoine n'est pas assujetti, sauf s'il entreprend de véritables démarches actives de commercialisation foncière (viabilisation, moyens de commercialisation, aménagement d'ampleur). Le bailleur qui cède un immeuble loué est un cas à part.",
+      aide: "Une vente d'immeuble n'est taxable que si le cédant est un assujetti « agissant en tant que tel » : il faut un lien entre l'immeuble cédé et l'activité économique exercée (CGI, art. 256 et 256 A). Le lien est acquis pour l'immeuble d'exploitation, le promoteur qui cède ce qu'il a construit, le marchand de biens ou le crédit-bailleur à la levée d'option. Il est rompu (et la vente hors champ) lorsque l'assujetti cède un bien conservé dans son patrimoine privé. Le particulier qui gère son patrimoine n'est pas assujetti, sauf s'il entreprend de véritables démarches actives de commercialisation foncière (viabilisation, moyens de commercialisation, aménagement d'ampleur). Le bailleur qui cède un immeuble loué est un cas à part.",
       references: [{ libelle: 'CGI, art. 256 et 256 A' }],
       doctrine: { libelle: 'Doctrine : le champ de la TVA immobilière', url: '/tva-immobiliere/champ-dapplication-tva-immobiliere/' },
       options: [
@@ -440,7 +440,7 @@ export const arbreTva: ArbreScan = {
         },
         {
           libelle: 'Oui, démarches actives (viabilisation, lotissement…)',
-          detail: "Moyens de professionnel déployés : la vente entre dans le champ — poursuivre avec la nature du bien",
+          detail: "Moyens de professionnel déployés : la vente entre dans le champ, poursuivre avec la nature du bien",
           icone: 'error',
           versQuestion: 'immo-vente',
         },
@@ -452,7 +452,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Cession par un bailleur',
       titre: 'Quelle est la situation locative de l’immeuble cédé ?',
       image: '/images/immobilier.jpg',
-      aide: "Le bailleur assujetti est en principe réputé agir en tant que tel lorsqu'il cède l'immeuble affecté à son activité locative. Deux tempéraments : l'administration admet une présomption de non-assujettissement pour les « petits » bailleurs réalisant des locations exonérées (habitation, notamment) — tolérance à manier avec prudence ; et la cession d'un immeuble loué avec poursuite des baux entre redevables peut relever de la dispense de l'article 257 bis, qui neutralise toute la question.",
+      aide: "Le bailleur assujetti est en principe réputé agir en tant que tel lorsqu'il cède l'immeuble affecté à son activité locative. Deux tempéraments : l'administration admet une présomption de non-assujettissement pour les « petits » bailleurs réalisant des locations exonérées (habitation, notamment), tolérance à manier avec prudence ; et la cession d'un immeuble loué avec poursuite des baux entre redevables peut relever de la dispense de l'article 257 bis, qui neutralise toute la question.",
       references: [{ libelle: 'CGI, art. 256 A et 257 bis' }],
       doctrine: { libelle: "Doctrine : l'article 257 bis du CGI", url: '/257-bis-cgi/' },
       options: [
@@ -482,7 +482,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Vente immobilière',
       titre: 'Que vendez-vous ?',
       image: '/images/immobilier.jpg',
-      aide: "Réalisées par un assujetti agissant en tant que tel, les livraisons de terrains à bâtir et d'immeubles achevés depuis cinq ans au plus sont taxées de plein droit ; les livraisons d'immeubles anciens et de terrains non à bâtir sont exonérées, avec faculté d'option. Les définitions sont précises : est à bâtir le terrain sur lequel des constructions peuvent être autorisées par les documents d'urbanisme (PLU, carte communale — art. 257, I, 2, 1°) ; est neuf le bâtiment achevé depuis cinq ans au plus (achèvement : immeuble utilisable pour son usage), y compris après des travaux l'ayant rendu à l'état neuf — plus de la moitié des fondations, ou des éléments hors fondations déterminant résistance et rigidité, ou de la consistance des façades hors ravalement, ou les deux tiers de six éléments de second œuvre. Ce parcours suppose une opération située en France.",
+      aide: "Réalisées par un assujetti agissant en tant que tel, les livraisons de terrains à bâtir et d'immeubles achevés depuis cinq ans au plus sont taxées de plein droit ; les livraisons d'immeubles anciens et de terrains non à bâtir sont exonérées, avec faculté d'option. Les définitions sont précises : est à bâtir le terrain sur lequel des constructions peuvent être autorisées par les documents d'urbanisme (PLU, carte communale, art. 257, I, 2, 1°) ; est neuf le bâtiment achevé depuis cinq ans au plus (achèvement : immeuble utilisable pour son usage), y compris après des travaux l'ayant rendu à l'état neuf, plus de la moitié des fondations, ou des éléments hors fondations déterminant résistance et rigidité, ou de la consistance des façades hors ravalement, ou les deux tiers de six éléments de second œuvre. Ce parcours suppose une opération située en France.",
       references: [{ libelle: 'CGI, art. 257 et 261, 5' }, { libelle: 'CGI, art. 260, 5° bis' }],
       doctrine: { libelle: 'Doctrine : le champ de la TVA immobilière', url: '/tva-immobiliere/champ-dapplication-tva-immobiliere/' },
       options: [
@@ -518,7 +518,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Option sur la vente',
       titre: 'Le vendeur opte-t-il pour la taxation de la vente ?',
       image: '/images/immobilier.jpg',
-      aide: "La vente exonérée d'un immeuble ancien ou d'un terrain non à bâtir peut être volontairement soumise à la TVA sur option du cédant, généralement formalisée dans l'acte notarié. L'option préserve les droits à déduction du vendeur et évite des régularisations de la TVA antérieurement déduite (reversement calculé sur les vingtièmes restant à courir, art. 207 de l'annexe II). Précision d'assiette : lorsque l'acquisition du bien n'avait pas ouvert droit à déduction, la taxation peut s'opérer sur la seule marge du revendeur (art. 268) — le régime de prédilection des marchands de biens et des lotisseurs. À défaut d'option expresse, l'exonération s'applique.",
+      aide: "La vente exonérée d'un immeuble ancien ou d'un terrain non à bâtir peut être volontairement soumise à la TVA sur option du cédant, généralement formalisée dans l'acte notarié. L'option préserve les droits à déduction du vendeur et évite des régularisations de la TVA antérieurement déduite (reversement calculé sur les vingtièmes restant à courir, art. 207 de l'annexe II). Précision d'assiette : lorsque l'acquisition du bien n'avait pas ouvert droit à déduction, la taxation peut s'opérer sur la seule marge du revendeur (art. 268), le régime de prédilection des marchands de biens et des lotisseurs. À défaut d'option expresse, l'exonération s'applique.",
       references: [{ libelle: 'CGI, art. 260, 5° bis' }, { libelle: 'CGI, art. 268' }, { libelle: 'CGI, ann. II, art. 207' }],
       doctrine: { libelle: 'Doctrine : la déduction de la TVA immobilière', url: '/tva-immobiliere/deduction-tva-immobiliere/' },
       options: [
@@ -542,7 +542,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Location immobilière',
       titre: 'Quelle est la nature de la location ?',
       image: '/images/immobilier.jpg',
-      aide: "Les locations de locaux nus sont en principe exonérées, mais celles de locaux nus à usage professionnel peuvent être soumises à la TVA sur option (art. 260, 2°), désormais possible local par local (CE, SCI EMO, 9 septembre 2020). Les locations de locaux aménagés pour l'activité (bureaux équipés, salles avec sièges, terrains de sport, parkings hors accessoire) sont taxées de plein droit. Les locations à usage d'habitation, nues ou meublées, sont exonérées sans option (art. 261 D) — sauf para-hôtellerie, qui bascule dans la taxation.",
+      aide: "Les locations de locaux nus sont en principe exonérées, mais celles de locaux nus à usage professionnel peuvent être soumises à la TVA sur option (art. 260, 2°), désormais possible local par local (CE, SCI EMO, 9 septembre 2020). Les locations de locaux aménagés pour l'activité (bureaux équipés, salles avec sièges, terrains de sport, parkings hors accessoire) sont taxées de plein droit. Les locations à usage d'habitation, nues ou meublées, sont exonérées sans option (art. 261 D), sauf para-hôtellerie, qui bascule dans la taxation.",
       references: [{ libelle: 'CGI, art. 261 D' }, { libelle: 'CGI, art. 260, 2°' }],
       doctrine: { libelle: 'Doctrine : SCI et TVA', url: '/sci-tva/' },
       options: [
@@ -578,7 +578,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Para-hôtellerie',
       titre: 'Votre location meublée remplit-elle les critères de la para-hôtellerie ?',
       image: '/images/immobilier.jpg',
-      aide: "Depuis la réforme issue de la loi de finances pour 2024, sont taxées les locations meublées de séjours de trente nuitées au plus lorsque l'offre inclut au moins trois des quatre prestations para-hôtelières — petit-déjeuner, nettoyage régulier des locaux, fourniture du linge de maison, réception même non personnalisée de la clientèle (CGI, art. 261 D, 4°, b). Les locations meublées à usage résidentiel assorties de trois de ces quatre services sont également taxées, quelle que soit la durée. Enfin, la location du local meublé à l'exploitant d'un établissement d'hébergement taxé est elle-même taxable. La taxation ouvre la récupération de la TVA sur l'acquisition et les travaux — un enjeu décisif pour les investisseurs.",
+      aide: "Depuis la réforme issue de la loi de finances pour 2024, sont taxées les locations meublées de séjours de trente nuitées au plus lorsque l'offre inclut au moins trois des quatre prestations para-hôtelières, petit-déjeuner, nettoyage régulier des locaux, fourniture du linge de maison, réception même non personnalisée de la clientèle (CGI, art. 261 D, 4°, b). Les locations meublées à usage résidentiel assorties de trois de ces quatre services sont également taxées, quelle que soit la durée. Enfin, la location du local meublé à l'exploitant d'un établissement d'hébergement taxé est elle-même taxable. La taxation ouvre la récupération de la TVA sur l'acquisition et les travaux, un enjeu décisif pour les investisseurs.",
       references: [{ libelle: 'CGI, art. 261 D, 4°' }],
       doctrine: { libelle: 'Doctrine : para-hôtellerie et TVA', url: '/para-hotellerie-tva/' },
       options: [
@@ -720,7 +720,7 @@ export const arbreTva: ArbreScan = {
       intitule: 'Finalité de l’acte',
       titre: "L'acte poursuit-il une finalité thérapeutique ?",
       image: '/images/sante.jpg',
-      aide: "L'exonération des soins (art. 261, 4, 1°) exige deux conditions cumulatives : une finalité thérapeutique — diagnostiquer, soigner, prévenir — et la qualification du praticien (professions médicales et paramédicales réglementées). Le remboursement par l'assurance maladie est un indice fort. À l'inverse, les actes sans but thérapeutique (chirurgie esthétique de pure convenance, expertises pour des besoins juridiques, bien-être, suivi nutritionnel hors prescription) sont taxés. Les frais d'hospitalisation et de traitement des établissements autorisés sont exonérés (art. 261, 4, 1° bis).",
+      aide: "L'exonération des soins (art. 261, 4, 1°) exige deux conditions cumulatives : une finalité thérapeutique (diagnostiquer, soigner, prévenir) et la qualification du praticien (professions médicales et paramédicales réglementées). Le remboursement par l'assurance maladie est un indice fort. À l'inverse, les actes sans but thérapeutique (chirurgie esthétique de pure convenance, expertises pour des besoins juridiques, bien-être, suivi nutritionnel hors prescription) sont taxés. Les frais d'hospitalisation et de traitement des établissements autorisés sont exonérés (art. 261, 4, 1° bis).",
       references: [{ libelle: 'CGI, art. 261, 4, 1° et 1° bis' }],
       doctrine: { libelle: 'Doctrine : les exonérations médicales', url: '/tva-medicale/exoneration-tva-medicale/' },
       options: [
@@ -769,10 +769,10 @@ export const arbreTva: ArbreScan = {
       ton: 'attention',
       carto: { libelle: 'Assujetti partiel', teinte: 'or', deduction: 'a-analyser' },
       resume:
-        "Votre holding est un assujetti partiel : les prestations facturées ouvrent droit à déduction, les dividendes restent hors champ. La question n'est plus la qualification, mais la proportion de chaque catégorie de recettes — c'est elle qui commande votre prorata et votre taxe sur les salaires.",
+        "Votre holding est un assujetti partiel : les prestations facturées ouvrent droit à déduction, les dividendes restent hors champ. La question n'est plus la qualification, mais la proportion de chaque catégorie de recettes, c'est elle qui commande votre prorata et votre taxe sur les salaires.",
       consequences: [
         'Les dépenses affectées exclusivement aux prestations facturées sont déductibles à 100 % ; celles affectées à la détention des participations ne le sont pas ; les frais généraux se déduisent au prorata.',
-        "Piège central : les dividendes sont exclus du prorata de TVA (CJUE, Sofitam) mais comptés au numérateur du rapport d'assujettissement à la taxe sur les salaires (CE, 14 février 2018, n° 410302) — les deux calculs divergent.",
+        "Piège central : les dividendes sont exclus du prorata de TVA (CJUE, Sofitam) mais comptés au numérateur du rapport d'assujettissement à la taxe sur les salaires (CE, 14 février 2018, n° 410302), les deux calculs divergent.",
         "Renseignez vos recettes dans le calculateur ci-dessous : coefficients de TVA, rapport d'assujettissement et enjeu en euros sur vos frais généraux.",
       ],
       references: [{ libelle: 'CGI, art. 256 A' }, { libelle: 'CGI, ann. II, art. 206' }],
@@ -781,7 +781,7 @@ export const arbreTva: ArbreScan = {
     },
     'hors-champ-holding': {
       id: 'hors-champ-holding',
-      qualification: 'Situation hors champ — holding pure',
+      qualification: 'Situation hors champ, holding pure',
       ton: 'attention',
       carto: { libelle: 'Hors champ', teinte: 'gris', deduction: 'non' },
       resume:
@@ -801,11 +801,11 @@ export const arbreTva: ArbreScan = {
       ton: 'mixte',
       carto: { libelle: 'Franchise en base', teinte: 'gris', deduction: 'non' },
       resume:
-        "Sous les plafonds de l'article 293 B — 85 000 € pour les livraisons de biens, 37 500 € pour les prestations de services —, l'entreprise ne facture pas la TVA et ne la déduit pas : elle est assujettie, mais dispensée du paiement.",
+        "Sous les plafonds de l'article 293 B, 85 000 € pour les livraisons de biens, 37 500 € pour les prestations de services, l'entreprise ne facture pas la TVA et ne la déduit pas : elle est assujettie, mais dispensée du paiement.",
       consequences: [
         'Factures sans TVA, avec la mention « TVA non applicable, art. 293 B du CGI » ; aucune déduction de la TVA sur les achats et investissements.',
         "Avantage méconnu : les rémunérations versées par les employeurs sous ces plafonds sont exonérées de taxe sur les salaires (art. 231, 1).",
-        "La franchise se quitte sur option pour le paiement de la TVA — pertinente quand la clientèle est assujettie ou que les investissements sont lourds — et se perd en cas de dépassement des seuils : surveillez-les, la réforme des plafonds reste en débat au Parlement.",
+        "La franchise se quitte sur option pour le paiement de la TVA (pertinente quand la clientèle est assujettie ou que les investissements sont lourds) et se perd en cas de dépassement des seuils : surveillez-les, la réforme des plafonds reste en débat au Parlement.",
       ],
       references: [{ libelle: 'CGI, art. 293 B' }, { libelle: 'CGI, art. 231, 1' }],
       doctrine: { libelle: 'Doctrine : la franchise en base de TVA', url: '/franchise-en-base-tva/' },
@@ -816,11 +816,11 @@ export const arbreTva: ArbreScan = {
       ton: 'attention',
       carto: { libelle: 'Hors champ', teinte: 'gris', deduction: 'non' },
       resume:
-        "L'activité est exercée en tant qu'autorité publique sans distorsion de concurrence : elle échappe à la TVA (art. 256 B) — et la TVA grevant les dépenses correspondantes n'est pas déductible.",
+        "L'activité est exercée en tant qu'autorité publique sans distorsion de concurrence : elle échappe à la TVA (art. 256 B), et la TVA grevant les dépenses correspondantes n'est pas déductible.",
       consequences: [
         "Aucune TVA collectée, aucune déduction : la TVA d'amont est une charge définitive pour le budget de l'organisme.",
         "Le périmètre se réexamine activité par activité : une mise en concurrence effective ou une activité de la liste légale (eau, énergie, transports…) fait rebasculer dans le champ.",
-        "Côté taxe sur les salaires : les collectivités territoriales et leurs groupements en sont exemptés par l'article 231, mais les autres organismes publics — hôpitaux en tête — y sont largement exposés.",
+        "Côté taxe sur les salaires : les collectivités territoriales et leurs groupements en sont exemptés par l'article 231, mais les autres organismes publics (hôpitaux en tête) y sont largement exposés.",
       ],
       references: [{ libelle: 'CGI, art. 256 B' }, { libelle: 'CGI, art. 231, 1' }],
       doctrine: { libelle: 'Doctrine : la TVA des personnes publiques', url: '/tva-personnes-publiques/' },
@@ -832,11 +832,11 @@ export const arbreTva: ArbreScan = {
       ton: 'mixte',
       carto: { libelle: 'Taxée à destination', teinte: 'vert', deduction: 'oui' },
       resume:
-        "Au-delà de 10 000 € annuels de ventes transfrontalières B2C dans l'Union, vos ventes à distance sont taxées dans l'État membre du consommateur, au taux local — le guichet unique OSS permet de tout déclarer depuis la France.",
+        "Au-delà de 10 000 € annuels de ventes transfrontalières B2C dans l'Union, vos ventes à distance sont taxées dans l'État membre du consommateur, au taux local, le guichet unique OSS permet de tout déclarer depuis la France.",
       consequences: [
         "TVA due au taux du pays de destination sur chaque vente ; l'inscription au guichet OSS évite de s'immatriculer dans chaque État membre.",
         'Le droit à déduction en France est préservé : ces ventes sont traitées comme des opérations taxées pour votre prorata (art. 271, V, d).',
-        'Sous le seuil global de 10 000 € par an, la TVA française reste applicable — une option pour la taxation à destination demeure possible.',
+        'Sous le seuil global de 10 000 € par an, la TVA française reste applicable, une option pour la taxation à destination demeure possible.',
       ],
       references: [{ libelle: 'CGI, art. 258 A et 259 D' }, { libelle: 'CGI, art. 271, V, d' }],
       doctrine: { libelle: 'Doctrine : la TVA du e-commerce', url: '/tva-e-commerce/' },
@@ -939,7 +939,7 @@ export const arbreTva: ArbreScan = {
       ton: 'mixte',
       carto: { libelle: 'Dispense 257 bis', teinte: 'or', deduction: 'oui' },
       resume:
-        "La transmission d'une universalité totale ou partielle de biens entre redevables est dispensée de TVA : ni taxation, ni exonération — une non-opération au regard de la taxe, applicable de plein droit lorsque les conditions sont réunies.",
+        "La transmission d'une universalité totale ou partielle de biens entre redevables est dispensée de TVA : ni taxation, ni exonération, une non-opération au regard de la taxe, applicable de plein droit lorsque les conditions sont réunies.",
       consequences: [
         "Aucune TVA sur la transmission, et aucune régularisation de la TVA antérieurement déduite : l'acquéreur continue la personne du cédant sur les vingtièmes restants.",
         "Le vendeur transmet un état récapitulatif des régularisations à effectuer ; sécurisez le régime dans l'acte (mention et clauses de garantie).",

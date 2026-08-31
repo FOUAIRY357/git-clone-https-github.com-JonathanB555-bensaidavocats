@@ -10,11 +10,14 @@ interface Props {
   description: string;
   /** Ne pas suffixer le titre (page d'accueil). */
   titreBrut?: boolean;
+  /** Image de partage (chemin absolu du site), héros par défaut. */
+  image?: string;
 }
 
-const { titre, description, titreBrut = false } = Astro.props;
-const titreComplet = titreBrut ? titre : `${titre} — Taxe sur les Salaires & TVA`;
+const { titre, description, titreBrut = false, image = '/images/accueil-hero.jpg' } = Astro.props;
+const titreComplet = titreBrut ? titre : `${titre} · Taxe sur les Salaires & TVA`;
 const urlCanonique = new URL(Astro.url.pathname, Astro.site);
+const urlImage = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -34,6 +37,11 @@ const urlCanonique = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={urlCanonique} />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Taxe sur les Salaires & TVA" />
+    <meta property="og:image" content={urlImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={titreComplet} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={urlImage} />
     <script is:inline>
       // Révèle les pictogrammes une fois la police d'icônes chargée.
       if (document.fonts && document.fonts.load) {
@@ -61,6 +69,23 @@ const urlCanonique = new URL(Astro.url.pathname, Astro.site);
       // Initialisations rejouées à chaque navigation (View Transitions).
       document.addEventListener('astro:page-load', function () {
         var mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // 0a. Les sections de doctrine se révèlent au défilement
+        document.querySelectorAll('.prose-doctrine h2:not(.reveler)').forEach(function (titre) {
+          titre.classList.add('reveler');
+        });
+
+        // 0b. Barre de progression de lecture (pages qui portent .barre-lecture)
+        var barre = document.querySelector('.barre-lecture:not([data-branche])');
+        if (barre) {
+          barre.dataset.branche = '1';
+          var majBarre = function () {
+            var total = document.documentElement.scrollHeight - window.innerHeight;
+            barre.style.transform = 'scaleX(' + (total > 0 ? Math.min(window.scrollY / total, 1) : 0) + ')';
+          };
+          window.addEventListener('scroll', majBarre, { passive: true });
+          majBarre();
+        }
 
         // 1. Révélation au défilement
         var elements = document.querySelectorAll('.reveler:not(.visible)');

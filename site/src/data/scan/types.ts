@@ -10,7 +10,7 @@
 export interface ReferenceLegale {
   /** Ex. « CGI, art. 256 A » ou « BOI-TVA-CHAMP-10-10-20 » */
   libelle: string;
-  /** Lien optionnel (Légifrance, BOFiP) — à valider avant publication. */
+  /** Lien optionnel (Légifrance, BOFiP), à valider avant publication. */
   url?: string;
 }
 
@@ -65,7 +65,7 @@ export interface CartoResultat {
 /** Une opération scannée de bout en bout, telle que conservée dans le dossier. */
 export interface OperationScannee {
   libelle: string;
-  /** Montant annuel de recettes (euros), facultatif — sert aux estimations du rapport. */
+  /** Montant annuel de recettes (euros), facultatif, sert aux estimations du rapport. */
   montant?: number;
   resultatId: string;
   reponses: { questionId: string; libelle: string }[];
