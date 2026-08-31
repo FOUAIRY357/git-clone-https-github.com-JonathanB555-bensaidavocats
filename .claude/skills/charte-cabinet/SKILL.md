@@ -4,7 +4,7 @@ description: >
   Référence de style transverse du cabinet BENSAID AVOCATS : typographie, formules d'appel et de
   politesse, format de livraison, conventions cloud, règles anti-marqueurs IA. Source unique de
   vérité, à lire par les autres skills (redaction-mail, premier-contact, courrier, template-cabinet,
-  lettre-mission, post-linkedin, rdv-cadrage, support-cadrage, page-expertise) avant de produire un
+  lettre-mission, post-linkedin, rdv-cadrage, support-cadrage, page-expertise, fiche-sellsy) avant de produire un
   écrit, pour éviter toute dérive de style. Déclencher si on parle de « charte du cabinet »,
   « règles de style maison », « conventions de rédaction », ou "/charte-cabinet".
 ---
