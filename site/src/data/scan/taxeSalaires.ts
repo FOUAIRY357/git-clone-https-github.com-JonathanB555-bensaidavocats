@@ -423,7 +423,7 @@ export const arbreTaxeSalaires: ArbreScan = {
       ],
       references: [{ libelle: 'CGI, art. 231' }, { libelle: 'CGI, art. 1679 et 1679 A' }],
       doctrine: { libelle: 'Doctrine : la sectorisation en taxe sur les salaires', url: '/sectorisation-taxe-sur-les-salaires/' },
-      etapeSuivante: { libelle: 'Faire auditer mon rapport par un expert', url: '/expert/' },
+      etapeSuivante: { libelle: 'Calculer mon rapport et mon enjeu', url: '#prorata' },
     },
     'assujetti-sectorise': {
       id: 'assujetti-sectorise',
@@ -463,11 +463,11 @@ export const arbreTaxeSalaires: ArbreScan = {
       consequences: [
         'Au numérateur : recettes exonérées sans droit à déduction, recettes hors champ, dividendes (CE, 14 février 2018, n° 410302), subventions non exceptionnelles.',
         "Hors rapport : livraisons à soi-même (CE, 9 novembre 2015, Crédit agricole), subventions exceptionnelles et d'équipement (BOI-TPS-TS-20-30, § 160).",
-        'Le Scan TVA vous aide à qualifier chaque flux avant de poser le calcul.',
+        'Renseignez vos recettes par catégorie dans le calculateur ci-dessous : le rapport se calcule instantanément, avec les bons classements.',
       ],
       references: [{ libelle: 'CGI, art. 231, 1' }],
       doctrine: { libelle: "Doctrine : le coefficient d'assujettissement des holdings", url: '/taxe-salaires-holdings/coefficient-assujettissement-holdings/' },
-      etapeSuivante: { libelle: 'Qualifier mes recettes avec le Scan TVA', url: '/scan-tva/' },
+      etapeSuivante: { libelle: "Calculer mon rapport d'assujettissement", url: '#prorata' },
     },
     'ts-holding-pure': {
       id: 'ts-holding-pure',

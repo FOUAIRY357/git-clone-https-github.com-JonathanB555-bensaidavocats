@@ -102,19 +102,25 @@ export const arbreTva: ArbreScan = {
       intitule: 'Rôle de la holding',
       titre: 'Quel est le rôle de la holding dans cette opération ?',
       image: '/images/holdings.jpg',
-      aide: "La simple perception de dividendes, d'intérêts occasionnels ou le produit de cessions de titres dans une gestion patrimoniale sont hors du champ de la TVA (CJUE, Sofitam, C-333/91) : c'est la situation de la holding « pure ». À l'inverse, l'immixtion dans la gestion des filiales — prestations administratives, financières, commerciales ou techniques facturées — constitue une activité économique (CJUE, Floridienne et Berginvest, C-142/99). Les refacturations à l'euro l'euro sont elles-mêmes taxables (CE, Lagardère, 13 décembre 2017).",
+      aide: "La simple perception de dividendes, d'intérêts occasionnels ou le produit de cessions de titres dans une gestion patrimoniale sont hors du champ de la TVA (CJUE, Sofitam, C-333/91) : c'est la situation de la holding « pure ». À l'inverse, l'immixtion dans la gestion des filiales — prestations administratives, financières, commerciales ou techniques facturées — constitue une activité économique (CJUE, Floridienne et Berginvest, C-142/99). Les refacturations à l'euro l'euro sont elles-mêmes taxables (CE, Lagardère, 13 décembre 2017). En pratique, la plupart des holdings font les deux : la vraie question devient alors la proportion de chaque catégorie de recettes, qui commande le prorata.",
       references: [{ libelle: 'CGI, art. 256 A' }],
       doctrine: { libelle: 'Doctrine : le champ d’application de la TVA des holdings', url: '/holdings-tva/champ-application-tva-holding/' },
       options: [
         {
-          libelle: 'Elle facture des prestations à ses filiales',
-          detail: "Management fees, prestations administratives, refacturations : la holding animatrice s'immisce dans la gestion",
+          libelle: 'Elle perçoit des dividendes ET facture des prestations',
+          detail: 'Le cas général de la holding mixte ou animatrice : tout se joue dans les proportions',
+          icone: 'stacked_bar_chart',
+          versResultat: 'holding-mixte-prorata',
+        },
+        {
+          libelle: 'Cette opération : une prestation facturée à une filiale',
+          detail: 'Management fees, prestations administratives, refacturations : qualifier ce flux précis',
           icone: 'sync_alt',
           versQuestion: 'nature',
         },
         {
-          libelle: 'Elle perçoit des dividendes ou cède des titres',
-          detail: 'Fruits de la simple détention de participations, gestion patrimoniale des titres',
+          libelle: 'Elle perçoit uniquement des dividendes ou cède des titres',
+          detail: 'Holding pure : fruits de la seule détention patrimoniale des participations',
           icone: 'payments',
           versResultat: 'hors-champ-holding',
         },
@@ -608,6 +614,22 @@ export const arbreTva: ArbreScan = {
       references: [{ libelle: 'CGI, art. 256 et 256 A' }, { libelle: 'CGI, art. 271' }],
       doctrine: { libelle: "Doctrine : le champ d'application de la TVA", url: '/doctrine/champ-application-tva/' },
       etapeSuivante: { libelle: 'Mesurer l’impact sur la taxe sur les salaires', url: '/scan-taxe-salaires/' },
+    },
+    'holding-mixte-prorata': {
+      id: 'holding-mixte-prorata',
+      qualification: 'Holding mixte : tout se joue dans les proportions',
+      ton: 'attention',
+      carto: { libelle: 'Assujetti partiel', teinte: 'or', deduction: 'a-analyser' },
+      resume:
+        "Votre holding est un assujetti partiel : les prestations facturées ouvrent droit à déduction, les dividendes restent hors champ. La question n'est plus la qualification, mais la proportion de chaque catégorie de recettes — c'est elle qui commande votre prorata et votre taxe sur les salaires.",
+      consequences: [
+        'Les dépenses affectées exclusivement aux prestations facturées sont déductibles à 100 % ; celles affectées à la détention des participations ne le sont pas ; les frais généraux se déduisent au prorata.',
+        "Piège central : les dividendes sont exclus du prorata de TVA (CJUE, Sofitam) mais comptés au numérateur du rapport d'assujettissement à la taxe sur les salaires (CE, 14 février 2018, n° 410302) — les deux calculs divergent.",
+        "Renseignez vos recettes dans le calculateur ci-dessous : coefficients de TVA, rapport d'assujettissement et enjeu en euros sur vos frais généraux.",
+      ],
+      references: [{ libelle: 'CGI, art. 256 A' }, { libelle: 'CGI, ann. II, art. 206' }],
+      doctrine: { libelle: 'Doctrine : la récupération de la TVA des holdings', url: '/holdings-tva/recuperation-tva-holdings/' },
+      etapeSuivante: { libelle: 'Calculer mon prorata de holding', url: '#prorata' },
     },
     'hors-champ-holding': {
       id: 'hors-champ-holding',

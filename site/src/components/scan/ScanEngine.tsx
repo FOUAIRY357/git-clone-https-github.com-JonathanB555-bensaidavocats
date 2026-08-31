@@ -511,6 +511,15 @@ export default function ScanEngine({ arbre, dossier = false }: Props) {
                 </div>
               )}
 
+              {dossier && resultat.etapeSuivante && (
+                <a
+                  href={resultat.etapeSuivante.url}
+                  className="relative mt-6 inline-flex items-center gap-2 rounded border border-or-vif/60 bg-or-vif/10 px-5 py-3 font-texte text-sm font-bold text-or-pale transition-colors hover:bg-or-vif/20"
+                >
+                  <span className="ms text-lg" aria-hidden="true">calculate</span>
+                  {resultat.etapeSuivante.libelle}
+                </a>
+              )}
               {dossier ? (
                 <div className="mt-8 border-t border-white/10 pt-6">
                   <label htmlFor="nom-operation" className="block text-sm font-semibold text-white">
