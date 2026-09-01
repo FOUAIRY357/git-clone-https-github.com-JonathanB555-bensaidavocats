@@ -1,0 +1,21 @@
+{
+  "destinataire": "V.BIAUZON@fonciere-epilogue.fr",
+  "copie": "f.north@fonciere-epilogue.fr ; j.criqui@fonciere-epilogue.fr",
+  "objet": "Pièces nécessaires à l'examen des dossiers sélectionnés",
+  "civilite": "Cher Monsieur,",
+  "corps": [
+    {"p": "Je vous remercie pour notre échange de ce jour."},
+    {"p": "Comme convenu, voici les pièces qui nous sont nécessaires pour examiner les dix à quinze dossiers que vous aurez retenus. Un dossier séparé par bien, même incomplet, nous fera gagner du temps. Pour chaque bien :"},
+    {"b": "l'acte d'acquisition, portant l'engagement de revendre souscrit au titre de l'article 1115 du code général des impôts, et la date d'échéance de cet engagement"},
+    {"b": "la proposition de rectification et l'ensemble des échanges avec l'administration, vos observations, la réponse du service, le recours hiérarchique et l'avis de mise en recouvrement"},
+    {"b": "les actes de revente déjà signés, lot par lot, avec les prix et les dates"},
+    {"b": "les pièces de la procédure qui bloque la vente, notamment l'assignation, sa publication au service de la publicité foncière et les décisions rendues"},
+    {"b": "pour les biens occupés ou squattés, les plaintes, les procès-verbaux, les décisions d'expulsion et les demandes de concours de la force publique"},
+    {"b": "pour les biens en cours de valorisation, le projet envisagé, les autorisations d'urbanisme demandées ou obtenues et, le cas échéant, le projet d'apport à une SCCV"},
+    {"b": "le montant en jeu, en droits, intérêts et pénalités"},
+    {"p": "Un tableau récapitulatif reprenant, pour chaque bien, la date d'acquisition, la date d'échéance, le montant réclamé et le stade de la procédure nous permettra d'ordonner les priorités."},
+    {"p": "Les biens dont le délai de cinq ans court encore méritent la première place dans votre sélection. La substitution d'un engagement de construire à l'engagement de revendre se souscrit avant l'échéance et ouvre quatre années supplémentaires."},
+    {"p": "À réception, nous procédons à une première lecture sans frais. Nous vous présentons ensuite, dossier par dossier, la stratégie retenue, le gain que vous pouvez en attendre et un devis forfaitaire."},
+    {"p": "Pourriez-vous nous adresser ces éléments d'ici le vendredi 11 septembre, par lien de partage ?"}
+  ]
+}
