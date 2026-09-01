@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ArbreScan, OperationScannee } from '@/data/scan/types';
 import CartographieScan from './CartographieScan';
 
@@ -62,6 +62,46 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
   }, [caSaisie, arbre.id]);
   const caAnalyse = Number.parseFloat(caSaisie.replace(/[\s €]/g, '').replace(',', '.'));
   const caTotal = Number.isFinite(caAnalyse) && caAnalyse > 0 ? caAnalyse : undefined;
+
+  // « Recevoir ce rapport » : capture de contact avec consentement.
+  const [emailRapport, setEmailRapport] = useState('');
+  const [lettreRapport, setLettreRapport] = useState(false);
+  const [envoiRapport, setEnvoiRapport] = useState<'repos' | 'en-cours' | 'erreur'>('repos');
+  const [rapportEnvoye, setRapportEnvoye] = useState(false);
+  const ouvertureRapport = useRef(Date.now());
+
+  async function envoyerRapport() {
+    setEnvoiRapport('en-cours');
+    const corps = new FormData();
+    corps.set('email', emailRapport);
+    corps.set('consentement', 'oui');
+    corps.set('lettre', lettreRapport ? 'oui' : 'non');
+    corps.set('depuis', String(ouvertureRapport.current));
+    corps.set('site_web', '');
+    corps.set(
+      'rapport',
+      JSON.stringify({
+        caTotal,
+        tvaAmont: tvaAmontValide ?? undefined,
+        coefTaxation: estimation?.coefTaxation ?? undefined,
+        rapportTs: estimation?.rapportTs ?? undefined,
+        operations: resultats.map(({ op, resultat }) => ({
+          libelle: op.libelle,
+          qualification: resultat.qualification,
+          montant: op.montant,
+        })),
+      })
+    );
+    try {
+      const requete = await fetch('/api/rapport', { method: 'POST', body: corps });
+      const retour = await requete.json().catch(() => ({ ok: false }));
+      if (!retour.ok) throw new Error(retour.erreur || 'envoi');
+      setRapportEnvoye(true);
+      setEnvoiRapport('repos');
+    } catch {
+      setEnvoiRapport('erreur');
+    }
+  }
   const couverture =
     caTotal && caTotal > 0 && sommeQualifiee > 0 ? Math.min(sommeQualifiee / caTotal, 1) : null;
   const resultats = operations.map((op) => ({ op, resultat: arbre.resultats[op.resultatId]! }));
@@ -462,6 +502,70 @@ export default function RapportScan({ arbre, operations, onAjouterOperation, onN
           il ne constitue pas une consultation juridique ou fiscale. Arbre de décision en version de
           travail, en cours de validation par le cabinet BENSAID AVOCATS.
         </p>
+      </div>
+
+      {/* Recevoir le rapport : capture de contact avec consentement */}
+      <div className="no-print mt-6 rounded border border-or/40 bg-attention-fond p-5 md:p-6" id="recevoir-rapport">
+        <p className="etiquette text-or-fonce">Recevoir ce rapport</p>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-texte">
+          Laissez votre e-mail : le cabinet vous adresse ce rapport et un avocat revient vers vous
+          pour le fiabiliser. Sans engagement.
+        </p>
+        {rapportEnvoye ? (
+          <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-positif">
+            <span className="ms text-lg" aria-hidden="true">check_circle</span>
+            C'est noté : votre rapport arrive, le cabinet vous écrit très vite.
+          </p>
+        ) : (
+          <form
+            className="mt-4"
+            onSubmit={(evenement) => {
+              evenement.preventDefault();
+              void envoyerRapport();
+            }}
+          >
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                required
+                value={emailRapport}
+                onChange={(evenement) => setEmailRapport(evenement.target.value)}
+                placeholder="votre@email.fr"
+                aria-label="Votre adresse e-mail"
+                className="w-full max-w-xs rounded border border-bordure bg-fond px-4 py-2.5 text-sm text-encre outline-none transition-colors focus:border-marine"
+              />
+              <button
+                type="submit"
+                disabled={envoiRapport === 'en-cours'}
+                className="flex items-center justify-center gap-2 rounded bg-marine px-5 py-2.5 font-texte text-sm font-semibold text-white transition-colors hover:bg-marine-2 disabled:opacity-50"
+              >
+                <span className="ms text-lg" aria-hidden="true">mail</span>
+                {envoiRapport === 'en-cours' ? 'Envoi…' : 'Recevoir mon rapport'}
+              </button>
+            </div>
+            <label className="mt-3 flex items-start gap-2 text-xs leading-5 text-texte-2">
+              <input type="checkbox" required className="mt-0.5 h-3.5 w-3.5 accent-[#8a6a1f]" />
+              <span>
+                J'accepte que mon rapport et mon adresse soient transmis au cabinet pour être
+                recontacté (<a href="/mentions-legales/" className="underline underline-offset-2">mentions légales</a>). *
+              </span>
+            </label>
+            <label className="mt-1.5 flex items-start gap-2 text-xs leading-5 text-texte-2">
+              <input
+                type="checkbox"
+                checked={lettreRapport}
+                onChange={(evenement) => setLettreRapport(evenement.target.checked)}
+                className="mt-0.5 h-3.5 w-3.5 accent-[#8a6a1f]"
+              />
+              <span>Je souhaite aussi recevoir la lettre TVA du cabinet (désinscription à tout moment).</span>
+            </label>
+            {envoiRapport === 'erreur' && (
+              <p className="mt-2 text-xs font-semibold text-alerte">
+                L'envoi n'a pas abouti. Réessayez, ou écrivez à francois.ouairy@bensaid-avocats.fr.
+              </p>
+            )}
+          </form>
+        )}
       </div>
 
       {/* Actions */}
