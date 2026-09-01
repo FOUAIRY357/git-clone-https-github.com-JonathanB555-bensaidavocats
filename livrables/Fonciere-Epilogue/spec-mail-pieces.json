@@ -6,15 +6,16 @@
   "corps": [
     {"p": "Je vous remercie pour notre échange de ce jour."},
     {"p": "Comme convenu, voici ce dont nous avons besoin pour examiner les dossiers que vous aurez retenus."},
-    {"p": "Le périmètre est volontairement large. Il couvre les biens déjà visés par une proposition de rectification, ceux qui ont seulement reçu une demande de renseignements, et ceux dont l'échéance approche ou est dépassée sans que l'administration se soit manifestée. Cette dernière catégorie est celle où il reste le plus à faire, la substitution d'un engagement de construire y demeurant ouverte tant que le délai court."},
+    {"p": "Le périmètre est volontairement large. Il couvre les biens déjà visés par une proposition de rectification, ceux qui ont seulement reçu une demande de renseignements, et ceux dont l'échéance approche ou est dépassée sans que l'administration se soit manifestée. Cette dernière catégorie est celle où il reste le plus à faire."},
     {"p": "Pour chaque bien, quatre pièces suffisent dans un premier temps :"},
     {"b": "l'acte d'acquisition, portant l'engagement de revendre et la date de son échéance"},
     {"b": "les actes de revente déjà signés, lot par lot"},
     {"b": "ce qui bloque la vente, dans la forme dont vous disposez (assignation publiée au service de la publicité foncière, procès-verbal ou décision d'expulsion, refus ou recours en matière d'urbanisme)"},
-    {"b": "les échanges avec l'administration s'il y en a eu, de la demande de renseignements à l'avis de mise en recouvrement"},
-    {"p": "Pour les biens dont vous préparez la valorisation, le projet envisagé et les autorisations d'urbanisme demandées ou obtenues nous seront utiles. Nous reconstituerons nous-mêmes les montants en jeu à partir des actes."},
-    {"p": "Une ligne par bien dans un tableau, avec la date d'acquisition, la date d'échéance et l'état d'avancement, nous permettra d'ordonner les priorités. Une pièce manquante ne bloque rien, nous la demanderons au fil de l'analyse."},
-    {"p": "À réception, nous procédons à une première lecture sans frais. Nous vous présentons ensuite, dossier par dossier, la stratégie retenue, le gain que vous pouvez en attendre et un devis forfaitaire."},
-    {"p": "Pourriez-vous nous adresser un premier envoi d'ici le vendredi 11 septembre, par lien de partage ?"}
+    {"b": "les échanges avec l'administration s'il y en a eu, de la demande de renseignements à la proposition de rectification et l'avis de mise en recouvrement"},
+    {"p": "Pour les biens dont vous préparez la valorisation, le projet envisagé et les autorisations d'urbanisme demandées ou obtenues nous seront utiles."},
+    {"p": "Un espace de partage vous est ouvert pour le dépôt des pièces, avec un sous-dossier par bien."},
+    {"p": "https://bensaidavocats-my.sharepoint.com/:f:/g/personal/francois_ouairy_bensaid-avocats_fr/IgAOtNw0g16RQq3C-E1CulkAAVPqaVypq6GjY7ggGGaH2v0"},
+    {"p": "Pourriez-vous y déposer un premier lot d'ici le vendredi 11 septembre ?"},
+    {"p": "À réception, nous procédons à une première lecture. Nous vous présentons ensuite, dossier par dossier, la stratégie retenue et un devis forfaitaire."}
   ]
 }
