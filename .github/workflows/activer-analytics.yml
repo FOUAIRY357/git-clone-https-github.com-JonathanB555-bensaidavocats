@@ -1,0 +1,25 @@
+name: activer-analytics
+on: workflow_dispatch
+
+jobs:
+  rum:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Créer le site Web Analytics (RUM) avec injection automatique
+        env:
+          JETON: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          COMPTE: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          echo "— zone taxesalaire.com —"
+          curl -sS "https://api.cloudflare.com/client/v4/zones?name=taxesalaire.com" \
+            -H "Authorization: Bearer $JETON" | tee zone.json | head -c 800
+          ZONE=$(python3 -c "import json;d=json.load(open('zone.json'));print(d['result'][0]['id'] if d.get('result') else '')")
+          echo ""
+          echo "zone_id=$ZONE"
+          echo "— création du site RUM —"
+          curl -sS -X POST "https://api.cloudflare.com/client/v4/accounts/$COMPTE/rum/site_info" \
+            -H "Authorization: Bearer $JETON" \
+            -H "Content-Type: application/json" \
+            --data "{\"host\":\"taxesalaire.com\",\"zone_tag\":\"$ZONE\",\"auto_install\":true}" | tee rum.json | head -c 1200
+          echo ""
+          grep -q '"success":true' rum.json
