@@ -1,0 +1,19 @@
+{
+  "name": "bensaid-avocats",
+  "description": "Plugins Claude Code du cabinet BENSAID Avocats : outils internes (banque Qonto, etc.).",
+  "owner": {
+    "name": "Cabinet BENSAID Avocats",
+    "email": "francois.ouairy@bensaid-avocats.fr",
+    "url": "https://www.bensaid-avocats.fr"
+  },
+  "plugins": [
+    {
+      "name": "qonto",
+      "source": "./plugins/qonto",
+      "description": "Accès au compte bancaire Qonto du cabinet : soldes, transactions, justificatifs, relevés, factures clients et fournisseurs. Serveur MCP officiel Qonto (OAuth) ou API REST v2 (clé API).",
+      "version": "1.0.0",
+      "author": { "name": "Cabinet BENSAID Avocats" },
+      "keywords": ["qonto", "banque", "tresorerie", "comptabilite", "factures", "mcp"]
+    }
+  ]
+}

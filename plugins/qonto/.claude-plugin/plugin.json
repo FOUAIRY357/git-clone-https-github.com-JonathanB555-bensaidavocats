@@ -1,0 +1,13 @@
+{
+  "name": "qonto",
+  "version": "1.0.0",
+  "description": "Accès au compte bancaire Qonto du cabinet BENSAID Avocats : soldes, transactions, justificatifs, relevés bancaires, factures clients et fournisseurs. Deux voies : serveur MCP officiel Qonto (OAuth, recommandé) ou API REST v2 avec clé API (script fourni). Lecture seule par défaut.",
+  "author": {
+    "name": "Cabinet BENSAID Avocats",
+    "email": "francois.ouairy@bensaid-avocats.fr",
+    "url": "https://www.bensaid-avocats.fr"
+  },
+  "homepage": "https://docs.qonto.com",
+  "repository": "https://github.com/JonathanB555/bensaidavocats",
+  "keywords": ["qonto", "banque", "tresorerie", "comptabilite", "factures", "mcp"]
+}

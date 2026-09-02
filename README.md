@@ -83,3 +83,24 @@ node --import tsx -e "import('./src/auth.ts').then(m => m.getAccessToken()).then
 - `401 invalid_client` → vérifier `PISTE_CLIENT_ID` / `PISTE_CLIENT_SECRET`
 - `403 Forbidden` sur un appel API → l'application n'est pas souscrite à cette API sur PISTE
 - `Unknown scope` → certaines APIs PISTE exigent un scope spécifique (`openid` par défaut convient pour Légifrance et Judilibre)
+
+---
+
+## 8. Plugins Claude Code du cabinet
+
+Ce dépôt sert aussi de **marketplace de plugins** Claude Code
+(`.claude-plugin/marketplace.json`).
+
+| Plugin | Description |
+|---|---|
+| [`qonto`](plugins/qonto/) | Accès au compte bancaire Qonto : soldes, transactions, justificatifs, relevés, factures. |
+
+Installation depuis Claude Code :
+
+```
+/plugin marketplace add JonathanB555/bensaidavocats
+/plugin install qonto@bensaid-avocats
+```
+
+Connexion (serveur MCP officiel Qonto ou clé API) : voir
+[plugins/qonto/README.md](plugins/qonto/README.md).
