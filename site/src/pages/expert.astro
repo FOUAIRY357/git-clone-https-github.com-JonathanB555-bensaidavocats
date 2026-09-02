@@ -10,6 +10,7 @@ const donneesStructurees = JSON.stringify({
   '@type': 'Person',
   name: 'François Ouairy',
   jobTitle: 'Avocat fiscaliste',
+  image: new URL('/images/francois-ouairy.jpg', Astro.site).toString(),
   url: new URL('/expert/', Astro.site).toString(),
   worksFor: { '@type': 'LegalService', name: 'BENSAID AVOCATS', url: 'https://www.bensaid-avocats.fr' },
   knowsAbout: [
@@ -27,6 +28,7 @@ const donneesStructurees = JSON.stringify({
 <BaseLayout
   titre="François Ouairy, avocat fiscaliste : TVA et taxe sur les salaires"
   description="François Ouairy, avocat au cabinet BENSAID AVOCATS : TVA, droit à déduction, taxe sur les salaires, contrôle fiscal et contentieux des opérateurs exonérés."
+  image="/images/francois-ouairy.jpg"
 >
   <script type="application/ld+json" set:html={donneesStructurees} slot="tete" />
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16">
@@ -81,15 +83,14 @@ const donneesStructurees = JSON.stringify({
       </div>
 
       <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
-        <div
-          class="flex aspect-[4/5] items-center justify-center rounded border border-bordure bg-fond-2"
-          role="img"
-          aria-label="Portrait de François Ouairy (photographie à venir)"
-        >
-          <div class="text-center text-texte-3">
-            <span class="ms text-6xl" aria-hidden="true">person</span>
-            <p class="mt-2 text-xs">Photographie à venir</p>
-          </div>
+        <div class="overflow-hidden rounded border border-bordure shadow-ambiante-2">
+          <img
+            src="/images/francois-ouairy.jpg"
+            alt="François Ouairy, avocat fiscaliste au cabinet BENSAID AVOCATS"
+            width="900"
+            height="1125"
+            class="aspect-[4/5] w-full object-cover"
+          />
         </div>
 
         <div class="rounded border border-bordure bg-carte p-6 shadow-ambiante">
