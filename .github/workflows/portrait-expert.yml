@@ -1,0 +1,60 @@
+name: portrait-expert
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  photo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/taxesalaire-redesign-wqwxfm
+      - run: pip install pillow requests
+      - name: Télécharger, recadrer 4:5 et optimiser le portrait
+        shell: python
+        run: |
+          import io, re, requests
+          from PIL import Image
+
+          entetes = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'}
+          page = requests.get('https://www.bensaid-avocats.fr/francois-ouairy-avocat-fiscaliste/', timeout=30, headers=entetes)
+          page.raise_for_status()
+          html = page.text
+          og = re.search(r'property="og:image" content="([^"]+)"', html)
+          urls = re.findall(r'https?://[^"\s)]+\.(?:jpe?g|png|webp)', html)
+          print('og:image :', og.group(1) if og else None)
+          print('candidats :', urls[:12])
+          url = next((u for u in urls if 'ouairy' in u.lower() or 'francois' in u.lower()), None) \
+              or (og.group(1) if og else None) or (urls[0] if urls else None)
+          assert url, 'aucune image trouvée'
+          print('choisi :', url)
+
+          brut = requests.get(url, timeout=30, headers=entetes)
+          brut.raise_for_status()
+          img = Image.open(io.BytesIO(brut.content)).convert('RGB')
+          print('dimensions source :', img.size)
+          l, h = img.size
+          cible = 4 / 5
+          if l / h > cible:
+              nl = int(h * cible)
+              img = img.crop(((l - nl) // 2, 0, (l - nl) // 2 + nl, h))
+          elif l / h < cible - 0.02:
+              nh = int(l / cible)
+              haut = max(0, (h - nh) // 4)
+              img = img.crop((0, haut, l, haut + nh))
+          if img.width > 900:
+              img = img.resize((900, round(img.height * 900 / img.width)), Image.LANCZOS)
+          img.save('site/public/images/francois-ouairy.jpg', 'JPEG', quality=85, optimize=True, progressive=True)
+          print('dimensions finales :', img.size)
+      - name: Committer le portrait
+        run: |
+          git config user.name "FOUAIRY357"
+          git config user.email "francois.ouairy@bensaid-avocats.fr"
+          git add site/public/images/francois-ouairy.jpg
+          git commit -m "Portrait de François Ouairy pour la page expert (photo du site du cabinet, recadrée et optimisée)
+
+          Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+          Claude-Session: https://claude.ai/code/session_01YAhCS4Taq4FTmrAZZ3s6j8"
+          git push
