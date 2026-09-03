@@ -36,7 +36,8 @@ Note interne, mise à jour au 03/09/2026.
 - Pas de RDV de cadrage à 2 400 euros sur ce dossier : particulière à revenus modestes, dossier déjà documenté par les pièces, le call du 04/09 suffit à convertir.
 - Piste employeur GFE (cabinet d'expertise comptable) : mission distincte de mise en conformité du télétravail transfrontalier (paie, retenue à la source, affiliation sociale, risque d'établissement stable en Moldavie), 4 000 à 6 000 euros HT. Vecteur commercial : la note de correction de paie remise via Natalia. Point de vigilance déontologique : ne conseiller l'employeur et la salariée que si leurs intérêts restent alignés ; en cas de divergence (restitution des cotisations, contentieux), choisir un seul client.
 
-## Prochaines étapes
+## Issue du dossier
 
-- Entretien téléphonique jeudi 04/09/2026 à 10 h 30 heure de Paris, au 01 86 24 00 15. Mail de confirmation préparé (spec dans ce dossier).
-- Ensuite, selon l'échange : rendez-vous de cadrage, puis lettre de mission.
+- 03/09/2026 : François décide de ne pas donner suite. Dossier décliné avant l'entretien du 04/09.
+- Mail de refus courtois préparé (spec dans ce dossier) : annulation de l'entretien, orientation vers un confrère fiscaliste, engagement de non-conservation des pièces. À envoyer le 03/09 avant le créneau proposé.
+- Si l'engagement de non-conservation est maintenu, supprimer le mail et ses pièces jointes de la boîte après envoi du refus.
