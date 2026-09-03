@@ -200,11 +200,81 @@ Total HT 3 750,00. TVA 20 % 750,00. Total TTC 4 500,00.
 | Solde du forfait de cadrage | Remise de la note de cadrage | 3 750,00 | 4 500,00 |
 | Mise en œuvre (actes, constitution des entités, rescrit, accompagnement des acquisitions) | Acceptation de la proposition distincte établie au vu des conclusions de la note de cadrage | Selon proposition à venir | Selon proposition à venir |
 
+## Société rattachée, Elenava Invest (données Pappers du 3 septembre 2026)
+
+La convention du 3 septembre 2026 est conclue avec Monsieur Julien Guedj personnellement. Ces champs servent à créer la fiche société rattachée dans Sellsy, ou à basculer la facturation sur la holding si le cabinet le décide.
+
+**Raison sociale**
+```
+ELENAVA INVEST
+```
+
+**Forme juridique**
+```
+EURL
+```
+
+**Capital**
+```
+160 000 €
+```
+
+**SIREN**
+```
+817402936
+```
+
+**SIRET du siège**
+```
+81740293600022
+```
+
+**RCS**
+```
+817 402 936 R.C.S. Marseille
+```
+
+**Numéro de TVA intracommunautaire**
+```
+FR29817402936
+```
+
+**Représentant légal**
+```
+Monsieur Julien Guedj, gérant
+```
+
+**Adresse**
+```
+224 rue Paradis
+```
+
+**Complément d'adresse**
+```
+Chez B3C Experts
+```
+
+**Code postal**
+```
+13006
+```
+
+**Ville**
+```
+Marseille
+```
+
+**Pays**
+```
+France
+```
+
+Données complémentaires du registre : holding (NAF 64.20Z), créée le 15 janvier 2016, associé unique, gérant depuis le 24 décembre 2015. Le registre donne aussi la naissance du gérant, utile au KYC : 30 décembre 1985 à Marseille.
+
 ## À compléter
 - L'adresse de résidence personnelle à Monaco et la date d'installation, avec justificatifs (bail, carte de séjour), pièces déjà demandées au client pour le KYC.
-- La date et le lieu de naissance et la copie de la pièce d'identité (KYC, entrée en relation).
+- La copie de la pièce d'identité (KYC, entrée en relation) ; la date et le lieu de naissance issus du registre restent à confirmer sur la pièce.
 - Les références internes du devis et de la facture, selon votre numérotation Sellsy.
-- L'entité facturée, à confirmer : la convention du 3 septembre 2026 est conclue avec Monsieur Julien Guedj personnellement. Si la facturation devait être portée par une société du groupe (Elenava Invest), il faudrait sa forme exacte (EURL selon la consultation monégasque, SARL selon l'organigramme, à trancher par les statuts), son SIREN et son numéro de TVA intracommunautaire.
 
 ## Hypothèses retenues
 - TVA au taux normal de 20 % : l'adresse de facturation retenue est celle de la proposition du 16 juin 2026, à Marseille. Le régime resterait identique avec une facturation à son adresse monégasque, Monaco étant assimilé au territoire français pour la TVA.
