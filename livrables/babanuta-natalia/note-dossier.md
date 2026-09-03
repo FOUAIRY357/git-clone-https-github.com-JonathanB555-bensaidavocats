@@ -28,6 +28,14 @@ Note interne, mise à jour au 03/09/2026.
 - Volet paie et social : PAS de résident maintenu par l'employeur, adresse de paie non mise à jour, affiliation sociale française d'une salariée travaillant hors de France sans convention bilatérale de sécurité sociale identifiée (à vérifier). CSG et CRDS potentiellement indues. Sujet à signaler à l'employeur, cabinet d'expertise comptable au demeurant.
 - Données manquantes : estimation des jours passés en France sur les douze derniers mois (demandée pour le call), localisation effective du conjoint et des enfants, contenu du contrat.
 
+## Mission et honoraires (proposition, à valider par François)
+
+- Mission Natalia, « sécurisation fiscale du télétravail depuis la Moldavie », consultation écrite et opposable. Contenu : résidence fiscale et application de la convention du 15 juin 2022 (réponse à la question de l'option pour la France), obligations déclaratives françaises 2025 et suivantes, plan de correction de la paie sous forme de note remettable à l'employeur (sortie du PAS, adresse, retenue à la source sur d'éventuels jours travaillés en France), chiffrage des CSG et CRDS indues, coordination d'un confrère moldave pour la régularisation locale (le droit moldave reste hors périmètre).
+- Forfait proposé : 2 500 euros HT, fourchette 2 500 à 3 000. Honoraires hors champ de la TVA française (article 259 B du CGI, preneuse non assujettie résidant hors UE, BOI-TVA-CHAMP-20-50-50 vérifié le 03/09/2026) : le HT est son prix net.
+- Module optionnel « restitution CSG/CRDS et cotisations indues » : 1 000 euros HT, plus honoraire de résultat de 15 % HT des sommes effectivement restituées (évènement déclencheur : encaissement). Enjeu estimé : environ 296 euros par mois, soit près de 3 500 euros par an et de l'ordre de 6 000 euros déjà prélevés depuis le 01/01/2025.
+- Pas de RDV de cadrage à 2 400 euros sur ce dossier : particulière à revenus modestes, dossier déjà documenté par les pièces, le call du 04/09 suffit à convertir.
+- Piste employeur GFE (cabinet d'expertise comptable) : mission distincte de mise en conformité du télétravail transfrontalier (paie, retenue à la source, affiliation sociale, risque d'établissement stable en Moldavie), 4 000 à 6 000 euros HT. Vecteur commercial : la note de correction de paie remise via Natalia. Point de vigilance déontologique : ne conseiller l'employeur et la salariée que si leurs intérêts restent alignés ; en cas de divergence (restitution des cotisations, contentieux), choisir un seul client.
+
 ## Prochaines étapes
 
 - Entretien téléphonique jeudi 04/09/2026 à 10 h 30 heure de Paris, au 01 86 24 00 15. Mail de confirmation préparé (spec dans ce dossier).
