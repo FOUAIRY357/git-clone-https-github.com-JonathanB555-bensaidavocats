@@ -1,0 +1,17 @@
+{
+  "destinataire": "[adresse e-mail de la prospecte]",
+  "objet": "Imposition de votre salaire en télétravail depuis la Moldavie",
+  "civilite": "Chère Madame,",
+  "sortie": "livrables/prospecte-teletravail-moldavie/2026-09-03-mail-demande-documents.html",
+  "corps": [
+    {"p": "Je vous remercie pour ce message."},
+    {"p": "Le télétravail exercé depuis l'étranger au profit d'un employeur français est un sujet que nous traitons régulièrement. Le pays d'imposition d'un salaire dépend de la résidence fiscale du salarié et du lieu où l'activité est matériellement exercée. Le lieu d'établissement des bulletins de paie et de versement des cotisations sociales constitue un simple indice dans cette analyse. Le cadre a par ailleurs récemment changé. La France et la Moldavie sont liées par une nouvelle convention fiscale, signée le 15 juin 2022 et applicable aux revenus perçus depuis le 1er janvier 2025. Cette convention répartit le droit d'imposer votre salaire entre les deux États et conditionne la possibilité d'une imposition en France."},
+    {"p": "Nous livrons une étude écrite et opposable. Elle détermine votre résidence fiscale, le pays d'imposition de votre salaire et vos obligations déclaratives en France, y compris pour les années déjà écoulées. Elle fixe également les corrections à demander, le cas échéant, à votre employeur sur le traitement de la paie. Notre intervention porte sur le volet français. Pour le volet moldave, nous nous coordonnons, si nécessaire, avec un conseil local."},
+    {"p": "Afin de mesurer précisément votre dossier, pourriez-vous nous transmettre les éléments suivants ?"},
+    {"b": "votre contrat de travail et, le cas échéant, l'avenant relatif au télétravail,"},
+    {"b": "vos trois derniers bulletins de paie,"},
+    {"b": "vos déclarations de revenus ou avis d'imposition déjà établis, en France comme en Moldavie,"},
+    {"b": "la date de votre installation en Moldavie, votre situation de famille et une estimation du nombre de jours passés en France au cours des douze derniers mois."},
+    {"p": "Le plus efficace est d'en parler. Je vous propose un échange téléphonique demain, jeudi 4 septembre, en fin de matinée heure de Paris (une heure de plus à Chisinau). Pourriez-vous m'indiquer le créneau et le numéro auxquels vous joindre ?"}
+  ]
+}
