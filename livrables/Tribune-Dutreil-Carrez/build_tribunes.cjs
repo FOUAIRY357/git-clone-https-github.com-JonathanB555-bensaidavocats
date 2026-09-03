@@ -13,7 +13,7 @@ const OUT = __dirname;
 
 // ---------- VERSION LES ECHOS (~4 000 signes) ----------
 const echos = {
-  meta: "Projet de tribune, cosignature Gilles Carrez / François Ouairy. Format court ~4 000 signes, proposé à La Tribune (rubrique Opinions), utilisable tel quel pour toute rédaction. Les passages entre crochets sont à la main de M. Carrez. Version 5 du 3 septembre 2026.",
+  meta: "Projet de tribune, cosignature Gilles Carrez / François Ouairy. Version courte ~4 000 signes. Les passages entre crochets sont à votre main. Version 6 du 3 septembre 2026.",
   titre: "Le pacte Dutreil exige huit ans des familles. L'État, lui, ne tient pas huit mois.",
   chapo: null,
   corps: [
@@ -30,7 +30,7 @@ const echos = {
 
 // ---------- VERSION LE MONDE (~5 000 signes) ----------
 const monde = {
-  meta: "Projet de tribune, cosignature Gilles Carrez / François Ouairy. Calibrage ~5 000 signes (Le Monde, pages Idées ; le chapô est rédigé par la rédaction ; titre proposé, la rédaction le met entre guillemets). Les passages entre crochets sont à la main de M. Carrez. Version 5 du 3 septembre 2026.",
+  meta: "Projet de tribune, cosignature Gilles Carrez / François Ouairy. Version longue ~5 000 signes (le chapô sera rédigé par la rédaction). Les passages entre crochets sont à votre main. Version 6 du 3 septembre 2026.",
   titre: "Le pacte Dutreil ne survivra ni au rabot ni au statu quo",
   chapo: null,
   corps: [
@@ -86,7 +86,7 @@ function buildDoc(v) {
   console.log("Signes (titre + intertitres + corps, hors signature) :");
   console.log("  Version Les Échos :", signes(echos));
   console.log("  Version Le Monde  :", signes(monde));
-  for (const [v, name] of [[echos, "Tribune-Dutreil_Version-La-Tribune_4000-signes.docx"], [monde, "Tribune-Dutreil_Version-Le-Monde_5000-signes.docx"]]) {
+  for (const [v, name] of [[echos, "Tribune-Dutreil_Version-courte_4000-signes.docx"], [monde, "Tribune-Dutreil_Version-longue_5000-signes.docx"]]) {
     const buf = await Packer.toBuffer(buildDoc(v));
     fs.writeFileSync(path.join(OUT, name), buf);
     console.log("Écrit :", name);
