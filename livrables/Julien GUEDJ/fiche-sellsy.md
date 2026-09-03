@@ -76,7 +76,7 @@ Assujetti, taux normal français
 
 **Conditions de règlement**
 ```
-Paiement avant le début des travaux
+50 % à la signature de la convention d'honoraires, solde à la remise de la note de cadrage
 ```
 
 **Origine du contact**
@@ -96,7 +96,7 @@ structuration, exit tax, Monaco, particulier
 
 **Note interne**
 ```
-Dirigeant du groupe Elenava : Color Group (bus touristiques, Marseille), Monaderm (cosmétique, Monaco), holdings et SCI. Valorisation d'environ 20 M€, dette LBO de 12 à 13 M€. Domicilié à Monaco, résident fiscal de France par l'article 7 de la convention franco-monégasque de 1963. Mission de cadrage fiscal acceptée le 26 août 2026 (proposition du 16 juin 2026, N/Réf. ELENAVA / cadrage fiscal). Points de vigilance : exit tax (le dégrèvement à cinq ans laisse subsister les prélèvements sociaux), projet de changement de nationalité à séquencer, covenants LBO bloquant les remontées de dividendes, tiers au capital, périmètre du groupe à faire confirmer par le client. Réunion d'ouverture de mission à caler, KYC à mener, liste de pièces adressée au client.
+Dirigeant du groupe Elenava : Color Group (bus touristiques, Marseille), Monaderm (cosmétique, Monaco), holdings et SCI. Valorisation d'environ 20 M€, dette LBO de 12 à 13 M€. Domicilié à Monaco, résident fiscal de France par l'article 7 de la convention franco-monégasque de 1963. Mission de cadrage fiscal acceptée le 26 août 2026 (proposition du 16 juin 2026, N/Réf. ELENAVA / cadrage fiscal). Convention d'honoraires émise le 3 septembre 2026, signature François Ouairy. Points de vigilance : exit tax (le dégrèvement à cinq ans laisse subsister les prélèvements sociaux), projet de changement de nationalité à séquencer, covenants LBO bloquant les remontées de dividendes, tiers au capital, périmètre du groupe à faire confirmer par le client. Réunion d'ouverture de mission à caler, KYC à mener, liste de pièces adressée au client.
 ```
 
 ## Devis, en-tête
@@ -113,12 +113,12 @@ ELENAVA / cadrage fiscal
 
 **Date**
 ```
-2 septembre 2026
+3 septembre 2026
 ```
 
 **Date de validité**
 ```
-2 octobre 2026
+3 octobre 2026
 ```
 
 Ligne unique, quantité 1, unité forfait, taux de TVA 20 %.
@@ -139,7 +139,7 @@ Mission de cadrage fiscal : cartographie juridique et fiscale du groupe, qualifi
 
 **Conditions particulières**
 ```
-Les honoraires sont réglés avant le début des travaux. Les diligences s'étendent sur environ quatre semaines à compter de la réception de l'ensemble des pièces. La phase de mise en œuvre (rédaction des actes, constitution des entités, demande de rescrit, accompagnement des acquisitions) fera l'objet d'une proposition distincte établie au vu des conclusions de la note.
+Les honoraires sont réglés à hauteur de 50 % à la signature de la convention d'honoraires, le solde à la remise de la note de cadrage. Les diligences s'étendent sur environ quatre semaines à compter de la réception de l'ensemble des pièces. La phase de mise en œuvre (rédaction des actes, constitution des entités, demande de rescrit, accompagnement des acquisitions) fera l'objet d'une proposition distincte établie au vu des conclusions de la note.
 ```
 
 ## Devis, totaux (contrôle)
@@ -150,7 +150,7 @@ Total HT 7 500,00. TVA 20 % 1 500,00. Total TTC 9 000,00.
 
 **Objet**
 ```
-Honoraires, mission de cadrage fiscal du groupe Elenava
+Honoraires, mission de cadrage fiscal du groupe Elenava, règlement de 50 % à la signature
 ```
 
 **Référence**
@@ -160,24 +160,24 @@ ELENAVA / cadrage fiscal
 
 **Date**
 ```
-2 septembre 2026
+3 septembre 2026
 ```
 
 **Échéance**
 ```
-À réception, avant le début des travaux
+À réception, à la signature de la convention d'honoraires
 ```
 
 ## Facture à émettre, ligne
 
 **Désignation**
 ```
-Mission de cadrage fiscal : cartographie juridique et fiscale du groupe, qualification de la résidence fiscale, revue des flux (dividendes, financements, rémunérations) ; définition d'un schéma cible autour d'une holding de rachat française et positionnement des entités monégasque et internationale ; analyse de faisabilité et de sécurité (plafonnement de la déduction des charges financières, dispositifs anti-abus, direction effective, substance) ; chiffrage indicatif des gains et des coûts ; remise d'une note écrite de dix à quinze pages et réunion de restitution
+Mission de cadrage fiscal du groupe Elenava, règlement de 50 % du forfait à la signature de la convention d'honoraires
 ```
 
 **Prix unitaire HT**
 ```
-7500,00
+3750,00
 ```
 
 Quantité 1, unité forfait, taux de TVA 20 %.
@@ -191,22 +191,22 @@ Le délai de réalisation d'environ quatre semaines court à compter de la réce
 
 ## Facture à émettre, totaux (contrôle)
 
-Total HT 7 500,00. TVA 20 % 1 500,00. Total TTC 9 000,00.
+Total HT 3 750,00. TVA 20 % 750,00. Total TTC 4 500,00.
 
 ## Factures suivantes
 
-| Mission | Fait déclencheur | HT |
-|---------|------------------|-----|
-| Mise en œuvre (actes, constitution des entités, rescrit, accompagnement des acquisitions) | Acceptation de la proposition distincte établie au vu des conclusions de la note de cadrage | Selon proposition à venir |
+| Facture | Fait déclencheur | HT | TTC |
+|---------|------------------|-----|-----|
+| Solde du forfait de cadrage | Remise de la note de cadrage | 3 750,00 | 4 500,00 |
+| Mise en œuvre (actes, constitution des entités, rescrit, accompagnement des acquisitions) | Acceptation de la proposition distincte établie au vu des conclusions de la note de cadrage | Selon proposition à venir | Selon proposition à venir |
 
 ## À compléter
 - L'adresse de résidence personnelle à Monaco et la date d'installation, avec justificatifs (bail, carte de séjour), pièces déjà demandées au client pour le KYC.
 - La date et le lieu de naissance et la copie de la pièce d'identité (KYC, entrée en relation).
 - Les références internes du devis et de la facture, selon votre numérotation Sellsy.
-- L'entité facturée, à confirmer : la proposition du 16 juin 2026 est adressée à Monsieur Julien Guedj personnellement. Si la facturation devait être portée par une société du groupe (Elenava Invest), il faudrait sa forme exacte (EURL selon la consultation monégasque, SARL selon l'organigramme, à trancher par les statuts), son SIREN et son numéro de TVA intracommunautaire.
-- Les conditions de règlement définitives, à reprendre de la lettre de mission à faire signer.
+- L'entité facturée, à confirmer : la convention du 3 septembre 2026 est conclue avec Monsieur Julien Guedj personnellement. Si la facturation devait être portée par une société du groupe (Elenava Invest), il faudrait sa forme exacte (EURL selon la consultation monégasque, SARL selon l'organigramme, à trancher par les statuts), son SIREN et son numéro de TVA intracommunautaire.
 
 ## Hypothèses retenues
-- TVA au taux normal de 20 % : l'adresse de facturation retenue par la proposition du 16 juin 2026 est à Marseille. Le régime resterait identique avec une facturation à son adresse monégasque, Monaco étant assimilé au territoire français pour la TVA.
-- Facturation en une fois, réglée avant le début des travaux, pratique par défaut du cabinet, la lettre de mission n'étant pas encore signée. À ajuster si la lettre de mission prévoit un autre échéancier.
-- Devis repris de la proposition du 16 juin 2026 (N/Réf. ELENAVA / cadrage fiscal), acceptée par mail du 26 août 2026. Ligne unique vérifiée égale au forfait de 7 500 € HT.
+- TVA au taux normal de 20 % : l'adresse de facturation retenue est celle de la proposition du 16 juin 2026, à Marseille. Le régime resterait identique avec une facturation à son adresse monégasque, Monaco étant assimilé au territoire français pour la TVA.
+- Échéancier repris de la convention d'honoraires du 3 septembre 2026 : 50 % du forfait à la signature, solde à la remise de la note de cadrage.
+- Devis repris de la proposition du 16 juin 2026 (N/Réf. ELENAVA / cadrage fiscal), acceptée par mail du 26 août 2026. Ligne unique vérifiée égale au forfait de 7 500 € HT, somme des deux factures vérifiée égale au forfait.
