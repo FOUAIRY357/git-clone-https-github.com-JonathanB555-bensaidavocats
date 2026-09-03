@@ -2,12 +2,11 @@
   "destinataire": "babanutanatalia17@yahoo.com",
   "objet": "Imposition de votre salaire en télétravail depuis la Moldavie",
   "civilite": "Chère Madame,",
-  "disponibilite": "",
   "sortie": "livrables/babanuta-natalia/2026-09-03-mail-refus-dossier.html",
   "corps": [
-    {"p": "Je vous remercie pour votre message et pour les pièces transmises."},
-    {"p": "Après examen, notre cabinet n'est pas en mesure de donner suite à votre dossier. L'entretien téléphonique envisagé demain n'a donc plus d'objet, et je vous prie d'excuser ce contretemps."},
-    {"p": "Pour la suite de vos démarches, l'annuaire des avocats du barreau de Paris vous permettra d'identifier un confrère fiscaliste."},
-    {"p": "Les pièces que vous nous avez transmises ne seront pas conservées."}
+    {"p": "Je vous remercie pour votre retour et pour les pièces transmises."},
+    {"p": "Votre situation appelle une étude complète. Elle couvre votre résidence fiscale, l'application de la convention fiscale entre la France et la Moldavie et vos obligations déclaratives pour 2025 et les années suivantes. Elle fixe également les corrections à demander à votre employeur sur la paie, en coordination avec un conseil moldave pour le volet local. Pour ce périmètre, notre intervention s'établit à un forfait de 6 000 euros HT."},
+    {"p": "Nous vous le disons en toute transparence, cet honoraire nous paraît disproportionné au regard des enjeux financiers de votre dossier. Nous préférons vous en avertir avant tout engagement. Un confrère fiscaliste, que l'annuaire du barreau de Paris vous permettra d'identifier, pourra vous accompagner dans des conditions mieux proportionnées à votre situation."},
+    {"p": "Sauf accord de votre part sur ces conditions, l'entretien téléphonique envisagé demain n'a plus d'objet et les pièces transmises ne seront pas conservées."}
   ]
 }

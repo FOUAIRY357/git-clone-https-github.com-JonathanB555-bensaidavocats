@@ -38,6 +38,7 @@ Note interne, mise à jour au 03/09/2026.
 
 ## Issue du dossier
 
-- 03/09/2026 : François décide de ne pas donner suite. Dossier décliné avant l'entretien du 04/09.
-- Mail de refus courtois préparé (spec dans ce dossier) : annulation de l'entretien, orientation vers un confrère fiscaliste, engagement de non-conservation des pièces. À envoyer le 03/09 avant le créneau proposé.
-- Si l'engagement de non-conservation est maintenu, supprimer le mail et ses pièces jointes de la boîte après envoi du refus.
+- 03/09/2026 : François décide de ne pas donner suite. Refus par le prix plutôt que refus sec.
+- Mail préparé (spec dans ce dossier) : périmètre de l'étude annoncé, forfait de 6 000 euros HT, mention transparente de la disproportion entre cet honoraire et les enjeux du dossier, orientation vers un confrère fiscaliste, entretien du 04/09 caduc sauf acceptation, non-conservation des pièces à défaut de suite. À envoyer le 03/09 avant le créneau proposé.
+- Si elle acceptait le forfait de 6 000 euros HT, revenir vers François avant tout engagement (lettre de mission à établir).
+- À défaut de suite, supprimer son mail et ses pièces jointes de la boîte (numéro de sécurité sociale, IBAN, avis d'imposition).
