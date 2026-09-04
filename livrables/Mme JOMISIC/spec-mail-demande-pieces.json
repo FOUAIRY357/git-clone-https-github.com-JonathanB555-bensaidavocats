@@ -1,0 +1,114 @@
+{
+  "destinataire": "dominique.ada@[domaine à confirmer]",
+  "copie": "Jonathan@bensaid-avocats.fr",
+  "objet": "Refinancement de votre patrimoine immobilier - pièces à réunir",
+  "civilite": "Chère Madame,",
+  "sortie": "livrables/Mme JOMISIC/mail-demande-pieces.html",
+  "corps": [
+    {
+      "p": "Je vous remercie pour notre échange téléphonique de ce jour."
+    },
+    {
+      "p": "Comme convenu, je vous adresse la liste des pièces qui nous permettront d'étudier le refinancement de votre patrimoine immobilier. Trois biens sont concernés."
+    },
+    {
+      "b": "Le chalet de Megève, en fin de construction, aujourd'hui libre de tout emprunt."
+    },
+    {
+      "b": "L'appartement de Genève, votre résidence principale, dont le prêt hypothécaire, souscrit auprès de la banque Notenstein aujourd'hui reprise par Vontobel, arrive à son terme."
+    },
+    {
+      "b": "La maison de Saint-Tropez, estimée à 3,5 millions d'euros, cédée à réméré à hauteur de 1,5 million d'euros pour achever le chalet et solder d'autres engagements."
+    },
+    {
+      "p": "L'objectif est une solution d'ensemble. Elle devra organiser la reprise du financement de Genève et le rachat du réméré, et vous permettre de conserver Saint-Tropez. Le chalet de Megève, libre de charges, pourra servir d'assiette aux garanties du refinancement."
+    },
+    {
+      "p": "J'examinerai le volet fiscal de l'opération. Jonathan BENSAID, mon associé, en traitera le volet financier avec les banques avec lesquelles nous travaillons en France, en Suisse et au Luxembourg."
+    },
+    {
+      "p": "Merci de nous adresser les pièces suivantes, dans l'état où vous les détenez."
+    },
+    {
+      "titre": "1. Votre situation personnelle et familiale"
+    },
+    {
+      "b": "Votre pièce d'identité et un justificatif de votre domicile à Genève."
+    },
+    {
+      "b": "Les actes de la succession de votre époux (acte de notoriété, attestation dévolutive ou partage), afin d'établir la répartition de la propriété entre vous et vos enfants sur chacun des biens."
+    },
+    {
+      "b": "Le mode de détention de chaque bien (en direct, en indivision ou par une société) avec, le cas échéant, les statuts et un extrait d'immatriculation de la société."
+    },
+    {
+      "b": "Vos deux dernières déclarations fiscales suisses et, le cas échéant, françaises (revenus et impôt sur la fortune immobilière), avec les avis correspondants."
+    },
+    {
+      "b": "Un état de vos revenus actuels (pensions, revenus locatifs, dividendes), avec leurs justificatifs."
+    },
+    {
+      "titre": "2. Le chalet de Megève"
+    },
+    {
+      "b": "L'acte d'acquisition du terrain."
+    },
+    {
+      "b": "Le permis de construire, les marchés de travaux et le budget restant à engager pour l'achèvement."
+    },
+    {
+      "b": "Toute estimation de la valeur du chalet achevé, si vous en disposez."
+    },
+    {
+      "titre": "3. L'appartement de Genève"
+    },
+    {
+      "b": "L'acte d'achat et l'extrait du registre foncier."
+    },
+    {
+      "b": "Le contrat de prêt hypothécaire Notenstein, les cédules hypothécaires, le capital restant dû et l'échéancier."
+    },
+    {
+      "b": "Vos échanges avec Vontobel sur le renouvellement du prêt, en particulier tout courrier annonçant qu'il ne serait pas reconduit."
+    },
+    {
+      "b": "Toute estimation récente de la valeur de l'appartement."
+    },
+    {
+      "titre": "4. La maison de Saint-Tropez"
+    },
+    {
+      "b": "Le titre de propriété."
+    },
+    {
+      "b": "L'acte de vente à réméré, avec le prix de rachat convenu, les indemnités d'occupation éventuelles et la date limite d'exercice de la faculté de rachat."
+    },
+    {
+      "b": "Toute expertise ou estimation à l'appui de la valeur de 3,5 millions d'euros."
+    },
+    {
+      "titre": "5. Vos financements et les propositions reçues"
+    },
+    {
+      "b": "La liste de vos emprunts et dettes en cours, avec les contrats de prêt et les tableaux d'amortissement."
+    },
+    {
+      "b": "La proposition de financement d'UBP et vos échanges avec votre courtier, pour connaître les conditions déjà sur la table."
+    },
+    {
+      "b": "Un état récent de vos avoirs bancaires et financiers, pour la présentation du dossier aux établissements prêteurs."
+    },
+    {
+      "titre": "6. La suite"
+    },
+    {
+      "p": "Une pièce manquante ne retardera pas notre examen. Vous pouvez nous adresser les documents au fil de l'eau, en réponse à ce message."
+    },
+    {
+      "p": "À réception, j'examinerai l'ensemble avec Jonathan BENSAID et nous vous proposerons un rendez-vous pour vous présenter les solutions envisageables et leurs conditions. Nous vous préciserons à cette occasion le cadre de notre intervention."
+    },
+    {
+      "p": "Vous nous avez indiqué une échéance à la fin du mois. Pourriez-vous nous préciser ce qu'elle recouvre, en particulier si elle correspond au terme de la faculté de rachat du réméré ? Plus tôt nous recevrons vos pièces, plus tôt nous reviendrons vers vous."
+    }
+  ]
+}
