@@ -82,6 +82,8 @@ function buildDoc(v) {
   return new Document({ sections: [{ children }] });
 }
 
+module.exports = { echos, monde, para, buildDoc, signes };
+
 (async () => {
   console.log("Signes (titre + intertitres + corps, hors signature) :");
   console.log("  Version Les Échos :", signes(echos));
