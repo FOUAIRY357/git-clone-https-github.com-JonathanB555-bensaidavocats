@@ -1,0 +1,58 @@
+name: portrait-nano-banana
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: URL du fichier image généré par Nano Banana
+        required: true
+      nom:
+        description: Nom du fichier de destination (sans extension)
+        required: true
+        default: portrait-v1
+
+permissions:
+  contents: write
+
+jobs:
+  rapatrier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/nano-banana-pro-photo-71z1be
+      - run: pip install pillow requests
+      - name: Télécharger le portrait et produire les déclinaisons
+        shell: python
+        env:
+          URL: ${{ inputs.url }}
+          NOM: ${{ inputs.nom }}
+        run: |
+          import io, os, pathlib
+          import requests
+          from PIL import Image
+
+          dossier = pathlib.Path('livrables/portrait-2026')
+          dossier.mkdir(parents=True, exist_ok=True)
+          nom = os.environ['NOM']
+
+          reponse = requests.get(os.environ['URL'], timeout=120)
+          reponse.raise_for_status()
+          img = Image.open(io.BytesIO(reponse.content)).convert('RGB')
+          print('dimensions source :', img.size)
+
+          img.save(dossier / f'{nom}.jpg', 'JPEG', quality=95, optimize=True, progressive=True)
+
+          apercu = img.copy()
+          apercu.thumbnail((900, 900), Image.LANCZOS)
+          apercu.save(dossier / f'{nom}-apercu.jpg', 'JPEG', quality=88, optimize=True, progressive=True)
+          print('aperçu :', apercu.size)
+      - name: Committer le portrait
+        run: |
+          git config user.name "FOUAIRY357"
+          git config user.email "francois.ouairy@bensaid-avocats.fr"
+          git add livrables/portrait-2026
+          git commit -m "Portrait 2026 : rapatriement de ${{ inputs.nom }} depuis Nano Banana Pro
+
+          Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+          Claude-Session: https://claude.ai/code/session_01WAMtsD8Yk1MYdv3KDavJvv"
+          git push
