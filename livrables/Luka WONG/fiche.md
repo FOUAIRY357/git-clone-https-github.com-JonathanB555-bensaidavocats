@@ -184,20 +184,25 @@ avait raison.
 
 ---
 
-## 7. Premières pièces à demander
+## 7. Pièces à demander
 
-Reprises dans le mail de demande de pièces du 4 septembre (`spec-mail-pieces.json`).
+Le mail du 4 septembre (`spec-mail-pieces.json`) ne demande que cinq pièces. Le prospect a résisté
+deux fois au call sur l'idée de déposer quoi que ce soit, une liste longue le ferait fuir. Les cinq
+pièces retenues suffisent à qualifier la résidence et à fixer l'honoraire :
 
-Identité et séjour : passeport, tous visas et titres de séjour depuis l'arrivée, attestations de
-scolarité par année universitaire.
-Présence : calendrier annuel de présence en France, bail et quittances, contrats d'énergie, internet
-et téléphonie.
-Fiscalité : déclarations américaines fédérales et californiennes des trois dernières années avec
-annexes, toute déclaration ou avis français, conventions de stage et bulletins de paie français.
-Patrimoine : acte d'acquisition de la maison californienne, répartition de la propriété, actes de
-prêt, actes constitutifs en cas de trust ou de LLC, liste des comptes détenus hors de France avec
-relevés annuels, liste des comptes français.
-Situation familiale : situation matrimoniale et résidence du conjoint le cas échéant.
+- passeport, visas et titres de séjour, ce qui donne la date de naissance et la date d'arrivée
+- estimation des jours de présence par année, et le bail
+- déclarations américaines des trois dernières années avec annexes
+- quote-part dans la maison californienne, mode de détention, actes de prêt
+- liste des comptes détenus hors de France avec le solde maximal atteint sur chacun
+
+Le solde maximal est la pièce décisive : il fixe le délai de reprise à trois ou à dix ans
+(article L. 169 du LPF, seuil de 50 000 €).
+
+À demander dans un second temps, une fois la relation engagée : attestations de scolarité,
+déclarations californiennes, conventions de stage et bulletins de paie français, numéro fiscal et
+avis d'imposition éventuels, actes constitutifs en cas de trust ou de LLC, contrats d'énergie et de
+téléphonie, situation matrimoniale, autres biens immobiliers.
 
 ---
 
