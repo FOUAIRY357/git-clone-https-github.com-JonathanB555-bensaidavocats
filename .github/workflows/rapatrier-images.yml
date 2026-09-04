@@ -1,7 +1,9 @@
 name: Rapatrier les images générées
 # Contournement : l'environnement Claude Code n'a pas accès au domaine
-# d'hébergement temporaire des images générées ; ce workflow les télécharge
-# depuis un runner GitHub et les committe sur la branche ciblée par le dispatch.
+# d'hébergement temporaire des images générées ; ce workflow lit le manifeste
+# livrables/portrait-2026/a-rapatrier.txt (lignes « nom<TAB>url »), télécharge
+# chaque image depuis un runner GitHub et la committe sur la branche ciblée
+# par le dispatch.
 on: workflow_dispatch
 
 permissions:
@@ -12,25 +14,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Télécharger les images
+      - run: pip install pillow requests
+      - name: Télécharger les images du manifeste
+        shell: python
         run: |
-          set -euo pipefail
-          mkdir -p site/public/images
-          base='https://mcp.bensaid-mcp.com/files/images/nano-banana'
-          curl -fsSL -o site/public/images/accueil-hero.jpg  "$base/6842113c498436ae638b2c775bdc9afd/nano-banana-1787937185743.jpeg"
-          curl -fsSL -o site/public/images/scan-tva.jpg      "$base/c91fe4c0112eb89c0453a081a24e27ba/nano-banana-1787937203561.jpeg"
-          curl -fsSL -o site/public/images/scan-ts.jpg       "$base/9315ee2d247d8d4e5effc20b3e8e47cb/nano-banana-1787937220612.jpeg"
-          curl -fsSL -o site/public/images/holdings.jpg      "$base/b47e2d83d7f156b6e1ca93e003e17c31/nano-banana-1787937248128.jpeg"
-          curl -fsSL -o site/public/images/finance.jpg       "$base/a9bdeb242236ad943700c1877f17c197/nano-banana-1787937268105.jpeg"
-          curl -fsSL -o site/public/images/assurance.jpg     "$base/23f021d98dc4faa9e862a25628010731/nano-banana-1787937287618.jpeg"
-          curl -fsSL -o site/public/images/immobilier.jpg    "$base/1c7f921597ea88311ce50c9da35511ee/nano-banana-1787937313162.jpeg"
-          curl -fsSL -o site/public/images/sante.jpg         "$base/5fea76568b8c674f30e4116a19633add/nano-banana-1787937332432.jpeg"
-          curl -fsSL -o site/public/images/contentieux.jpg   "$base/f6864bdd8a7aefc413738300fa65d245/nano-banana-1787937350163.jpeg"
-          ls -la site/public/images/
+          import io, pathlib
+          import requests
+          from PIL import Image
+
+          manifeste = pathlib.Path('livrables/portrait-2026/a-rapatrier.txt')
+          dossier = manifeste.parent
+          for ligne in manifeste.read_text(encoding='utf-8').splitlines():
+              ligne = ligne.strip()
+              if not ligne or ligne.startswith('#'):
+                  continue
+              nom, url = [c.strip() for c in ligne.split(None, 1)]
+              reponse = requests.get(url, timeout=180)
+              reponse.raise_for_status()
+              img = Image.open(io.BytesIO(reponse.content)).convert('RGB')
+              img.save(dossier / f'{nom}.jpg', 'JPEG', quality=95, optimize=True, progressive=True)
+              apercu = img.copy()
+              apercu.thumbnail((900, 900), Image.LANCZOS)
+              apercu.save(dossier / f'{nom}-apercu.jpg', 'JPEG', quality=88, optimize=True, progressive=True)
+              print(f'{nom} : {img.size} -> aperçu {apercu.size}')
       - name: Committer les images
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/public/images
-          git commit -m "Images générées : rapatriement automatique"
+          git add livrables/portrait-2026
+          git commit -m "Portraits générés : rapatriement automatique" || echo "rien à committer"
           git push

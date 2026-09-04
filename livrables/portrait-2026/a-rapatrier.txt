@@ -1,0 +1,2 @@
+# nom<TAB>url — images à rapatrier depuis l'hébergement temporaire Nano Banana
+portrait-v1	https://mcp.bensaid-mcp.com/files/images/nano-banana/d95709f3d6c0c7e93912ccca134cd98e/nano-banana-1788543423969.jpeg
