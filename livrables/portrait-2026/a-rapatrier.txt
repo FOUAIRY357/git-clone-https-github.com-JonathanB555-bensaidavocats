@@ -7,3 +7,5 @@ portrait-v5	https://mcp.bensaid-mcp.com/files/images/nano-banana/76eeb7f28fdb538
 pose-bras-croises	https://mcp.bensaid-mcp.com/files/images/nano-banana/f33070755461248eae3803e225adfad9/nano-banana-1788544940238.jpeg
 pose-trois-quarts-inverse	https://mcp.bensaid-mcp.com/files/images/nano-banana/a7c99cf24854fa2dab839e1e0ed885bc/nano-banana-1788544961662.jpeg
 pose-regard-hors-champ	https://mcp.bensaid-mcp.com/files/images/nano-banana/0efa53485b407aec11cbef12424c5a7c/nano-banana-1788544984702.jpeg
+pose-bras-croises-fond	https://mcp.bensaid-mcp.com/files/images/nano-banana/c66a389b9cc0de3e8a5129553f501cb0/nano-banana-1788545148908.jpeg
+pose-trois-quarts-inverse-fond	https://mcp.bensaid-mcp.com/files/images/nano-banana/8178513705aca6df0f9c2448f8d65fc2/nano-banana-1788545167921.jpeg
