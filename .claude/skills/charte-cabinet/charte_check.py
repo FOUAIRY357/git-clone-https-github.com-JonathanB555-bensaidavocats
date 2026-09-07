@@ -56,6 +56,11 @@ ANTITHESES = [
      "meme sujet nie puis affirme"),
     # « non pas X mais Y »
     (re.compile(r"\bnon pas\b[^.!?]{0,120}\bmais\b", re.I), "« non pas ... mais »"),
+    # « ce n'est pas X, mais Y » : negation puis substitution dans la meme phrase.
+    # Le plus lache des motifs : une concessive legitime (« nous ne conseillons pas
+    # sur le droit americain, mais l'echeance doit etre tenue ») y ressemble. A lire.
+    (re.compile(NEG + r"[^.!?]{0,100},\s*mais\b", re.I),
+     "negation puis « mais », a arbitrer : concessive legitime possible"),
     # « il ne s'agit pas de X, mais de Y »
     (re.compile(r"\bil ne s" + APO + r"agit pas\b[^.!?]{0,120}\bmais\b", re.I),
      "« il ne s'agit pas ... mais »"),

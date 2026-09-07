@@ -112,6 +112,10 @@ Le contrôle des règles ci-dessus est outillé, dans ce même dossier, et il va
   Un tiret cadratin ou un demi-cadratin **bloque la génération**. Les antithèses en miroir, les
   phrases-chapeau, les puces rondes, une densité de deux-points excessive et les phrases de plus
   de 240 caractères sortent en avertissement.
+- **Un avertissement se lit, il ne s'applique pas seul.** Le motif « négation puis *mais* » attrape
+  aussi une concessive légitime (« nous ne conseillons pas sur le droit américain, mais l'échéance
+  doit être tenue »). Son message le signale. La règle bannit la négation qui sert à définir par
+  substitution, pas la concession.
 - **Sur un document déjà produit**, y compris hors de nos renderers (modèle client, fichier reçu),
   lancer le contrôle depuis la racine du dépôt :
   ```bash
