@@ -5,17 +5,14 @@
   "sortie": "livrables/Luma-Strategy/mail-demande-pieces.html",
   "corps": [
     {"p": "Je vous remercie de votre message."},
-    {"p": "Votre schéma est une opération en chaîne, avec un seul transport intracommunautaire, de la Grèce vers la France. Une seule des deux ventes peut être exonérée à ce titre. L'autre est une opération interne, taxable en Grèce ou en France. Aucune importation n'est en jeu, les marchandises restant dans l'Union. La mesure de simplification triangulaire, qui permet d'ordinaire d'éviter toute immatriculation supplémentaire, suppose que l'intermédiaire dispose d'un numéro de TVA intracommunautaire. Un numéro britannique ne remplit plus cette condition depuis le Brexit."},
-    {"p": "Le montage tel que la société britannique le propose conduit donc à une immatriculation de celle-ci, en Grèce ou en France. L'arbitrage entre ces deux options se joue sur votre trésorerie et sur vos obligations déclaratives. Tant qu'il n'est pas fait, une facture portant un numéro britannique sur des marchandises qui circulent dans l'Union vous expose directement. La TVA française peut être réclamée à votre société, et votre droit à déduction se discute dès que les mentions de facturation sont inexactes. La livraison directe chez votre distributeur ajoute un maillon et déplace encore l'analyse. Ce sont des sujets que nous traitons régulièrement."},
-    {"p": "Nous livrons une étude écrite et opposable. Elle qualifie chaque vente, fixe le lieu de taxation et le redevable, arrête le schéma de facturation à retenir, y compris pour les livraisons directes, et liste les mentions à imposer à votre fournisseur. Elle traite également le taux applicable à vos reventes, qui mérite d'être arrêté produit par produit sur des compléments alimentaires."},
-    {"titre": "Les pièces qui me permettront de cadrer le dossier"},
-    {"b": "les projets de facture, ou les factures déjà émises, du fabricant grec vers la société britannique et de la société britannique vers Luma Strategy"},
-    {"b": "le contrat d'approvisionnement ou de distribution avec la société britannique, et le contrat de licence de marque s'il en existe un"},
-    {"b": "les numéros de TVA des trois sociétés, et l'indication d'une éventuelle immatriculation de la société britannique dans un État membre"},
-    {"b": "les incoterms retenus et les documents de transport, en précisant qui commande et qui paie le transport, le lieu de chargement et le lieu de livraison"},
-    {"b": "le circuit des commandes et des livraisons, en distinguant les livraisons dans vos locaux des livraisons directes chez votre distributeur"},
-    {"b": "un ordre de grandeur des volumes et du chiffre d'affaires attendus sur douze mois, ainsi que la date des premières commandes"},
-    {"b": "la fiche produit et l'étiquetage envisagé, qui commandent le taux de TVA de vos reventes"},
-    {"p": "Le plus efficace est d'en parler. Je vous propose un échange demain mardi 8 septembre en fin de matinée, ou mercredi 9 septembre en fin d'après-midi. Pourriez-vous m'indiquer le créneau qui vous convient ? Je vous joindrai au 06 85 21 03 73. Je vous adresserai ensuite un devis forfaitaire, calé sur le périmètre arrêté pendant cet échange."}
+    {"p": "Votre schéma est une opération en chaîne, avec un seul transport intracommunautaire, de la Grèce vers la France. Une seule des deux ventes peut être exonérée à ce titre. La simplification triangulaire, qui éviterait toute immatriculation supplémentaire, suppose un numéro de TVA intracommunautaire chez l'intermédiaire. Un numéro britannique ne remplit plus cette condition depuis le Brexit. La société britannique devra donc s'immatriculer, en Grèce ou en France. Tant que ce choix n'est pas arrêté, une facture portant son numéro britannique vous expose. La TVA française peut être réclamée à votre société et votre droit à déduction se discute. Ce sont des sujets que nous traitons régulièrement."},
+    {"p": "Nous livrons une étude écrite et opposable : qualification de chaque vente, lieu de taxation, redevable, et schéma de facturation à retenir, y compris pour les livraisons faites directement chez votre distributeur. Pour la cadrer, les pièces suivantes me sont utiles."},
+    {"b": "les factures, ou les projets de facture, du fabricant grec vers la société britannique et de celle-ci vers Luma Strategy"},
+    {"b": "le contrat d'approvisionnement ou de distribution avec la société britannique"},
+    {"b": "les numéros de TVA des trois sociétés, et toute immatriculation de la société britannique dans un État membre"},
+    {"b": "les incoterms et les documents de transport, avec l'indication de qui commande et paie le transport"},
+    {"b": "le circuit des livraisons, en distinguant vos locaux et les livraisons directes chez votre distributeur"},
+    {"b": "un ordre de grandeur des volumes annuels et la date des premières commandes"},
+    {"p": "Le plus efficace est d'en parler. Je vous propose un échange demain mardi 8 septembre en fin de matinée, ou mercredi 9 en fin d'après-midi. Quel créneau vous convient ? Je vous joindrai au 06 85 21 03 73, et vous adresserai ensuite un devis forfaitaire."}
   ]
 }
