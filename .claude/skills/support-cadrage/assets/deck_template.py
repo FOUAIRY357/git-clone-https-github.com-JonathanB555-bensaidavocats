@@ -14,6 +14,51 @@ GREEN=RGBColor(0x2E,0x7D,0x32); RED=RGBColor(0xC0,0x39,0x2B); BLACK=RGBColor(0x0
 PANEL=RGBColor(0x16,0x16,0x16); RULEL=RGBColor(0xDA,0xDA,0xDA); RULED=RGBColor(0x33,0x33,0x33)
 F="Arial"
 
+# --- Controle de charte ----------------------------------------------------
+# Les regles de style du cabinet sont transverses a tous les ecrits, deck inclus.
+# Source : .claude/skills/charte-cabinet/. Ce fichier est copie hors du depot pour
+# etre execute (cf skill), donc on cherche le controleur depuis la racine du depot
+# puis a cote de l'asset ; a defaut, un controle minimal sur les cadratins subsiste.
+import os as _os
+
+
+def _charte_check():
+    for cand in (_os.path.join(_os.getcwd(), ".claude", "skills", "charte-cabinet"),
+                 _os.path.normpath(_os.path.join(
+                     _os.path.dirname(_os.path.abspath(__file__)),
+                     _os.pardir, _os.pardir, "charte-cabinet"))):
+        if _os.path.exists(_os.path.join(cand, "charte_check.py")):
+            if cand not in sys.path:
+                sys.path.insert(0, cand)
+            from charte_check import check
+            return check
+    return None
+
+
+_CHECK = _charte_check()
+
+
+def charte(*textes):
+    """Refuse le rendu si un tiret cadratin ou demi-cadratin subsiste."""
+    frags = []
+    for t in textes:
+        if isinstance(t, str):
+            frags.append(t)
+        elif isinstance(t, (list, tuple)):
+            frags.extend(x for x in t if isinstance(x, str))
+    if _CHECK:
+        # fragment=True : une zone de texte de slide, la densite de deux-points
+        # ne se mesure que sur un document entier.
+        _CHECK(frags, fragment=True)
+        return
+    joint = "\n".join(frags)
+    for car, libelle in (("\u2014", "tiret cadratin"), ("\u2013", "demi-cadratin")):
+        if car in joint:
+            raise SystemExit(
+                "STYLE : %s detecte dans le deck. Le remplacer par un point, une "
+                "virgule ou une parenthese, puis relancer." % libelle)
+# --------------------------------------------------------------------------
+
 prs=Presentation(); prs.slide_width=Emu(12192000); prs.slide_height=Emu(6858000)
 BLANK=prs.slide_layouts[6]
 RUNNING="EXPATRIATION & EXIT TAX · 2026"
@@ -27,6 +72,7 @@ def slide(dark=False):
     return s
 
 def box(s,l,t,w,h,paras,size,bold=False,color=INK,align=PP_ALIGN.LEFT,anchor=MSO_ANCHOR.TOP,space=6,line_sp=None):
+    charte(paras)
     tb=s.shapes.add_textbox(Inches(l),Inches(t),Inches(w),Inches(h)); tf=tb.text_frame
     tf.word_wrap=True; tf.vertical_anchor=anchor
     if isinstance(paras,str): paras=[paras]
@@ -122,6 +168,7 @@ def numbered(n,total,kick,title,items,note=None):
     if note: box(s,0.56,6.55,12.0,0.4,note,12,True,INK)
 
 def table(n,total,kick,title,headers,rows,note=None):
+    charte(headers, *rows)
     s=slide(); chrome(s,n,total); kicker(s,kick,title)
     nr=len(rows)+1; nc=len(headers)
     gt=s.shapes.add_table(nr,nc,Inches(0.56),Inches(3.25),Inches(12.22),Inches(0.4*nr)).table

@@ -2,8 +2,10 @@
 name: redaction-mail
 description: >
   Skill unique de redaction des mails du cabinet BENSAID AVOCATS (client, prospect, confrere,
-  administration), et reference de style mail pour les autres skills. Charte maison : ouverture
-  « Cher Monsieur, », phrases courtes et precises d'avocat, deux-points rares, listes en tirets,
+  administration). Il gouverne le FORMAT du mail. La typographie et les regles anti-marqueurs IA
+  sont transverses a tous les ecrits du cabinet et vivent dans charte-cabinet, qui prevaut.
+  Charte maison : ouverture « Cher Monsieur, », phrases courtes et precises d'avocat, deux-points
+  rares, listes en tirets,
   titres de section en gras et numerotes si le mail est long, cloture « Salutations devouees, »
   sans signature nominale (la signature Outlook s'en charge), prix en HT. Livre a chaque fois,
   directement dans le chat, un bloc de code copiable par element (DESTINATAIRE, COPIE si besoin,
@@ -22,6 +24,22 @@ Outlook et envoyer. On prepare le texte, on ne l'envoie jamais soi-meme (cf [[en
 
 Ce skill vit dans le depot git (`.claude/skills/redaction-mail/`), donc disponible dans toutes
 les sessions cloud qui clonent ce depot. C'est la source unique. On ne travaille plus en local.
+
+## Perimetre : ce skill ne vaut que pour le mail
+- **Propre au mail, et a lui seul** : les blocs DESTINATAIRE / COPIE / OBJET / CORPS, l'appel
+  « Cher Monsieur, », le remerciement d'ouverture, la cloture « Salutations devouees, » et
+  l'absence de signature nominale.
+- **Transverse a tous les ecrits** : la typographie (accents, aucun tiret cadratin ni
+  demi-cadratin, guillemets francais), les puces en tiret simple, les deux-points rares,
+  l'antithese en miroir bannie, la phrase-chapeau bannie. Ces regles appartiennent a
+  **[[charte-cabinet]]** et gouvernent aussi un courrier, une note, une consultation, un deck,
+  un post. Ce skill les applique au mail ; leur perimetre reste celui de la charte.
+- **Pour un autre ecrit**, ne pas partir d'ici : consultation, note ou compte rendu par
+  [[template-cabinet]], lettre par [[courrier]], et dans les deux cas la charte s'applique en
+  entier. Le renderer de chacun refuse desormais de generer sur un cadratin, comme celui-ci.
+- Un document dont la structure vient d'un modele exterieur (modele client, precedent d'un
+  confrere) garde ce plan, mais suit notre style. Le controler avec
+  `python3 .claude/skills/charte-cabinet/charte_check.py <fichier>`.
 
 ## Format de sortie (a chaque fois, dans le chat)
 Un **bloc de code par element**, pour un copier-coller en un clic. Toujours cet ordre :
@@ -76,10 +94,13 @@ Un mail qui repond a un message recu s'ouvre sur une ligne de remerciement seule
 - **Honoraires en HT uniquement** (pas de TTC, sauf demande expresse de Francois).
 
 ### Typographie
+Regles transverses, source [[charte-cabinet]] : elles valent pour tout ecrit du cabinet, le mail
+n'en est qu'un cas.
 - **Accents obligatoires** (é, è, ê, à, â, î, ô, û, ç, œ). Jamais de version sans accents
   (cf [[feedback-accents-requis]]).
 - **Pas de tiret cadratin (—) ni demi-cadratin (–)** : tiret simple, virgule, parenthese, point.
-  Le renderer refuse de generer si un cadratin subsiste (cf [[no-ai-style-markers]]).
+  Le renderer refuse de generer si un cadratin subsiste (cf [[no-ai-style-markers]]). Le controle
+  est celui de `charte-cabinet/charte_check.py`, commun a tous les renderers du cabinet.
 - Guillemets francais « » si necessaire.
 
 ## Verifier les articles avant de les citer

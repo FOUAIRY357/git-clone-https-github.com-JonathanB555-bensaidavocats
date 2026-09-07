@@ -58,6 +58,19 @@ FONT = "Helvetica Neue"
 NOIR = RGBColor(0x11, 0x11, 0x11)
 GRIS = RGBColor(0x80, 0x80, 0x88)
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+# Controle de charte : les regles de typographie et de style du cabinet sont
+# transverses a tous les ecrits, elles vivent dans charte-cabinet (seule source).
+_CHARTE = os.path.normpath(os.path.join(HERE, os.pardir, "charte-cabinet"))
+if _CHARTE not in sys.path:
+    sys.path.insert(0, _CHARTE)
+try:
+    from charte_check import check_spec
+except ImportError:
+    raise SystemExit(
+        "charte_check.py introuvable dans %s. Le controle de charte est "
+        "obligatoire : verifier le depot avant de generer." % _CHARTE)
+
 DISCLAIMER_DEF = ("La presente note est etablie sur la base des faits et documents qui nous ont ete communiques. "
                   "Elle est confidentielle et reservee a son destinataire ; elle ne peut etre produite ou "
                   "diffusee sans notre accord.")
@@ -260,6 +273,8 @@ def render_courrier(doc, spec):
         _line(doc, "P.J. : " + m["pj"], size=9, color=GRIS, after=0, before=10)
 
 def render(spec, out=None):
+    # Charte d'abord : un cadratin ou un demi-cadratin bloque la generation.
+    check_spec(spec)
     typ = spec.get("type", "note")
     tpl = os.path.join(HERE, "templates", "note_juridique.docx" if typ == "note" else "courrier.docx")
     doc = Document(tpl)

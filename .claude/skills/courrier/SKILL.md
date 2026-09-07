@@ -31,6 +31,10 @@ Pour une note juridique, une consultation ou un compte rendu, utiliser plutôt
 - **Aucune couleur signature** ni marqueur IA (cf mémoire [[no-ai-style-markers]]).
 - **Aucun tiret cadratin ni demi-cadratin** : tiret simple, virgule, deux-points,
   parenthèses. Accents obligatoires. cf [[charte-cabinet]].
+- **Contrôle automatique avant génération** : le script passe le spec au contrôleur de la charte
+  (`charte-cabinet/charte_check.py`). Un cadratin bloque la génération ; antithèse en miroir,
+  phrase-chapeau, puce ronde et excès de deux-points sortent en avertissement. Ces règles sont
+  transverses à tous les écrits du cabinet, le courrier n'en est qu'un cas.
 
 ## Méthode
 1. **Rédiger le contenu** en vraies phrases, ton avocat : phrases complètes et liées,

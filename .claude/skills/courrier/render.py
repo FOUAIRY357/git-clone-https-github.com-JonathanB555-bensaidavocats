@@ -54,6 +54,19 @@ from docx.oxml.ns import qn
 from docx.shared import Cm
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+# Controle de charte : les regles de typographie et de style du cabinet sont
+# transverses a tous les ecrits, elles vivent dans charte-cabinet (seule source).
+_CHARTE = os.path.normpath(os.path.join(HERE, os.pardir, "charte-cabinet"))
+if _CHARTE not in sys.path:
+    sys.path.insert(0, _CHARTE)
+try:
+    from charte_check import check_spec
+except ImportError:
+    raise SystemExit(
+        "charte_check.py introuvable dans %s. Le controle de charte est "
+        "obligatoire : verifier le depot avant de generer." % _CHARTE)
+
 TEMPLATE = os.path.join(HERE, "assets", "modele_courrier.docx")
 
 GREY = "808088"   # gris pour les notes italiques (charte cabinet)
@@ -162,6 +175,8 @@ def set_italic_grey(p):
 # ---------------------------------------------------------------------------
 
 def build(spec, out_path):
+    # Charte d'abord : un cadratin ou un demi-cadratin bloque la generation.
+    check_spec(spec)
     doc = Document(TEMPLATE)
 
     # --- Date (aligne a droite dans le modele) ---

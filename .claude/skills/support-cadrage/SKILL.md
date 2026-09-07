@@ -38,6 +38,11 @@ Workflow :
   slides claires (fond blanc) pour le contenu.
 - Bandeau : kicker or en haut à droite, pied gris en bas à gauche, pagination « NN / T » en bas à droite.
 - Pas de tiret cadratin / demi-cadratin ni de couleur signature Claude. cf [[no-ai-style-markers]].
+- **Contrôle automatique** : l'asset passe chaque texte de slide au contrôleur de la
+  [[charte-cabinet]] (`charte_check.py`). Un cadratin ou un demi-cadratin **bloque la génération**
+  du deck ; antithèse en miroir et phrase-chapeau sortent en avertissement. Ces règles sont
+  transverses à tous les écrits du cabinet, le deck n'en est qu'un cas. Le point médian « · » du
+  bandeau reste admis : c'est un séparateur graphique, pas une puce.
 
 ## Archétypes disponibles (fonctions de l'asset)
 - `cover(n,T,title,subtitle,baseline)` - couverture.

@@ -26,9 +26,24 @@ Gabarit, dans `templates/` :
 Il porte deja l'**en-tete a logo** et le **pied de page** (SELARL Paris / SA Geneve, adresses,
 RCS...). Le script ne touche pas a l'en-tete ni au pied : il ne reconstruit que le corps.
 
-## Charte (respectee par le script, ne pas y deroger)
-Respecter la **[[charte-cabinet]]** (accents obligatoires, pas de tiret cadratin, pas de marqueur
-IA, guillemets francais). Specificites du gabarit, deja portees par le modele :
+## Charte (controlee par le script, ne pas y deroger)
+Respecter la **[[charte-cabinet]]** en entier : accents obligatoires, aucun tiret cadratin ni
+demi-cadratin, guillemets francais, aucune antithese en miroir, aucune phrase-chapeau,
+deux-points rares. Ces regles ne sont pas propres au mail : elles gouvernent la consultation
+comme le reste.
+
+**Le script controle le spec avant de generer** (`charte-cabinet/charte_check.py`) : un cadratin
+ou un demi-cadratin bloque la generation, les antitheses en miroir, phrases-chapeau, puces rondes,
+deux-points en exces et phrases de plus de 240 caracteres sortent en avertissement.
+
+**Un plan venu d'un modele exterieur** (modele client, precedent d'un confrere) fixe la structure
+du document, jamais notre style : le contenu suit la charte. Pour controler un `.docx` deja
+produit hors de ce script :
+```bash
+python3 .claude/skills/charte-cabinet/charte_check.py /chemin/document.docx
+```
+
+Specificites du gabarit, deja portees par le modele :
 - Police **Helvetica Neue** partout.
 - Titres et intitules en **111111** (quasi-noir) ; accents/labels en **808088** (gris).
 - **Aucune autre couleur** que ces deux tons.
@@ -45,6 +60,7 @@ IA, guillemets francais). Specificites du gabarit, deja portees par le modele :
    ```bash
    python3 .claude/skills/template-cabinet/render.py /chemin/spec.json /chemin/sortie.docx
    ```
+   Corriger et relancer si le script refuse (cadratin) ou avertit (antithese, deux-points).
 4. Livrer le `.docx` a l'utilisateur (il est envoye dans l'app) pour relecture. Pas de `open` (macOS,
    indisponible en cloud).
 
