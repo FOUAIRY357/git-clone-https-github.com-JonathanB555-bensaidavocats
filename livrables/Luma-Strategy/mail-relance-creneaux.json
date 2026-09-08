@@ -1,0 +1,11 @@
+{
+  "destinataire": "nicolas@lumastrategy.fr",
+  "objet": "Re: Demande accompagnement",
+  "civilite": "Cher Monsieur,",
+  "sortie": "livrables/Luma-Strategy/mail-relance-creneaux.html",
+  "corps": [
+    {"p": "Je reviens vers vous sur mon message de lundi."},
+    {"p": "Vous annonciez un sujet urgent. Il l'est en effet. Chaque commande livrée dans la configuration actuelle expose votre société à une régularisation de TVA. Quinze minutes au téléphone suffiront à cadrer le périmètre, et je vous adresserai le devis dans la foulée."},
+    {"p": "Je vous propose demain mercredi 9 septembre entre 16h et 18h, ou jeudi 10 septembre entre 9h et 10h30. Quel créneau vous convient ? Je vous joindrai au 06 85 21 03 73."}
+  ]
+}
