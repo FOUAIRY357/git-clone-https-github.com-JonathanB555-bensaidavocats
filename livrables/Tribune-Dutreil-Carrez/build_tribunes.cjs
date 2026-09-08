@@ -84,7 +84,7 @@ function buildDoc(v) {
 
 module.exports = { echos, monde, para, buildDoc, signes };
 
-(async () => {
+if (require.main === module) (async () => {
   console.log("Signes (titre + intertitres + corps, hors signature) :");
   console.log("  Version Les Échos :", signes(echos));
   console.log("  Version Le Monde  :", signes(monde));
