@@ -1,67 +1,59 @@
-// Génère les versions "rédaction" (crochets résolus, sans en-tête interne)
-// et le spec du mail de proposition à la rédaction (texte collé dans le corps).
-const { Document, Packer, Paragraph, TextRun, AlignmentType } = require("docx");
+// Produit le fichier remis à la rédaction : texte de la tribune (crochets résolus,
+// sans en-tête interne) suivi d'une annexe de sourçage, hors texte.
+const { Document, Packer, Paragraph, TextRun, AlignmentType, PageBreak } = require("docx");
 const fs = require("fs");
 const path = require("path");
-const { echos, monde } = require("./build_tribunes.cjs");
+const { monde } = require("./build_tribunes.cjs");
 
-function cleanText(s) { return s.replace(/[\[\]]/g, ""); }
+const SOURCES = [
+  "Coût et concentration du dispositif, rapport de la Cour des comptes réalisé avec l'Institut des politiques publiques, 18 novembre 2025. Il retient 5,5 milliards d'euros en 2024 contre 1,2 milliard en 2020, face aux 800 millions inscrits au projet de loi de finances pour 2025. Il établit que 1 % des bénéficiaires capte 65 % de l'avantage, pour un avantage moyen proche de trente millions d'euros.",
+  "Taux marginal de 40 % en ligne directe avant 2011, article 777 du code général des impôts, le taux de 45 % résultant de la loi de finances rectificative du 29 juillet 2011.",
+  "Exemple chiffré sur une entreprise valorisée vingt millions d'euros, application du barème de l'article 777 et de l'abattement de l'article 779 du même code, transmission au décès au profit d'un enfant unique.",
+  "Origine du régime, article 11 de la loi de finances pour 2000 du 30 décembre 1999, créant les articles 789 A et 789 B du code général des impôts, sur amendement de Didier Migaud, alors rapporteur général.",
+  "Appellation « Gattaz-Migaud », rapport du Sénat n° 381 de juin 2005 sur le projet de loi en faveur des petites et moyennes entreprises.",
+  "Extension aux donations, article 43 de la loi du 1er août 2003, codifié à l'article 787 B du code général des impôts. Relèvement de l'abattement à 75 %, article 28 de la loi du 2 août 2005 en faveur des petites et moyennes entreprises.",
+  "Assouplissements et simplifications ultérieurs, article 12 de la loi de finances rectificative du 29 juillet 2011 et article 40 de la loi de finances pour 2019.",
+  "Durcissement de 2026, loi de finances du 19 février 2026. L'engagement individuel est porté à six ans, qui s'ajoutent aux deux années de l'engagement collectif. La fraction de valeur représentative des biens étrangers à l'exploitation est exclue, article 787 B dans sa version en vigueur.",
+  "Régime allemand, paragraphes 13a et 13b de l'Erbschaftsteuergesetz, exonération de 85 % ou de 100 % sous condition de maintien de la masse salariale.",
+  "Cession du laboratoire UPSA au groupe Bristol-Myers Squibb en 1994, cinq ans après le décès de son dirigeant.",
+  "Part des entreprises transmises dans le cercle familial en France, en Allemagne et en Italie. Sources, rapports parlementaires de 2003 sur le projet de loi pour l'initiative économique et recommandation 94/1069/CE de la Commission européenne du 7 décembre 1994."
+];
 
-function para(text, opts = {}) {
+const clean = s => s.replace(/[\[\]]/g, "");
+
+function para(text, o = {}) {
   return new Paragraph({
-    alignment: opts.align || AlignmentType.JUSTIFIED,
-    spacing: { line: 360, after: 200, before: opts.before || 0 },
-    children: [new TextRun({ text, font: "Times New Roman", size: opts.size || 24, bold: !!opts.bold, italics: !!opts.italics })]
+    alignment: o.align || AlignmentType.JUSTIFIED,
+    spacing: { line: o.line || 360, after: o.after || 200, before: o.before || 0 },
+    children: [new TextRun({ text, font: "Times New Roman", size: o.size || 24, bold: !!o.bold, italics: !!o.italics })]
   });
 }
 
-function buildClean(v) {
-  const children = [para(v.titre, { align: AlignmentType.LEFT, size: 28, bold: true })];
-  v.corps.forEach(p => {
-    if (typeof p === "string") children.push(para(cleanText(p)));
-    else children.push(para(p.sub, { align: AlignmentType.LEFT, bold: true, before: 160 }));
-  });
-  children.push(para(v.signature, { align: AlignmentType.LEFT, italics: true }));
+function build(v) {
+  const c = [para(v.titre, { align: AlignmentType.LEFT, size: 28, bold: true })];
+  v.corps.forEach(p => c.push(typeof p === "string"
+    ? para(clean(p))
+    : para(p.sub, { align: AlignmentType.LEFT, bold: true, before: 160 })));
+  c.push(para(v.signature, { align: AlignmentType.LEFT, italics: true }));
+  // Annexe, hors texte
+  c.push(new Paragraph({ children: [new PageBreak()] }));
+  c.push(para("Annexe, hors texte, non destinée à la publication", { align: AlignmentType.LEFT, size: 20, italics: true }));
+  c.push(para("Sources des données chiffrées", { align: AlignmentType.LEFT, size: 24, bold: true, before: 120 }));
+  SOURCES.forEach(s => c.push(para("- " + s, { align: AlignmentType.LEFT, size: 20, line: 280, after: 140 })));
   return new Document({
     creator: "François Ouairy",
     lastModifiedBy: "François Ouairy",
     title: "Pacte Dutreil : ni rabot ni statu quo",
     description: "Tribune de Gilles Carrez et François Ouairy",
-    sections: [{ children }]
+    sections: [{ children: c }]
   });
 }
 
-function signesClean(v) {
-  const parts = [v.titre, ...v.corps.map(c => (typeof c === "string" ? cleanText(c) : c.sub))];
-  return [...parts.join(" ")].length;
-}
+const signes = v => [...[v.titre, ...v.corps.map(x => (typeof x === "string" ? clean(x) : x.sub))].join(" ")].length;
 
 (async () => {
-  const outs = [[monde, "Tribune_Carrez-Ouairy_Pacte-Dutreil_texte-definitif.docx"]];
-  for (const [v, name] of outs) {
-    fs.writeFileSync(path.join(__dirname, name), await Packer.toBuffer(buildClean(v)));
-    console.log(`Écrit : ${name} (${signesClean(v)} signes)`);
-  }
-  // Spec du mail à la rédaction : pitch + texte de la version longue collé dans le corps
-  const corps = [
-    { p: "Le 30 septembre, la présentation du projet de loi de finances pour 2027 rouvrira la bataille du pacte Dutreil. Nous vous proposons sur ce débat une tribune exclusive, cosignée par Gilles Carrez et François Ouairy." },
-    { p: "Gilles Carrez est ancien rapporteur général du budget et ancien président de la commission des finances. Il fut co-rapporteur de la loi du 1er août 2003 qui a créé le dispositif. François Ouairy est avocat fiscaliste associé au sein de BENSAID Avocats et met ces pactes en œuvre." },
-    { p: "La ligne tient dans le titre, ni rabot ni statu quo. Le texte suit ci-dessous, 5 800 signes environ. Une version de 4 800 signes est à votre disposition si l'espace le demande. Nous vous en réservons la primeur jusqu'à mardi 8 septembre en fin de journée." },
-    { titre: monde.titre }
-  ];
-  monde.corps.forEach(p => {
-    if (typeof p === "string") corps.push({ p: cleanText(p) });
-    else corps.push({ titre: p.sub });
-  });
-  corps.push({ em: monde.signature });
-  const spec = {
-    destinataire: "opinions@lemonde.fr",
-    objet: "Tribune exclusive de Gilles Carrez et François Ouairy sur le pacte Dutreil, pour le 30 septembre",
-    civilite: "Madame, Monsieur,",
-    disponibilite: "",
-    signoff: "Bien à vous,",
-    corps
-  };
-  fs.writeFileSync(path.join(__dirname, "mail_redaction_spec.json"), JSON.stringify(spec, null, 2));
-  console.log("Écrit : mail_redaction_spec.json");
+  const name = "Tribune_Carrez-Ouairy_Pacte-Dutreil_texte-definitif.docx";
+  fs.writeFileSync(path.join(__dirname, name), await Packer.toBuffer(build(monde)));
+  console.log(`Écrit : ${name}`);
+  console.log(`Texte : ${signes(monde)} signes, hors annexe. Annexe : ${SOURCES.length} entrées.`);
 })();
