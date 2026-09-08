@@ -5,10 +5,8 @@
   "civilite": "Chère Madame, Cher Monsieur,",
   "disponibilite": "",
   "corps": [
-    {"p": "Un point de quinze minutes serait plus simple qu'un échange écrit. Nous reprenons l'analyse, la stratégie et la suite à donner."},
-    {"b": "mercredi 9 septembre à 11h00"},
-    {"b": "jeudi 10 septembre à 10h00"},
-    {"b": "vendredi 11 septembre à 11h30"},
-    {"p": "Dites-moi ce qui vous arrange, je vous appelle."}
+    {"p": "Je me tiens disponible cette semaine si vous souhaitez qu'on en reparle de vive voix. Un quart d'heure suffira."},
+    {"p": "Mercredi à 11h00, jeudi à 10h00 ou vendredi à 11h30, au choix. Et si aucun de ces créneaux ne vous convient, donnez-moi les vôtres, je m'adapte volontiers."},
+    {"p": "Dites-moi simplement le moment et je vous appelle."}
   ]
 }
