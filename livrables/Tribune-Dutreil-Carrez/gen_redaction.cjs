@@ -31,7 +31,7 @@ function signesClean(v) {
 }
 
 (async () => {
-  const outs = [[monde, "Tribune-Carrez-Ouairy_pour-redaction.docx"], [echos, "Tribune-Carrez-Ouairy_pour-redaction_courte.docx"]];
+  const outs = [[monde, "Tribune_Carrez-Ouairy_Pacte-Dutreil_texte-definitif.docx"], [echos, "Tribune_Carrez-Ouairy_Pacte-Dutreil_version-courte.docx"]];
   for (const [v, name] of outs) {
     fs.writeFileSync(path.join(__dirname, name), await Packer.toBuffer(buildClean(v)));
     console.log(`Écrit : ${name} (${signesClean(v)} signes)`);
