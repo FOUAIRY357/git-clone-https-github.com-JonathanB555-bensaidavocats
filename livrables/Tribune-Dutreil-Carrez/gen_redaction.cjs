@@ -22,7 +22,13 @@ function buildClean(v) {
     else children.push(para(p.sub, { align: AlignmentType.LEFT, bold: true, before: 160 }));
   });
   children.push(para(v.signature, { align: AlignmentType.LEFT, italics: true }));
-  return new Document({ sections: [{ children }] });
+  return new Document({
+    creator: "François Ouairy",
+    lastModifiedBy: "François Ouairy",
+    title: "Pacte Dutreil : ni rabot ni statu quo",
+    description: "Tribune de Gilles Carrez et François Ouairy",
+    sections: [{ children }]
+  });
 }
 
 function signesClean(v) {
