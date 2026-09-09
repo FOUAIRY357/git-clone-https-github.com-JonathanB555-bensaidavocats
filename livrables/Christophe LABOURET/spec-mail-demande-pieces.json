@@ -1,0 +1,20 @@
+{
+  "destinataire": "christophe.labouret@gmail.com",
+  "objet": "Vos comptes UBS et leur régularisation",
+  "civilite": "Cher Monsieur,",
+  "disponibilite": "Je reste à votre disposition dans l'intervalle.",
+  "corps": [
+    {"p": "Je vous remercie pour ce message."},
+    {"p": "Ce sont des dossiers que nous traitons régulièrement, et le vôtre se joue sur deux points que vous avez d'ailleurs pressentis. Le premier est la date à laquelle votre résidence fiscale française a réellement débuté, car elle seule détermine les années à régulariser. Le second est le solde cumulé de vos deux comptes, un seuil légal faisant basculer la période de reprise de trois à dix années. Ces deux éléments commandent l'assiette, les pénalités et le calendrier."},
+    {"p": "Avant tout échange, quelques pièces me permettront de mesurer précisément votre situation."},
+    {"b": "vos attestations fiscales UBS 2022 à 2026, ainsi que les relevés annuels les plus anciens dont vous disposez"},
+    {"b": "pour chaque année, le solde le plus élevé atteint par chacun des deux comptes"},
+    {"b": "tout justificatif de l'origine des fonds déposés lors de l'ouverture en 2005 (donation, succession, épargne antérieure)"},
+    {"b": "les dates et pays de vos résidences successives depuis 2005, avec un justificatif par période"},
+    {"b": "vos avis d'imposition français des trois dernières années"},
+    {"b": "le relevé de votre portefeuille Key4 Investing et sa date de souscription"},
+    {"b": "le numéro SIRET de votre auto-entreprise, ou votre avis de situation au répertoire Sirene"},
+    {"p": "Un point est prioritaire sur tous les autres. Merci de me confirmer si vous avez déjà reçu un courrier ou une demande d'information de l'administration fiscale au sujet de ces comptes. La démarche spontanée n'a pas les mêmes effets une fois que l'administration a écrit la première, et la Suisse transmet ces informations à la France depuis 2018."},
+    {"p": "Indiquez-moi ensuite un créneau pour un échange téléphonique de quinze minutes cette semaine, ainsi que le numéro auquel vous joindre."}
+  ]
+}
