@@ -73,6 +73,9 @@ Un mail qui repond a un message recu s'ouvre sur une ligne de remerciement seule
 - **Titres de section en gras**, courts, numerotes (1., 2., ...) si plusieurs sujets. Jamais en
   majuscules seules, jamais soulignes.
 - **Lexique** : on ecrit « un devis forfaitaire », jamais « un devis a honoraire forfaitaire ».
+  Le verbe **« commander » au sens figure est banni** (« ce point commande l'assiette ») :
+  ecrire « determine », « fixe », « dont depend », « il en decoule que ». Le renderer avertit.
+  Regle complete dans [[charte-cabinet]], § 3.
 - **Honoraires en HT uniquement** (pas de TTC, sauf demande expresse de Francois).
 
 ### Typographie

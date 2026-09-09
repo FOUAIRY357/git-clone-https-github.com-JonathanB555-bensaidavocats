@@ -58,6 +58,35 @@ ANTITHESES = [
      "« ..., et non ... »"),
 ]
 
+# Lexique proscrit par la charte (charte-cabinet, § 3 Style).
+# « commander » au sens figure : « ce point commande l'assiette ». Le sens propre
+# (une commande client, un bon de commande) reste admis, d'ou l'exclusion des
+# emplois precedes d'un determinant.
+# Le determinant qui precede signale le nom (« la commande », « bon de commande ») :
+# ces emplois sont laisses tranquilles. Teste en Python, la lookbehind de re
+# exigeant une largeur fixe.
+DETERMINANTS = ("la", "une", "cette", "votre", "notre", "leur", "sa", "ma", "les",
+                "des", "aux", "nos", "vos", "ses", "mes", "de", "d'", "l'")
+LEXIQUE_PROSCRIT = [
+    (re.compile(r"\bcommand(?:e|es|ent|er|ait|aient|era|eront)\b", re.IGNORECASE),
+     "Ecrire ce qui se passe : « determine », « fixe », « dont depend », « il en decoule que »."),
+]
+
+
+def _precede_d_un_determinant(texte, debut):
+    """True si le mot qui precede la position est un determinant (emploi nominal)."""
+    avant = texte[:debut].rstrip()
+    mot = re.search(r"([\w']+)$", avant, re.UNICODE)
+    return bool(mot) and mot.group(1).lower() in DETERMINANTS
+
+
+def _extrait(texte, match, marge=60):
+    """Le passage autour d'un match, pour situer l'avertissement."""
+    debut = max(0, match.start() - marge)
+    fin = min(len(texte), match.end() + marge)
+    return texte[debut:fin].replace("\n", " ").strip()
+
+
 # Cloture standard du cabinet : une phrase de disponibilite, puis la signature courte.
 # Aucun nom : la signature Outlook de Francois s'en charge.
 DISPO_DEF = "Je reste à votre disposition pour toute question."
@@ -103,7 +132,17 @@ def _check_style(spec):
                 "  \"%s\"\n"
                 "  Enoncer directement ce qui est, sans passer par ce qui n'est pas.\n"
                 % (exemple, m.group(0)[:160].replace("\n", " ")))
-    # 4. phrases trop longues
+    # 4. lexique proscrit par la charte (cf charte-cabinet, § 3)
+    for motif, remede in LEXIQUE_PROSCRIT:
+        for m in motif.finditer(joined):
+            if _precede_d_un_determinant(joined, m.start()):
+                continue
+            sys.stderr.write(
+                "STYLE (avertissement) : \"%s\", banni par la charte :\n"
+                "  \"%s\"\n"
+                "  %s\n"
+                % (m.group(0).strip(), _extrait(joined, m), remede))
+    # 5. phrases trop longues
     for frag in fragments:
         for phrase in re.split(r"(?<=[.!?])\s+", frag):
             if len(phrase) > 240:

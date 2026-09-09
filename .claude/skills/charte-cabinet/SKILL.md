@@ -55,6 +55,11 @@ présente charte, la charte prévaut.** Un skill ne redéclare pas ces règles, 
 - **Aucune injonction au destinataire.** Une demande se formule à l'interrogative
   (« Pourriez-vous nous l'indiquer ? »), jamais à l'impératif (« dites-le nous »,
   « envoyez-nous », « confirmez »). Vaut pour les clients, les prospects et les confrères.
+- **Lexique proscrit.** Le verbe **« commander »** au sens figuré est banni de tous nos écrits :
+  « ce point commande l'assiette », « le seuil commande tout le dossier », « les éléments qui
+  commandent le calendrier ». Écrire ce qui se passe réellement : « détermine », « fixe »,
+  « dont dépend », « il en découle que ». Le mot reste admis dans son sens propre (une commande
+  client, un bon de commande).
 - Prix en **HT** (la TVA est due en sus, selon le régime applicable au jour de la facturation).
 
 ## 4. Livraison (contexte cloud)

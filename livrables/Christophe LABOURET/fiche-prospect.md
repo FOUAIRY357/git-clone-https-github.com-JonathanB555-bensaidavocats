@@ -84,7 +84,7 @@ Les seules bornes disponibles sont indirectes.
 | Attestations fiscales UBS 2022 → 2026 disponibles immédiatement | Prospect organisé, pièces prêtes : le dossier peut avancer vite |
 
 **Fourchette de travail (hypothèse, à confirmer) : avoirs de l'ordre de 50 000 à 300 000 €.**
-Le point de bascule est à 50 000 € et il commande tout le dossier (cf. § 6).
+Le point de bascule est à 50 000 € et tout le dossier en dépend (cf. § 6).
 
 ---
 
