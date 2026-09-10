@@ -3,20 +3,10 @@
   "objet": "Re: Avoirs de prévoyance suisses, analyse préliminaire et propositions d'accompagnement",
   "civilite": "Cher Monsieur,",
   "corps": [
-    {
-      "p": "Je reviens vers vous sur votre message du 31 août, et vous prie d'excuser ce délai."
-    },
-    {
-      "p": "Un point vous concerne directement. Les 20 % que votre frère et vous avez retenus comme limite sont la tranche marginale de vos droits de succession. Ce n'est pas un plafond. Dans le scénario par défaut, celui de la pension imposée au barème, la charge dépend de vos revenus propres et peut dépasser nettement ce seuil, la tranche marginale de l'impôt sur le revenu atteignant 45 % avant prélèvements sociaux. Elle ne sera d'ailleurs pas la même pour votre frère et pour vous. Votre seuil d'acceptation n'est donc pas la question. La question est de savoir de combien on peut passer en dessous."
-    },
-    {
-      "p": "La réponse est oui. Ce que j'ai identifié permet de viser un niveau inférieur à votre seuil de 20 %. Cela suppose que la mécanique du versement soit arrêtée avant la demande."
-    },
-    {
-      "p": "Où en êtes-vous de votre côté ? Votre échange avec le service des impôts a-t-il eu lieu, et avez-vous arrêté une décision avec votre frère ?"
-    },
-    {
-      "p": "Un appel de dix minutes sera plus efficace qu'un échange écrit. Indiquez-moi vos disponibilités cette semaine."
-    }
+    {"p": "Je reviens vers vous sur votre message du 31 août, et vous prie d'excuser ce délai."},
+    {"p": "J'ai poursuivi l'analyse et elle a évolué. Une quatrième voie mérite d'être examinée, que l'examen préliminaire avait écartée. Et le régime ne sera vraisemblablement pas le même pour votre frère et pour vous, vos situations de revenus étant différentes."},
+    {"p": "Une précision utile sur les 20 % que vous avez retenus comme limite. Ce taux est la tranche marginale de vos droits de succession, il n'a pas vocation à s'appliquer à ces capitaux. Selon la qualification retenue, le résultat peut se situer très en dessous, comme sensiblement au-dessus."},
+    {"p": "Où en êtes-vous de votre côté ? Votre échange avec le service des impôts a-t-il eu lieu, et avez-vous pu décider avec votre frère ?"},
+    {"p": "Un appel de dix minutes serait le plus simple pour vous présenter cette grille. Indiquez-moi vos disponibilités cette semaine."}
   ]
 }
